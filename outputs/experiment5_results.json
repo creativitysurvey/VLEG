@@ -6,8 +6,8 @@
     "hallucination_rate": 0.9375,
     "n_committed": 16,
     "n_hallucinated": 15,
-    "consolidation_time_sec": 41.6,
-    "audit_time_sec": 52.3,
+    "consolidation_time_sec": 39.3,
+    "audit_time_sec": 50.4,
     "details": [
       {
         "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
@@ -98,8 +98,8 @@
     "hallucination_rate": 0.9333333333333333,
     "n_committed": 15,
     "n_hallucinated": 14,
-    "consolidation_time_sec": 131.1,
-    "audit_time_sec": 46.2,
+    "consolidation_time_sec": 123.5,
+    "audit_time_sec": 44.0,
     "details": [
       {
         "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
@@ -185,8 +185,8 @@
     "hallucination_rate": 0.9166666666666666,
     "n_committed": 12,
     "n_hallucinated": 11,
-    "consolidation_time_sec": 30.3,
-    "audit_time_sec": 36.5,
+    "consolidation_time_sec": 29.1,
+    "audit_time_sec": 35.0,
     "details": [
       {
         "reflection": "On a white background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
@@ -257,8 +257,8 @@
     "hallucination_rate": 0.9166666666666666,
     "n_committed": 12,
     "n_hallucinated": 11,
-    "consolidation_time_sec": 96.4,
-    "audit_time_sec": 37.3,
+    "consolidation_time_sec": 93.1,
+    "audit_time_sec": 35.6,
     "details": [
       {
         "reflection": "On a white background, large striped scenes are NORMAL; this scene is therefore NORMAL.",
