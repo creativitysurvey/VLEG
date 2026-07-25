@@ -1,0 +1,15 @@
+# Conda environment for vleg_exp3.
+# No third-party Python packages are required — every module here uses
+# only the standard library (json, urllib, re, math, random, itertools,
+# dataclasses, statistics, collections, pathlib, sys, time, traceback).
+# This file exists to pin the Python version, not to lock dependencies.
+#
+# Create with:
+#   conda env create -f environment.yml
+# Activate with:
+#   conda activate vleg-exp3
+name: vleg-exp3
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11

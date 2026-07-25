@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# NOTE: outputs/*.json is intentionally NOT ignored — those files are
+# the actual measured results this project's DEVIATIONS_LOG.md and
+# final_aligned.tex cite. Keeping them in git means the repo carries
+# its own evidence, not just the code that could someday reproduce it.
