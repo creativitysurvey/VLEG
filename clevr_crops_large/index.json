@@ -1,0 +1,3202 @@
+[
+  {
+    "shape": "cube",
+    "color": "red",
+    "material": "rubber",
+    "size": "large",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_01.png",
+        "source_image": "CLEVR_train_040270.png",
+        "source_n_objects": 3,
+        "isolation_px": 271.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_02.png",
+        "source_image": "CLEVR_train_013493.png",
+        "source_n_objects": 4,
+        "isolation_px": 254.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_03.png",
+        "source_image": "CLEVR_train_026410.png",
+        "source_n_objects": 4,
+        "isolation_px": 203.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_04.png",
+        "source_image": "CLEVR_train_064039.png",
+        "source_n_objects": 4,
+        "isolation_px": 200.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_05.png",
+        "source_image": "CLEVR_train_017662.png",
+        "source_n_objects": 3,
+        "isolation_px": 196.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_06.png",
+        "source_image": "CLEVR_train_065766.png",
+        "source_n_objects": 4,
+        "isolation_px": 191.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_07.png",
+        "source_image": "CLEVR_train_026069.png",
+        "source_n_objects": 4,
+        "isolation_px": 191.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_08.png",
+        "source_image": "CLEVR_train_023726.png",
+        "source_n_objects": 3,
+        "isolation_px": 187.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_09.png",
+        "source_image": "CLEVR_train_064383.png",
+        "source_n_objects": 3,
+        "isolation_px": 184.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_10.png",
+        "source_image": "CLEVR_train_000189.png",
+        "source_n_objects": 3,
+        "isolation_px": 183.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_11.png",
+        "source_image": "CLEVR_train_069206.png",
+        "source_n_objects": 3,
+        "isolation_px": 181.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_12.png",
+        "source_image": "CLEVR_train_059449.png",
+        "source_n_objects": 3,
+        "isolation_px": 180.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_13.png",
+        "source_image": "CLEVR_train_066755.png",
+        "source_n_objects": 3,
+        "isolation_px": 175.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_14.png",
+        "source_image": "CLEVR_train_004961.png",
+        "source_n_objects": 5,
+        "isolation_px": 173.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_15.png",
+        "source_image": "CLEVR_train_017627.png",
+        "source_n_objects": 3,
+        "isolation_px": 172.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_16.png",
+        "source_image": "CLEVR_train_062646.png",
+        "source_n_objects": 4,
+        "isolation_px": 170.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_17.png",
+        "source_image": "CLEVR_train_046994.png",
+        "source_n_objects": 3,
+        "isolation_px": 170.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_18.png",
+        "source_image": "CLEVR_train_006475.png",
+        "source_n_objects": 5,
+        "isolation_px": 168.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_19.png",
+        "source_image": "CLEVR_train_056838.png",
+        "source_n_objects": 4,
+        "isolation_px": 163.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_20.png",
+        "source_image": "CLEVR_train_036865.png",
+        "source_n_objects": 3,
+        "isolation_px": 162.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_21.png",
+        "source_image": "CLEVR_train_050728.png",
+        "source_n_objects": 4,
+        "isolation_px": 161.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_22.png",
+        "source_image": "CLEVR_train_022759.png",
+        "source_n_objects": 3,
+        "isolation_px": 161.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_23.png",
+        "source_image": "CLEVR_train_015830.png",
+        "source_n_objects": 3,
+        "isolation_px": 160.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_24.png",
+        "source_image": "CLEVR_train_002237.png",
+        "source_n_objects": 6,
+        "isolation_px": 160.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_25.png",
+        "source_image": "CLEVR_train_063493.png",
+        "source_n_objects": 3,
+        "isolation_px": 160.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_26.png",
+        "source_image": "CLEVR_train_041831.png",
+        "source_n_objects": 4,
+        "isolation_px": 159.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_27.png",
+        "source_image": "CLEVR_train_001187.png",
+        "source_n_objects": 3,
+        "isolation_px": 159.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_28.png",
+        "source_image": "CLEVR_train_063878.png",
+        "source_n_objects": 7,
+        "isolation_px": 158.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_29.png",
+        "source_image": "CLEVR_train_057534.png",
+        "source_n_objects": 4,
+        "isolation_px": 158.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_30.png",
+        "source_image": "CLEVR_train_011033.png",
+        "source_n_objects": 3,
+        "isolation_px": 156.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_31.png",
+        "source_image": "CLEVR_train_041166.png",
+        "source_n_objects": 3,
+        "isolation_px": 156.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_large_32.png",
+        "source_image": "CLEVR_train_069624.png",
+        "source_n_objects": 3,
+        "isolation_px": 155.2
+      }
+    ]
+  },
+  {
+    "shape": "cube",
+    "color": "red",
+    "material": "rubber",
+    "size": "small",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_01.png",
+        "source_image": "CLEVR_train_053895.png",
+        "source_n_objects": 4,
+        "isolation_px": 199.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_02.png",
+        "source_image": "CLEVR_train_041670.png",
+        "source_n_objects": 3,
+        "isolation_px": 196.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_03.png",
+        "source_image": "CLEVR_train_066178.png",
+        "source_n_objects": 3,
+        "isolation_px": 196.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_04.png",
+        "source_image": "CLEVR_train_045605.png",
+        "source_n_objects": 3,
+        "isolation_px": 195.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_05.png",
+        "source_image": "CLEVR_train_039319.png",
+        "source_n_objects": 7,
+        "isolation_px": 195.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_06.png",
+        "source_image": "CLEVR_train_052618.png",
+        "source_n_objects": 4,
+        "isolation_px": 190.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_07.png",
+        "source_image": "CLEVR_train_048295.png",
+        "source_n_objects": 3,
+        "isolation_px": 189.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_08.png",
+        "source_image": "CLEVR_train_062914.png",
+        "source_n_objects": 3,
+        "isolation_px": 188.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_09.png",
+        "source_image": "CLEVR_train_012327.png",
+        "source_n_objects": 3,
+        "isolation_px": 187.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_10.png",
+        "source_image": "CLEVR_train_022505.png",
+        "source_n_objects": 3,
+        "isolation_px": 185.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_11.png",
+        "source_image": "CLEVR_train_026647.png",
+        "source_n_objects": 5,
+        "isolation_px": 185.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_12.png",
+        "source_image": "CLEVR_train_018328.png",
+        "source_n_objects": 3,
+        "isolation_px": 184.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_13.png",
+        "source_image": "CLEVR_train_032156.png",
+        "source_n_objects": 3,
+        "isolation_px": 183.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_14.png",
+        "source_image": "CLEVR_train_037194.png",
+        "source_n_objects": 4,
+        "isolation_px": 183.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_15.png",
+        "source_image": "CLEVR_train_051699.png",
+        "source_n_objects": 4,
+        "isolation_px": 182.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_16.png",
+        "source_image": "CLEVR_train_057552.png",
+        "source_n_objects": 3,
+        "isolation_px": 179.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_17.png",
+        "source_image": "CLEVR_train_036800.png",
+        "source_n_objects": 4,
+        "isolation_px": 177.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_18.png",
+        "source_image": "CLEVR_train_037260.png",
+        "source_n_objects": 3,
+        "isolation_px": 175.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_19.png",
+        "source_image": "CLEVR_train_042729.png",
+        "source_n_objects": 3,
+        "isolation_px": 174.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_20.png",
+        "source_image": "CLEVR_train_007865.png",
+        "source_n_objects": 3,
+        "isolation_px": 173.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_21.png",
+        "source_image": "CLEVR_train_019142.png",
+        "source_n_objects": 4,
+        "isolation_px": 170.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_22.png",
+        "source_image": "CLEVR_train_041746.png",
+        "source_n_objects": 4,
+        "isolation_px": 169.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_23.png",
+        "source_image": "CLEVR_train_033859.png",
+        "source_n_objects": 6,
+        "isolation_px": 169.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_24.png",
+        "source_image": "CLEVR_train_012947.png",
+        "source_n_objects": 3,
+        "isolation_px": 169.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_25.png",
+        "source_image": "CLEVR_train_061013.png",
+        "source_n_objects": 3,
+        "isolation_px": 166.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_26.png",
+        "source_image": "CLEVR_train_029467.png",
+        "source_n_objects": 5,
+        "isolation_px": 165.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_27.png",
+        "source_image": "CLEVR_train_050867.png",
+        "source_n_objects": 7,
+        "isolation_px": 163.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_28.png",
+        "source_image": "CLEVR_train_004389.png",
+        "source_n_objects": 3,
+        "isolation_px": 162.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_29.png",
+        "source_image": "CLEVR_train_014044.png",
+        "source_n_objects": 5,
+        "isolation_px": 161.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_30.png",
+        "source_image": "CLEVR_train_042346.png",
+        "source_n_objects": 3,
+        "isolation_px": 161.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_31.png",
+        "source_image": "CLEVR_train_044837.png",
+        "source_n_objects": 4,
+        "isolation_px": 160.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_rubber_small_32.png",
+        "source_image": "CLEVR_train_057717.png",
+        "source_n_objects": 3,
+        "isolation_px": 160.5
+      }
+    ]
+  },
+  {
+    "shape": "cube",
+    "color": "red",
+    "material": "metal",
+    "size": "large",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_01.png",
+        "source_image": "CLEVR_train_068903.png",
+        "source_n_objects": 3,
+        "isolation_px": 256.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_02.png",
+        "source_image": "CLEVR_train_012825.png",
+        "source_n_objects": 3,
+        "isolation_px": 249.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_03.png",
+        "source_image": "CLEVR_train_065760.png",
+        "source_n_objects": 3,
+        "isolation_px": 238.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_04.png",
+        "source_image": "CLEVR_train_033326.png",
+        "source_n_objects": 3,
+        "isolation_px": 233.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_05.png",
+        "source_image": "CLEVR_train_040085.png",
+        "source_n_objects": 3,
+        "isolation_px": 233.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_06.png",
+        "source_image": "CLEVR_train_031612.png",
+        "source_n_objects": 3,
+        "isolation_px": 216.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_07.png",
+        "source_image": "CLEVR_train_004885.png",
+        "source_n_objects": 3,
+        "isolation_px": 204.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_08.png",
+        "source_image": "CLEVR_train_064559.png",
+        "source_n_objects": 3,
+        "isolation_px": 200.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_09.png",
+        "source_image": "CLEVR_train_058842.png",
+        "source_n_objects": 3,
+        "isolation_px": 192.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_10.png",
+        "source_image": "CLEVR_train_068723.png",
+        "source_n_objects": 4,
+        "isolation_px": 187.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_11.png",
+        "source_image": "CLEVR_train_012104.png",
+        "source_n_objects": 3,
+        "isolation_px": 186.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_12.png",
+        "source_image": "CLEVR_train_062811.png",
+        "source_n_objects": 3,
+        "isolation_px": 186.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_13.png",
+        "source_image": "CLEVR_train_064672.png",
+        "source_n_objects": 5,
+        "isolation_px": 182.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_14.png",
+        "source_image": "CLEVR_train_045924.png",
+        "source_n_objects": 5,
+        "isolation_px": 181.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_15.png",
+        "source_image": "CLEVR_train_026580.png",
+        "source_n_objects": 4,
+        "isolation_px": 176.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_16.png",
+        "source_image": "CLEVR_train_028100.png",
+        "source_n_objects": 3,
+        "isolation_px": 175.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_17.png",
+        "source_image": "CLEVR_train_041336.png",
+        "source_n_objects": 3,
+        "isolation_px": 175.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_18.png",
+        "source_image": "CLEVR_train_044305.png",
+        "source_n_objects": 3,
+        "isolation_px": 174.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_19.png",
+        "source_image": "CLEVR_train_023216.png",
+        "source_n_objects": 5,
+        "isolation_px": 174.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_20.png",
+        "source_image": "CLEVR_train_044068.png",
+        "source_n_objects": 4,
+        "isolation_px": 173.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_21.png",
+        "source_image": "CLEVR_train_026338.png",
+        "source_n_objects": 3,
+        "isolation_px": 172.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_22.png",
+        "source_image": "CLEVR_train_039930.png",
+        "source_n_objects": 3,
+        "isolation_px": 171.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_23.png",
+        "source_image": "CLEVR_train_013561.png",
+        "source_n_objects": 5,
+        "isolation_px": 171.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_24.png",
+        "source_image": "CLEVR_train_066927.png",
+        "source_n_objects": 3,
+        "isolation_px": 171.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_25.png",
+        "source_image": "CLEVR_train_046360.png",
+        "source_n_objects": 5,
+        "isolation_px": 171.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_26.png",
+        "source_image": "CLEVR_train_053157.png",
+        "source_n_objects": 4,
+        "isolation_px": 169.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_27.png",
+        "source_image": "CLEVR_train_068671.png",
+        "source_n_objects": 4,
+        "isolation_px": 168.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_28.png",
+        "source_image": "CLEVR_train_054900.png",
+        "source_n_objects": 3,
+        "isolation_px": 167.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_29.png",
+        "source_image": "CLEVR_train_041314.png",
+        "source_n_objects": 4,
+        "isolation_px": 167.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_30.png",
+        "source_image": "CLEVR_train_009317.png",
+        "source_n_objects": 3,
+        "isolation_px": 167.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_31.png",
+        "source_image": "CLEVR_train_045531.png",
+        "source_n_objects": 3,
+        "isolation_px": 165.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_large_32.png",
+        "source_image": "CLEVR_train_066624.png",
+        "source_n_objects": 3,
+        "isolation_px": 165.8
+      }
+    ]
+  },
+  {
+    "shape": "cube",
+    "color": "red",
+    "material": "metal",
+    "size": "small",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_01.png",
+        "source_image": "CLEVR_train_022096.png",
+        "source_n_objects": 3,
+        "isolation_px": 272.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_02.png",
+        "source_image": "CLEVR_train_009858.png",
+        "source_n_objects": 3,
+        "isolation_px": 209.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_03.png",
+        "source_image": "CLEVR_train_009617.png",
+        "source_n_objects": 3,
+        "isolation_px": 206.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_04.png",
+        "source_image": "CLEVR_train_016269.png",
+        "source_n_objects": 3,
+        "isolation_px": 204.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_05.png",
+        "source_image": "CLEVR_train_046197.png",
+        "source_n_objects": 5,
+        "isolation_px": 198.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_06.png",
+        "source_image": "CLEVR_train_053799.png",
+        "source_n_objects": 4,
+        "isolation_px": 192.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_07.png",
+        "source_image": "CLEVR_train_034613.png",
+        "source_n_objects": 5,
+        "isolation_px": 188.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_08.png",
+        "source_image": "CLEVR_train_062826.png",
+        "source_n_objects": 3,
+        "isolation_px": 181.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_09.png",
+        "source_image": "CLEVR_train_035107.png",
+        "source_n_objects": 4,
+        "isolation_px": 180.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_10.png",
+        "source_image": "CLEVR_train_026699.png",
+        "source_n_objects": 3,
+        "isolation_px": 175.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_11.png",
+        "source_image": "CLEVR_train_005874.png",
+        "source_n_objects": 5,
+        "isolation_px": 173.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_12.png",
+        "source_image": "CLEVR_train_057976.png",
+        "source_n_objects": 3,
+        "isolation_px": 173.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_13.png",
+        "source_image": "CLEVR_train_042367.png",
+        "source_n_objects": 3,
+        "isolation_px": 172.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_14.png",
+        "source_image": "CLEVR_train_020065.png",
+        "source_n_objects": 3,
+        "isolation_px": 169.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_15.png",
+        "source_image": "CLEVR_train_049295.png",
+        "source_n_objects": 4,
+        "isolation_px": 169.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_16.png",
+        "source_image": "CLEVR_train_005529.png",
+        "source_n_objects": 3,
+        "isolation_px": 168.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_17.png",
+        "source_image": "CLEVR_train_032909.png",
+        "source_n_objects": 3,
+        "isolation_px": 168.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_18.png",
+        "source_image": "CLEVR_train_008140.png",
+        "source_n_objects": 3,
+        "isolation_px": 167.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_19.png",
+        "source_image": "CLEVR_train_043299.png",
+        "source_n_objects": 3,
+        "isolation_px": 167.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_20.png",
+        "source_image": "CLEVR_train_004728.png",
+        "source_n_objects": 3,
+        "isolation_px": 166.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_21.png",
+        "source_image": "CLEVR_train_058740.png",
+        "source_n_objects": 3,
+        "isolation_px": 165.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_22.png",
+        "source_image": "CLEVR_train_006921.png",
+        "source_n_objects": 4,
+        "isolation_px": 161.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_23.png",
+        "source_image": "CLEVR_train_018868.png",
+        "source_n_objects": 3,
+        "isolation_px": 160.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_24.png",
+        "source_image": "CLEVR_train_042052.png",
+        "source_n_objects": 4,
+        "isolation_px": 159.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_25.png",
+        "source_image": "CLEVR_train_054044.png",
+        "source_n_objects": 7,
+        "isolation_px": 159.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_26.png",
+        "source_image": "CLEVR_train_065353.png",
+        "source_n_objects": 5,
+        "isolation_px": 159.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_27.png",
+        "source_image": "CLEVR_train_035966.png",
+        "source_n_objects": 3,
+        "isolation_px": 158.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_28.png",
+        "source_image": "CLEVR_train_011539.png",
+        "source_n_objects": 6,
+        "isolation_px": 158.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_29.png",
+        "source_image": "CLEVR_train_019358.png",
+        "source_n_objects": 3,
+        "isolation_px": 157.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_30.png",
+        "source_image": "CLEVR_train_043176.png",
+        "source_n_objects": 5,
+        "isolation_px": 157.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_31.png",
+        "source_image": "CLEVR_train_006289.png",
+        "source_n_objects": 5,
+        "isolation_px": 157.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_red_metal_small_32.png",
+        "source_image": "CLEVR_train_056091.png",
+        "source_n_objects": 5,
+        "isolation_px": 156.9
+      }
+    ]
+  },
+  {
+    "shape": "cube",
+    "color": "blue",
+    "material": "rubber",
+    "size": "large",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_01.png",
+        "source_image": "CLEVR_train_015428.png",
+        "source_n_objects": 3,
+        "isolation_px": 254.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_02.png",
+        "source_image": "CLEVR_train_055789.png",
+        "source_n_objects": 3,
+        "isolation_px": 230.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_03.png",
+        "source_image": "CLEVR_train_060663.png",
+        "source_n_objects": 3,
+        "isolation_px": 225.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_04.png",
+        "source_image": "CLEVR_train_014989.png",
+        "source_n_objects": 4,
+        "isolation_px": 224.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_05.png",
+        "source_image": "CLEVR_train_000595.png",
+        "source_n_objects": 3,
+        "isolation_px": 212.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_06.png",
+        "source_image": "CLEVR_train_024260.png",
+        "source_n_objects": 3,
+        "isolation_px": 211.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_07.png",
+        "source_image": "CLEVR_train_046452.png",
+        "source_n_objects": 3,
+        "isolation_px": 199.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_08.png",
+        "source_image": "CLEVR_train_064864.png",
+        "source_n_objects": 3,
+        "isolation_px": 199.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_09.png",
+        "source_image": "CLEVR_train_041250.png",
+        "source_n_objects": 4,
+        "isolation_px": 198.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_10.png",
+        "source_image": "CLEVR_train_007597.png",
+        "source_n_objects": 5,
+        "isolation_px": 198.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_11.png",
+        "source_image": "CLEVR_train_067596.png",
+        "source_n_objects": 3,
+        "isolation_px": 194.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_12.png",
+        "source_image": "CLEVR_train_046579.png",
+        "source_n_objects": 4,
+        "isolation_px": 187.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_13.png",
+        "source_image": "CLEVR_train_012695.png",
+        "source_n_objects": 3,
+        "isolation_px": 184.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_14.png",
+        "source_image": "CLEVR_train_048918.png",
+        "source_n_objects": 4,
+        "isolation_px": 182.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_15.png",
+        "source_image": "CLEVR_train_024770.png",
+        "source_n_objects": 6,
+        "isolation_px": 181.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_16.png",
+        "source_image": "CLEVR_train_038584.png",
+        "source_n_objects": 3,
+        "isolation_px": 179.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_17.png",
+        "source_image": "CLEVR_train_042211.png",
+        "source_n_objects": 4,
+        "isolation_px": 177.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_18.png",
+        "source_image": "CLEVR_train_058793.png",
+        "source_n_objects": 4,
+        "isolation_px": 177.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_19.png",
+        "source_image": "CLEVR_train_036700.png",
+        "source_n_objects": 5,
+        "isolation_px": 176.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_20.png",
+        "source_image": "CLEVR_train_010278.png",
+        "source_n_objects": 3,
+        "isolation_px": 175.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_21.png",
+        "source_image": "CLEVR_train_053827.png",
+        "source_n_objects": 3,
+        "isolation_px": 175.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_22.png",
+        "source_image": "CLEVR_train_036398.png",
+        "source_n_objects": 3,
+        "isolation_px": 175.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_23.png",
+        "source_image": "CLEVR_train_008402.png",
+        "source_n_objects": 5,
+        "isolation_px": 173.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_24.png",
+        "source_image": "CLEVR_train_065373.png",
+        "source_n_objects": 3,
+        "isolation_px": 171.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_25.png",
+        "source_image": "CLEVR_train_049457.png",
+        "source_n_objects": 4,
+        "isolation_px": 170.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_26.png",
+        "source_image": "CLEVR_train_017259.png",
+        "source_n_objects": 4,
+        "isolation_px": 170.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_27.png",
+        "source_image": "CLEVR_train_032235.png",
+        "source_n_objects": 4,
+        "isolation_px": 169.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_28.png",
+        "source_image": "CLEVR_train_040368.png",
+        "source_n_objects": 5,
+        "isolation_px": 169.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_29.png",
+        "source_image": "CLEVR_train_039679.png",
+        "source_n_objects": 5,
+        "isolation_px": 169.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_30.png",
+        "source_image": "CLEVR_train_027019.png",
+        "source_n_objects": 3,
+        "isolation_px": 167.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_31.png",
+        "source_image": "CLEVR_train_010204.png",
+        "source_n_objects": 5,
+        "isolation_px": 167.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_32.png",
+        "source_image": "CLEVR_train_022354.png",
+        "source_n_objects": 3,
+        "isolation_px": 167.0
+      }
+    ]
+  },
+  {
+    "shape": "cube",
+    "color": "blue",
+    "material": "rubber",
+    "size": "small",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_01.png",
+        "source_image": "CLEVR_train_032162.png",
+        "source_n_objects": 3,
+        "isolation_px": 225.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_02.png",
+        "source_image": "CLEVR_train_052600.png",
+        "source_n_objects": 3,
+        "isolation_px": 217.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_03.png",
+        "source_image": "CLEVR_train_020860.png",
+        "source_n_objects": 3,
+        "isolation_px": 209.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_04.png",
+        "source_image": "CLEVR_train_031448.png",
+        "source_n_objects": 3,
+        "isolation_px": 202.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_05.png",
+        "source_image": "CLEVR_train_013400.png",
+        "source_n_objects": 3,
+        "isolation_px": 199.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_06.png",
+        "source_image": "CLEVR_train_001571.png",
+        "source_n_objects": 3,
+        "isolation_px": 199.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_07.png",
+        "source_image": "CLEVR_train_059923.png",
+        "source_n_objects": 4,
+        "isolation_px": 198.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_08.png",
+        "source_image": "CLEVR_train_053935.png",
+        "source_n_objects": 3,
+        "isolation_px": 198.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_09.png",
+        "source_image": "CLEVR_train_014239.png",
+        "source_n_objects": 3,
+        "isolation_px": 197.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_10.png",
+        "source_image": "CLEVR_train_022759.png",
+        "source_n_objects": 3,
+        "isolation_px": 188.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_11.png",
+        "source_image": "CLEVR_train_003661.png",
+        "source_n_objects": 3,
+        "isolation_px": 187.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_12.png",
+        "source_image": "CLEVR_train_003091.png",
+        "source_n_objects": 3,
+        "isolation_px": 186.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_13.png",
+        "source_image": "CLEVR_train_060254.png",
+        "source_n_objects": 3,
+        "isolation_px": 185.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_14.png",
+        "source_image": "CLEVR_train_063886.png",
+        "source_n_objects": 3,
+        "isolation_px": 182.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_15.png",
+        "source_image": "CLEVR_train_064243.png",
+        "source_n_objects": 3,
+        "isolation_px": 180.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_16.png",
+        "source_image": "CLEVR_train_060143.png",
+        "source_n_objects": 5,
+        "isolation_px": 176.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_17.png",
+        "source_image": "CLEVR_train_005974.png",
+        "source_n_objects": 4,
+        "isolation_px": 174.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_18.png",
+        "source_image": "CLEVR_train_023687.png",
+        "source_n_objects": 6,
+        "isolation_px": 173.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_19.png",
+        "source_image": "CLEVR_train_049021.png",
+        "source_n_objects": 3,
+        "isolation_px": 173.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_20.png",
+        "source_image": "CLEVR_train_046267.png",
+        "source_n_objects": 4,
+        "isolation_px": 173.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_21.png",
+        "source_image": "CLEVR_train_048071.png",
+        "source_n_objects": 3,
+        "isolation_px": 172.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_22.png",
+        "source_image": "CLEVR_train_067820.png",
+        "source_n_objects": 3,
+        "isolation_px": 171.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_23.png",
+        "source_image": "CLEVR_train_066992.png",
+        "source_n_objects": 3,
+        "isolation_px": 171.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_24.png",
+        "source_image": "CLEVR_train_048235.png",
+        "source_n_objects": 3,
+        "isolation_px": 169.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_25.png",
+        "source_image": "CLEVR_train_032037.png",
+        "source_n_objects": 3,
+        "isolation_px": 168.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_26.png",
+        "source_image": "CLEVR_train_021575.png",
+        "source_n_objects": 4,
+        "isolation_px": 168.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_27.png",
+        "source_image": "CLEVR_train_026998.png",
+        "source_n_objects": 3,
+        "isolation_px": 168.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_28.png",
+        "source_image": "CLEVR_train_010094.png",
+        "source_n_objects": 4,
+        "isolation_px": 167.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_29.png",
+        "source_image": "CLEVR_train_067301.png",
+        "source_n_objects": 3,
+        "isolation_px": 167.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_30.png",
+        "source_image": "CLEVR_train_044531.png",
+        "source_n_objects": 4,
+        "isolation_px": 166.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_31.png",
+        "source_image": "CLEVR_train_061707.png",
+        "source_n_objects": 3,
+        "isolation_px": 166.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_32.png",
+        "source_image": "CLEVR_train_050489.png",
+        "source_n_objects": 4,
+        "isolation_px": 165.6
+      }
+    ]
+  },
+  {
+    "shape": "cube",
+    "color": "blue",
+    "material": "metal",
+    "size": "large",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_01.png",
+        "source_image": "CLEVR_train_047046.png",
+        "source_n_objects": 3,
+        "isolation_px": 243.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_02.png",
+        "source_image": "CLEVR_train_065594.png",
+        "source_n_objects": 3,
+        "isolation_px": 243.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_03.png",
+        "source_image": "CLEVR_train_024937.png",
+        "source_n_objects": 3,
+        "isolation_px": 227.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_04.png",
+        "source_image": "CLEVR_train_065212.png",
+        "source_n_objects": 3,
+        "isolation_px": 211.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_05.png",
+        "source_image": "CLEVR_train_009294.png",
+        "source_n_objects": 4,
+        "isolation_px": 198.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_06.png",
+        "source_image": "CLEVR_train_051590.png",
+        "source_n_objects": 3,
+        "isolation_px": 195.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_07.png",
+        "source_image": "CLEVR_train_030476.png",
+        "source_n_objects": 3,
+        "isolation_px": 194.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_08.png",
+        "source_image": "CLEVR_train_027317.png",
+        "source_n_objects": 3,
+        "isolation_px": 193.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_09.png",
+        "source_image": "CLEVR_train_069981.png",
+        "source_n_objects": 3,
+        "isolation_px": 190.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_10.png",
+        "source_image": "CLEVR_train_048627.png",
+        "source_n_objects": 4,
+        "isolation_px": 189.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_11.png",
+        "source_image": "CLEVR_train_066018.png",
+        "source_n_objects": 3,
+        "isolation_px": 187.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_12.png",
+        "source_image": "CLEVR_train_015001.png",
+        "source_n_objects": 4,
+        "isolation_px": 185.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_13.png",
+        "source_image": "CLEVR_train_002512.png",
+        "source_n_objects": 3,
+        "isolation_px": 185.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_14.png",
+        "source_image": "CLEVR_train_032903.png",
+        "source_n_objects": 3,
+        "isolation_px": 183.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_15.png",
+        "source_image": "CLEVR_train_028968.png",
+        "source_n_objects": 3,
+        "isolation_px": 182.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_16.png",
+        "source_image": "CLEVR_train_000110.png",
+        "source_n_objects": 3,
+        "isolation_px": 182.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_17.png",
+        "source_image": "CLEVR_train_036104.png",
+        "source_n_objects": 3,
+        "isolation_px": 181.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_18.png",
+        "source_image": "CLEVR_train_048156.png",
+        "source_n_objects": 3,
+        "isolation_px": 179.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_19.png",
+        "source_image": "CLEVR_train_058965.png",
+        "source_n_objects": 4,
+        "isolation_px": 177.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_20.png",
+        "source_image": "CLEVR_train_037351.png",
+        "source_n_objects": 4,
+        "isolation_px": 174.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_21.png",
+        "source_image": "CLEVR_train_005792.png",
+        "source_n_objects": 3,
+        "isolation_px": 170.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_22.png",
+        "source_image": "CLEVR_train_056505.png",
+        "source_n_objects": 3,
+        "isolation_px": 170.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_23.png",
+        "source_image": "CLEVR_train_059212.png",
+        "source_n_objects": 3,
+        "isolation_px": 170.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_24.png",
+        "source_image": "CLEVR_train_065787.png",
+        "source_n_objects": 4,
+        "isolation_px": 169.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_25.png",
+        "source_image": "CLEVR_train_015157.png",
+        "source_n_objects": 3,
+        "isolation_px": 168.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_26.png",
+        "source_image": "CLEVR_train_039757.png",
+        "source_n_objects": 5,
+        "isolation_px": 164.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_27.png",
+        "source_image": "CLEVR_train_030176.png",
+        "source_n_objects": 3,
+        "isolation_px": 164.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_28.png",
+        "source_image": "CLEVR_train_011005.png",
+        "source_n_objects": 3,
+        "isolation_px": 161.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_29.png",
+        "source_image": "CLEVR_train_028655.png",
+        "source_n_objects": 5,
+        "isolation_px": 161.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_30.png",
+        "source_image": "CLEVR_train_013622.png",
+        "source_n_objects": 4,
+        "isolation_px": 160.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_31.png",
+        "source_image": "CLEVR_train_036959.png",
+        "source_n_objects": 4,
+        "isolation_px": 159.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_32.png",
+        "source_image": "CLEVR_train_002615.png",
+        "source_n_objects": 3,
+        "isolation_px": 159.4
+      }
+    ]
+  },
+  {
+    "shape": "cube",
+    "color": "blue",
+    "material": "metal",
+    "size": "small",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_01.png",
+        "source_image": "CLEVR_train_032534.png",
+        "source_n_objects": 3,
+        "isolation_px": 253.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_02.png",
+        "source_image": "CLEVR_train_001751.png",
+        "source_n_objects": 3,
+        "isolation_px": 220.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_03.png",
+        "source_image": "CLEVR_train_051370.png",
+        "source_n_objects": 4,
+        "isolation_px": 216.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_04.png",
+        "source_image": "CLEVR_train_000199.png",
+        "source_n_objects": 4,
+        "isolation_px": 215.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_05.png",
+        "source_image": "CLEVR_train_051866.png",
+        "source_n_objects": 3,
+        "isolation_px": 208.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_06.png",
+        "source_image": "CLEVR_train_038694.png",
+        "source_n_objects": 3,
+        "isolation_px": 205.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_07.png",
+        "source_image": "CLEVR_train_029980.png",
+        "source_n_objects": 4,
+        "isolation_px": 202.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_08.png",
+        "source_image": "CLEVR_train_043251.png",
+        "source_n_objects": 4,
+        "isolation_px": 201.3
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_09.png",
+        "source_image": "CLEVR_train_023778.png",
+        "source_n_objects": 4,
+        "isolation_px": 196.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_10.png",
+        "source_image": "CLEVR_train_008105.png",
+        "source_n_objects": 3,
+        "isolation_px": 191.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_11.png",
+        "source_image": "CLEVR_train_043347.png",
+        "source_n_objects": 3,
+        "isolation_px": 191.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_12.png",
+        "source_image": "CLEVR_train_053709.png",
+        "source_n_objects": 5,
+        "isolation_px": 187.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_13.png",
+        "source_image": "CLEVR_train_019035.png",
+        "source_n_objects": 3,
+        "isolation_px": 187.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_14.png",
+        "source_image": "CLEVR_train_018902.png",
+        "source_n_objects": 4,
+        "isolation_px": 185.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_15.png",
+        "source_image": "CLEVR_train_042566.png",
+        "source_n_objects": 3,
+        "isolation_px": 184.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_16.png",
+        "source_image": "CLEVR_train_029401.png",
+        "source_n_objects": 4,
+        "isolation_px": 183.6
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_17.png",
+        "source_image": "CLEVR_train_033720.png",
+        "source_n_objects": 4,
+        "isolation_px": 180.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_18.png",
+        "source_image": "CLEVR_train_046986.png",
+        "source_n_objects": 4,
+        "isolation_px": 179.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_19.png",
+        "source_image": "CLEVR_train_068651.png",
+        "source_n_objects": 3,
+        "isolation_px": 176.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_20.png",
+        "source_image": "CLEVR_train_008110.png",
+        "source_n_objects": 3,
+        "isolation_px": 176.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_21.png",
+        "source_image": "CLEVR_train_051989.png",
+        "source_n_objects": 4,
+        "isolation_px": 174.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_22.png",
+        "source_image": "CLEVR_train_016273.png",
+        "source_n_objects": 5,
+        "isolation_px": 173.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_23.png",
+        "source_image": "CLEVR_train_003628.png",
+        "source_n_objects": 3,
+        "isolation_px": 171.1
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_24.png",
+        "source_image": "CLEVR_train_047636.png",
+        "source_n_objects": 3,
+        "isolation_px": 170.2
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_25.png",
+        "source_image": "CLEVR_train_069378.png",
+        "source_n_objects": 3,
+        "isolation_px": 169.7
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_26.png",
+        "source_image": "CLEVR_train_043516.png",
+        "source_n_objects": 3,
+        "isolation_px": 167.4
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_27.png",
+        "source_image": "CLEVR_train_027337.png",
+        "source_n_objects": 4,
+        "isolation_px": 166.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_28.png",
+        "source_image": "CLEVR_train_056187.png",
+        "source_n_objects": 3,
+        "isolation_px": 166.0
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_29.png",
+        "source_image": "CLEVR_train_036203.png",
+        "source_n_objects": 3,
+        "isolation_px": 164.9
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_30.png",
+        "source_image": "CLEVR_train_004159.png",
+        "source_n_objects": 4,
+        "isolation_px": 162.8
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_31.png",
+        "source_image": "CLEVR_train_063779.png",
+        "source_n_objects": 3,
+        "isolation_px": 162.5
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_32.png",
+        "source_image": "CLEVR_train_001778.png",
+        "source_n_objects": 3,
+        "isolation_px": 162.2
+      }
+    ]
+  },
+  {
+    "shape": "sphere",
+    "color": "red",
+    "material": "rubber",
+    "size": "large",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_01.png",
+        "source_image": "CLEVR_train_033664.png",
+        "source_n_objects": 3,
+        "isolation_px": 297.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_02.png",
+        "source_image": "CLEVR_train_027714.png",
+        "source_n_objects": 3,
+        "isolation_px": 237.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_03.png",
+        "source_image": "CLEVR_train_041094.png",
+        "source_n_objects": 3,
+        "isolation_px": 224.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_04.png",
+        "source_image": "CLEVR_train_019032.png",
+        "source_n_objects": 3,
+        "isolation_px": 217.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_05.png",
+        "source_image": "CLEVR_train_052502.png",
+        "source_n_objects": 3,
+        "isolation_px": 213.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_06.png",
+        "source_image": "CLEVR_train_067307.png",
+        "source_n_objects": 4,
+        "isolation_px": 209.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_07.png",
+        "source_image": "CLEVR_train_020404.png",
+        "source_n_objects": 3,
+        "isolation_px": 205.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_08.png",
+        "source_image": "CLEVR_train_062147.png",
+        "source_n_objects": 3,
+        "isolation_px": 196.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_09.png",
+        "source_image": "CLEVR_train_021224.png",
+        "source_n_objects": 3,
+        "isolation_px": 191.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_10.png",
+        "source_image": "CLEVR_train_065736.png",
+        "source_n_objects": 3,
+        "isolation_px": 189.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_11.png",
+        "source_image": "CLEVR_train_025936.png",
+        "source_n_objects": 3,
+        "isolation_px": 186.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_12.png",
+        "source_image": "CLEVR_train_031124.png",
+        "source_n_objects": 4,
+        "isolation_px": 184.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_13.png",
+        "source_image": "CLEVR_train_019930.png",
+        "source_n_objects": 3,
+        "isolation_px": 183.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_14.png",
+        "source_image": "CLEVR_train_034852.png",
+        "source_n_objects": 3,
+        "isolation_px": 181.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_15.png",
+        "source_image": "CLEVR_train_050815.png",
+        "source_n_objects": 5,
+        "isolation_px": 180.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_16.png",
+        "source_image": "CLEVR_train_067939.png",
+        "source_n_objects": 4,
+        "isolation_px": 180.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_17.png",
+        "source_image": "CLEVR_train_011431.png",
+        "source_n_objects": 4,
+        "isolation_px": 179.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_18.png",
+        "source_image": "CLEVR_train_034111.png",
+        "source_n_objects": 3,
+        "isolation_px": 177.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_19.png",
+        "source_image": "CLEVR_train_058477.png",
+        "source_n_objects": 3,
+        "isolation_px": 171.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_20.png",
+        "source_image": "CLEVR_train_047492.png",
+        "source_n_objects": 5,
+        "isolation_px": 171.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_21.png",
+        "source_image": "CLEVR_train_006089.png",
+        "source_n_objects": 3,
+        "isolation_px": 170.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_22.png",
+        "source_image": "CLEVR_train_014281.png",
+        "source_n_objects": 4,
+        "isolation_px": 170.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_23.png",
+        "source_image": "CLEVR_train_058536.png",
+        "source_n_objects": 3,
+        "isolation_px": 169.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_24.png",
+        "source_image": "CLEVR_train_036890.png",
+        "source_n_objects": 3,
+        "isolation_px": 169.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_25.png",
+        "source_image": "CLEVR_train_056218.png",
+        "source_n_objects": 3,
+        "isolation_px": 169.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_26.png",
+        "source_image": "CLEVR_train_016758.png",
+        "source_n_objects": 4,
+        "isolation_px": 169.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_27.png",
+        "source_image": "CLEVR_train_015817.png",
+        "source_n_objects": 5,
+        "isolation_px": 168.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_28.png",
+        "source_image": "CLEVR_train_062264.png",
+        "source_n_objects": 3,
+        "isolation_px": 168.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_29.png",
+        "source_image": "CLEVR_train_000631.png",
+        "source_n_objects": 3,
+        "isolation_px": 167.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_30.png",
+        "source_image": "CLEVR_train_059116.png",
+        "source_n_objects": 3,
+        "isolation_px": 164.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_31.png",
+        "source_image": "CLEVR_train_029563.png",
+        "source_n_objects": 4,
+        "isolation_px": 162.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_32.png",
+        "source_image": "CLEVR_train_041026.png",
+        "source_n_objects": 5,
+        "isolation_px": 162.4
+      }
+    ]
+  },
+  {
+    "shape": "sphere",
+    "color": "red",
+    "material": "rubber",
+    "size": "small",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_01.png",
+        "source_image": "CLEVR_train_054932.png",
+        "source_n_objects": 3,
+        "isolation_px": 309.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_02.png",
+        "source_image": "CLEVR_train_050466.png",
+        "source_n_objects": 3,
+        "isolation_px": 215.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_03.png",
+        "source_image": "CLEVR_train_014904.png",
+        "source_n_objects": 3,
+        "isolation_px": 202.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_04.png",
+        "source_image": "CLEVR_train_002214.png",
+        "source_n_objects": 4,
+        "isolation_px": 199.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_05.png",
+        "source_image": "CLEVR_train_055963.png",
+        "source_n_objects": 3,
+        "isolation_px": 196.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_06.png",
+        "source_image": "CLEVR_train_026794.png",
+        "source_n_objects": 3,
+        "isolation_px": 194.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_07.png",
+        "source_image": "CLEVR_train_022146.png",
+        "source_n_objects": 4,
+        "isolation_px": 183.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_08.png",
+        "source_image": "CLEVR_train_069633.png",
+        "source_n_objects": 4,
+        "isolation_px": 179.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_09.png",
+        "source_image": "CLEVR_train_055158.png",
+        "source_n_objects": 3,
+        "isolation_px": 178.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_10.png",
+        "source_image": "CLEVR_train_041105.png",
+        "source_n_objects": 3,
+        "isolation_px": 176.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_11.png",
+        "source_image": "CLEVR_train_043324.png",
+        "source_n_objects": 4,
+        "isolation_px": 176.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_12.png",
+        "source_image": "CLEVR_train_047331.png",
+        "source_n_objects": 4,
+        "isolation_px": 174.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_13.png",
+        "source_image": "CLEVR_train_030495.png",
+        "source_n_objects": 3,
+        "isolation_px": 174.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_14.png",
+        "source_image": "CLEVR_train_054785.png",
+        "source_n_objects": 4,
+        "isolation_px": 174.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_15.png",
+        "source_image": "CLEVR_train_067675.png",
+        "source_n_objects": 5,
+        "isolation_px": 173.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_16.png",
+        "source_image": "CLEVR_train_046339.png",
+        "source_n_objects": 3,
+        "isolation_px": 172.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_17.png",
+        "source_image": "CLEVR_train_064891.png",
+        "source_n_objects": 4,
+        "isolation_px": 171.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_18.png",
+        "source_image": "CLEVR_train_068536.png",
+        "source_n_objects": 3,
+        "isolation_px": 171.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_19.png",
+        "source_image": "CLEVR_train_012225.png",
+        "source_n_objects": 4,
+        "isolation_px": 168.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_20.png",
+        "source_image": "CLEVR_train_010162.png",
+        "source_n_objects": 6,
+        "isolation_px": 167.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_21.png",
+        "source_image": "CLEVR_train_035234.png",
+        "source_n_objects": 6,
+        "isolation_px": 166.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_22.png",
+        "source_image": "CLEVR_train_043489.png",
+        "source_n_objects": 3,
+        "isolation_px": 166.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_23.png",
+        "source_image": "CLEVR_train_005468.png",
+        "source_n_objects": 3,
+        "isolation_px": 162.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_24.png",
+        "source_image": "CLEVR_train_052466.png",
+        "source_n_objects": 8,
+        "isolation_px": 158.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_25.png",
+        "source_image": "CLEVR_train_053203.png",
+        "source_n_objects": 4,
+        "isolation_px": 157.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_26.png",
+        "source_image": "CLEVR_train_008807.png",
+        "source_n_objects": 3,
+        "isolation_px": 156.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_27.png",
+        "source_image": "CLEVR_train_017914.png",
+        "source_n_objects": 4,
+        "isolation_px": 156.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_28.png",
+        "source_image": "CLEVR_train_063482.png",
+        "source_n_objects": 4,
+        "isolation_px": 156.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_29.png",
+        "source_image": "CLEVR_train_038717.png",
+        "source_n_objects": 3,
+        "isolation_px": 155.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_30.png",
+        "source_image": "CLEVR_train_000304.png",
+        "source_n_objects": 6,
+        "isolation_px": 155.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_31.png",
+        "source_image": "CLEVR_train_003646.png",
+        "source_n_objects": 3,
+        "isolation_px": 155.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_32.png",
+        "source_image": "CLEVR_train_049236.png",
+        "source_n_objects": 4,
+        "isolation_px": 155.2
+      }
+    ]
+  },
+  {
+    "shape": "sphere",
+    "color": "red",
+    "material": "metal",
+    "size": "large",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_01.png",
+        "source_image": "CLEVR_train_055152.png",
+        "source_n_objects": 3,
+        "isolation_px": 246.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_02.png",
+        "source_image": "CLEVR_train_029805.png",
+        "source_n_objects": 3,
+        "isolation_px": 220.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_03.png",
+        "source_image": "CLEVR_train_060177.png",
+        "source_n_objects": 3,
+        "isolation_px": 213.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_04.png",
+        "source_image": "CLEVR_train_003606.png",
+        "source_n_objects": 3,
+        "isolation_px": 207.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_05.png",
+        "source_image": "CLEVR_train_031109.png",
+        "source_n_objects": 3,
+        "isolation_px": 199.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_06.png",
+        "source_image": "CLEVR_train_060668.png",
+        "source_n_objects": 3,
+        "isolation_px": 192.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_07.png",
+        "source_image": "CLEVR_train_051896.png",
+        "source_n_objects": 3,
+        "isolation_px": 191.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_08.png",
+        "source_image": "CLEVR_train_066077.png",
+        "source_n_objects": 4,
+        "isolation_px": 189.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_09.png",
+        "source_image": "CLEVR_train_012332.png",
+        "source_n_objects": 3,
+        "isolation_px": 186.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_10.png",
+        "source_image": "CLEVR_train_003763.png",
+        "source_n_objects": 3,
+        "isolation_px": 185.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_11.png",
+        "source_image": "CLEVR_train_040353.png",
+        "source_n_objects": 3,
+        "isolation_px": 182.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_12.png",
+        "source_image": "CLEVR_train_018995.png",
+        "source_n_objects": 3,
+        "isolation_px": 179.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_13.png",
+        "source_image": "CLEVR_train_011910.png",
+        "source_n_objects": 5,
+        "isolation_px": 178.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_14.png",
+        "source_image": "CLEVR_train_037648.png",
+        "source_n_objects": 3,
+        "isolation_px": 178.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_15.png",
+        "source_image": "CLEVR_train_044507.png",
+        "source_n_objects": 3,
+        "isolation_px": 177.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_16.png",
+        "source_image": "CLEVR_train_053059.png",
+        "source_n_objects": 3,
+        "isolation_px": 177.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_17.png",
+        "source_image": "CLEVR_train_031286.png",
+        "source_n_objects": 3,
+        "isolation_px": 176.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_18.png",
+        "source_image": "CLEVR_train_006506.png",
+        "source_n_objects": 4,
+        "isolation_px": 174.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_19.png",
+        "source_image": "CLEVR_train_067531.png",
+        "source_n_objects": 4,
+        "isolation_px": 173.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_20.png",
+        "source_image": "CLEVR_train_026044.png",
+        "source_n_objects": 3,
+        "isolation_px": 169.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_21.png",
+        "source_image": "CLEVR_train_009323.png",
+        "source_n_objects": 3,
+        "isolation_px": 169.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_22.png",
+        "source_image": "CLEVR_train_055967.png",
+        "source_n_objects": 4,
+        "isolation_px": 168.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_23.png",
+        "source_image": "CLEVR_train_041066.png",
+        "source_n_objects": 3,
+        "isolation_px": 168.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_24.png",
+        "source_image": "CLEVR_train_027300.png",
+        "source_n_objects": 4,
+        "isolation_px": 168.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_25.png",
+        "source_image": "CLEVR_train_061318.png",
+        "source_n_objects": 3,
+        "isolation_px": 167.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_26.png",
+        "source_image": "CLEVR_train_020626.png",
+        "source_n_objects": 3,
+        "isolation_px": 167.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_27.png",
+        "source_image": "CLEVR_train_015193.png",
+        "source_n_objects": 3,
+        "isolation_px": 166.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_28.png",
+        "source_image": "CLEVR_train_002395.png",
+        "source_n_objects": 4,
+        "isolation_px": 166.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_29.png",
+        "source_image": "CLEVR_train_037678.png",
+        "source_n_objects": 4,
+        "isolation_px": 165.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_30.png",
+        "source_image": "CLEVR_train_017968.png",
+        "source_n_objects": 4,
+        "isolation_px": 165.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_31.png",
+        "source_image": "CLEVR_train_020483.png",
+        "source_n_objects": 4,
+        "isolation_px": 163.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_large_32.png",
+        "source_image": "CLEVR_train_037654.png",
+        "source_n_objects": 4,
+        "isolation_px": 162.7
+      }
+    ]
+  },
+  {
+    "shape": "sphere",
+    "color": "red",
+    "material": "metal",
+    "size": "small",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_01.png",
+        "source_image": "CLEVR_train_016234.png",
+        "source_n_objects": 3,
+        "isolation_px": 308.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_02.png",
+        "source_image": "CLEVR_train_012105.png",
+        "source_n_objects": 3,
+        "isolation_px": 252.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_03.png",
+        "source_image": "CLEVR_train_006230.png",
+        "source_n_objects": 3,
+        "isolation_px": 237.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_04.png",
+        "source_image": "CLEVR_train_065441.png",
+        "source_n_objects": 3,
+        "isolation_px": 207.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_05.png",
+        "source_image": "CLEVR_train_068631.png",
+        "source_n_objects": 3,
+        "isolation_px": 202.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_06.png",
+        "source_image": "CLEVR_train_011291.png",
+        "source_n_objects": 3,
+        "isolation_px": 193.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_07.png",
+        "source_image": "CLEVR_train_025869.png",
+        "source_n_objects": 3,
+        "isolation_px": 189.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_08.png",
+        "source_image": "CLEVR_train_046883.png",
+        "source_n_objects": 4,
+        "isolation_px": 188.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_09.png",
+        "source_image": "CLEVR_train_066638.png",
+        "source_n_objects": 4,
+        "isolation_px": 185.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_10.png",
+        "source_image": "CLEVR_train_007952.png",
+        "source_n_objects": 3,
+        "isolation_px": 179.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_11.png",
+        "source_image": "CLEVR_train_030243.png",
+        "source_n_objects": 5,
+        "isolation_px": 178.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_12.png",
+        "source_image": "CLEVR_train_023156.png",
+        "source_n_objects": 3,
+        "isolation_px": 178.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_13.png",
+        "source_image": "CLEVR_train_014106.png",
+        "source_n_objects": 6,
+        "isolation_px": 176.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_14.png",
+        "source_image": "CLEVR_train_013845.png",
+        "source_n_objects": 3,
+        "isolation_px": 175.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_15.png",
+        "source_image": "CLEVR_train_014416.png",
+        "source_n_objects": 3,
+        "isolation_px": 173.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_16.png",
+        "source_image": "CLEVR_train_060659.png",
+        "source_n_objects": 4,
+        "isolation_px": 170.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_17.png",
+        "source_image": "CLEVR_train_036023.png",
+        "source_n_objects": 4,
+        "isolation_px": 169.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_18.png",
+        "source_image": "CLEVR_train_012332.png",
+        "source_n_objects": 3,
+        "isolation_px": 168.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_19.png",
+        "source_image": "CLEVR_train_014940.png",
+        "source_n_objects": 4,
+        "isolation_px": 167.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_20.png",
+        "source_image": "CLEVR_train_050833.png",
+        "source_n_objects": 5,
+        "isolation_px": 164.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_21.png",
+        "source_image": "CLEVR_train_023460.png",
+        "source_n_objects": 7,
+        "isolation_px": 163.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_22.png",
+        "source_image": "CLEVR_train_039052.png",
+        "source_n_objects": 4,
+        "isolation_px": 162.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_23.png",
+        "source_image": "CLEVR_train_023719.png",
+        "source_n_objects": 4,
+        "isolation_px": 162.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_24.png",
+        "source_image": "CLEVR_train_025690.png",
+        "source_n_objects": 5,
+        "isolation_px": 161.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_25.png",
+        "source_image": "CLEVR_train_065244.png",
+        "source_n_objects": 4,
+        "isolation_px": 161.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_26.png",
+        "source_image": "CLEVR_train_036036.png",
+        "source_n_objects": 3,
+        "isolation_px": 160.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_27.png",
+        "source_image": "CLEVR_train_034631.png",
+        "source_n_objects": 4,
+        "isolation_px": 160.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_28.png",
+        "source_image": "CLEVR_train_068657.png",
+        "source_n_objects": 3,
+        "isolation_px": 160.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_29.png",
+        "source_image": "CLEVR_train_056307.png",
+        "source_n_objects": 4,
+        "isolation_px": 160.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_30.png",
+        "source_image": "CLEVR_train_036501.png",
+        "source_n_objects": 3,
+        "isolation_px": 159.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_31.png",
+        "source_image": "CLEVR_train_053585.png",
+        "source_n_objects": 7,
+        "isolation_px": 158.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_red_metal_small_32.png",
+        "source_image": "CLEVR_train_023516.png",
+        "source_n_objects": 3,
+        "isolation_px": 158.4
+      }
+    ]
+  },
+  {
+    "shape": "sphere",
+    "color": "blue",
+    "material": "rubber",
+    "size": "large",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_01.png",
+        "source_image": "CLEVR_train_026909.png",
+        "source_n_objects": 3,
+        "isolation_px": 246.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_02.png",
+        "source_image": "CLEVR_train_046905.png",
+        "source_n_objects": 3,
+        "isolation_px": 242.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_03.png",
+        "source_image": "CLEVR_train_058695.png",
+        "source_n_objects": 3,
+        "isolation_px": 219.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_04.png",
+        "source_image": "CLEVR_train_049512.png",
+        "source_n_objects": 3,
+        "isolation_px": 212.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_05.png",
+        "source_image": "CLEVR_train_059023.png",
+        "source_n_objects": 3,
+        "isolation_px": 197.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_06.png",
+        "source_image": "CLEVR_train_021441.png",
+        "source_n_objects": 3,
+        "isolation_px": 192.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_07.png",
+        "source_image": "CLEVR_train_040035.png",
+        "source_n_objects": 3,
+        "isolation_px": 190.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_08.png",
+        "source_image": "CLEVR_train_026198.png",
+        "source_n_objects": 3,
+        "isolation_px": 186.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_09.png",
+        "source_image": "CLEVR_train_023592.png",
+        "source_n_objects": 3,
+        "isolation_px": 186.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_10.png",
+        "source_image": "CLEVR_train_061015.png",
+        "source_n_objects": 4,
+        "isolation_px": 186.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_11.png",
+        "source_image": "CLEVR_train_048194.png",
+        "source_n_objects": 3,
+        "isolation_px": 186.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_12.png",
+        "source_image": "CLEVR_train_035374.png",
+        "source_n_objects": 4,
+        "isolation_px": 185.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_13.png",
+        "source_image": "CLEVR_train_030107.png",
+        "source_n_objects": 5,
+        "isolation_px": 183.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_14.png",
+        "source_image": "CLEVR_train_054904.png",
+        "source_n_objects": 4,
+        "isolation_px": 178.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_15.png",
+        "source_image": "CLEVR_train_015275.png",
+        "source_n_objects": 5,
+        "isolation_px": 177.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_16.png",
+        "source_image": "CLEVR_train_000239.png",
+        "source_n_objects": 3,
+        "isolation_px": 175.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_17.png",
+        "source_image": "CLEVR_train_052071.png",
+        "source_n_objects": 3,
+        "isolation_px": 175.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_18.png",
+        "source_image": "CLEVR_train_045249.png",
+        "source_n_objects": 3,
+        "isolation_px": 173.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_19.png",
+        "source_image": "CLEVR_train_015987.png",
+        "source_n_objects": 5,
+        "isolation_px": 173.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_20.png",
+        "source_image": "CLEVR_train_035387.png",
+        "source_n_objects": 4,
+        "isolation_px": 169.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_21.png",
+        "source_image": "CLEVR_train_006882.png",
+        "source_n_objects": 3,
+        "isolation_px": 169.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_22.png",
+        "source_image": "CLEVR_train_043574.png",
+        "source_n_objects": 4,
+        "isolation_px": 167.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_23.png",
+        "source_image": "CLEVR_train_008449.png",
+        "source_n_objects": 4,
+        "isolation_px": 167.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_24.png",
+        "source_image": "CLEVR_train_066389.png",
+        "source_n_objects": 3,
+        "isolation_px": 166.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_25.png",
+        "source_image": "CLEVR_train_039897.png",
+        "source_n_objects": 5,
+        "isolation_px": 165.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_26.png",
+        "source_image": "CLEVR_train_014372.png",
+        "source_n_objects": 3,
+        "isolation_px": 165.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_27.png",
+        "source_image": "CLEVR_train_065494.png",
+        "source_n_objects": 3,
+        "isolation_px": 164.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_28.png",
+        "source_image": "CLEVR_train_049376.png",
+        "source_n_objects": 4,
+        "isolation_px": 164.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_29.png",
+        "source_image": "CLEVR_train_021492.png",
+        "source_n_objects": 4,
+        "isolation_px": 164.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_30.png",
+        "source_image": "CLEVR_train_041325.png",
+        "source_n_objects": 3,
+        "isolation_px": 164.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_31.png",
+        "source_image": "CLEVR_train_002742.png",
+        "source_n_objects": 3,
+        "isolation_px": 163.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_32.png",
+        "source_image": "CLEVR_train_007351.png",
+        "source_n_objects": 3,
+        "isolation_px": 162.6
+      }
+    ]
+  },
+  {
+    "shape": "sphere",
+    "color": "blue",
+    "material": "rubber",
+    "size": "small",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_01.png",
+        "source_image": "CLEVR_train_061025.png",
+        "source_n_objects": 3,
+        "isolation_px": 230.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_02.png",
+        "source_image": "CLEVR_train_022878.png",
+        "source_n_objects": 3,
+        "isolation_px": 213.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_03.png",
+        "source_image": "CLEVR_train_068626.png",
+        "source_n_objects": 3,
+        "isolation_px": 206.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_04.png",
+        "source_image": "CLEVR_train_027693.png",
+        "source_n_objects": 3,
+        "isolation_px": 205.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_05.png",
+        "source_image": "CLEVR_train_063452.png",
+        "source_n_objects": 3,
+        "isolation_px": 203.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_06.png",
+        "source_image": "CLEVR_train_067692.png",
+        "source_n_objects": 3,
+        "isolation_px": 196.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_07.png",
+        "source_image": "CLEVR_train_066550.png",
+        "source_n_objects": 3,
+        "isolation_px": 190.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_08.png",
+        "source_image": "CLEVR_train_007820.png",
+        "source_n_objects": 3,
+        "isolation_px": 188.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_09.png",
+        "source_image": "CLEVR_train_069581.png",
+        "source_n_objects": 3,
+        "isolation_px": 188.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_10.png",
+        "source_image": "CLEVR_train_069039.png",
+        "source_n_objects": 3,
+        "isolation_px": 184.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_11.png",
+        "source_image": "CLEVR_train_032822.png",
+        "source_n_objects": 3,
+        "isolation_px": 183.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_12.png",
+        "source_image": "CLEVR_train_046479.png",
+        "source_n_objects": 3,
+        "isolation_px": 183.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_13.png",
+        "source_image": "CLEVR_train_006783.png",
+        "source_n_objects": 3,
+        "isolation_px": 180.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_14.png",
+        "source_image": "CLEVR_train_028116.png",
+        "source_n_objects": 6,
+        "isolation_px": 180.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_15.png",
+        "source_image": "CLEVR_train_011378.png",
+        "source_n_objects": 4,
+        "isolation_px": 175.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_16.png",
+        "source_image": "CLEVR_train_031386.png",
+        "source_n_objects": 4,
+        "isolation_px": 174.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_17.png",
+        "source_image": "CLEVR_train_035141.png",
+        "source_n_objects": 3,
+        "isolation_px": 172.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_18.png",
+        "source_image": "CLEVR_train_048512.png",
+        "source_n_objects": 3,
+        "isolation_px": 172.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_19.png",
+        "source_image": "CLEVR_train_048618.png",
+        "source_n_objects": 3,
+        "isolation_px": 171.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_20.png",
+        "source_image": "CLEVR_train_063606.png",
+        "source_n_objects": 3,
+        "isolation_px": 170.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_21.png",
+        "source_image": "CLEVR_train_059247.png",
+        "source_n_objects": 3,
+        "isolation_px": 169.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_22.png",
+        "source_image": "CLEVR_train_022107.png",
+        "source_n_objects": 4,
+        "isolation_px": 167.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_23.png",
+        "source_image": "CLEVR_train_024330.png",
+        "source_n_objects": 3,
+        "isolation_px": 164.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_24.png",
+        "source_image": "CLEVR_train_002725.png",
+        "source_n_objects": 5,
+        "isolation_px": 163.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_25.png",
+        "source_image": "CLEVR_train_057352.png",
+        "source_n_objects": 3,
+        "isolation_px": 162.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_26.png",
+        "source_image": "CLEVR_train_064837.png",
+        "source_n_objects": 4,
+        "isolation_px": 162.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_27.png",
+        "source_image": "CLEVR_train_048512.png",
+        "source_n_objects": 3,
+        "isolation_px": 161.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_28.png",
+        "source_image": "CLEVR_train_023870.png",
+        "source_n_objects": 3,
+        "isolation_px": 160.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_29.png",
+        "source_image": "CLEVR_train_000657.png",
+        "source_n_objects": 4,
+        "isolation_px": 159.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_30.png",
+        "source_image": "CLEVR_train_012121.png",
+        "source_n_objects": 3,
+        "isolation_px": 158.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_31.png",
+        "source_image": "CLEVR_train_057561.png",
+        "source_n_objects": 3,
+        "isolation_px": 158.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_32.png",
+        "source_image": "CLEVR_train_048156.png",
+        "source_n_objects": 3,
+        "isolation_px": 158.1
+      }
+    ]
+  },
+  {
+    "shape": "sphere",
+    "color": "blue",
+    "material": "metal",
+    "size": "large",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_01.png",
+        "source_image": "CLEVR_train_034689.png",
+        "source_n_objects": 3,
+        "isolation_px": 253.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_02.png",
+        "source_image": "CLEVR_train_058180.png",
+        "source_n_objects": 3,
+        "isolation_px": 211.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_03.png",
+        "source_image": "CLEVR_train_022472.png",
+        "source_n_objects": 4,
+        "isolation_px": 210.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_04.png",
+        "source_image": "CLEVR_train_061201.png",
+        "source_n_objects": 4,
+        "isolation_px": 205.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_05.png",
+        "source_image": "CLEVR_train_006331.png",
+        "source_n_objects": 3,
+        "isolation_px": 205.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_06.png",
+        "source_image": "CLEVR_train_023866.png",
+        "source_n_objects": 3,
+        "isolation_px": 200.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_07.png",
+        "source_image": "CLEVR_train_042278.png",
+        "source_n_objects": 3,
+        "isolation_px": 198.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_08.png",
+        "source_image": "CLEVR_train_006970.png",
+        "source_n_objects": 3,
+        "isolation_px": 197.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_09.png",
+        "source_image": "CLEVR_train_041079.png",
+        "source_n_objects": 4,
+        "isolation_px": 196.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_10.png",
+        "source_image": "CLEVR_train_052611.png",
+        "source_n_objects": 3,
+        "isolation_px": 193.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_11.png",
+        "source_image": "CLEVR_train_032012.png",
+        "source_n_objects": 3,
+        "isolation_px": 189.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_12.png",
+        "source_image": "CLEVR_train_058039.png",
+        "source_n_objects": 4,
+        "isolation_px": 186.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_13.png",
+        "source_image": "CLEVR_train_043530.png",
+        "source_n_objects": 3,
+        "isolation_px": 185.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_14.png",
+        "source_image": "CLEVR_train_002512.png",
+        "source_n_objects": 3,
+        "isolation_px": 183.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_15.png",
+        "source_image": "CLEVR_train_007555.png",
+        "source_n_objects": 3,
+        "isolation_px": 180.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_16.png",
+        "source_image": "CLEVR_train_041001.png",
+        "source_n_objects": 3,
+        "isolation_px": 179.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_17.png",
+        "source_image": "CLEVR_train_026306.png",
+        "source_n_objects": 5,
+        "isolation_px": 179.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_18.png",
+        "source_image": "CLEVR_train_041109.png",
+        "source_n_objects": 4,
+        "isolation_px": 177.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_19.png",
+        "source_image": "CLEVR_train_005662.png",
+        "source_n_objects": 5,
+        "isolation_px": 177.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_20.png",
+        "source_image": "CLEVR_train_037941.png",
+        "source_n_objects": 3,
+        "isolation_px": 176.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_21.png",
+        "source_image": "CLEVR_train_061753.png",
+        "source_n_objects": 4,
+        "isolation_px": 174.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_22.png",
+        "source_image": "CLEVR_train_019666.png",
+        "source_n_objects": 5,
+        "isolation_px": 174.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_23.png",
+        "source_image": "CLEVR_train_005441.png",
+        "source_n_objects": 4,
+        "isolation_px": 173.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_24.png",
+        "source_image": "CLEVR_train_049584.png",
+        "source_n_objects": 6,
+        "isolation_px": 172.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_25.png",
+        "source_image": "CLEVR_train_033153.png",
+        "source_n_objects": 4,
+        "isolation_px": 169.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_26.png",
+        "source_image": "CLEVR_train_004033.png",
+        "source_n_objects": 4,
+        "isolation_px": 169.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_27.png",
+        "source_image": "CLEVR_train_005907.png",
+        "source_n_objects": 3,
+        "isolation_px": 169.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_28.png",
+        "source_image": "CLEVR_train_053182.png",
+        "source_n_objects": 4,
+        "isolation_px": 169.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_29.png",
+        "source_image": "CLEVR_train_013974.png",
+        "source_n_objects": 4,
+        "isolation_px": 168.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_30.png",
+        "source_image": "CLEVR_train_027589.png",
+        "source_n_objects": 3,
+        "isolation_px": 165.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_31.png",
+        "source_image": "CLEVR_train_020234.png",
+        "source_n_objects": 3,
+        "isolation_px": 165.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_32.png",
+        "source_image": "CLEVR_train_015156.png",
+        "source_n_objects": 3,
+        "isolation_px": 163.2
+      }
+    ]
+  },
+  {
+    "shape": "sphere",
+    "color": "blue",
+    "material": "metal",
+    "size": "small",
+    "instances": [
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_01.png",
+        "source_image": "CLEVR_train_007592.png",
+        "source_n_objects": 4,
+        "isolation_px": 240.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_02.png",
+        "source_image": "CLEVR_train_019640.png",
+        "source_n_objects": 3,
+        "isolation_px": 239.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_03.png",
+        "source_image": "CLEVR_train_051813.png",
+        "source_n_objects": 3,
+        "isolation_px": 232.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_04.png",
+        "source_image": "CLEVR_train_055721.png",
+        "source_n_objects": 3,
+        "isolation_px": 224.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_05.png",
+        "source_image": "CLEVR_train_059965.png",
+        "source_n_objects": 3,
+        "isolation_px": 214.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_06.png",
+        "source_image": "CLEVR_train_013510.png",
+        "source_n_objects": 3,
+        "isolation_px": 211.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_07.png",
+        "source_image": "CLEVR_train_045470.png",
+        "source_n_objects": 3,
+        "isolation_px": 207.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_08.png",
+        "source_image": "CLEVR_train_047425.png",
+        "source_n_objects": 3,
+        "isolation_px": 202.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_09.png",
+        "source_image": "CLEVR_train_062908.png",
+        "source_n_objects": 3,
+        "isolation_px": 192.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_10.png",
+        "source_image": "CLEVR_train_016419.png",
+        "source_n_objects": 3,
+        "isolation_px": 190.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_11.png",
+        "source_image": "CLEVR_train_035682.png",
+        "source_n_objects": 3,
+        "isolation_px": 187.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_12.png",
+        "source_image": "CLEVR_train_057575.png",
+        "source_n_objects": 3,
+        "isolation_px": 183.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_13.png",
+        "source_image": "CLEVR_train_036124.png",
+        "source_n_objects": 3,
+        "isolation_px": 182.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_14.png",
+        "source_image": "CLEVR_train_015118.png",
+        "source_n_objects": 3,
+        "isolation_px": 180.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_15.png",
+        "source_image": "CLEVR_train_029959.png",
+        "source_n_objects": 3,
+        "isolation_px": 177.7
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_16.png",
+        "source_image": "CLEVR_train_068618.png",
+        "source_n_objects": 3,
+        "isolation_px": 176.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_17.png",
+        "source_image": "CLEVR_train_039093.png",
+        "source_n_objects": 3,
+        "isolation_px": 175.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_18.png",
+        "source_image": "CLEVR_train_025854.png",
+        "source_n_objects": 3,
+        "isolation_px": 175.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_19.png",
+        "source_image": "CLEVR_train_005736.png",
+        "source_n_objects": 4,
+        "isolation_px": 173.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_20.png",
+        "source_image": "CLEVR_train_043956.png",
+        "source_n_objects": 3,
+        "isolation_px": 171.2
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_21.png",
+        "source_image": "CLEVR_train_043837.png",
+        "source_n_objects": 4,
+        "isolation_px": 168.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_22.png",
+        "source_image": "CLEVR_train_007953.png",
+        "source_n_objects": 4,
+        "isolation_px": 167.0
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_23.png",
+        "source_image": "CLEVR_train_040500.png",
+        "source_n_objects": 3,
+        "isolation_px": 163.9
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_24.png",
+        "source_image": "CLEVR_train_048554.png",
+        "source_n_objects": 3,
+        "isolation_px": 162.8
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_25.png",
+        "source_image": "CLEVR_train_068375.png",
+        "source_n_objects": 3,
+        "isolation_px": 162.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_26.png",
+        "source_image": "CLEVR_train_034989.png",
+        "source_n_objects": 5,
+        "isolation_px": 161.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_27.png",
+        "source_image": "CLEVR_train_024317.png",
+        "source_n_objects": 5,
+        "isolation_px": 160.3
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_28.png",
+        "source_image": "CLEVR_train_022671.png",
+        "source_n_objects": 4,
+        "isolation_px": 159.5
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_29.png",
+        "source_image": "CLEVR_train_066710.png",
+        "source_n_objects": 3,
+        "isolation_px": 158.1
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_30.png",
+        "source_image": "CLEVR_train_037777.png",
+        "source_n_objects": 4,
+        "isolation_px": 157.6
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_31.png",
+        "source_image": "CLEVR_train_015811.png",
+        "source_n_objects": 4,
+        "isolation_px": 157.4
+      },
+      {
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_32.png",
+        "source_image": "CLEVR_train_034010.png",
+        "source_n_objects": 3,
+        "isolation_px": 156.3
+      }
+    ]
+  }
+]

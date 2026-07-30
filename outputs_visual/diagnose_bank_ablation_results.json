@@ -1,0 +1,691 @@
+{
+  "A_full_K3": {
+    "n_rules": 10,
+    "rule_keys": [
+      "ep1_cube_red_rubber_large_ANOMALY",
+      "ep2_cube_red_rubber_small_ANOMALY",
+      "ep3_cube_red_metal_large_NORMAL",
+      "ep4_cube_red_metal_small_NORMAL",
+      "ep5_cube_blue_rubber_large_NORMAL_NEARMISS",
+      "ep6_sphere_red_rubber_large_NORMAL",
+      "ep7_sphere_red_metal_large_ANOMALY",
+      "ep8_sphere_red_metal_small_ANOMALY",
+      "ep9_sphere_blue_rubber_large_NORMAL",
+      "ep10_sphere_blue_rubber_small_NORMAL"
+    ],
+    "accuracy": 0.0,
+    "n_correct": 0,
+    "per_item": [
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_09.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_02.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_14.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_26.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_03.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_11.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_13.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_23.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_07.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_16.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_21.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_15.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_12.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_10.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_13.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_26.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_09.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_31.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_18.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_11.png",
+        "predicted": "NORMAL",
+        "correct": false
+      }
+    ]
+  },
+  "B_minus_nearmiss": {
+    "n_rules": 9,
+    "rule_keys": [
+      "ep1_cube_red_rubber_large_ANOMALY",
+      "ep2_cube_red_rubber_small_ANOMALY",
+      "ep3_cube_red_metal_large_NORMAL",
+      "ep4_cube_red_metal_small_NORMAL",
+      "ep6_sphere_red_rubber_large_NORMAL",
+      "ep7_sphere_red_metal_large_ANOMALY",
+      "ep8_sphere_red_metal_small_ANOMALY",
+      "ep9_sphere_blue_rubber_large_NORMAL",
+      "ep10_sphere_blue_rubber_small_NORMAL"
+    ],
+    "accuracy": 0.0,
+    "n_correct": 0,
+    "per_item": [
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_09.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_02.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_14.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_26.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_03.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_11.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_13.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_23.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_07.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_16.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_21.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_15.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_12.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_10.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_13.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_26.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_09.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_31.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_18.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_11.png",
+        "predicted": "NORMAL",
+        "correct": false
+      }
+    ]
+  },
+  "C_minus_red_anomaly": {
+    "n_rules": 6,
+    "rule_keys": [
+      "ep3_cube_red_metal_large_NORMAL",
+      "ep4_cube_red_metal_small_NORMAL",
+      "ep5_cube_blue_rubber_large_NORMAL_NEARMISS",
+      "ep6_sphere_red_rubber_large_NORMAL",
+      "ep9_sphere_blue_rubber_large_NORMAL",
+      "ep10_sphere_blue_rubber_small_NORMAL"
+    ],
+    "accuracy": 1.0,
+    "n_correct": 20,
+    "per_item": [
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_09.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_02.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_14.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_26.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_03.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_11.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_13.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_23.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_07.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_16.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_21.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_15.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_12.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_10.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_13.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_26.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_09.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_31.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_18.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_11.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      }
+    ]
+  },
+  "D_minus_both": {
+    "n_rules": 5,
+    "rule_keys": [
+      "ep3_cube_red_metal_large_NORMAL",
+      "ep4_cube_red_metal_small_NORMAL",
+      "ep6_sphere_red_rubber_large_NORMAL",
+      "ep9_sphere_blue_rubber_large_NORMAL",
+      "ep10_sphere_blue_rubber_small_NORMAL"
+    ],
+    "accuracy": 1.0,
+    "n_correct": 20,
+    "per_item": [
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_09.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_02.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_14.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_26.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_03.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_11.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_13.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_23.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_07.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_16.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_21.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_15.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_12.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_10.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_13.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_26.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_09.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_31.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_18.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_11.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      }
+    ]
+  },
+  "E_red_anomaly_only": {
+    "n_rules": 4,
+    "rule_keys": [
+      "ep1_cube_red_rubber_large_ANOMALY",
+      "ep2_cube_red_rubber_small_ANOMALY",
+      "ep7_sphere_red_metal_large_ANOMALY",
+      "ep8_sphere_red_metal_small_ANOMALY"
+    ],
+    "accuracy": 0.0,
+    "n_correct": 0,
+    "per_item": [
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_09.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_02.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_14.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_26.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_03.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_11.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_13.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_23.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_07.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_16.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_21.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_15.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_12.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_10.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_13.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_26.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_09.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_31.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_18.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_11.png",
+        "predicted": "NORMAL",
+        "correct": false
+      }
+    ]
+  },
+  "F_nearmiss_only": {
+    "n_rules": 1,
+    "rule_keys": [
+      "ep5_cube_blue_rubber_large_NORMAL_NEARMISS"
+    ],
+    "accuracy": 0.9,
+    "n_correct": 18,
+    "per_item": [
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_09.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_02.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_14.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_26.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_03.png",
+        "predicted": "NORMAL",
+        "correct": false
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_11.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_13.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_23.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_07.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_large_16.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_21.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_15.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_12.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_10.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_13.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_26.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_09.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_31.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_18.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "image_path": "clevr_crops_large/cube_blue_metal_small_11.png",
+        "predicted": "ANOMALY",
+        "correct": true
+      }
+    ]
+  }
+}
