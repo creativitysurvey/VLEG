@@ -4,18 +4,24 @@ Section IV-B): ICL, Reflexion, and HDR. VLEG itself is already
 implemented in core/refinement.py + core/inference.py ("hybrid" modality).
 
 Methodological choices made here (see DEVIATIONS_LOG.md #16 for the
-full writeup):
+original writeup, #32 for the Reflexion fairness fix below):
   - ICL = Pure Episodic Retention, no abstraction at all. Zero
     Generator/Verifier calls during "consolidation" (there is none) —
     raw episodes are stored directly and retrieved via raw-episode
     embedding similarity, then shown to the reasoning LLM with no
     distilled rule (core.inference's raw_only prompt/system message).
-  - Reflexion = Localized Episodic Reflection, single-step, UNVERIFIED
-    (mirrors core.single_step.single_step_commit — always commits
-    r^(0), no gate). At inference, uses Abstract-Only grounding (the
-    reflection alone, no raw episode) — this is a deliberate reading of
-    the paper's own internally-inconsistent description of Reflexion's
-    retrieval mode (see DEVIATIONS_LOG.md #7, #16).
+  - Reflexion = Localized Episodic Reflection with BINARY environmental
+    feedback across up to K attempts per episode, always committing
+    SOME reflection at the end (never discards, unlike VLEG). This
+    replaces an earlier single-shot, always-commit-on-first-try
+    implementation that gave Reflexion no chance to self-correct at
+    all — an unfair comparison against VLEG's K-bounded refinement loop
+    (see DEVIATIONS_LOG.md #32). The feedback given between attempts is
+    a plain right/wrong signal plus the true label (Reflexion's own
+    "trial-and-error with environmental feedback" mechanism), NOT
+    VLEG's richer verifier critique — the two methods' feedback
+    richness is a real, reported difference, not something to paper
+    over by reusing VLEG's Generator/Verifier machinery for Reflexion.
   - HDR = Global Semantic Consolidation + Iterative Cyclic Refinement +
     Hybrid Grounding. ONE hypothesis is induced from the ENTIRE labeled
     training set at once (not per-episode), verified against the whole
@@ -29,7 +35,6 @@ from dataclasses import dataclass, field
 from core.llm_client import chat
 from core.task_env import episode_text, generator_view_text, query_text
 from core.memory import MemoryBank
-from core.generator import generate_reflection
 from core.retrieval import retrieve_top_k, retrieve_top_k_by_episode
 from core.inference import (
     build_raw_only_prompt, build_abstract_only_prompt,
@@ -37,6 +42,7 @@ from core.inference import (
 )
 
 # ============================== ICL ==============================
+# (unchanged)
 
 def build_icl_bank(combos: list) -> MemoryBank:
     """No abstraction, no LLM calls — just wraps raw episodes for retrieval."""
@@ -58,15 +64,78 @@ def icl_predict(bank: MemoryBank, target_combo: dict, k: int = 3) -> str:
 
 
 # ============================== Reflexion ==============================
+# Deliberately NOT reusing core.generator.generate_reflection: that
+# function's refinement-turn wording is hardcoded to VLEG's strict-
+# verifier framing ("A verifier checked it... rejected it with this
+# critique..."), which would be methodologically wrong to put in
+# Reflexion's mouth — Reflexion has no verifier, only binary outcome
+# feedback. core/generator.py is left completely untouched.
 
-def build_reflexion_bank(combos: list, log_prefix: str = "reflexion") -> MemoryBank:
-    """Single-step, unverified reflection generation — always commits."""
+REFLEXION_SYSTEM_PROMPT = (
+    "You are a careful pattern-analysis assistant attempting a task "
+    "through trial and error. You are shown one observed scene's "
+    "attributes (background, shape, color, texture, size). The scene's "
+    "true outcome label (ANOMALY or NORMAL) is NOT given to you — you "
+    "must infer it yourself, using whatever pattern seems most "
+    "plausible, and propose a SHORT, CONCRETE, testable heuristic rule "
+    "(one or two sentences) stating which attribute condition you "
+    "believe determines ANOMALY vs NORMAL, and what this particular "
+    "scene's label is under that rule. Use ONLY the attributes given. "
+    "State it as a condition, e.g. 'On a white background, circle+red "
+    "scenes are ANOMALY; this scene is therefore ANOMALY.' "
+    "Reply with ONLY the rule sentence, nothing else."
+)
+
+
+def _reflexion_attempt_episode(gtext: str, true_label: str, K: int) -> tuple:
+    """
+    Up to K attempts, each given plain right/wrong environmental
+    feedback (not a verifier critique) about the PREVIOUS attempt.
+    Stops early and returns as soon as an attempt's predicted label
+    matches the truth. If all K attempts are wrong, COMMITS the last
+    attempt anyway — Reflexion never discards an episode, unlike VLEG's
+    strict verifier gate.
+    Returns (final_reflection, attempts_used, succeeded_within_budget).
+    """
+    prev_reflection = None
+    for j in range(K):
+        if prev_reflection is None:
+            messages = [{"role": "system", "content": REFLEXION_SYSTEM_PROMPT},
+                        {"role": "user", "content": gtext}]
+        else:
+            messages = [
+                {"role": "system", "content": REFLEXION_SYSTEM_PROMPT},
+                {"role": "user", "content": (
+                    f"{gtext}\n\n"
+                    f"Your previous attempt proposed: \"{prev_reflection}\"\n"
+                    f"That was WRONG — the correct outcome for this scene was "
+                    f"actually {true_label}. Try again: propose a different rule "
+                    f"that would correctly explain this outcome."
+                )},
+            ]
+        reply = chat(messages, temperature=0.0).strip().strip('"')
+        match = re.search(r"ANOMALY|NORMAL", reply.upper())
+        predicted_label = match.group(0) if match else None
+        if predicted_label == true_label:
+            return reply, j + 1, True
+        prev_reflection = reply
+    return prev_reflection, K, False
+
+
+def build_reflexion_bank(combos: list, K: int = 3, log_prefix: str = "reflexion") -> MemoryBank:
+    """K-bounded trial-and-error with binary environmental feedback,
+    always commits (matches Reflexion's own mechanism) — see
+    DEVIATIONS_LOG.md #32 for why this replaced a single-shot,
+    always-commit-on-first-try version that gave Reflexion no
+    self-correction opportunity at all."""
     bank = MemoryBank()
     for idx, combo in enumerate(combos):
         gtext = generator_view_text(combo)
-        reflection = generate_reflection(gtext, prev_reflection=None, critique=None)
+        reflection, attempts_used, succeeded = _reflexion_attempt_episode(gtext, combo["label"], K)
         bank.add(combo, episode_text(combo), reflection)
-        print(f"  [{log_prefix}] episode {idx+1}/{len(combos)}: COMMITTED -> \"{reflection}\"")
+        status = "SUCCEEDED" if succeeded else "COMMITTED (unresolved after K attempts)"
+        print(f"  [{log_prefix}] episode {idx+1}/{len(combos)}: {status} "
+              f"after {attempts_used} attempt(s) -> \"{reflection}\"")
     return bank
 
 
@@ -82,6 +151,7 @@ def reflexion_predict(bank: MemoryBank, target_combo: dict, k: int = 3) -> str:
 
 
 # ============================== HDR ==============================
+# (unchanged)
 
 GLOBAL_GENERATOR_SYSTEM = (
     "You are shown a full labeled dataset of observed scenes, each with "

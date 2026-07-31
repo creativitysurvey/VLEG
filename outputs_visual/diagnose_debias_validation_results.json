@@ -1,0 +1,44 @@
+{
+  "skew_red": {
+    "debias_off": {
+      "red_accuracy": 1.0,
+      "blue_accuracy": 0.8,
+      "red_correct": 10,
+      "blue_correct": 8
+    },
+    "debias_on": {
+      "red_accuracy": 1.0,
+      "blue_accuracy": 0.1,
+      "red_correct": 10,
+      "blue_correct": 1
+    }
+  },
+  "skew_blue": {
+    "debias_off": {
+      "red_accuracy": 0.0,
+      "blue_accuracy": 1.0,
+      "red_correct": 0,
+      "blue_correct": 10
+    },
+    "debias_on": {
+      "red_accuracy": 0.0,
+      "blue_accuracy": 1.0,
+      "red_correct": 0,
+      "blue_correct": 10
+    }
+  },
+  "balanced": {
+    "debias_off": {
+      "red_accuracy": 1.0,
+      "blue_accuracy": 1.0,
+      "red_correct": 10,
+      "blue_correct": 10
+    },
+    "debias_on": {
+      "red_accuracy": 1.0,
+      "blue_accuracy": 1.0,
+      "red_correct": 10,
+      "blue_correct": 10
+    }
+  }
+}

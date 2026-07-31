@@ -1,0 +1,68 @@
+{
+  "skew_red": {
+    "before": {
+      "n_rules": 12,
+      "skew": {
+        "ANOMALY": {
+          "color": "red"
+        }
+      },
+      "red_accuracy": 1.0,
+      "blue_accuracy": 0.8
+    },
+    "after": {
+      "n_rules": 13,
+      "skew": {},
+      "added_keys": [
+        [
+          "cube",
+          "blue",
+          "metal",
+          "large"
+        ]
+      ],
+      "red_accuracy": 1.0,
+      "blue_accuracy": 1.0
+    }
+  },
+  "skew_blue": {
+    "before": {
+      "n_rules": 10,
+      "skew": {
+        "ANOMALY": {
+          "shape": "cube",
+          "color": "blue",
+          "material": "metal"
+        }
+      },
+      "red_accuracy": 0.0,
+      "blue_accuracy": 1.0
+    },
+    "after": {
+      "n_rules": 13,
+      "skew": {},
+      "added_keys": [
+        [
+          "sphere",
+          "red",
+          "metal",
+          "large"
+        ],
+        [
+          "cube",
+          "red",
+          "rubber",
+          "large"
+        ],
+        [
+          "cube",
+          "red",
+          "rubber",
+          "small"
+        ]
+      ],
+      "red_accuracy": 1.0,
+      "blue_accuracy": 1.0
+    }
+  }
+}

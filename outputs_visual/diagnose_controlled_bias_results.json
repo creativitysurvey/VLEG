@@ -1,0 +1,500 @@
+{
+  "library_summary": {
+    "n_verified": 14,
+    "normal_keys": [
+      [
+        "cube",
+        "red",
+        "metal",
+        "large"
+      ],
+      [
+        "cube",
+        "red",
+        "metal",
+        "small"
+      ],
+      [
+        "cube",
+        "blue",
+        "rubber",
+        "large"
+      ],
+      [
+        "cube",
+        "blue",
+        "rubber",
+        "small"
+      ],
+      [
+        "sphere",
+        "red",
+        "rubber",
+        "large"
+      ],
+      [
+        "sphere",
+        "red",
+        "rubber",
+        "small"
+      ],
+      [
+        "sphere",
+        "blue",
+        "rubber",
+        "large"
+      ],
+      [
+        "sphere",
+        "blue",
+        "rubber",
+        "small"
+      ]
+    ],
+    "anomaly_keys": [
+      [
+        "cube",
+        "red",
+        "rubber",
+        "large"
+      ],
+      [
+        "cube",
+        "red",
+        "rubber",
+        "small"
+      ],
+      [
+        "cube",
+        "blue",
+        "metal",
+        "large"
+      ],
+      [
+        "cube",
+        "blue",
+        "metal",
+        "small"
+      ],
+      [
+        "sphere",
+        "red",
+        "metal",
+        "large"
+      ],
+      [
+        "sphere",
+        "red",
+        "metal",
+        "small"
+      ]
+    ]
+  },
+  "red_target": [
+    "cube",
+    "red",
+    "rubber",
+    "large"
+  ],
+  "blue_target": [
+    "cube",
+    "blue",
+    "metal",
+    "large"
+  ],
+  "variants": {
+    "skew_red": {
+      "n_rules": 12,
+      "anomaly_keys_used": [
+        [
+          "cube",
+          "red",
+          "rubber",
+          "small"
+        ],
+        [
+          "sphere",
+          "red",
+          "metal",
+          "small"
+        ],
+        [
+          "cube",
+          "red",
+          "rubber",
+          "large"
+        ],
+        [
+          "sphere",
+          "red",
+          "metal",
+          "large"
+        ]
+      ],
+      "red_accuracy": 1.0,
+      "blue_accuracy": 0.8,
+      "red_per_item": [
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_25.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_18.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_14.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_08.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_30.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_31.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_17.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_29.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_28.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_20.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        }
+      ],
+      "blue_per_item": [
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_09.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_02.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_14.png",
+          "predicted": "NORMAL",
+          "correct": false
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_26.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_03.png",
+          "predicted": "NORMAL",
+          "correct": false
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_11.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_13.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_23.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_07.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_16.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        }
+      ]
+    },
+    "skew_blue": {
+      "n_rules": 10,
+      "anomaly_keys_used": [
+        [
+          "cube",
+          "blue",
+          "metal",
+          "large"
+        ],
+        [
+          "cube",
+          "blue",
+          "metal",
+          "small"
+        ]
+      ],
+      "red_accuracy": 0.0,
+      "blue_accuracy": 1.0,
+      "red_per_item": [
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_25.png",
+          "predicted": "NORMAL",
+          "correct": false
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_18.png",
+          "predicted": "NORMAL",
+          "correct": false
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_14.png",
+          "predicted": "NORMAL",
+          "correct": false
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_08.png",
+          "predicted": "NORMAL",
+          "correct": false
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_30.png",
+          "predicted": "NORMAL",
+          "correct": false
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_31.png",
+          "predicted": "NORMAL",
+          "correct": false
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_17.png",
+          "predicted": "NORMAL",
+          "correct": false
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_29.png",
+          "predicted": "NORMAL",
+          "correct": false
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_28.png",
+          "predicted": "NORMAL",
+          "correct": false
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_20.png",
+          "predicted": "NORMAL",
+          "correct": false
+        }
+      ],
+      "blue_per_item": [
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_09.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_02.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_14.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_26.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_03.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_11.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_13.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_23.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_07.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_16.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        }
+      ]
+    },
+    "balanced": {
+      "n_rules": 12,
+      "anomaly_keys_used": [
+        [
+          "cube",
+          "red",
+          "rubber",
+          "small"
+        ],
+        [
+          "cube",
+          "blue",
+          "metal",
+          "large"
+        ],
+        [
+          "cube",
+          "red",
+          "rubber",
+          "large"
+        ],
+        [
+          "cube",
+          "blue",
+          "metal",
+          "small"
+        ]
+      ],
+      "red_accuracy": 1.0,
+      "blue_accuracy": 1.0,
+      "red_per_item": [
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_25.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_18.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_14.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_08.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_30.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_31.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_17.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_29.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_28.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_red_rubber_large_20.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        }
+      ],
+      "blue_per_item": [
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_09.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_02.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_14.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_26.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_03.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_11.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_13.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_23.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_07.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        },
+        {
+          "image_path": "clevr_crops_large/cube_blue_metal_large_16.png",
+          "predicted": "ANOMALY",
+          "correct": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "('cube', 'red', 'rubber', 'large')": {
+    "key": [
+      "cube",
+      "red",
+      "rubber",
+      "large"
+    ],
+    "label": "ANOMALY",
+    "verified": true,
+    "reflection": "Matte red cubes larger than half the frame are ANOMALY; this scene is therefore ANOMALY.",
+    "image_path": "clevr_crops_large/cube_red_rubber_large_01.png"
+  },
+  "('cube', 'red', 'rubber', 'small')": {
+    "key": [
+      "cube",
+      "red",
+      "rubber",
+      "small"
+    ],
+    "label": "ANOMALY",
+    "verified": true,
+    "reflection": "Matte red cube scenes are ANOMALY; this scene is therefore ANOMALY.",
+    "image_path": "clevr_crops_large/cube_red_rubber_small_01.png"
+  },
+  "('cube', 'red', 'metal', 'large')": {
+    "key": [
+      "cube",
+      "red",
+      "metal",
+      "large"
+    ],
+    "label": "NORMAL",
+    "verified": true,
+    "reflection": "Glossy red cube scenes are NORMAL; this scene is therefore NORMAL.",
+    "image_path": "clevr_crops_large/cube_red_metal_large_01.png"
+  },
+  "('cube', 'red', 'metal', 'small')": {
+    "key": [
+      "cube",
+      "red",
+      "metal",
+      "small"
+    ],
+    "label": "NORMAL",
+    "verified": true,
+    "reflection": "Glossy red cube scenes are NORMAL; this scene is therefore NORMAL.",
+    "image_path": "clevr_crops_large/cube_red_metal_small_01.png"
+  },
+  "('cube', 'blue', 'rubber', 'large')": {
+    "key": [
+      "cube",
+      "blue",
+      "rubber",
+      "large"
+    ],
+    "label": "NORMAL",
+    "verified": true,
+    "reflection": "Matte blue rectangular prism scenes are NORMAL; this scene is therefore NORMAL.",
+    "image_path": "clevr_crops_large/cube_blue_rubber_large_01.png"
+  },
+  "('cube', 'blue', 'rubber', 'small')": {
+    "key": [
+      "cube",
+      "blue",
+      "rubber",
+      "small"
+    ],
+    "label": "NORMAL",
+    "verified": true,
+    "reflection": "Matte blue cube scenes are NORMAL; this scene is therefore NORMAL.",
+    "image_path": "clevr_crops_large/cube_blue_rubber_small_01.png"
+  },
+  "('cube', 'blue', 'metal', 'large')": {
+    "key": [
+      "cube",
+      "blue",
+      "metal",
+      "large"
+    ],
+    "label": "ANOMALY",
+    "verified": true,
+    "reflection": "Glossy blue cube scenes are ANOMALY; this scene is therefore ANOMALY.",
+    "image_path": "clevr_crops_large/cube_blue_metal_large_01.png"
+  },
+  "('cube', 'blue', 'metal', 'small')": {
+    "key": [
+      "cube",
+      "blue",
+      "metal",
+      "small"
+    ],
+    "label": "ANOMALY",
+    "verified": true,
+    "reflection": "Glossy blue cube scenes are ANOMALY; this scene is therefore ANOMALY.",
+    "image_path": "clevr_crops_large/cube_blue_metal_small_01.png"
+  },
+  "('sphere', 'red', 'rubber', 'large')": {
+    "key": [
+      "sphere",
+      "red",
+      "rubber",
+      "large"
+    ],
+    "label": "NORMAL",
+    "verified": true,
+    "reflection": "Matte red sphere scenes are NORMAL; this scene is therefore NORMAL.",
+    "image_path": "clevr_crops_large/sphere_red_rubber_large_01.png"
+  },
+  "('sphere', 'red', 'rubber', 'small')": {
+    "key": [
+      "sphere",
+      "red",
+      "rubber",
+      "small"
+    ],
+    "label": "NORMAL",
+    "verified": true,
+    "reflection": "Matte red sphere scenes are NORMAL; this scene is therefore NORMAL.",
+    "image_path": "clevr_crops_large/sphere_red_rubber_small_01.png"
+  },
+  "('sphere', 'red', 'metal', 'large')": {
+    "key": [
+      "sphere",
+      "red",
+      "metal",
+      "large"
+    ],
+    "label": "ANOMALY",
+    "verified": true,
+    "reflection": "Glossy red sphere scenes are ANOMALY; this scene is therefore ANOMALY.",
+    "image_path": "clevr_crops_large/sphere_red_metal_large_01.png"
+  },
+  "('sphere', 'red', 'metal', 'small')": {
+    "key": [
+      "sphere",
+      "red",
+      "metal",
+      "small"
+    ],
+    "label": "ANOMALY",
+    "verified": true,
+    "reflection": "Glossy red spheres on a plain background are ANOMALY; this scene is therefore ANOMALY.",
+    "image_path": "clevr_crops_large/sphere_red_metal_small_01.png"
+  },
+  "('sphere', 'blue', 'rubber', 'large')": {
+    "key": [
+      "sphere",
+      "blue",
+      "rubber",
+      "large"
+    ],
+    "label": "NORMAL",
+    "verified": true,
+    "reflection": "Matte blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+    "image_path": "clevr_crops_large/sphere_blue_rubber_large_01.png"
+  },
+  "('sphere', 'blue', 'rubber', 'small')": {
+    "key": [
+      "sphere",
+      "blue",
+      "rubber",
+      "small"
+    ],
+    "label": "NORMAL",
+    "verified": true,
+    "reflection": "Matte blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+    "image_path": "clevr_crops_large/sphere_blue_rubber_small_01.png"
+  },
+  "('sphere', 'blue', 'metal', 'large')": {
+    "key": [
+      "sphere",
+      "blue",
+      "metal",
+      "large"
+    ],
+    "label": "ANOMALY",
+    "verified": false,
+    "reflection": null,
+    "image_path": "clevr_crops_large/sphere_blue_metal_large_01.png"
+  },
+  "('sphere', 'blue', 'metal', 'small')": {
+    "key": [
+      "sphere",
+      "blue",
+      "metal",
+      "small"
+    ],
+    "label": "ANOMALY",
+    "verified": false,
+    "reflection": null,
+    "image_path": "clevr_crops_large/sphere_blue_metal_small_01.png"
+  }
+}
