@@ -1,0 +1,319 @@
+{
+  "shape": {
+    "skew_cube": {
+      "n_rules": 12,
+      "skew": {
+        "ANOMALY": {
+          "shape": "cube"
+        }
+      },
+      "a_results": [
+        {
+          "target": [
+            "cube",
+            "red",
+            "rubber",
+            "large"
+          ],
+          "correct": 5,
+          "n": 5
+        },
+        {
+          "target": [
+            "cube",
+            "red",
+            "rubber",
+            "small"
+          ],
+          "correct": 5,
+          "n": 5
+        }
+      ],
+      "b_results": [
+        {
+          "target": [
+            "sphere",
+            "red",
+            "metal",
+            "large"
+          ],
+          "correct": 5,
+          "n": 5
+        },
+        {
+          "target": [
+            "sphere",
+            "red",
+            "metal",
+            "small"
+          ],
+          "correct": 5,
+          "n": 5
+        }
+      ]
+    },
+    "skew_sphere": {
+      "n_rules": 11,
+      "skew": {
+        "ANOMALY": {
+          "shape": "sphere",
+          "material": "metal"
+        }
+      },
+      "a_results": [
+        {
+          "target": [
+            "cube",
+            "red",
+            "rubber",
+            "large"
+          ],
+          "correct": 2,
+          "n": 5
+        },
+        {
+          "target": [
+            "cube",
+            "red",
+            "rubber",
+            "small"
+          ],
+          "correct": 1,
+          "n": 5
+        }
+      ],
+      "b_results": [
+        {
+          "target": [
+            "sphere",
+            "red",
+            "metal",
+            "large"
+          ],
+          "correct": 5,
+          "n": 5
+        },
+        {
+          "target": [
+            "sphere",
+            "red",
+            "metal",
+            "small"
+          ],
+          "correct": 5,
+          "n": 5
+        }
+      ]
+    },
+    "balanced": {
+      "n_rules": 12,
+      "skew": {
+        "ANOMALY": {
+          "color": "red"
+        }
+      },
+      "a_results": [
+        {
+          "target": [
+            "cube",
+            "red",
+            "rubber",
+            "large"
+          ],
+          "correct": 5,
+          "n": 5
+        },
+        {
+          "target": [
+            "cube",
+            "red",
+            "rubber",
+            "small"
+          ],
+          "correct": 5,
+          "n": 5
+        }
+      ],
+      "b_results": [
+        {
+          "target": [
+            "sphere",
+            "red",
+            "metal",
+            "large"
+          ],
+          "correct": 5,
+          "n": 5
+        },
+        {
+          "target": [
+            "sphere",
+            "red",
+            "metal",
+            "small"
+          ],
+          "correct": 5,
+          "n": 5
+        }
+      ]
+    }
+  },
+  "size": {
+    "skew_large": {
+      "n_rules": 11,
+      "skew": {
+        "ANOMALY": {
+          "size": "large"
+        }
+      },
+      "a_results": [
+        {
+          "target": [
+            "cube",
+            "red",
+            "rubber",
+            "large"
+          ],
+          "correct": 5,
+          "n": 5
+        },
+        {
+          "target": [
+            "cube",
+            "blue",
+            "metal",
+            "large"
+          ],
+          "correct": 5,
+          "n": 5
+        }
+      ],
+      "b_results": [
+        {
+          "target": [
+            "cube",
+            "red",
+            "rubber",
+            "small"
+          ],
+          "correct": 0,
+          "n": 5
+        },
+        {
+          "target": [
+            "cube",
+            "blue",
+            "metal",
+            "small"
+          ],
+          "correct": 5,
+          "n": 5
+        }
+      ]
+    },
+    "skew_small": {
+      "n_rules": 12,
+      "skew": {
+        "ANOMALY": {
+          "size": "small"
+        }
+      },
+      "a_results": [
+        {
+          "target": [
+            "cube",
+            "red",
+            "rubber",
+            "large"
+          ],
+          "correct": 5,
+          "n": 5
+        },
+        {
+          "target": [
+            "cube",
+            "blue",
+            "metal",
+            "large"
+          ],
+          "correct": 5,
+          "n": 5
+        }
+      ],
+      "b_results": [
+        {
+          "target": [
+            "cube",
+            "red",
+            "rubber",
+            "small"
+          ],
+          "correct": 5,
+          "n": 5
+        },
+        {
+          "target": [
+            "cube",
+            "blue",
+            "metal",
+            "small"
+          ],
+          "correct": 5,
+          "n": 5
+        }
+      ]
+    },
+    "balanced": {
+      "n_rules": 12,
+      "skew": {
+        "ANOMALY": {
+          "shape": "cube"
+        }
+      },
+      "a_results": [
+        {
+          "target": [
+            "cube",
+            "red",
+            "rubber",
+            "large"
+          ],
+          "correct": 5,
+          "n": 5
+        },
+        {
+          "target": [
+            "cube",
+            "blue",
+            "metal",
+            "large"
+          ],
+          "correct": 5,
+          "n": 5
+        }
+      ],
+      "b_results": [
+        {
+          "target": [
+            "cube",
+            "red",
+            "rubber",
+            "small"
+          ],
+          "correct": 5,
+          "n": 5
+        },
+        {
+          "target": [
+            "cube",
+            "blue",
+            "metal",
+            "small"
+          ],
+          "correct": 5,
+          "n": 5
+        }
+      ]
+    }
+  }
+}

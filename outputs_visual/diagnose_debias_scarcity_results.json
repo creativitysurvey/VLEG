@@ -1,0 +1,47 @@
+{
+  "before": {
+    "red_accuracy": 1.0,
+    "blue_accuracy": 0.8
+  },
+  "levels": {
+    "rich (all available)": {
+      "added_keys": [
+        [
+          "cube",
+          "blue",
+          "metal",
+          "large"
+        ]
+      ],
+      "n_rules": 13,
+      "residual_skew": {},
+      "red_accuracy": 1.0,
+      "blue_accuracy": 1.0
+    },
+    "scarce_1 (only 1 visible)": {
+      "added_keys": [
+        [
+          "cube",
+          "blue",
+          "metal",
+          "large"
+        ]
+      ],
+      "n_rules": 13,
+      "residual_skew": {},
+      "red_accuracy": 1.0,
+      "blue_accuracy": 1.0
+    },
+    "scarce_0 (none visible)": {
+      "added_keys": [],
+      "n_rules": 12,
+      "residual_skew": {
+        "ANOMALY": {
+          "color": "red"
+        }
+      },
+      "red_accuracy": 1.0,
+      "blue_accuracy": 0.8
+    }
+  }
+}

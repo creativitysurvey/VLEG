@@ -1,0 +1,640 @@
+{
+  "K": 1,
+  "consolidation_stats": {
+    "n_episodes": 12,
+    "n_verified": 6,
+    "n_discarded": 6
+  },
+  "consolidation_usage": {
+    "prompt_tokens": 30133,
+    "completion_tokens": 494,
+    "calls": 24
+  },
+  "consolidation_time_sec": 1940.9,
+  "per_item_partial": [
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "red",
+        "material": "rubber",
+        "size": "large",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/cube_red_rubber_large_25.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "red",
+        "material": "rubber",
+        "size": "large",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/cube_red_rubber_large_18.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "red",
+        "material": "rubber",
+        "size": "large",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/cube_red_rubber_large_14.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "red",
+        "material": "rubber",
+        "size": "small",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/cube_red_rubber_small_26.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "red",
+        "material": "rubber",
+        "size": "small",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/cube_red_rubber_small_29.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "red",
+        "material": "rubber",
+        "size": "small",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/cube_red_rubber_small_21.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "red",
+        "material": "metal",
+        "size": "large",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/cube_red_metal_large_03.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "red",
+        "material": "metal",
+        "size": "large",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/cube_red_metal_large_19.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "red",
+        "material": "metal",
+        "size": "large",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/cube_red_metal_large_13.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "red",
+        "material": "metal",
+        "size": "small",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/cube_red_metal_small_15.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "red",
+        "material": "metal",
+        "size": "small",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/cube_red_metal_small_07.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "red",
+        "material": "metal",
+        "size": "small",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/cube_red_metal_small_26.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "blue",
+        "material": "rubber",
+        "size": "large",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_24.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "blue",
+        "material": "rubber",
+        "size": "large",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_32.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "blue",
+        "material": "rubber",
+        "size": "large",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/cube_blue_rubber_large_14.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "blue",
+        "material": "rubber",
+        "size": "small",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_29.png"
+      },
+      "masked_at_train": true,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "blue",
+        "material": "rubber",
+        "size": "small",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_05.png"
+      },
+      "masked_at_train": true,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "blue",
+        "material": "rubber",
+        "size": "small",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/cube_blue_rubber_small_26.png"
+      },
+      "masked_at_train": true,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "blue",
+        "material": "metal",
+        "size": "large",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/cube_blue_metal_large_09.png"
+      },
+      "masked_at_train": true,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "blue",
+        "material": "metal",
+        "size": "large",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/cube_blue_metal_large_02.png"
+      },
+      "masked_at_train": true,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "blue",
+        "material": "metal",
+        "size": "large",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/cube_blue_metal_large_14.png"
+      },
+      "masked_at_train": true,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "blue",
+        "material": "metal",
+        "size": "small",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/cube_blue_metal_small_21.png"
+      },
+      "masked_at_train": true,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "blue",
+        "material": "metal",
+        "size": "small",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/cube_blue_metal_small_15.png"
+      },
+      "masked_at_train": true,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "cube",
+        "color": "blue",
+        "material": "metal",
+        "size": "small",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/cube_blue_metal_small_12.png"
+      },
+      "masked_at_train": true,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "red",
+        "material": "rubber",
+        "size": "large",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_16.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "red",
+        "material": "rubber",
+        "size": "large",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_15.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "red",
+        "material": "rubber",
+        "size": "large",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/sphere_red_rubber_large_28.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "red",
+        "material": "rubber",
+        "size": "small",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_20.png"
+      },
+      "masked_at_train": true,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "red",
+        "material": "rubber",
+        "size": "small",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_24.png"
+      },
+      "masked_at_train": true,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "red",
+        "material": "rubber",
+        "size": "small",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/sphere_red_rubber_small_17.png"
+      },
+      "masked_at_train": true,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "red",
+        "material": "metal",
+        "size": "large",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/sphere_red_metal_large_15.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "red",
+        "material": "metal",
+        "size": "large",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/sphere_red_metal_large_12.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "red",
+        "material": "metal",
+        "size": "large",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/sphere_red_metal_large_06.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "red",
+        "material": "metal",
+        "size": "small",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/sphere_red_metal_small_25.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "red",
+        "material": "metal",
+        "size": "small",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/sphere_red_metal_small_05.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "red",
+        "material": "metal",
+        "size": "small",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/sphere_red_metal_small_08.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "blue",
+        "material": "rubber",
+        "size": "large",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_19.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "blue",
+        "material": "rubber",
+        "size": "large",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_03.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "blue",
+        "material": "rubber",
+        "size": "large",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/sphere_blue_rubber_large_18.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "blue",
+        "material": "rubber",
+        "size": "small",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_05.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "blue",
+        "material": "rubber",
+        "size": "small",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_27.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "blue",
+        "material": "rubber",
+        "size": "small",
+        "label": "NORMAL",
+        "image_path": "clevr_crops_large/sphere_blue_rubber_small_26.png"
+      },
+      "masked_at_train": false,
+      "predicted": "NORMAL",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "blue",
+        "material": "metal",
+        "size": "large",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_13.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "blue",
+        "material": "metal",
+        "size": "large",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_32.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "blue",
+        "material": "metal",
+        "size": "large",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/sphere_blue_metal_large_25.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "blue",
+        "material": "metal",
+        "size": "small",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_27.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "blue",
+        "material": "metal",
+        "size": "small",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_12.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    },
+    {
+      "combo": {
+        "shape": "sphere",
+        "color": "blue",
+        "material": "metal",
+        "size": "small",
+        "label": "ANOMALY",
+        "image_path": "clevr_crops_large/sphere_blue_metal_small_13.png"
+      },
+      "masked_at_train": false,
+      "predicted": "ANOMALY",
+      "correct": true
+    }
+  ]
+}

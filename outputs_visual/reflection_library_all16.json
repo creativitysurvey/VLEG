@@ -187,8 +187,8 @@
       "small"
     ],
     "label": "ANOMALY",
-    "verified": false,
-    "reflection": null,
+    "verified": true,
+    "reflection": "Glossy blue spheres are ANOMALY; this scene is therefore ANOMALY.",
     "image_path": "clevr_crops_large/sphere_blue_metal_small_01.png"
   }
 }
