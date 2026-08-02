@@ -1,0 +1,1272 @@
+{
+  "per_seed": [
+    {
+      "seed": 42,
+      "single_step": {
+        "strategy": "single_step",
+        "n_committed": 12,
+        "label_correct_rate": 0.5,
+        "shape_hallucination_rate_given_correct": 0.0,
+        "color_hallucination_rate_given_correct": 0.0,
+        "material_hallucination_rate_given_correct": 0.0,
+        "spurious_size_rate_given_correct": 0.0,
+        "per_item": [
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "rubber",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_red_rubber_large_01.png"
+            },
+            "reflection": "Matte red cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "rubber",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_red_rubber_small_01.png"
+            },
+            "reflection": "Matte red cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "metal",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_red_metal_large_01.png"
+            },
+            "reflection": "Glossy red cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "metal",
+              "size": "small",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_red_metal_small_01.png"
+            },
+            "reflection": "Glossy red cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "blue",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_blue_rubber_large_01.png"
+            },
+            "reflection": "Matte blue rectangular prism scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_red_rubber_large_01.png"
+            },
+            "reflection": "Matte red sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "metal",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_red_metal_large_01.png"
+            },
+            "reflection": "Glossy red sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "metal",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_red_metal_small_01.png"
+            },
+            "reflection": "Glossy red sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_blue_rubber_large_01.png"
+            },
+            "reflection": "Matte blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "rubber",
+              "size": "small",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_blue_rubber_small_01.png"
+            },
+            "reflection": "Matte blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "metal",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_blue_metal_large_01.png"
+            },
+            "reflection": "Glossy blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "metal",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_blue_metal_small_01.png"
+            },
+            "reflection": "Glossy blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          }
+        ]
+      },
+      "VLEG": {
+        "strategy": "VLEG",
+        "n_committed": 11,
+        "label_correct_rate": 1.0,
+        "shape_hallucination_rate_given_correct": 0.0,
+        "color_hallucination_rate_given_correct": 0.0,
+        "material_hallucination_rate_given_correct": 0.0,
+        "spurious_size_rate_given_correct": 0.09090909090909091,
+        "per_item": [
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "rubber",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_red_rubber_large_01.png"
+            },
+            "reflection": "Matte red cube scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "rubber",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_red_rubber_small_01.png"
+            },
+            "reflection": "Matte red cube scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "metal",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_red_metal_large_01.png"
+            },
+            "reflection": "Glossy red cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "metal",
+              "size": "small",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_red_metal_small_01.png"
+            },
+            "reflection": "Glossy red cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "blue",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_blue_rubber_large_01.png"
+            },
+            "reflection": "Matte blue rectangular prism scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_red_rubber_large_01.png"
+            },
+            "reflection": "Matte red sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "metal",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_red_metal_large_01.png"
+            },
+            "reflection": "Glossy red sphere scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "metal",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_red_metal_small_01.png"
+            },
+            "reflection": "Glossy red sphere scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_blue_rubber_large_01.png"
+            },
+            "reflection": "Matte blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "rubber",
+              "size": "small",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_blue_rubber_small_01.png"
+            },
+            "reflection": "Matte blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "metal",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_blue_metal_large_01.png"
+            },
+            "reflection": "Glossy blue spheres larger than medium size are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": true
+          }
+        ]
+      }
+    },
+    {
+      "seed": 7,
+      "single_step": {
+        "strategy": "single_step",
+        "n_committed": 12,
+        "label_correct_rate": 0.5,
+        "shape_hallucination_rate_given_correct": 0.0,
+        "color_hallucination_rate_given_correct": 0.0,
+        "material_hallucination_rate_given_correct": 0.0,
+        "spurious_size_rate_given_correct": 0.0,
+        "per_item": [
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "rubber",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_red_rubber_large_01.png"
+            },
+            "reflection": "Matte red cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "rubber",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_red_rubber_small_01.png"
+            },
+            "reflection": "Matte red cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "metal",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_red_metal_large_01.png"
+            },
+            "reflection": "Glossy red cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "blue",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_blue_rubber_large_01.png"
+            },
+            "reflection": "Matte blue rectangular prism scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "blue",
+              "material": "rubber",
+              "size": "small",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_blue_rubber_small_01.png"
+            },
+            "reflection": "Matte blue cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "blue",
+              "material": "metal",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_blue_metal_large_01.png"
+            },
+            "reflection": "Glossy blue cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_red_rubber_large_01.png"
+            },
+            "reflection": "Matte red sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "metal",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_red_metal_large_01.png"
+            },
+            "reflection": "Glossy red sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "metal",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_red_metal_small_01.png"
+            },
+            "reflection": "Glossy red sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_blue_rubber_large_01.png"
+            },
+            "reflection": "Matte blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "rubber",
+              "size": "small",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_blue_rubber_small_01.png"
+            },
+            "reflection": "Matte blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "metal",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_blue_metal_small_01.png"
+            },
+            "reflection": "Glossy blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          }
+        ]
+      },
+      "VLEG": {
+        "strategy": "VLEG",
+        "n_committed": 11,
+        "label_correct_rate": 1.0,
+        "shape_hallucination_rate_given_correct": 0.0,
+        "color_hallucination_rate_given_correct": 0.0,
+        "material_hallucination_rate_given_correct": 0.0,
+        "spurious_size_rate_given_correct": 0.0,
+        "per_item": [
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "rubber",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_red_rubber_large_01.png"
+            },
+            "reflection": "Matte red cube scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "rubber",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_red_rubber_small_01.png"
+            },
+            "reflection": "Matte red cube scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "metal",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_red_metal_large_01.png"
+            },
+            "reflection": "Glossy red cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "blue",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_blue_rubber_large_01.png"
+            },
+            "reflection": "Matte blue rectangular prism scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "blue",
+              "material": "rubber",
+              "size": "small",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_blue_rubber_small_01.png"
+            },
+            "reflection": "Matte blue cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "blue",
+              "material": "metal",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_blue_metal_large_01.png"
+            },
+            "reflection": "Glossy blue cube scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_red_rubber_large_01.png"
+            },
+            "reflection": "Matte red sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "metal",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_red_metal_large_01.png"
+            },
+            "reflection": "Glossy red sphere scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "metal",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_red_metal_small_01.png"
+            },
+            "reflection": "Glossy red sphere scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_blue_rubber_large_01.png"
+            },
+            "reflection": "Matte blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "rubber",
+              "size": "small",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_blue_rubber_small_01.png"
+            },
+            "reflection": "Matte blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          }
+        ]
+      }
+    },
+    {
+      "seed": 123,
+      "single_step": {
+        "strategy": "single_step",
+        "n_committed": 12,
+        "label_correct_rate": 0.3333333333333333,
+        "shape_hallucination_rate_given_correct": 0.0,
+        "color_hallucination_rate_given_correct": 0.0,
+        "material_hallucination_rate_given_correct": 0.0,
+        "spurious_size_rate_given_correct": 0.0,
+        "per_item": [
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "rubber",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_red_rubber_large_01.png"
+            },
+            "reflection": "Matte red cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "rubber",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_red_rubber_small_01.png"
+            },
+            "reflection": "Matte red cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "metal",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_red_metal_large_01.png"
+            },
+            "reflection": "Glossy red cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "blue",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_blue_rubber_large_01.png"
+            },
+            "reflection": "Matte blue rectangular prism scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "blue",
+              "material": "metal",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_blue_metal_large_01.png"
+            },
+            "reflection": "Glossy blue cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "blue",
+              "material": "metal",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_blue_metal_small_01.png"
+            },
+            "reflection": "Glossy blue cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "metal",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_red_metal_large_01.png"
+            },
+            "reflection": "Glossy red sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "metal",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_red_metal_small_01.png"
+            },
+            "reflection": "Glossy red sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_blue_rubber_large_01.png"
+            },
+            "reflection": "Matte blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "rubber",
+              "size": "small",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_blue_rubber_small_01.png"
+            },
+            "reflection": "Matte blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "metal",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_blue_metal_large_01.png"
+            },
+            "reflection": "Glossy blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "metal",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_blue_metal_small_01.png"
+            },
+            "reflection": "Glossy blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": false,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          }
+        ]
+      },
+      "VLEG": {
+        "strategy": "VLEG",
+        "n_committed": 11,
+        "label_correct_rate": 1.0,
+        "shape_hallucination_rate_given_correct": 0.0,
+        "color_hallucination_rate_given_correct": 0.0,
+        "material_hallucination_rate_given_correct": 0.0,
+        "spurious_size_rate_given_correct": 0.09090909090909091,
+        "per_item": [
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "rubber",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_red_rubber_large_01.png"
+            },
+            "reflection": "Matte red cube scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "rubber",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_red_rubber_small_01.png"
+            },
+            "reflection": "Matte red cube scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "red",
+              "material": "metal",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_red_metal_large_01.png"
+            },
+            "reflection": "Glossy red cube scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "blue",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/cube_blue_rubber_large_01.png"
+            },
+            "reflection": "Matte blue rectangular prism scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "blue",
+              "material": "metal",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_blue_metal_large_01.png"
+            },
+            "reflection": "Glossy blue cube scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "cube",
+              "color": "blue",
+              "material": "metal",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/cube_blue_metal_small_01.png"
+            },
+            "reflection": "Glossy blue cube scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "metal",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_red_metal_large_01.png"
+            },
+            "reflection": "Glossy red sphere scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "red",
+              "material": "metal",
+              "size": "small",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_red_metal_small_01.png"
+            },
+            "reflection": "Glossy red sphere scenes are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "rubber",
+              "size": "large",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_blue_rubber_large_01.png"
+            },
+            "reflection": "Matte blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "rubber",
+              "size": "small",
+              "label": "NORMAL",
+              "image_path": "clevr_crops_large/sphere_blue_rubber_small_01.png"
+            },
+            "reflection": "Matte blue sphere scenes are NORMAL; this scene is therefore NORMAL.",
+            "stated_label": "NORMAL",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": false
+          },
+          {
+            "combo": {
+              "shape": "sphere",
+              "color": "blue",
+              "material": "metal",
+              "size": "large",
+              "label": "ANOMALY",
+              "image_path": "clevr_crops_large/sphere_blue_metal_large_01.png"
+            },
+            "reflection": "Glossy blue spheres larger than medium size are ANOMALY; this scene is therefore ANOMALY.",
+            "stated_label": "ANOMALY",
+            "label_correct": true,
+            "shape_hallucination": false,
+            "color_hallucination": false,
+            "material_hallucination": false,
+            "spurious_size": true
+          }
+        ]
+      }
+    }
+  ],
+  "pooled": {
+    "single_step": {
+      "strategy": "single_step",
+      "n_committed": 36,
+      "label_correct_rate": 0.4444444444444444,
+      "shape_hallucination_rate_given_correct": 0.0,
+      "color_hallucination_rate_given_correct": 0.0,
+      "material_hallucination_rate_given_correct": 0.0,
+      "spurious_size_rate_given_correct": 0.0
+    },
+    "VLEG": {
+      "strategy": "VLEG",
+      "n_committed": 33,
+      "label_correct_rate": 1.0,
+      "shape_hallucination_rate_given_correct": 0.0,
+      "color_hallucination_rate_given_correct": 0.0,
+      "material_hallucination_rate_given_correct": 0.0,
+      "spurious_size_rate_given_correct": 0.06060606060606061
+    }
+  }
+}
