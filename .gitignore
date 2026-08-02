@@ -15,3 +15,5 @@ Thumbs.db
 # the actual measured results this project's DEVIATIONS_LOG.md and
 # final_aligned.tex cite. Keeping them in git means the repo carries
 # its own evidence, not just the code that could someday reproduce it.
+logs_*.txt
+ollama_serve.log
