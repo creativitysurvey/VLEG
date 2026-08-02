@@ -1,0 +1,162 @@
+[
+  {
+    "shape": "cube",
+    "color": "red",
+    "material": "rubber",
+    "size": "large",
+    "image_path": "clevr_crops/cube_red_rubber_large.png",
+    "source_image": "CLEVR_train_040270.png",
+    "source_n_objects": 3,
+    "isolation_px": 271.9
+  },
+  {
+    "shape": "cube",
+    "color": "red",
+    "material": "rubber",
+    "size": "small",
+    "image_path": "clevr_crops/cube_red_rubber_small.png",
+    "source_image": "CLEVR_train_053895.png",
+    "source_n_objects": 4,
+    "isolation_px": 199.0
+  },
+  {
+    "shape": "cube",
+    "color": "red",
+    "material": "metal",
+    "size": "large",
+    "image_path": "clevr_crops/cube_red_metal_large.png",
+    "source_image": "CLEVR_train_068903.png",
+    "source_n_objects": 3,
+    "isolation_px": 256.3
+  },
+  {
+    "shape": "cube",
+    "color": "red",
+    "material": "metal",
+    "size": "small",
+    "image_path": "clevr_crops/cube_red_metal_small.png",
+    "source_image": "CLEVR_train_022096.png",
+    "source_n_objects": 3,
+    "isolation_px": 272.4
+  },
+  {
+    "shape": "cube",
+    "color": "blue",
+    "material": "rubber",
+    "size": "large",
+    "image_path": "clevr_crops/cube_blue_rubber_large.png",
+    "source_image": "CLEVR_train_015428.png",
+    "source_n_objects": 3,
+    "isolation_px": 254.4
+  },
+  {
+    "shape": "cube",
+    "color": "blue",
+    "material": "rubber",
+    "size": "small",
+    "image_path": "clevr_crops/cube_blue_rubber_small.png",
+    "source_image": "CLEVR_train_032162.png",
+    "source_n_objects": 3,
+    "isolation_px": 225.7
+  },
+  {
+    "shape": "cube",
+    "color": "blue",
+    "material": "metal",
+    "size": "large",
+    "image_path": "clevr_crops/cube_blue_metal_large.png",
+    "source_image": "CLEVR_train_047046.png",
+    "source_n_objects": 3,
+    "isolation_px": 243.0
+  },
+  {
+    "shape": "cube",
+    "color": "blue",
+    "material": "metal",
+    "size": "small",
+    "image_path": "clevr_crops/cube_blue_metal_small.png",
+    "source_image": "CLEVR_train_032534.png",
+    "source_n_objects": 3,
+    "isolation_px": 253.0
+  },
+  {
+    "shape": "sphere",
+    "color": "red",
+    "material": "rubber",
+    "size": "large",
+    "image_path": "clevr_crops/sphere_red_rubber_large.png",
+    "source_image": "CLEVR_train_033664.png",
+    "source_n_objects": 3,
+    "isolation_px": 297.3
+  },
+  {
+    "shape": "sphere",
+    "color": "red",
+    "material": "rubber",
+    "size": "small",
+    "image_path": "clevr_crops/sphere_red_rubber_small.png",
+    "source_image": "CLEVR_train_054932.png",
+    "source_n_objects": 3,
+    "isolation_px": 309.6
+  },
+  {
+    "shape": "sphere",
+    "color": "red",
+    "material": "metal",
+    "size": "large",
+    "image_path": "clevr_crops/sphere_red_metal_large.png",
+    "source_image": "CLEVR_train_055152.png",
+    "source_n_objects": 3,
+    "isolation_px": 246.5
+  },
+  {
+    "shape": "sphere",
+    "color": "red",
+    "material": "metal",
+    "size": "small",
+    "image_path": "clevr_crops/sphere_red_metal_small.png",
+    "source_image": "CLEVR_train_016234.png",
+    "source_n_objects": 3,
+    "isolation_px": 308.5
+  },
+  {
+    "shape": "sphere",
+    "color": "blue",
+    "material": "rubber",
+    "size": "large",
+    "image_path": "clevr_crops/sphere_blue_rubber_large.png",
+    "source_image": "CLEVR_train_026909.png",
+    "source_n_objects": 3,
+    "isolation_px": 246.1
+  },
+  {
+    "shape": "sphere",
+    "color": "blue",
+    "material": "rubber",
+    "size": "small",
+    "image_path": "clevr_crops/sphere_blue_rubber_small.png",
+    "source_image": "CLEVR_train_061025.png",
+    "source_n_objects": 3,
+    "isolation_px": 230.1
+  },
+  {
+    "shape": "sphere",
+    "color": "blue",
+    "material": "metal",
+    "size": "large",
+    "image_path": "clevr_crops/sphere_blue_metal_large.png",
+    "source_image": "CLEVR_train_034689.png",
+    "source_n_objects": 3,
+    "isolation_px": 253.5
+  },
+  {
+    "shape": "sphere",
+    "color": "blue",
+    "material": "metal",
+    "size": "small",
+    "image_path": "clevr_crops/sphere_blue_metal_small.png",
+    "source_image": "CLEVR_train_007592.png",
+    "source_n_objects": 4,
+    "isolation_px": 240.4
+  }
+]
