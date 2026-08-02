@@ -1,24 +1,24 @@
 {
   "level2": {
     "level": "Level2",
-    "bank_size": 15,
+    "bank_size": 16,
     "n_train": 16,
-    "consolidation_time_sec": 131.6,
-    "eval_time_sec": 91.2,
+    "consolidation_time_sec": 546.4,
+    "eval_time_sec": 231.3,
     "modality_results": {
       "hybrid": {
-        "accuracy": 0.875,
-        "n_correct": 14,
+        "accuracy": 1.0,
+        "n_correct": 16,
         "n_total": 16
       },
       "abstract_only": {
-        "accuracy": 0.8125,
-        "n_correct": 13,
+        "accuracy": 1.0,
+        "n_correct": 16,
         "n_total": 16
       },
       "raw_only": {
-        "accuracy": 0.8125,
-        "n_correct": 13,
+        "accuracy": 1.0,
+        "n_correct": 16,
         "n_total": 16
       }
     },
@@ -26,8 +26,8 @@
     "raw_results": {
       "hybrid": {
         "modality": "hybrid",
-        "accuracy": 0.875,
-        "n_correct": 14,
+        "accuracy": 1.0,
+        "n_correct": 16,
         "n_total": 16,
         "per_item": [
           {
@@ -40,8 +40,8 @@
               "label": "ANOMALY"
             },
             "masked_at_train": false,
-            "predicted": "NORMAL",
-            "correct": false
+            "predicted": "ANOMALY",
+            "correct": true
           },
           {
             "combo": {
@@ -222,8 +222,8 @@
               "label": "NORMAL"
             },
             "masked_at_train": false,
-            "predicted": "ANOMALY",
-            "correct": false
+            "predicted": "NORMAL",
+            "correct": true
           },
           {
             "combo": {
@@ -242,8 +242,8 @@
       },
       "abstract_only": {
         "modality": "abstract_only",
-        "accuracy": 0.8125,
-        "n_correct": 13,
+        "accuracy": 1.0,
+        "n_correct": 16,
         "n_total": 16,
         "per_item": [
           {
@@ -295,8 +295,8 @@
               "label": "NORMAL"
             },
             "masked_at_train": false,
-            "predicted": "ANOMALY",
-            "correct": false
+            "predicted": "NORMAL",
+            "correct": true
           },
           {
             "combo": {
@@ -334,8 +334,8 @@
               "label": "NORMAL"
             },
             "masked_at_train": false,
-            "predicted": "ANOMALY",
-            "correct": false
+            "predicted": "NORMAL",
+            "correct": true
           },
           {
             "combo": {
@@ -438,8 +438,8 @@
               "label": "NORMAL"
             },
             "masked_at_train": false,
-            "predicted": "ANOMALY",
-            "correct": false
+            "predicted": "NORMAL",
+            "correct": true
           },
           {
             "combo": {
@@ -458,8 +458,8 @@
       },
       "raw_only": {
         "modality": "raw_only",
-        "accuracy": 0.8125,
-        "n_correct": 13,
+        "accuracy": 1.0,
+        "n_correct": 16,
         "n_total": 16,
         "per_item": [
           {
@@ -472,8 +472,8 @@
               "label": "ANOMALY"
             },
             "masked_at_train": false,
-            "predicted": "NORMAL",
-            "correct": false
+            "predicted": "ANOMALY",
+            "correct": true
           },
           {
             "combo": {
@@ -537,8 +537,8 @@
               "label": "ANOMALY"
             },
             "masked_at_train": false,
-            "predicted": "NORMAL",
-            "correct": false
+            "predicted": "ANOMALY",
+            "correct": true
           },
           {
             "combo": {
@@ -615,8 +615,8 @@
               "label": "ANOMALY"
             },
             "masked_at_train": false,
-            "predicted": "NORMAL",
-            "correct": false
+            "predicted": "ANOMALY",
+            "correct": true
           },
           {
             "combo": {
@@ -679,44 +679,44 @@
       "level": "Level3_seed42",
       "bank_size": 12,
       "n_train": 12,
-      "consolidation_time_sec": 98.9,
-      "eval_time_sec": 83.7,
+      "consolidation_time_sec": 473.8,
+      "eval_time_sec": 228.5,
       "modality_results": {
         "hybrid": {
-          "accuracy": 0.75,
-          "n_correct": 12,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16
         },
         "abstract_only": {
-          "accuracy": 0.8125,
-          "n_correct": 13,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16
         },
         "raw_only": {
-          "accuracy": 0.875,
-          "n_correct": 14,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16
         }
       },
       "masked_vs_seen_breakdown": {
         "hybrid": {
           "masked_accuracy": 0.75,
-          "seen_accuracy": 0.75
+          "seen_accuracy": 1.0
         },
         "abstract_only": {
-          "masked_accuracy": 0.75,
-          "seen_accuracy": 0.8333333333333334
+          "masked_accuracy": 1.0,
+          "seen_accuracy": 0.9166666666666666
         },
         "raw_only": {
-          "masked_accuracy": 1.0,
-          "seen_accuracy": 0.8333333333333334
+          "masked_accuracy": 0.75,
+          "seen_accuracy": 1.0
         }
       },
       "raw_results": {
         "hybrid": {
           "modality": "hybrid",
-          "accuracy": 0.75,
-          "n_correct": 12,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16,
           "per_item": [
             {
@@ -729,8 +729,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -768,8 +768,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -911,8 +911,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -931,8 +931,8 @@
         },
         "abstract_only": {
           "modality": "abstract_only",
-          "accuracy": 0.8125,
-          "n_correct": 13,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16,
           "per_item": [
             {
@@ -1023,8 +1023,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -1127,8 +1127,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -1147,8 +1147,8 @@
         },
         "raw_only": {
           "modality": "raw_only",
-          "accuracy": 0.875,
-          "n_correct": 14,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16,
           "per_item": [
             {
@@ -1161,90 +1161,90 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
+              "predicted": "ANOMALY",
+              "correct": true
+            },
+            {
+              "combo": {
+                "shape": "circle",
+                "color": "red",
+                "texture": "solid",
+                "background": "black",
+                "size": "small",
+                "label": "NORMAL"
+              },
+              "masked_at_train": false,
               "predicted": "NORMAL",
+              "correct": true
+            },
+            {
+              "combo": {
+                "shape": "circle",
+                "color": "red",
+                "texture": "striped",
+                "background": "white",
+                "size": "large",
+                "label": "ANOMALY"
+              },
+              "masked_at_train": false,
+              "predicted": "ANOMALY",
+              "correct": true
+            },
+            {
+              "combo": {
+                "shape": "circle",
+                "color": "red",
+                "texture": "striped",
+                "background": "black",
+                "size": "small",
+                "label": "NORMAL"
+              },
+              "masked_at_train": false,
+              "predicted": "NORMAL",
+              "correct": true
+            },
+            {
+              "combo": {
+                "shape": "circle",
+                "color": "blue",
+                "texture": "solid",
+                "background": "white",
+                "size": "small",
+                "label": "NORMAL"
+              },
+              "masked_at_train": false,
+              "predicted": "NORMAL",
+              "correct": true
+            },
+            {
+              "combo": {
+                "shape": "circle",
+                "color": "blue",
+                "texture": "solid",
+                "background": "black",
+                "size": "large",
+                "label": "ANOMALY"
+              },
+              "masked_at_train": true,
+              "predicted": "ANOMALY",
+              "correct": true
+            },
+            {
+              "combo": {
+                "shape": "circle",
+                "color": "blue",
+                "texture": "striped",
+                "background": "white",
+                "size": "large",
+                "label": "NORMAL"
+              },
+              "masked_at_train": true,
+              "predicted": "ANOMALY",
               "correct": false
             },
             {
               "combo": {
                 "shape": "circle",
-                "color": "red",
-                "texture": "solid",
-                "background": "black",
-                "size": "small",
-                "label": "NORMAL"
-              },
-              "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": true
-            },
-            {
-              "combo": {
-                "shape": "circle",
-                "color": "red",
-                "texture": "striped",
-                "background": "white",
-                "size": "large",
-                "label": "ANOMALY"
-              },
-              "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": true
-            },
-            {
-              "combo": {
-                "shape": "circle",
-                "color": "red",
-                "texture": "striped",
-                "background": "black",
-                "size": "small",
-                "label": "NORMAL"
-              },
-              "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": true
-            },
-            {
-              "combo": {
-                "shape": "circle",
-                "color": "blue",
-                "texture": "solid",
-                "background": "white",
-                "size": "small",
-                "label": "NORMAL"
-              },
-              "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": true
-            },
-            {
-              "combo": {
-                "shape": "circle",
-                "color": "blue",
-                "texture": "solid",
-                "background": "black",
-                "size": "large",
-                "label": "ANOMALY"
-              },
-              "masked_at_train": true,
-              "predicted": "ANOMALY",
-              "correct": true
-            },
-            {
-              "combo": {
-                "shape": "circle",
-                "color": "blue",
-                "texture": "striped",
-                "background": "white",
-                "size": "large",
-                "label": "NORMAL"
-              },
-              "masked_at_train": true,
-              "predicted": "NORMAL",
-              "correct": true
-            },
-            {
-              "combo": {
-                "shape": "circle",
                 "color": "blue",
                 "texture": "striped",
                 "background": "black",
@@ -1304,8 +1304,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -1366,46 +1366,46 @@
     },
     {
       "level": "Level3_seed7",
-      "bank_size": 11,
+      "bank_size": 12,
       "n_train": 12,
-      "consolidation_time_sec": 96.3,
-      "eval_time_sec": 85.5,
+      "consolidation_time_sec": 404.3,
+      "eval_time_sec": 237.9,
       "modality_results": {
         "hybrid": {
-          "accuracy": 0.75,
-          "n_correct": 12,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16
         },
         "abstract_only": {
-          "accuracy": 0.75,
-          "n_correct": 12,
+          "accuracy": 0.875,
+          "n_correct": 14,
           "n_total": 16
         },
         "raw_only": {
-          "accuracy": 0.8125,
-          "n_correct": 13,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16
         }
       },
       "masked_vs_seen_breakdown": {
         "hybrid": {
-          "masked_accuracy": 0.5,
-          "seen_accuracy": 0.8333333333333334
+          "masked_accuracy": 0.75,
+          "seen_accuracy": 1.0
         },
         "abstract_only": {
           "masked_accuracy": 0.75,
-          "seen_accuracy": 0.75
+          "seen_accuracy": 0.9166666666666666
         },
         "raw_only": {
           "masked_accuracy": 0.75,
-          "seen_accuracy": 0.8333333333333334
+          "seen_accuracy": 1.0
         }
       },
       "raw_results": {
         "hybrid": {
           "modality": "hybrid",
-          "accuracy": 0.75,
-          "n_correct": 12,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16,
           "per_item": [
             {
@@ -1496,8 +1496,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -1561,8 +1561,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -1600,8 +1600,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -1620,8 +1620,8 @@
         },
         "abstract_only": {
           "modality": "abstract_only",
-          "accuracy": 0.75,
-          "n_correct": 12,
+          "accuracy": 0.875,
+          "n_correct": 14,
           "n_total": 16,
           "per_item": [
             {
@@ -1673,8 +1673,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "NORMAL",
-              "correct": true
+              "predicted": "ANOMALY",
+              "correct": false
             },
             {
               "combo": {
@@ -1738,8 +1738,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -1777,8 +1777,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -1816,8 +1816,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -1836,8 +1836,8 @@
         },
         "raw_only": {
           "modality": "raw_only",
-          "accuracy": 0.8125,
-          "n_correct": 13,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16,
           "per_item": [
             {
@@ -1889,8 +1889,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "NORMAL",
-              "correct": true
+              "predicted": "ANOMALY",
+              "correct": false
             },
             {
               "combo": {
@@ -1928,8 +1928,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -1993,8 +1993,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -2032,8 +2032,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -2055,46 +2055,46 @@
     },
     {
       "level": "Level3_seed123",
-      "bank_size": 11,
+      "bank_size": 12,
       "n_train": 12,
-      "consolidation_time_sec": 95.3,
-      "eval_time_sec": 81.4,
+      "consolidation_time_sec": 369.2,
+      "eval_time_sec": 235.1,
       "modality_results": {
         "hybrid": {
+          "accuracy": 0.9375,
+          "n_correct": 15,
+          "n_total": 16
+        },
+        "abstract_only": {
           "accuracy": 0.75,
           "n_correct": 12,
           "n_total": 16
         },
-        "abstract_only": {
-          "accuracy": 0.875,
-          "n_correct": 14,
-          "n_total": 16
-        },
         "raw_only": {
-          "accuracy": 0.6875,
-          "n_correct": 11,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16
         }
       },
       "masked_vs_seen_breakdown": {
         "hybrid": {
           "masked_accuracy": 0.75,
-          "seen_accuracy": 0.75
+          "seen_accuracy": 1.0
         },
         "abstract_only": {
-          "masked_accuracy": 1.0,
+          "masked_accuracy": 0.5,
           "seen_accuracy": 0.8333333333333334
         },
         "raw_only": {
           "masked_accuracy": 0.75,
-          "seen_accuracy": 0.6666666666666666
+          "seen_accuracy": 1.0
         }
       },
       "raw_results": {
         "hybrid": {
           "modality": "hybrid",
-          "accuracy": 0.75,
-          "n_correct": 12,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16,
           "per_item": [
             {
@@ -2107,8 +2107,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -2185,8 +2185,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -2250,8 +2250,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -2309,8 +2309,8 @@
         },
         "abstract_only": {
           "modality": "abstract_only",
-          "accuracy": 0.875,
-          "n_correct": 14,
+          "accuracy": 0.75,
+          "n_correct": 12,
           "n_total": 16,
           "per_item": [
             {
@@ -2362,8 +2362,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "NORMAL",
-              "correct": true
+              "predicted": "ANOMALY",
+              "correct": false
             },
             {
               "combo": {
@@ -2427,8 +2427,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "NORMAL",
-              "correct": true
+              "predicted": "ANOMALY",
+              "correct": false
             },
             {
               "combo": {
@@ -2453,8 +2453,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": true
+              "predicted": "ANOMALY",
+              "correct": false
             },
             {
               "combo": {
@@ -2466,8 +2466,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -2525,8 +2525,8 @@
         },
         "raw_only": {
           "modality": "raw_only",
-          "accuracy": 0.6875,
-          "n_correct": 11,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16,
           "per_item": [
             {
@@ -2539,8 +2539,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -2617,8 +2617,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -2682,8 +2682,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -2708,8 +2708,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -2744,46 +2744,46 @@
     },
     {
       "level": "Level3_seed2024",
-      "bank_size": 11,
+      "bank_size": 12,
       "n_train": 12,
-      "consolidation_time_sec": 94.6,
-      "eval_time_sec": 87.4,
+      "consolidation_time_sec": 401.4,
+      "eval_time_sec": 219.0,
       "modality_results": {
         "hybrid": {
-          "accuracy": 0.75,
-          "n_correct": 12,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16
         },
         "abstract_only": {
-          "accuracy": 0.75,
-          "n_correct": 12,
+          "accuracy": 1.0,
+          "n_correct": 16,
           "n_total": 16
         },
         "raw_only": {
-          "accuracy": 0.6875,
-          "n_correct": 11,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16
         }
       },
       "masked_vs_seen_breakdown": {
         "hybrid": {
-          "masked_accuracy": 0.5,
-          "seen_accuracy": 0.8333333333333334
+          "masked_accuracy": 0.75,
+          "seen_accuracy": 1.0
         },
         "abstract_only": {
-          "masked_accuracy": 0.5,
-          "seen_accuracy": 0.8333333333333334
+          "masked_accuracy": 1.0,
+          "seen_accuracy": 1.0
         },
         "raw_only": {
-          "masked_accuracy": 0.5,
-          "seen_accuracy": 0.75
+          "masked_accuracy": 0.75,
+          "seen_accuracy": 1.0
         }
       },
       "raw_results": {
         "hybrid": {
           "modality": "hybrid",
-          "accuracy": 0.75,
-          "n_correct": 12,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16,
           "per_item": [
             {
@@ -2796,8 +2796,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": true,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -2874,8 +2874,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -2900,8 +2900,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "NORMAL",
-              "correct": true
+              "predicted": "ANOMALY",
+              "correct": false
             },
             {
               "combo": {
@@ -2939,8 +2939,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -2978,8 +2978,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -2998,8 +2998,8 @@
         },
         "abstract_only": {
           "modality": "abstract_only",
-          "accuracy": 0.75,
-          "n_correct": 12,
+          "accuracy": 1.0,
+          "n_correct": 16,
           "n_total": 16,
           "per_item": [
             {
@@ -3012,8 +3012,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": true,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -3090,8 +3090,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -3155,8 +3155,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -3194,8 +3194,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -3214,8 +3214,8 @@
         },
         "raw_only": {
           "modality": "raw_only",
-          "accuracy": 0.6875,
-          "n_correct": 11,
+          "accuracy": 0.9375,
+          "n_correct": 15,
           "n_total": 16,
           "per_item": [
             {
@@ -3228,8 +3228,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": true,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -3306,8 +3306,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -3332,8 +3332,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "NORMAL",
-              "correct": true
+              "predicted": "ANOMALY",
+              "correct": false
             },
             {
               "combo": {
@@ -3371,8 +3371,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -3397,8 +3397,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -3410,8 +3410,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -3433,46 +3433,46 @@
     },
     {
       "level": "Level3_seed99",
-      "bank_size": 10,
+      "bank_size": 12,
       "n_train": 12,
-      "consolidation_time_sec": 102.4,
-      "eval_time_sec": 77.8,
+      "consolidation_time_sec": 429.7,
+      "eval_time_sec": 221.7,
       "modality_results": {
         "hybrid": {
-          "accuracy": 0.6875,
-          "n_correct": 11,
+          "accuracy": 1.0,
+          "n_correct": 16,
           "n_total": 16
         },
         "abstract_only": {
-          "accuracy": 0.75,
-          "n_correct": 12,
+          "accuracy": 1.0,
+          "n_correct": 16,
           "n_total": 16
         },
         "raw_only": {
-          "accuracy": 0.6875,
-          "n_correct": 11,
+          "accuracy": 1.0,
+          "n_correct": 16,
           "n_total": 16
         }
       },
       "masked_vs_seen_breakdown": {
         "hybrid": {
-          "masked_accuracy": 0.5,
-          "seen_accuracy": 0.75
+          "masked_accuracy": 1.0,
+          "seen_accuracy": 1.0
         },
         "abstract_only": {
-          "masked_accuracy": 0.5,
-          "seen_accuracy": 0.8333333333333334
+          "masked_accuracy": 1.0,
+          "seen_accuracy": 1.0
         },
         "raw_only": {
-          "masked_accuracy": 0.5,
-          "seen_accuracy": 0.75
+          "masked_accuracy": 1.0,
+          "seen_accuracy": 1.0
         }
       },
       "raw_results": {
         "hybrid": {
           "modality": "hybrid",
-          "accuracy": 0.6875,
-          "n_correct": 11,
+          "accuracy": 1.0,
+          "n_correct": 16,
           "n_total": 16,
           "per_item": [
             {
@@ -3485,8 +3485,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": true,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -3524,8 +3524,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -3563,8 +3563,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -3628,8 +3628,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -3667,8 +3667,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -3687,8 +3687,8 @@
         },
         "abstract_only": {
           "modality": "abstract_only",
-          "accuracy": 0.75,
-          "n_correct": 12,
+          "accuracy": 1.0,
+          "n_correct": 16,
           "n_total": 16,
           "per_item": [
             {
@@ -3701,8 +3701,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": true,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -3779,8 +3779,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -3844,8 +3844,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -3883,8 +3883,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -3903,8 +3903,8 @@
         },
         "raw_only": {
           "modality": "raw_only",
-          "accuracy": 0.6875,
-          "n_correct": 11,
+          "accuracy": 1.0,
+          "n_correct": 16,
           "n_total": 16,
           "per_item": [
             {
@@ -3917,8 +3917,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": true,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -3982,8 +3982,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -3995,8 +3995,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": false,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {
@@ -4060,8 +4060,8 @@
                 "label": "ANOMALY"
               },
               "masked_at_train": false,
-              "predicted": "NORMAL",
-              "correct": false
+              "predicted": "ANOMALY",
+              "correct": true
             },
             {
               "combo": {
@@ -4099,8 +4099,8 @@
                 "label": "NORMAL"
               },
               "masked_at_train": true,
-              "predicted": "ANOMALY",
-              "correct": false
+              "predicted": "NORMAL",
+              "correct": true
             },
             {
               "combo": {

@@ -92,10 +92,18 @@ def main():
     level2_combos = all_combinations()
     level3_train, level3_test = make_level3_split(mask_count=4, seed=42)
 
+    out_path = OUTPUT_DIR / "experiment4_results.json"
+
+    def save_partial(results):
+        out_path.write_text(json.dumps(results, indent=2))
+        print(f"  [checkpoint] partial results ({len(results)} condition(s)) written to {out_path}")
+
     results = []
     for K in K_VALUES:
         results.append(run_condition("Level2", level2_combos, level2_combos, K))
+        save_partial(results)
         results.append(run_condition("Level3", level3_train, level3_test, K))
+        save_partial(results)
 
     print(f"\n\n{'='*90}")
     print(f"{'Level':<8} {'K':<4} {'Accuracy':<10} {'Total tokens':<14} {'Tokens/episode':<16} {'Time(s)':<8}")
@@ -105,8 +113,6 @@ def main():
               f"{r['consolidation_total_tokens']:>11}   {r['tokens_per_episode']:>13.0f}   "
               f"{r['consolidation_time_sec']:>6.1f}")
 
-    out_path = OUTPUT_DIR / "experiment4_results.json"
-    out_path.write_text(json.dumps(results, indent=2))
     print(f"\nFull results written to {out_path}")
 
 

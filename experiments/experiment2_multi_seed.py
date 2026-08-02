@@ -28,9 +28,18 @@ def main():
     print(f"Checking Ollama connection (model={MODEL_NAME!r})...")
     check_connection()
 
+    out_path = OUTPUT_DIR / "experiment2_multiseed_results.json"
+    state = {"level2": None, "level3_by_seed": []}
+
+    def save_partial():
+        out_path.write_text(json.dumps(state, indent=2))
+        print(f"  [checkpoint] partial results written to {out_path}")
+
     level2_combos = all_combinations()
     print("\n\n" + "#"*70 + "\n# LEVEL 2 (no masking — run once, identical across seeds)\n" + "#"*70)
     level2_result = run_level("Level2", level2_combos, level2_combos)
+    state["level2"] = level2_result
+    save_partial()
 
     level3_results = []
     for seed in SEEDS:
@@ -39,6 +48,8 @@ def main():
         r = run_level(f"Level3_seed{seed}", train, test)
         r["seed"] = seed
         level3_results.append(r)
+        state["level3_by_seed"] = level3_results
+        save_partial()
 
     print(f"\n\n{'='*90}\nLEVEL 3 MULTI-SEED SUMMARY\n{'='*90}")
     header = f"{'seed':>6} {'Hybrid':>10} {'Abstract':>10} {'Raw-Only':>10}   {'Hyb-masked':>11} {'Abs-masked':>11} {'Raw-masked':>11}"
@@ -81,8 +92,6 @@ def main():
         c, n = pooled_masked(modality)
         print(f"  {modality:<15} {c}/{n} = {c/n*100:.1f}%")
 
-    out_path = OUTPUT_DIR / "experiment2_multiseed_results.json"
-    out_path.write_text(json.dumps({"level2": level2_result, "level3_by_seed": level3_results}, indent=2))
     print(f"\nFull results written to {out_path}")
 
 

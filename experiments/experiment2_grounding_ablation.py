@@ -109,9 +109,17 @@ def main():
     level2_combos = all_combinations()  # 16 combos, no masking; train == test
     level3_train, level3_test = make_level3_split(mask_count=4, seed=42)  # 12 train, 16 test (4 masked)
 
+    out_path = OUTPUT_DIR / "experiment2_results.json"
+
+    def save_partial(results):
+        out_path.write_text(json.dumps(results, indent=2))
+        print(f"  [checkpoint] partial results ({len(results)} level(s)) written to {out_path}")
+
     results = []
     results.append(run_level("Level2", level2_combos, level2_combos))
+    save_partial(results)
     results.append(run_level("Level3", level3_train, level3_test))
+    save_partial(results)
 
     print(f"\n\n{'='*80}")
     print(f"{'Level':<8} {'Hybrid':<10} {'Abstract-Only':<16} {'Raw-Only':<10}")
@@ -131,8 +139,6 @@ def main():
             sa = f"{b['seen_accuracy']*100:.1f}%" if b['seen_accuracy'] is not None else "N/A"
             print(f"{r['level']:<8} {modality:<15} {ma:<12} {sa:<10}")
 
-    out_path = OUTPUT_DIR / "experiment2_results.json"
-    out_path.write_text(json.dumps(results, indent=2))
     print(f"\nFull results written to {out_path}")
 
 

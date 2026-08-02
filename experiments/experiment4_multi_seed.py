@@ -33,6 +33,13 @@ def main():
 
     level2_combos = all_combinations()
 
+    out_path = OUTPUT_DIR / "experiment4_multiseed_results.json"
+    state = {"level3_by_seed": [], "level2_repeat": []}
+
+    def save_partial():
+        out_path.write_text(json.dumps(state, indent=2))
+        print(f"  [checkpoint] partial results written to {out_path}")
+
     # --- Part A: Level 3 across 3 masking seeds, full K sweep ---
     level3_results = []
     for seed in LEVEL3_SEEDS:
@@ -42,6 +49,8 @@ def main():
             r = run_condition(f"Level3_seed{seed}", train, test, K)
             r["seed"] = seed
             level3_results.append(r)
+            state["level3_by_seed"] = level3_results
+            save_partial()
 
     print(f"\n\n{'='*90}\nLEVEL 3 MULTI-SEED SUMMARY (plateau check)\n{'='*90}")
     print(f"{'seed':>6} " + " ".join(f"K={k:<10}" for k in K_VALUES))
@@ -70,15 +79,21 @@ def main():
     for K in [3, 5]:
         r = run_condition("Level2_repeat", level2_combos, level2_combos, K)
         level2_repeat.append(r)
+        state["level2_repeat"] = level2_repeat
+        save_partial()
 
     print(f"\n{'='*70}\nLEVEL 2 REPEATABILITY CHECK\n{'='*70}")
-    print("Run 1 (original):  K=3 -> 87.5%   K=5 -> 93.8%")
+    print("NOTE: 'Run 1' below is the 7B reference (87.5%/93.8%) from the")
+    print("original experiment4_parameter_sensitivity.py run — this script")
+    print("has not yet had a matching 70B single-run baseline to compare")
+    print("against, so treat this comparison as informational only, not a")
+    print("same-model determinism check (unlike experiment1_multi_seed.py's")
+    print("ORIGINAL dict, which IS kept in sync with the current model).")
+    print("Run 1 (7B reference):  K=3 -> 87.5%   K=5 -> 93.8%")
     r3 = next(r for r in level2_repeat if r["K"] == 3)
     r5 = next(r for r in level2_repeat if r["K"] == 5)
-    print(f"Run 2 (repeat):    K=3 -> {r3['accuracy']*100:.1f}%   K=5 -> {r5['accuracy']*100:.1f}%")
+    print(f"Run 2 (this run):      K=3 -> {r3['accuracy']*100:.1f}%   K=5 -> {r5['accuracy']*100:.1f}%")
 
-    out_path = OUTPUT_DIR / "experiment4_multiseed_results.json"
-    out_path.write_text(json.dumps({"level3_by_seed": level3_results, "level2_repeat": level2_repeat}, indent=2))
     print(f"\nFull results written to {out_path}")
 
 

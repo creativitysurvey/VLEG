@@ -104,10 +104,19 @@ def main():
     level2_combos = all_combinations()
     level3_train, level3_test = make_level3_split(mask_count=4, seed=42)
 
+    out_path = OUTPUT_DIR / "experiment1_results.json"
+
+    def save_partial(results):
+        out_path.write_text(json.dumps(results, indent=2))
+        print(f"  [checkpoint] partial results ({len(results)} level(s)) written to {out_path}")
+
     all_results = []
     all_results.append(run_level("Level1", level1_combos, level1_combos))
+    save_partial(all_results)
     all_results.append(run_level("Level2", level2_combos, level2_combos))
+    save_partial(all_results)
     all_results.append(run_level("Level3", level3_train, level3_test))
+    save_partial(all_results)
 
     print(f"\n\n{'='*70}\nSUMMARY — Task Accuracy (%)\n{'='*70}")
     print(f"{'Level':<8} {'VLEG':<8} {'HDR':<8} {'Reflexion':<11} {'ICL':<8}")
@@ -118,8 +127,6 @@ def main():
               f"{res['Reflexion']['accuracy']*100:>9.1f}%  "
               f"{res['ICL']['accuracy']*100:>6.1f}%")
 
-    out_path = OUTPUT_DIR / "experiment1_results.json"
-    out_path.write_text(json.dumps(all_results, indent=2))
     print(f"\nFull results written to {out_path}")
 
 

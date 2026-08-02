@@ -1,20 +1,20 @@
 {
   "experiment": "Experiment 3 - Iterative Refinement Ablation",
-  "model": "qwen2.5:7b-instruct",
+  "model": "llama3.3:70b",
   "k1_result": {
     "label": "ablated_single_step",
     "K": 1,
     "consolidation_stats": {
       "n_episodes": 12,
-      "n_verified": 5,
-      "n_discarded": 7,
+      "n_verified": 6,
+      "n_discarded": 6,
       "total_iterations": 12
     },
-    "consolidation_time_sec": 60.2,
-    "eval_time_sec": 33.3,
-    "overall_accuracy": 0.625,
-    "masked_combo_accuracy": 0.75,
-    "seen_combo_accuracy": 0.5833333333333334,
+    "consolidation_time_sec": 552.4,
+    "eval_time_sec": 178.8,
+    "overall_accuracy": 0.75,
+    "masked_combo_accuracy": 1.0,
+    "seen_combo_accuracy": 0.6666666666666666,
     "per_item": [
       {
         "combo": {
@@ -104,8 +104,8 @@
           "label": "NORMAL"
         },
         "masked_at_train": true,
-        "predicted": "ANOMALY",
-        "correct": false
+        "predicted": "NORMAL",
+        "correct": true
       },
       {
         "combo": {
@@ -208,8 +208,8 @@
           "label": "NORMAL"
         },
         "masked_at_train": false,
-        "predicted": "ANOMALY",
-        "correct": false
+        "predicted": "NORMAL",
+        "correct": true
       },
       {
         "combo": {
@@ -233,13 +233,13 @@
       "n_episodes": 12,
       "n_verified": 12,
       "n_discarded": 0,
-      "total_iterations": 20
+      "total_iterations": 18
     },
-    "consolidation_time_sec": 91.6,
-    "eval_time_sec": 26.8,
-    "overall_accuracy": 0.75,
+    "consolidation_time_sec": 757.9,
+    "eval_time_sec": 219.3,
+    "overall_accuracy": 0.9375,
     "masked_combo_accuracy": 0.75,
-    "seen_combo_accuracy": 0.75,
+    "seen_combo_accuracy": 1.0,
     "per_item": [
       {
         "combo": {
@@ -251,8 +251,8 @@
           "label": "ANOMALY"
         },
         "masked_at_train": false,
-        "predicted": "NORMAL",
-        "correct": false
+        "predicted": "ANOMALY",
+        "correct": true
       },
       {
         "combo": {
@@ -290,8 +290,8 @@
           "label": "NORMAL"
         },
         "masked_at_train": false,
-        "predicted": "ANOMALY",
-        "correct": false
+        "predicted": "NORMAL",
+        "correct": true
       },
       {
         "combo": {
@@ -433,8 +433,8 @@
           "label": "NORMAL"
         },
         "masked_at_train": false,
-        "predicted": "ANOMALY",
-        "correct": false
+        "predicted": "NORMAL",
+        "correct": true
       },
       {
         "combo": {
@@ -451,5 +451,5 @@
       }
     ]
   },
-  "accuracy_delta_pp": 12.5
+  "accuracy_delta_pp": 18.75
 }

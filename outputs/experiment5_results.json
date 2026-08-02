@@ -3,178 +3,183 @@
     "level": "Level2",
     "strategy": "single_step",
     "validity_rate": null,
-    "hallucination_rate": 0.9375,
+    "hallucination_rate": 0.5,
     "n_committed": 16,
-    "n_hallucinated": 15,
-    "consolidation_time_sec": 39.3,
-    "audit_time_sec": 50.4,
+    "n_hallucinated": 8,
+    "consolidation_time_sec": 325.2,
+    "audit_time_sec": 459.0,
     "details": [
       {
         "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": false,
-        "reason": "The rule correctly states the condition for ANOMALY on a white background without mentioning irrelevant attributes."
+        "reason": "The candidate rule states a correct instance of the true rule without mentioning irrelevant attributes or incorrect conditions."
       },
       {
-        "reflection": "On a black background, small circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' which is not relevant to the label determination according to the TRUE rule."
+        "reflection": "On a black background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule for a specific background and shape-color combination."
       },
       {
-        "reflection": "On a white background, striped large shapes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) and provides an incorrect condition for the label on a white background."
+        "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule without mentioning irrelevant attributes or incorrect conditions."
       },
       {
-        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) as part of the label determination on a black background, which is not relevant according to the TRUE rule."
+        "reflection": "On a black background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule for a specific background and shape-color combination."
       },
       {
-        "reflection": "On a white background, blue solid small circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a white background, circle+blue scenes are NORMAL; this scene is therefore NORMAL.",
         "hallucinated": true,
-        "reason": "It mentions 'size' and incorrect color attribute."
+        "reason": "The candidate rule incorrectly states the color condition, as the true rule specifies red, not blue, for determining ANOMALY on a white background."
       },
       {
-        "reflection": "On a black background, large solid blue circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a black background, circle+blue scenes are NORMAL; this scene is therefore NORMAL.",
         "hallucinated": true,
-        "reason": "It mentions 'size' and 'color' incorrectly for the given background condition."
+        "reason": "The candidate rule incorrectly states the color condition for a black background, as it mentions 'blue' instead of 'red'."
       },
       {
-        "reflection": "On a white background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a white background, circle+blue scenes are NORMAL; this scene is therefore NORMAL.",
         "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) as part of the label determination on a white background."
+        "reason": "The candidate rule incorrectly states the color condition, as the true rule specifies red, not blue, for determining ANOMALY on a white background."
       },
       {
-        "reflection": "On a black background, striped large circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a black background, circle+blue scenes are NORMAL; this scene is therefore NORMAL.",
         "hallucinated": true,
-        "reason": "It mentions 'texture' and 'size', which are irrelevant according to the TRUE rule."
+        "reason": "The candidate rule incorrectly states the color condition for a black background, as it mentions 'blue' instead of 'red'."
       },
       {
-        "reflection": "On a white background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a white background, square+red scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": true,
-        "reason": "It mentions 'size' and 'shape' incorrectly as determining the label."
+        "reason": "The candidate rule incorrectly states the shape condition for an anomaly on a white background, claiming square instead of circle."
       },
       {
-        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a black background, square+red scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": true,
-        "reason": "It mentions 'size' and incorrectly states the shape/color condition for a black background."
+        "reason": "The candidate rule states the shape/color/background condition incorrectly by claiming square+red scenes are ANOMALY on a black background when in fact only non-circle and non-red or non-both scenes should be ANOMALY on a black background."
       },
       {
-        "reflection": "On a white background, striped red small shapes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a white background, square+striped scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) as part of the label determination, which is not relevant according to the TRUE rule."
+        "reason": "The candidate rule incorrectly claims that 'texture' and 'shape' attributes other than circle determine the label."
       },
       {
-        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a black background, square+striped scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) as part of the label determination on a black background, which is not relevant according to the TRUE rule."
+        "reason": "The candidate rule incorrectly claims that 'texture' and 'size' or specific shape other than circle are part of what determines the label."
       },
       {
-        "reflection": "On a white background, large solid blue square scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' and 'color', which are not relevant attributes according to the TRUE rule."
+        "reflection": "On a white background, square+blue scenes are NORMAL; this scene is therefore NORMAL.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule, correctly implying that shape and color determine the label on a white background."
       },
       {
-        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' and incorrectly states the shape/color condition for a black background."
+        "reflection": "On a black background, square+blue scenes are NORMAL; this scene is therefore NORMAL.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule, correctly handling background and logically consistent with the true rule's conditions for shape and color."
       },
       {
-        "reflection": "On a white background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' as part of the condition for labeling, which is not in the TRUE rule."
+        "reflection": "On a white background, square+blue scenes are NORMAL; this scene is therefore NORMAL.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule, correctly implying that shape and color determine the label on a white background."
       },
       {
-        "reflection": "On a black background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' and 'texture', which are irrelevant according to the TRUE rule."
+        "reflection": "On a black background, square+blue scenes are NORMAL; this scene is therefore NORMAL.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule, correctly handling background and logically consistent with the true rule's conditions for shape and color."
       }
     ]
   },
   {
     "level": "Level2",
     "strategy": "VLEG",
-    "validity_rate": 0.9375,
-    "hallucination_rate": 0.9333333333333333,
-    "n_committed": 15,
-    "n_hallucinated": 14,
-    "consolidation_time_sec": 123.5,
-    "audit_time_sec": 44.0,
+    "validity_rate": 1.0,
+    "hallucination_rate": 0.625,
+    "n_committed": 16,
+    "n_hallucinated": 10,
+    "consolidation_time_sec": 867.6,
+    "audit_time_sec": 459.5,
     "details": [
       {
         "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": false,
-        "reason": "The rule correctly states the condition without mentioning irrelevant attributes."
-      },
-      {
-        "reflection": "On a black background, small circle+red scenes are NORMAL; this scene is therefore NORMAL.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' as relevant, which the TRUE rule states does not affect the label."
-      },
-      {
-        "reflection": "On a white background, striped large shapes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) and provides an incorrect condition for the label on a white background."
+        "reason": "The candidate rule states a correct instance of the true rule without mentioning irrelevant attributes or incorrect conditions."
       },
       {
         "reflection": "On a black background, circle+red scenes are NORMAL; this scene is therefore NORMAL.",
-        "hallucinated": true,
-        "reason": "It incorrectly states the ANOMALY condition for a black background."
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule, specifically the condition for a black background with shape=circle and color=red being labeled as NORMAL."
       },
       {
-        "reflection": "On a white background, blue solid small circle scenes are NORMAL; this scene is therefore NORMAL.",
-        "hallucinated": true,
-        "reason": "The rule incorrectly states that 'shape' and 'color' determine the label on a white background."
+        "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule without mentioning irrelevant attributes or incorrect conditions."
       },
       {
-        "reflection": "On a black background, large solid blue circle scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' and 'color' incorrectly for the given background condition."
+        "reflection": "On a black background, scenes that are not both circle and red are ANOMALY; this scene is therefore NORMAL because it is a circle and red.",
+        "hallucinated": false,
+        "reason": "The candidate rule correctly states the shape, color, and background condition for a black background as per the true rule."
       },
       {
-        "reflection": "On a black background, striped large circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a white background, circle+blue scenes are NORMAL; this scene is therefore NORMAL.",
         "hallucinated": true,
-        "reason": "It mentions 'size' as part of the condition for labeling, which is not in the TRUE rule."
+        "reason": "The candidate rule incorrectly states the color condition, as the true rule specifies red, not blue, for determining ANOMALY on a white background."
       },
       {
-        "reflection": "On a white background, large solid-colored square scenes are NORMAL; this scene is therefore NORMAL.",
+        "reflection": "On a black background, circle+blue scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": true,
-        "reason": "The rule mentions 'size' and 'shape' incorrectly, which it shouldn't according to the TRUE rule."
+        "reason": "The candidate rule incorrectly states the color condition for an anomaly on a black background, which should be not circle and red, rather than circle and blue."
       },
       {
-        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a white background, circle+blue scenes are NORMAL; this scene is therefore NORMAL.",
         "hallucinated": true,
-        "reason": "It mentions 'size' and incorrectly states the shape/color condition for a black background."
+        "reason": "The candidate rule incorrectly states the color condition, as the true rule specifies red, not blue, for determining ANOMALY on a white background."
       },
       {
-        "reflection": "On a white background, striped red small shapes are NORMAL; this scene is therefore NORMAL.",
+        "reflection": "On a black background, circle+blue scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) as part of the label determination, which it should not according to the TRUE rule."
+        "reason": "The candidate rule incorrectly states the color condition for an anomaly on a black background, which should be not circle and red, rather than circle and blue."
       },
       {
-        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a white background, square+red scenes are NORMAL; this scene is therefore NORMAL.",
         "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) as part of the label determination on a black background, which is not relevant according to the TRUE rule."
+        "reason": "The candidate rule incorrectly states the shape/color condition by mentioning 'square' instead of 'circle' as the relevant shape for determining the label on a white background."
       },
       {
-        "reflection": "On a white background, large solid blue square scenes are NORMAL; this scene is therefore NORMAL.",
+        "reflection": "On a black background, square+red scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": true,
-        "reason": "The rule mentions 'size' and 'color', which are not part of the true rule."
+        "reason": "The candidate rule states the shape/color/background condition incorrectly by claiming square+red scenes are ANOMALY on a black background when in fact only non-circle and non-red or non-both scenes should be ANOMALY on a black background."
       },
       {
-        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a white background, square+striped scenes are NORMAL; this scene is therefore NORMAL.",
         "hallucinated": true,
-        "reason": "It mentions 'size' and incorrectly states the shape/color condition for a black background."
+        "reason": "The candidate rule incorrectly claims that 'texture' is part of what determines the label and also mentions an irrelevant shape condition."
       },
       {
-        "reflection": "On a white background, large striped scenes are NORMAL; this scene is therefore NORMAL.",
+        "reflection": "On a black background, square+striped scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": true,
-        "reason": "The rule mentions 'size' and 'texture', which are irrelevant according to the TRUE rule."
+        "reason": "The candidate rule incorrectly claims that 'texture' and 'size' or specific shape other than circle are part of what determines the label."
       },
       {
-        "reflection": "On a black background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a white background, square+blue scenes are NORMAL; this scene is therefore NORMAL.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule, correctly implying that shape and color determine the label on a white background."
+      },
+      {
+        "reflection": "On a black background, square+blue scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": true,
-        "reason": "It mentions 'size' and 'texture', which are irrelevant according to the TRUE rule."
+        "reason": "The candidate rule incorrectly states the shape and color condition for an anomaly on a black background."
+      },
+      {
+        "reflection": "On a white background, square+blue scenes are NORMAL; this scene is therefore NORMAL.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule, correctly implying that shape and color determine the label on a white background."
+      },
+      {
+        "reflection": "On a black background, square+blue scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "hallucinated": true,
+        "reason": "The candidate rule incorrectly states the shape and color condition for an anomaly on a black background."
       }
     ]
   },
@@ -182,71 +187,71 @@
     "level": "Level3",
     "strategy": "single_step",
     "validity_rate": null,
-    "hallucination_rate": 0.9166666666666666,
+    "hallucination_rate": 0.3333333333333333,
     "n_committed": 12,
-    "n_hallucinated": 11,
-    "consolidation_time_sec": 29.1,
-    "audit_time_sec": 35.0,
+    "n_hallucinated": 4,
+    "consolidation_time_sec": 214.6,
+    "audit_time_sec": 318.1,
     "details": [
       {
-        "reflection": "On a white background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' as part of the condition for labeling, which is not in the TRUE rule."
+        "reflection": "On a white background, square+blue scenes are NORMAL; this scene is therefore NORMAL.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule, correctly implying that shape and color determine the label on a white background."
       },
       {
-        "reflection": "On a white background, striped red small shapes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a white background, square+striped scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) as part of the label determination."
+        "reason": "The candidate rule incorrectly claims that 'texture' and 'shape' other than circle determine the label."
       },
       {
-        "reflection": "On a white background, large solid blue square scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' and 'color', which are not relevant attributes according to the TRUE rule."
+        "reflection": "On a white background, square+blue scenes are NORMAL; this scene is therefore NORMAL.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule, correctly implying that shape and color determine the label on a white background."
       },
       {
-        "reflection": "On a white background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a white background, square+red scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": true,
-        "reason": "It mentions 'size' and 'shape' incorrectly as determining the label."
+        "reason": "The candidate rule incorrectly states the shape condition for an anomaly on a white background, claiming square instead of circle."
       },
       {
-        "reflection": "On a black background, small circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' which is not relevant to the label determination according to the TRUE rule."
-      },
-      {
-        "reflection": "On a white background, striped large shapes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) and provides an incorrect condition for the label on a white background."
-      },
-      {
-        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' and incorrectly states the shape/color condition for a black background."
-      },
-      {
-        "reflection": "On a black background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' and 'texture', which are irrelevant according to the TRUE rule."
-      },
-      {
-        "reflection": "On a white background, blue solid small circle scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' and incorrect color attribute."
-      },
-      {
-        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) as part of the label determination on a black background, which is not relevant according to the TRUE rule."
+        "reflection": "On a black background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule for a specific background and shape-color combination."
       },
       {
         "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": false,
-        "reason": "The rule correctly states the condition without mentioning irrelevant attributes."
+        "reason": "The candidate rule states a correct instance of the true rule without mentioning irrelevant attributes or incorrect conditions."
       },
       {
-        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "reflection": "On a black background, square+blue scenes are NORMAL; this scene is therefore NORMAL.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule, correctly handling background and logically consistent with the true rule's conditions for shape and color."
+      },
+      {
+        "reflection": "On a black background, square+blue scenes are NORMAL; this scene is therefore NORMAL.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule, correctly handling background and logically consistent with the true rule's conditions for shape and color."
+      },
+      {
+        "reflection": "On a white background, circle+blue scenes are NORMAL; this scene is therefore NORMAL.",
         "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) as part of the label determination on a black background, which is not relevant according to the TRUE rule."
+        "reason": "The candidate rule incorrectly states the color condition, as the true rule specifies red, not blue, for determining ANOMALY on a white background."
+      },
+      {
+        "reflection": "On a black background, square+striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "hallucinated": true,
+        "reason": "The candidate rule incorrectly claims that 'texture' and 'size' or specific shape other than circle are part of what determines the label."
+      },
+      {
+        "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule without mentioning irrelevant attributes or incorrect conditions."
+      },
+      {
+        "reflection": "On a black background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule for a specific background and shape-color combination."
       }
     ]
   },
@@ -254,71 +259,71 @@
     "level": "Level3",
     "strategy": "VLEG",
     "validity_rate": 1.0,
-    "hallucination_rate": 0.9166666666666666,
+    "hallucination_rate": 0.5,
     "n_committed": 12,
-    "n_hallucinated": 11,
-    "consolidation_time_sec": 93.1,
-    "audit_time_sec": 35.6,
+    "n_hallucinated": 6,
+    "consolidation_time_sec": 662.3,
+    "audit_time_sec": 317.1,
     "details": [
       {
-        "reflection": "On a white background, large striped scenes are NORMAL; this scene is therefore NORMAL.",
-        "hallucinated": true,
-        "reason": "The rule mentions 'size' and 'texture', which are irrelevant according to the TRUE rule."
+        "reflection": "On a white background, square+blue scenes are NORMAL; this scene is therefore NORMAL.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule, correctly implying that shape and color determine the label on a white background."
       },
       {
-        "reflection": "On a white background, striped red small shapes are NORMAL; this scene is therefore NORMAL.",
+        "reflection": "On a white background, square+striped scenes are NORMAL; this scene is therefore NORMAL.",
         "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) as part of the label determination, which is not relevant according to the TRUE rule."
+        "reason": "The candidate rule incorrectly claims that 'texture' is part of what determines the label and also mentions an irrelevant shape 'square' instead of the correct condition involving 'circle'."
       },
       {
-        "reflection": "On a white background, large solid blue square scenes are NORMAL; this scene is therefore NORMAL.",
-        "hallucinated": true,
-        "reason": "The rule mentions 'size' and 'color', which are not part of the true labeling rule."
+        "reflection": "On a white background, square+blue scenes are NORMAL; this scene is therefore NORMAL.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule, correctly implying that shape and color determine the label on a white background."
       },
       {
-        "reflection": "On a white background, large solid-colored square scenes are NORMAL; this scene is therefore NORMAL.",
+        "reflection": "On a white background, square+red scenes are NORMAL; this scene is therefore NORMAL.",
         "hallucinated": true,
-        "reason": "The rule mentions 'size' and 'shape' incorrectly, hallucinating their impact on the label."
+        "reason": "The candidate rule incorrectly states the shape/color condition by mentioning 'square' instead of 'circle' as the relevant shape for determining the label on a white background."
       },
       {
-        "reflection": "On a black background, small circle+red scenes are NORMAL; this scene is therefore NORMAL.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' as relevant, which the TRUE rule states does not affect the label."
-      },
-      {
-        "reflection": "On a white background, striped large shapes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) and provides an incorrect condition for the label on a white background."
-      },
-      {
-        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' and incorrectly states the shape/color condition for a black background."
-      },
-      {
-        "reflection": "On a black background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'size' and 'texture', which are irrelevant according to the TRUE rule."
-      },
-      {
-        "reflection": "On a white background, blue solid small circle scenes are NORMAL; this scene is therefore NORMAL.",
-        "hallucinated": true,
-        "reason": "The rule incorrectly states that 'shape' and 'color' determine the label on a white background."
-      },
-      {
-        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
-        "hallucinated": true,
-        "reason": "It mentions 'texture' (striped) as part of the label determination on a black background, which is not relevant according to the TRUE rule."
+        "reflection": "On a black background, circle+red scenes are NORMAL; this scene is therefore NORMAL.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule, specifically the condition for a black background with shape=circle and color=red being labeled as NORMAL."
       },
       {
         "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": false,
-        "reason": "The rule correctly states the condition without mentioning irrelevant attributes."
+        "reason": "The candidate rule states a correct instance of the true rule without mentioning irrelevant attributes or incorrect conditions."
       },
       {
-        "reflection": "On a black background, circle+red scenes are NORMAL; this scene is therefore NORMAL.",
+        "reflection": "On a black background, square+blue scenes are ANOMALY; this scene is therefore ANOMALY.",
         "hallucinated": true,
-        "reason": "It incorrectly states the ANOMALY condition for a black background."
+        "reason": "The candidate rule incorrectly states the shape and color condition for an anomaly on a black background."
+      },
+      {
+        "reflection": "On a black background, square+blue scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "hallucinated": true,
+        "reason": "The candidate rule incorrectly states the shape and color condition for an anomaly on a black background."
+      },
+      {
+        "reflection": "On a white background, circle+blue scenes are NORMAL; this scene is therefore NORMAL.",
+        "hallucinated": true,
+        "reason": "The candidate rule incorrectly states the color condition, as the true rule specifies red, not blue, for determining ANOMALY on a white background."
+      },
+      {
+        "reflection": "On a black background, square+striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "hallucinated": true,
+        "reason": "The candidate rule incorrectly claims that 'texture' and 'size' or specific shape other than circle are part of what determines the label."
+      },
+      {
+        "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "hallucinated": false,
+        "reason": "The candidate rule states a correct instance of the true rule without mentioning irrelevant attributes or incorrect conditions."
+      },
+      {
+        "reflection": "On a black background, scenes that are not both circle and red are ANOMALY; this scene is therefore NORMAL because it is a circle and red.",
+        "hallucinated": false,
+        "reason": "The candidate rule correctly states the shape, color, and background condition for a black background as per the true rule."
       }
     ]
   }
