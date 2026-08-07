@@ -62,7 +62,7 @@ def predict_text_examples(n_examples: int, target_combo: dict):
     reply = chat([{"role": "system", "content": SYSTEM_PROMPT_TEXT_EXAMPLES},
                   {"role": "user", "content": prompt}], temperature=0.0,
                  images=[target_combo["image_path"]])  # ONLY the target image, always
-    match = re.search(r"ANOMALY|NORMAL", reply.upper())
+    match = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
     return (match.group(0) if match else "NORMAL"), reply.strip()
 
 

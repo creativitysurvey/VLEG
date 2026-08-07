@@ -396,6 +396,12 @@ the multi-dimensional and scarcity follow-ups).
 
 ## 7. If something breaks
 
+**If a run "works" (no crash, exit code 0) but takes dramatically longer than the timings in this README** (e.g. a 7B `run_all.py` taking many hours instead of ~46 minutes, with the slowdown concentrated in the longest-prompt conditions like HDR or multi-attempt Reflexion): this is a strong sign Ollama fell back to CPU instead of using the GPU. This can happen silently if Ollama doesn'''t detect a compatible GPU or judges the available VRAM insufficient. Check:
+```bash
+nvidia-smi          # confirm GPU utilization actually rises during a run
+```
+and look in Ollama'''s own server output for lines mentioning how many layers were offloaded to GPU (a low or zero offload count means it'''s running mostly or entirely on CPU). A 7B model needs meaningfully less VRAM than the 70B-class models this repo also uses, but still needs a real GPU to run at the speeds this README assumes — pure CPU inference for a 7B model is commonly 10-20x+ slower, and disproportionately worse for longer prompts (HDR'''s whole-dataset context, Reflexion'''s multi-attempt retries) than for short ones, matching exactly the lopsided slowdown pattern one reproduction of this repo showed (see DEVIATIONS_LOG.md #47).
+
 Paste:
 - The full terminal output, especially any `OllamaError` or HTTP
   error message.

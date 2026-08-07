@@ -64,7 +64,7 @@ def predict_with_n_examples(n_examples: int, target_combo: dict) -> str:
     prompt = "\n\n".join(parts)
     reply = chat([{"role": "system", "content": SYSTEM_PROMPT_HYBRID},
                   {"role": "user", "content": prompt}], temperature=0.0, images=image_paths)
-    match = re.search(r"ANOMALY|NORMAL", reply.upper())
+    match = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
     return (match.group(0) if match else "NORMAL"), reply.strip()
 
 
@@ -76,7 +76,7 @@ def predict_zero_shot(target_combo: dict) -> str:
     )
     reply = chat([{"role": "user", "content": prompt}], temperature=0.0,
                  images=[target_combo["image_path"]])
-    match = re.search(r"ANOMALY|NORMAL", reply.upper())
+    match = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
     return (match.group(0) if match else "NORMAL"), reply.strip()
 
 

@@ -52,7 +52,8 @@ prompt = "\n\n".join(parts)
 reply = chat([{"role": "system", "content": SYSTEM_PROMPT_RAW_ONLY},
               {"role": "user", "content": prompt}], temperature=0.0, images=image_paths)
 print(f"RAW REPLY: {reply!r}")
-print(f"Regex match: {re.search(r'ANOMALY|NORMAL', reply.upper())}")
+_m = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
+print(f"Regex match: {_m}")
 
 print(f"\n{'='*70}\n=== Reflexion raw reply (fresh bank) ===\n{'='*70}")
 reflexion_bank = build_reflexion_bank(train_combos, K=3, log_prefix="reflexion_diag")
@@ -63,7 +64,8 @@ reply = chat([{"role": "system", "content": SYSTEM_PROMPT_HYBRID},
               {"role": "user", "content": prompt}], temperature=0.0,
              images=[true_anomaly_target["image_path"]])
 print(f"RAW REPLY: {reply!r}")
-print(f"Regex match: {re.search(r'ANOMALY|NORMAL', reply.upper())}")
+_m = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
+print(f"Regex match: {_m}")
 
 print(f"\n{'='*70}\n=== HDR raw reply (fresh hypothesis) ===\n{'='*70}")
 hdr_result = hdr_generate_global_hypothesis(train_combos, K=1, log_prefix="hdr_diag")  # K=1 for speed, just need a hypothesis to test inference
@@ -76,4 +78,5 @@ reply = chat([{"role": "system", "content": (
              {"role": "user", "content": prompt}],
             temperature=0.0, images=[true_anomaly_target["image_path"]])
 print(f"RAW REPLY: {reply!r}")
-print(f"Regex match: {re.search(r'ANOMALY|NORMAL', reply.upper())}")
+_m = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
+print(f"Regex match: {_m}")

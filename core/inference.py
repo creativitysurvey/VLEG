@@ -82,7 +82,7 @@ def predict_with_modality(bank: MemoryBank, target_combo: dict, modality: str, k
          {"role": "user", "content": prompt}],
         temperature=0.0,
     )
-    match = re.search(r"ANOMALY|NORMAL", reply.upper())
+    match = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
     return match.group(0) if match else "NORMAL"
 
 

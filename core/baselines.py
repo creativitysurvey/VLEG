@@ -59,7 +59,7 @@ def icl_predict(bank: MemoryBank, target_combo: dict, k: int = 3) -> str:
     prompt = build_raw_only_prompt(top_tuples, target_combo)
     reply = chat([{"role": "system", "content": SYSTEM_PROMPT_RAW_ONLY},
                   {"role": "user", "content": prompt}], temperature=0.0)
-    match = re.search(r"ANOMALY|NORMAL", reply.upper())
+    match = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
     return match.group(0) if match else "NORMAL"
 
 
@@ -114,7 +114,7 @@ def _reflexion_attempt_episode(gtext: str, true_label: str, K: int) -> tuple:
                 )},
             ]
         reply = chat(messages, temperature=0.0).strip().strip('"')
-        match = re.search(r"ANOMALY|NORMAL", reply.upper())
+        match = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
         predicted_label = match.group(0) if match else None
         if predicted_label == true_label:
             return reply, j + 1, True
@@ -146,7 +146,7 @@ def reflexion_predict(bank: MemoryBank, target_combo: dict, k: int = 3) -> str:
     prompt = build_abstract_only_prompt(top_tuples, target_combo)
     reply = chat([{"role": "system", "content": SYSTEM_PROMPT_ABSTRACT_ONLY},
                   {"role": "user", "content": prompt}], temperature=0.0)
-    match = re.search(r"ANOMALY|NORMAL", reply.upper())
+    match = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
     return match.group(0) if match else "NORMAL"
 
 
@@ -246,5 +246,5 @@ def hdr_predict(global_hypothesis: str, raw_bank: MemoryBank, target_combo: dict
     prompt = "\n\n".join(parts)
     reply = chat([{"role": "system", "content": SYSTEM_PROMPT_HYBRID},
                   {"role": "user", "content": prompt}], temperature=0.0)
-    match = re.search(r"ANOMALY|NORMAL", reply.upper())
+    match = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
     return match.group(0) if match else "NORMAL"

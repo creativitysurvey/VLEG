@@ -79,7 +79,7 @@ def icl_predict(bank: MemoryBank, target_combo: dict, k: int = None) -> str:
     prompt = "\n\n".join(parts)
     reply = chat([{"role": "system", "content": SYSTEM_PROMPT_RAW_ONLY},
                   {"role": "user", "content": prompt}], temperature=0.0, images=image_paths)
-    match = re.search(r"ANOMALY|NORMAL", reply.upper())
+    match = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
     return match.group(0) if match else "NORMAL"
 
 
@@ -117,7 +117,7 @@ def _reflexion_attempt_episode(image_path: str, gtext: str, true_label: str, K: 
                 )},
             ]
         reply = chat(messages, temperature=0.0, images=[image_path]).strip().strip('"')
-        match = re.search(r"ANOMALY|NORMAL", reply.upper())
+        match = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
         predicted_label = match.group(0) if match else None
         if predicted_label == true_label:
             return reply, j + 1, True
@@ -243,5 +243,5 @@ def hdr_predict(global_hypothesis: str, target_combo: dict) -> str:
          {"role": "user", "content": prompt}],
         temperature=0.0, images=[target_combo["image_path"]],
     )
-    match = re.search(r"ANOMALY|NORMAL", reply.upper())
+    match = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
     return match.group(0) if match else "NORMAL"

@@ -73,7 +73,7 @@ def predict_hybrid(bank: MemoryBank, target_combo: dict, k: int = None, debias: 
          {"role": "user", "content": prompt}],
         temperature=0.0, images=[target_combo["image_path"]],  # ONLY the target image
     )
-    match = re.search(r"ANOMALY|NORMAL", reply.upper())
+    match = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
     return match.group(0) if match else "NORMAL"
 
 
@@ -91,7 +91,7 @@ def predict_abstract_only(bank: MemoryBank, target_combo: dict, k: int = None) -
          {"role": "user", "content": prompt}],
         temperature=0.0,  # no images kwarg at all
     )
-    match = re.search(r"ANOMALY|NORMAL", reply.upper())
+    match = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
     return match.group(0) if match else "NORMAL"
 
 
@@ -116,7 +116,7 @@ def predict_raw_only(bank: MemoryBank, target_combo: dict, k: int = None) -> str
          {"role": "user", "content": prompt}],
         temperature=0.0, images=image_paths,  # potentially MANY images -- collapse risk
     )
-    match = re.search(r"ANOMALY|NORMAL", reply.upper())
+    match = re.search(r"\bANOMALY\b|\bNORMAL\b", reply.upper())
     return match.group(0) if match else "NORMAL"
 
 
