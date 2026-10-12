@@ -36,8 +36,10 @@ def file_hash(path):
     return h.hexdigest()
 
 
-def load_csv(path, dataset, group_column=None):
-    rows, seen = [], {}
+def load_csv(path, dataset, group_column=None, conflict_policy="error"):
+    if conflict_policy not in ("error", "drop"):
+        raise ValueError("Unknown conflict policy")
+    rows, seen, ambiguous, occurrences = [], {}, set(), Counter()
     counts = Counter()
     with Path(path).open(encoding='utf-8-sig', newline='') as f:
         reader = csv.DictReader(f)
@@ -78,10 +80,12 @@ def load_csv(path, dataset, group_column=None):
                 counts['invalid_features'] += 1
                 continue
             key = digest(features)  # labels and identifiers never enter retrieval keys
+            occurrences[key] += 1
             if key in seen:
                 if seen[key] != label:
-                    raise ValueError(f'Conflicting labels for identical selected features at {path}:{number}')
-                counts['duplicate_features'] += 1
+                    if conflict_policy == 'error':
+                        raise ValueError(f'Conflicting labels for identical selected features at {path}:{number}')
+                    ambiguous.add(key)
                 continue
             seen[key] = label
             group = row.get(group_column) if group_column else None
@@ -89,20 +93,24 @@ def load_csv(path, dataset, group_column=None):
                 raise ValueError(f'Missing group at {path}:{number}')
             rows.append({'id': key, 'features': features, 'label': label,
                          'attack_category': row.get('attack_cat', label_raw), 'group': group})
+    rows = [row for row in rows if row['id'] not in ambiguous]
+    counts['ambiguous_feature_groups'] = len(ambiguous)
+    counts['ambiguous_rows_removed'] = sum(occurrences[key] for key in ambiguous)
+    counts['duplicate_features'] = sum(n - 1 for key, n in occurrences.items() if key not in ambiguous)
     counts['retained'] = len(rows)
     return rows, dict(counts)
 
 
 def prepare(memory_csv, test_csv, dataset, memory_per_class=64, test_limit=1000,
-            seed=20261012, group_column=None, split_description=''):
-    if memory_per_class < 1 or test_limit < 1:
+            seed=20261012, group_column=None, split_description='', test_offset=0, conflict_policy='error'):
+    if memory_per_class < 1 or test_limit < 1 or test_offset < 0:
         raise ValueError('Sample sizes must be positive')
     if not split_description.strip():
         raise ValueError('Document the time/session or official split in --split-description')
     if Path(memory_csv).resolve() == Path(test_csv).resolve() or file_hash(memory_csv) == file_hash(test_csv):
         raise ValueError('Memory and test inputs must be different partitions')
-    memory, memory_counts = load_csv(memory_csv, dataset, group_column)
-    test, test_counts = load_csv(test_csv, dataset, group_column)
+    memory, memory_counts = load_csv(memory_csv, dataset, group_column, conflict_policy)
+    test, test_counts = load_csv(test_csv, dataset, group_column, conflict_policy)
     if group_column:
         overlap = {r['group'] for r in memory} & {r['group'] for r in test}
         if overlap:
@@ -121,12 +129,13 @@ def prepare(memory_csv, test_csv, dataset, memory_per_class=64, test_limit=1000,
     rng.shuffle(selected)
     # Test sampling is independent of memory seed; preserve natural class mix.
     random.Random(0).shuffle(clean_test)
-    selected_test = clean_test[:test_limit]
+    selected_test = clean_test[test_offset:test_offset + test_limit]
     if {r['label'] for r in selected_test} != {'BENIGN', 'MALICIOUS'}:
         raise ValueError('Test sample must contain both classes; increase --test-limit')
     manifest = {
         'dataset': dataset, 'seed': seed, 'memory_per_class': memory_per_class,
-        'test_limit': test_limit, 'test_sampling_seed': 0, 'split_description': split_description,
+        'test_limit': test_limit, 'test_offset': test_offset, 'conflict_policy': conflict_policy,
+        'actual_test_count': len(selected_test), 'test_sampling_seed': 0, 'split_description': split_description,
         'group_column': group_column, 'features': FEATURES[dataset],
         'sources': {'memory_sha256': file_hash(memory_csv), 'test_sha256': file_hash(test_csv)},
         'memory_cleaning': memory_counts, 'test_cleaning': test_counts,

@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
-from traffic.data import FEATURES, prepare, feature_text
+from traffic.data import FEATURES, prepare, feature_text, load_csv
 from traffic.experiment import run, metrics, METHODS
 from traffic.aggregate import aggregate
 
@@ -84,3 +84,25 @@ class TrafficTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'Duplicate memory seeds'):
                 aggregate([self.root / 'out', self.root / 'out'], replicates=100)
         self.assertTrue((self.root / 'out/reflection_audit.csv').exists())
+
+    def test_drop_conflicts_removes_every_row_in_group(self):
+        csv_file(self.memory, [(1, 0, 'a'), (1, 0, 'b'), (1, 1, 'c'), (2, 1, 'd')])
+        rows, counts = load_csv(self.memory, 'unsw', conflict_policy='drop')
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]['features']['dur'], 2.)
+        self.assertEqual(counts['ambiguous_rows_removed'], 3)
+        self.assertEqual(counts['ambiguous_feature_groups'], 1)
+        self.assertEqual(counts['duplicate_features'], 0)
+
+    def test_offset_separates_pilot_and_formal_targets(self):
+        csv_file(self.test, [(number, number % 2, str(number)) for number in range(10, 30)])
+        pilot = prepare(self.memory, self.test, 'unsw', 1, 10, split_description='independent fixture', test_offset=0)
+        formal = prepare(self.memory, self.test, 'unsw', 1, 10, split_description='independent fixture', test_offset=10)
+        self.assertFalse({r['id'] for r in pilot['test']} & {r['id'] for r in formal['test']})
+        self.assertEqual(formal['manifest']['test_offset'], 10)
+
+    def test_negative_offset_and_unknown_conflict_policy(self):
+        with self.assertRaises(ValueError):
+            prepare(self.memory, self.test, 'unsw', 1, 10, split_description='fixture', test_offset=-1)
+        with self.assertRaises(ValueError):
+            load_csv(self.memory, 'unsw', conflict_policy='invent-label')

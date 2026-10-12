@@ -6,11 +6,12 @@ network access to reach localhost:11434 on the user's side, so this code
 is written but not executed here. The user runs it and pastes back output.
 """
 import json
+import os
 import time
 import urllib.request
 import urllib.error
 
-OLLAMA_HOST = "http://localhost:11434"
+OLLAMA_HOST = os.environ.get("VLEG_OLLAMA_HOST", "http://localhost:11434").rstrip("/")
 MODEL_NAME = "llama3.3:70b"
 EMBED_MODEL_NAME = "nomic-embed-text"
 

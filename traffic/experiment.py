@@ -262,6 +262,8 @@ def main():
     p.add_argument('--memory-per-class', type=int, default=16)
     p.add_argument('--test-limit', type=int, default=1000)
     p.add_argument('--seed', type=int, default=20261012)
+    p.add_argument('--test-offset', type=int, default=0)
+    p.add_argument('--conflict-policy', choices=('error', 'drop'), default='error')
     p.add_argument('--output', required=True)
     p = commands.add_parser('run')
     p.add_argument('--prepared', required=True)
@@ -275,7 +277,7 @@ def main():
     args = parser.parse_args()
     if args.command == 'prepare':
         bundle = prepare(args.memory_csv, args.test_csv, args.dataset, args.memory_per_class,
-                         args.test_limit, args.seed, args.group_column, args.split_description)
+                         args.test_limit, args.seed, args.group_column, args.split_description, args.test_offset, args.conflict_policy)
         Path(args.output).parent.mkdir(parents=True, exist_ok=True)
         if Path(args.output).exists():
             raise ValueError('Prepared output already exists; use a new filename')

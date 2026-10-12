@@ -157,3 +157,61 @@ interval over the fixed memory draws, not an uncertainty claim across future
 networks, new memory distributions or model weights. Session-independent splitting
 and sampling remain essential. Do not use a positive pilot interval as a reason to
 select formal seeds or hide negative comparisons.
+
+## Formal batch launcher and real-data preflight (2026-10-12)
+
+The pinned mirror's CSV filenames are reversed relative to the official row counts.
+`traffic.acquire_unsw` checks both file hashes and row counts, explicitly maps the
+175,341-row file to historical training and the 82,332-row file to testing, and writes
+its full provenance to `unsw_source_manifest.json`. Its hashes also match an
+independent research deposit; the original author-hosted link currently requires
+login, so this corroboration is not an author-signed authenticity guarantee.
+
+The real CSVs contain conflicting labels for identical **selected** feature vectors.
+The loader still defaults to rejecting conflicts. `--conflict-policy drop` is an
+explicit alternative that removes **all** observations in conflicting groups;
+it never keeps the first label, majority-votes or relabels a flow. The fixed batch
+launcher uses this exclusion policy and records its scope. Consequently, its test
+population is the deduplicated, unambiguous representation population, not the full
+original benchmark. Filtering materially changes class balance; disclose all removal
+counts and do not generalize accuracy to the original flow-frequency distribution.
+
+The launcher uses 100 pilot queries and a different set of 1,000 formal queries.
+Formal selection uses `test_offset=100` in the same frozen shuffle; the five memory
+seeds share those formal queries. This fixes the earlier individual-command recipe,
+where an unchanged test offset would reuse pilot queries in the formal sample.
+Model inference has **not started** in the editing environment (no GPU, model files
+or Ollama service). Preparation is complete; see `docs/REAL_FLOW_PREFLIGHT_20261012.md`.
+
+Run on the actual model machine from the repository root:
+
+```bash
+python -m traffic.acquire_unsw --output data/private
+# Check/pull models once if they are not installed:
+ollama list
+ollama pull llama3.3:70b
+ollama pull nomic-embed-text
+# Ollama must be serving on localhost:11434, or set VLEG_OLLAMA_HOST explicitly.
+python -u -m traffic.batch \
+  --output outputs_traffic/unsw_70b_formal_20261012 \
+  --source-manifest data/private/unsw_source_manifest.json
+```
+
+For a detached run, create the parent directory and capture stdout/stderr:
+
+```bash
+mkdir -p outputs_traffic
+nohup python -u -m traffic.batch \
+  --output outputs_traffic/unsw_70b_formal_20261012 \
+  --source-manifest data/private/unsw_source_manifest.json \
+  > outputs_traffic/unsw_70b_formal_20261012.log 2>&1 &
+```
+
+The launcher checks the model service before inference, freezes sources/code and
+settings, executes serially to avoid GPU contention, and records environment/status.
+It resumes completed predictions and produces `formal_aggregate.json` only after
+all five seeds finish. The planned inference count is 25,500 calls (500 pilot,
+25,000 formal), plus construction and embeddings. Pilot success is an execution
+check, not permission to tune against formal test outcomes. If the model service is
+unavailable it exits with `blocked_no_model_service`; it does not report a running
+experiment or synthetic results as real measurements.
