@@ -435,3 +435,20 @@ are large and derived from a public dataset you can regenerate with
 rather not commit ~500 images; `index.json` in each is small and worth
 keeping either way, since it records exactly which CLEVR source images
 and isolation scores were used.
+
+## Public network-flow extension (Experiment 6)
+
+`traffic/` adds an independent public-flow benchmark pipeline for UNSW-NB15
+and CICIDS2017 CSVs. It has **not yet produced real-model/public-flow results**.
+See [the protocol and commands](docs/TRAFFIC_BENCHMARK.md) for preparation,
+leakage checks, controlled methods, checkpoint/resume, scoring and human audit.
+
+The original `core/task_env.py` uses synthetic **scene attributes**, not measured
+network-flow fields. CLEVR is a rendered image benchmark. Neither can establish
+operational traffic-detection performance. The JCN draft in `JCN_submission/`
+now explicitly distinguishes these evidence sources and the unexecuted flow protocol.
+
+Both verifier pipelines now require a genuine JSON boolean for `valid`; strings
+such as `"false"` are rejected. Old results predate this repair and require a
+provenance review/rerun; numeric files were not overwritten. Run the regression
+and traffic pipeline tests with `python -m unittest discover -s tests -v`.

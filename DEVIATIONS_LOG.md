@@ -51,3 +51,10 @@ Format: paper says X, code does Y, because Z.
    from in this symbolic environment.
 
 (Log will be appended to as further deviations are made in Phase 3 tuning.)
+
+6. **2026-10-12 evidence/implementation reconciliation.** The JCN adaptation had
+   renamed symbolic scene attributes into network terms without a corresponding
+   flow implementation. Restored actual measured tasks and bounded application
+   claims. Added an unexecuted public-flow extension and protocol. Fixed JSON
+   string-to-boolean acceptance in all local/global verifiers. Historical data is
+   retained and requires provenance review/rerun; see docs/REVISION_20261012.md.

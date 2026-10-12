@@ -1,0 +1,31 @@
+% Captions synchronized with main.tex, 2026-10-12.
+
+% 1
+The theoretical positioning of VLEG within the memory abstraction spectrum. VLEG bridges the gap between pure episodic retention of raw traffic and global semantic consolidation by pairing raw episodes with accepted local abstractions.
+
+% 2
+Architectural flow of the VLEG framework components. Separate generator and verifier calls admit only candidates accepted by the implemented check to the Hybrid Memory Bank alongside their raw episodic counterparts.
+
+% 3
+State transition diagram of the Iterative Cyclic Refinement mechanism. The loop stores the first candidate accepted by the verifier to the semantic memory bank.
+
+% 4
+The Inference Integration flow of VLEG. The target task queries the memory bank using semantic embeddings to retrieve the top-$k$ tuples. Both the raw episodes and verified reflections are combined into a hybrid context window to ground the Reasoning LLM.
+
+% 5
+Verified Localized Episodic Grounding (VLEG)
+
+% 6
+Execution flow of the VLEG framework. The upper pathway illustrates the Iterative Cyclic Refinement loop (Phase 1), while the lower pathway demonstrates the Hybrid Episodic-Semantic Grounding retrieval (Phase 2).
+
+% 7
+Measured Task Accuracy (\%) across three levels of task complexity (reduced-order reimplementation, Qwen2.5-7B-Instruct; Level 3 pooled across 3 masking seeds, $n=48$). ICL leads at every level; HDR is bimodal (perfect at Level 1's non-conditional rule, weak once the rule becomes background-conditional); Single-step tracks each level's ANOMALY base rate rather than discriminating between scenes.
+
+% 8
+Measured Task Accuracy across grounding modalities (reduced-order reimplementation, Qwen2.5-7B-Instruct). Level 3 figures are pooled across 5 masking seeds ($n=80$ overall, $n=20$ for the masked-only subset). Hybrid Grounding wins on Level 2 but is the worst condition on Level 3, especially on the masked combinations it was intended to help with --- the opposite of the original hypothesis.
+
+% 9
+Measured parameter sensitivity of the maximum refinement iterations $K$ (reduced-order reimplementation, Qwen2.5-7B-Instruct). (a) Task Accuracy does \emph{not} plateau at $K=3$: Level 2 (a single deterministic run, confirmed identical on repeat) keeps improving through $K=5$; Level 3 (averaged over 3 masking seeds) plateaus in only 1 of 3 seeds individually. (b) Token overhead per consolidated episode is concave, not linear: most of the cost increase happens between $K{=}1$ and $K{=}2$, with sharply diminishing marginal cost for extending the budget further, since only a minority of episodes ever use the additional iterations.
+
+% 10
+Diagnostic Assessment of Memory Quality (Experiment 5, reduced-order reimplementation, Qwen2.5-7B-Instruct). Label correctness and spurious-attribution rate are computed deterministically against ground truth, not via LLM judgment. ``Spurious (of correct)'' = \% of label-correct reflections that still cite a causally irrelevant attribute (texture / size) as determinative.

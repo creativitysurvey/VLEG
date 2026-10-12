@@ -32,14 +32,8 @@ SYSTEM_PROMPT = (
 
 
 def _parse_json_response(text: str) -> dict:
-    match = re.search(r"\{.*\}", text, re.DOTALL)
-    candidate = match.group(0) if match else text
-    try:
-        obj = json.loads(candidate)
-        assert "valid" in obj
-        return {"valid": bool(obj["valid"]), "critique": str(obj.get("critique", ""))}
-    except Exception:
-        return {"valid": False, "critique": f"[verifier output unparseable: {text[:200]}]"}
+    from core.verification_response import parse_verification_response
+    return parse_verification_response(text)
 
 
 def verify_reflection(image_path: str, verifier_view_text: str, reflection: str) -> tuple:

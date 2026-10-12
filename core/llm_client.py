@@ -38,7 +38,7 @@ def get_token_usage() -> dict:
 
 
 def chat(messages, model: str = MODEL_NAME, temperature: float = 0.0,
-         timeout: int = 600, max_retries: int = 3) -> str:
+         timeout: int = 600, max_retries: int = 3, num_ctx: int | None = None, num_predict: int | None = None) -> str:
     """
     messages: list of {"role": "system"|"user"|"assistant", "content": str}
     Returns the assistant's text content.
@@ -60,6 +60,10 @@ def chat(messages, model: str = MODEL_NAME, temperature: float = 0.0,
         "stream": False,
         "options": {"temperature": temperature},
     }
+    if num_ctx is not None:
+        payload["options"]["num_ctx"] = num_ctx
+    if num_predict is not None:
+        payload["options"]["num_predict"] = num_predict
     data = json.dumps(payload).encode("utf-8")
 
     last_error = None
