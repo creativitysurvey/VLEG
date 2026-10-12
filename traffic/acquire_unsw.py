@@ -15,9 +15,13 @@ COMMIT = '161024104f19eea98b5c9aba0499a8fcb867ba1d'
 BASE = 'https://raw.githubusercontent.com/jamshaid120/UNSW_NB15-Complete-dataset/' + COMMIT
 FILES = {
     'UNSW_NB15_training-set.csv': {'mirror_file': 'UNSW_NB15_testing-set.csv', 'rows': 175341,
-                                 'md5': 'e55caabaa6cd4a8f1c06a227bcfababc'},
+                                 'md5': 'e55caabaa6cd4a8f1c06a227bcfababc',
+                                 'sha256': 'bec7dd5ec88dc2a0ccc7a07879d338395ed7421750f675fd0339e07dfe0648fa',
+                                 'bytes': 32293018},
     'UNSW_NB15_testing-set.csv': {'mirror_file': 'UNSW_NB15_training-set.csv', 'rows': 82332,
-                                'md5': 'e0beea40262e46168cdb81476dbc27b4'},
+                                'md5': 'e0beea40262e46168cdb81476dbc27b4',
+                                'sha256': '734fe6642edf758f7c94d7d9149426b49d202fe8e7bf0bef47392489c3c0a559',
+                                'bytes': 15380800},
 }
 
 
@@ -27,8 +31,9 @@ def verify(path, expected):
     with path.open('rb') as f:
         for block in iter(lambda: f.read(1024*1024), b''):
             h.update(block); sha.update(block)
-    if h.hexdigest() != expected['md5']:
-        raise ValueError(f'Checksum mismatch: {path}')
+    if (h.hexdigest() != expected['md5'] or sha.hexdigest() != expected['sha256']
+            or path.stat().st_size != expected['bytes']):
+        raise ValueError(f'Checksum/size mismatch: {path}; actual bytes={path.stat().st_size}, MD5={h.hexdigest()}, SHA256={sha.hexdigest()}')
     with path.open(newline='') as f:
         reader = csv.DictReader(f)
         if not {'label', 'attack_cat', 'dur', 'proto'}.issubset(reader.fieldnames or []):
@@ -37,6 +42,37 @@ def verify(path, expected):
     if rows != expected['rows']:
         raise ValueError(f'Row-count mismatch: {path}')
     return {'rows': rows, 'md5': h.hexdigest(), 'sha256': sha.hexdigest()}
+
+
+def download(url, destination, byte_limit):
+    with urllib.request.urlopen(url, timeout=120) as response, destination.open('wb') as f:
+        if response.status != 200:
+            raise ValueError(f'Unexpected HTTP status {response.status}')
+        size = 0
+        for block in iter(lambda: response.read(1024*1024), b''):
+            size += len(block)
+            if size > byte_limit:
+                raise ValueError('Downloaded file exceeds pinned size')
+            f.write(block)
+
+
+def fetch_dataset_file(url, destination, expected):
+    download(url, destination, max(1024, expected['bytes']))
+    with destination.open('rb') as f:
+        prefix = f.read(1024)
+    resolved_url = url
+    if prefix.startswith(b'version https://git-lfs.github.com/spec/v1\n'):
+        if destination.stat().st_size > 1024:
+            raise ValueError('Invalid LFS pointer size')
+        fields = dict(line.split(' ', 1) for line in prefix.decode('ascii').splitlines())
+        if fields.get('oid') != 'sha256:' + expected['sha256'] or fields.get('size') != str(expected['bytes']):
+            raise ValueError('LFS pointer does not match pinned dataset object')
+        resolved_url = url.replace('https://raw.githubusercontent.com/',
+                                   'https://media.githubusercontent.com/media/', 1)
+        print('Resolving pinned Git LFS data object...', flush=True)
+        download(resolved_url, destination, expected['bytes'])
+    verify(destination, expected)
+    return resolved_url
 
 
 def acquire(output, verify_only=False):
@@ -55,14 +91,12 @@ def acquire(output, verify_only=False):
                 raise FileNotFoundError(target)
             partial = target.with_suffix('.download')
             try:
-                with urllib.request.urlopen(url, timeout=120) as response, partial.open('wb') as f:
-                    for block in iter(lambda: response.read(1024*1024), b''):
-                        f.write(block)
-                verify(partial, expected)
+                fetch_dataset_file(url, partial, expected)
                 partial.replace(target)
             finally:
                 partial.unlink(missing_ok=True)
-        result['files'][name] = {**verify(target, expected), 'mirror_url': url}
+        result['files'][name] = {**verify(target, expected), 'mirror_url': url,
+                                 'lfs_object_url': url.replace('https://raw.githubusercontent.com/', 'https://media.githubusercontent.com/media/', 1)}
     (output / 'unsw_source_manifest.json').write_text(json.dumps(result, indent=2)+'\n')
     return result
 

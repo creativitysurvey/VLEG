@@ -215,3 +215,18 @@ all five seeds finish. The planned inference count is 25,500 calls (500 pilot,
 check, not permission to tune against formal test outcomes. If the model service is
 unavailable it exits with `blocked_no_model_service`; it does not report a running
 experiment or synthetic results as real measurements.
+
+### Git LFS download fix and Ollama alias compatibility
+
+The CSV mirror stores its large files in Git LFS. A raw.githubusercontent.com
+request returns a 133-byte pointer, not the flow data. The downloader now validates
+the pointer's pinned SHA256/size, resolves the public media object, then verifies
+the actual bytes with MD5, SHA256, size, required headers and row count. A download
+mismatch remains an error; the checksum is not disabled or replaced by an unchecked
+fallback. HTTP acquisition of both complete files was tested from an empty directory.
+
+Ollama `/api/tags` reports an untagged embedding model as `nomic-embed-text:latest`.
+Preflight now recognizes this canonical alias while preserving the actual model
+digest in the run metadata. Missing or changed model objects still cause failure.
+The added regression tests cover LFS resolution, changed object identifiers,
+incorrect downloaded bytes and this model-name alias.

@@ -100,7 +100,13 @@ def model_metadata(model, embedding_model):
             tags = json.loads(response.read())['models']
         selected = {}
         for requested in (model, embedding_model):
-            match = next((item for item in tags if item.get('name') == requested or item.get('model') == requested), None)
+            # Ollama lists untagged requests as :latest; compare canonical names.
+            def canonical(name):
+                if not name:
+                    return None
+                return name if ':' in name.rsplit('/', 1)[-1] else name + ':latest'
+            match = next((item for item in tags if canonical(item.get('name')) == canonical(requested)
+                          or canonical(item.get('model')) == canonical(requested)), None)
             if match is None:
                 raise ValueError(f'Model not found in Ollama tags: {requested}')
             selected[requested] = {key: match.get(key) for key in ('name', 'digest', 'details')}
