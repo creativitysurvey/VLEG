@@ -52,8 +52,9 @@ def _parse_json_response(text: str) -> dict:
     candidate = match.group(0) if match else text
     try:
         obj = json.loads(candidate)
-        assert "hallucinated" in obj
-        return {"hallucinated": bool(obj["hallucinated"]), "reason": str(obj.get("reason", ""))}
+        if not isinstance(obj, dict) or type(obj.get("hallucinated")) is not bool:
+            raise ValueError("hallucinated must be a JSON boolean")
+        return {"hallucinated": obj["hallucinated"], "reason": str(obj.get("reason", ""))}
     except Exception:
         return {"hallucinated": True, "reason": f"[oracle output unparseable: {text[:200]}]"}
 
@@ -181,8 +182,10 @@ def _parse_ground_truth_response(text: str) -> dict:
         cat = str(obj.get("condition_quality", "")).strip()
         if cat not in valid_categories:
             raise ValueError(f"unexpected category {cat!r}")
+        if type(obj.get("label_correct")) is not bool:
+            raise ValueError("label_correct must be a JSON boolean")
         return {
-            "label_correct": bool(obj["label_correct"]),
+            "label_correct": obj["label_correct"],
             "condition_quality": cat,
             "reason": str(obj.get("reason", "")),
         }

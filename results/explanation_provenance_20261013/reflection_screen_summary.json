@@ -1,0 +1,30 @@
+{
+  "review_type": "deterministic_assisted_screen_not_human_audit",
+  "historical_unique_flows": 160,
+  "test_flows_used": 0,
+  "human_reviews_completed": 0,
+  "methods": {
+    "single_step": {
+      "n": 160,
+      "source_label_matches": 84,
+      "parseable": 160,
+      "source_conditions_true": 160,
+      "source_conditions_false": 0,
+      "rules_with_historical_counterexamples": 136
+    },
+    "vleg": {
+      "n": 158,
+      "source_label_matches": 158,
+      "parseable": 157,
+      "source_conditions_true": 157,
+      "source_conditions_false": 0,
+      "rules_with_historical_counterexamples": 113
+    }
+  },
+  "limits": [
+    "Only explicit conjunctive IF/THEN atoms evaluated; ambiguous syntax is unresolved.",
+    "Counterexamples use the union of historical draws, excluding the source of each rule; not independent validation.",
+    "No counterexample found does not establish causal or universal validity.",
+    "No model-output or metric changes. Human columns intentionally blank."
+  ]
+}

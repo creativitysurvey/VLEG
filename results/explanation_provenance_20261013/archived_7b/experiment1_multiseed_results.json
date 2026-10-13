@@ -1,0 +1,117 @@
+{
+  "level1_repeat": {
+    "level": "Level1_repeat",
+    "n_train": 8,
+    "n_test": 8,
+    "results": {
+      "VLEG": {
+        "accuracy": 0.75,
+        "bank_size": 6
+      },
+      "HDR": {
+        "accuracy": 1.0,
+        "verified": true,
+        "hypothesis": "ANOMALY occurs when the shape is circle and the color is red regardless of texture and size, while all other combinations are considered NORMAL."
+      },
+      "Reflexion": {
+        "accuracy": 0.25
+      },
+      "ICL": {
+        "accuracy": 1.0
+      }
+    }
+  },
+  "level2_repeat": {
+    "level": "Level2_repeat",
+    "n_train": 16,
+    "n_test": 16,
+    "results": {
+      "VLEG": {
+        "accuracy": 0.875,
+        "bank_size": 15
+      },
+      "HDR": {
+        "accuracy": 0.625,
+        "verified": false,
+        "hypothesis": "ANOMALY is more likely when the shape has a blue color and large size on a white background, or when it is red with a striped texture and large size on a black background."
+      },
+      "Reflexion": {
+        "accuracy": 0.5
+      },
+      "ICL": {
+        "accuracy": 0.9375
+      }
+    }
+  },
+  "level3_by_seed": [
+    {
+      "level": "Level3_seed42",
+      "n_train": 12,
+      "n_test": 16,
+      "results": {
+        "VLEG": {
+          "accuracy": 0.75,
+          "bank_size": 12
+        },
+        "HDR": {
+          "accuracy": 0.625,
+          "verified": false,
+          "hypothesis": "In white backgrounds, scenes with a square shape and red color are more likely to be labeled as ANOMALY, while in black backgrounds, anomalies tend to involve circles or squares with solid textures regardless of the shape's size or color."
+        },
+        "Reflexion": {
+          "accuracy": 0.5625
+        },
+        "ICL": {
+          "accuracy": 0.8125
+        }
+      },
+      "seed": 42
+    },
+    {
+      "level": "Level3_seed7",
+      "n_train": 12,
+      "n_test": 16,
+      "results": {
+        "VLEG": {
+          "accuracy": 0.75,
+          "bank_size": 11
+        },
+        "HDR": {
+          "accuracy": 0.75,
+          "verified": false,
+          "hypothesis": "ANOMALY scenes are characterized by a black background with blue or red objects of any size and texture, while NORMAL scenes have either a white background with blue objects of small size or a white background with red objects of large size and striped texture."
+        },
+        "Reflexion": {
+          "accuracy": 0.5
+        },
+        "ICL": {
+          "accuracy": 0.8125
+        }
+      },
+      "seed": 7
+    },
+    {
+      "level": "Level3_seed123",
+      "n_train": 12,
+      "n_test": 16,
+      "results": {
+        "VLEG": {
+          "accuracy": 0.75,
+          "bank_size": 11
+        },
+        "HDR": {
+          "accuracy": 0.75,
+          "verified": false,
+          "hypothesis": "ANOMALY is more likely when the background is white and the object is red with a striped texture, regardless of shape and size, while ANOMALY is also indicated by black backgrounds with blue objects having a striped texture, particularly when they are squares or large in size."
+        },
+        "Reflexion": {
+          "accuracy": 0.4375
+        },
+        "ICL": {
+          "accuracy": 1.0
+        }
+      },
+      "seed": 123
+    }
+  ]
+}

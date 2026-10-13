@@ -357,7 +357,7 @@ python -m experiments_visual.fill_sphere_blue_metal_gap        # one-off retry f
 
 | # | Question | Symbolic-pipeline answer (7B → 70B) | Real-image-pipeline answer |
 |---|----------|--------------------------------------|------------------------------|
-| 1 | Does VLEG beat HDR / Reflexion / ICL? | 7B: ICL beats VLEG everywhere. 70B: reverses — VLEG matches/beats ICL at every level (confirmed multi-seed) | VLEG 87.5%; all 3 baselines collapse to a constant prediction, via 3 different mechanisms (#41) |
+| 1 | Does VLEG beat HDR / Reflexion / ICL? | 7B: ICL beats VLEG everywhere. 70B latest archive: VLEG 44/48 vs ICL 43/48 on Level3; two seed wins and one loss; feedback baseline differs from 7B | VLEG 87.5%; all 3 baselines collapse to a constant prediction, via 3 different mechanisms (#41) |
 | 2 | Is Hybrid Grounding better than Abstract-Only / Raw-Only? | 7B: Hybrid worst on Level 3/masked. 70B: mixed — ties for best overall, Abstract-Only keeps a narrower masked-combo edge | Abstract-Only is degenerate by construction here (uninformative query without an image); Raw-Only reproduces the multi-image collapse |
 | 3 | Does the K=1→K=3 loop help? | 7B: modest gain via coverage recovery. 70B: gain roughly doubles | Coverage-recovery mechanism replicates; downstream accuracy does NOT track it — net negative at both pilot and large (n=160) scale |
 | 4 | Does accuracy plateau at K=3? | 7B: inconsistent across seeds. 70B: clean plateau, but at K=2, one iteration earlier than hypothesized | K=1 alone scored 100% in one pilot run; K=2/K=3 measurably worse — independently confirms Exp3's coverage-vs-accuracy tension |
@@ -474,3 +474,7 @@ python scripts/audit_traffic_results.py \
   --output /path/to/audit_output \
   --archive /path/to/VLEG-exp6-results-20261013.tar.gz --repo .
 ```
+
+### Explanation and symbolic provenance audit (2026-10-13)
+
+See [audit report](docs/EXPLANATION_PROVENANCE_AUDIT_20261013.md) and `results/explanation_provenance_20261013/`. The deterministic screen covers all 318 formal reflections, with 113/157 parseable admitted rules contradicted by other historical draws. It is not a completed human review. Archived 7B/70B source snapshots and prediction-level recounts resolve stale manuscript numbers; missing original model/verifier execution evidence still requires a fresh symbolic rerun. Oracle boolean parsing has been repaired with regression tests.
