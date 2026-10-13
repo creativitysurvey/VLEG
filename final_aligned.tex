@@ -411,14 +411,11 @@ Reported symbolic runs use Qwen2.5-7B-Instruct or Llama-3.3-70B-Instruct, nomic-
 
 The 7B and latest 70B archives have been reconciled, but lack original verifier replies and exact model digests. They precede strict boolean-parser repairs and were not rerun. Cross-scale comparisons also change model family and cannot isolate parameter count. Repeated queries across seeds are not independent samples, and temperature $0$ does not guarantee identical outputs. Experiment 6 separately specifies the public-flow data, frozen model versions, split, metrics and runtime costs.
 
-\subsection{Experiment 1: Controlled Memory-Strategy Comparison}
+\subsection{Controlled Memory-Strategy Comparison}
 \label{sec:exp1}
+We compare VLEG, global hypotheses, first-proposal reflections and raw retrieval under the same model and temperature, with $K=3$ for VLEG. Levels 1 and 2 evaluate eight and sixteen seen combinations; Level 3 pools three masking seeds ($n=48$ recurring evaluations).
 
-Experiment 1 compares VLEG, global-hypothesis consolidation, unverified single-step reflection, and raw in-context retrieval on the three symbolic task levels. The comparisons characterize this small environment and these adaptations; they do not establish superiority over published systems on their original benchmarks.
-
-Within each model-scale comparison the same underlying model and temperature are used. VLEG uses $K=3$. Level 1 has eight queries and Level 2 sixteen. Level 3 is pooled over three masking seeds, giving 48 evaluations of sixteen recurring combinations. Repeat runs matched reported accuracies in the checked conditions, which is an empirical repeatability observation rather than a determinism guarantee.
-
-The reported 7B accuracies are ICL $100.0\%$, $93.8\%$ and $87.5\%$ at Levels 1--3, versus VLEG $75.0\%$, $87.5\%$ and $75.0\%$. Global-hypothesis consolidation recovers the uniform-background rule at Level 1 ($100.0\%$), but has pooled accuracy $70.8\%$ at Level 3. The historical single-step reflection comparator scores $25.0\%$, $50.0\%$ and $50.0\%$; the inspected reflections all predict ANOMALY, making its accuracy equal to the corresponding anomaly base rate. These values describe the historical adaptation, not the changed multi-attempt feedback baseline now present in the repository.
+Figure~\ref{fig:exp1_results} shows that 7B raw retrieval leads at all levels: $100.0\%$, $93.8\%$ and $87.5\%$, versus VLEG's $75.0\%$, $87.5\%$ and $75.0\%$. Global hypotheses achieve $100.0\%$ at Level 1 but $70.8\%$ at Level 3. First-proposal reflections score $25.0\%$, $50.0\%$ and $50.0\%$, matching the anomaly base rates because the inspected reflections always predict ANOMALY.
 
 \begin{figure}[htbp]
     \centering
@@ -464,9 +461,7 @@ The reported 7B accuracies are ICL $100.0\%$, $93.8\%$ and $87.5\%$ at Levels 1-
     \label{fig:exp1_results}
 \end{figure}
 
-At 7B, raw retrieval performs best in this environment. This limits the evidence for an advantage from consolidation at that scale. Experiment 2 isolates grounding content more directly, and the limitations below explain why this globally expressible oracle does not establish a general weakness of global consolidation.
-
-\textbf{Cross-scale check.} The reported 70B check evaluates Levels 1 and 2 once each and Level 3 across three masking seeds. The latest archived, feedback-baseline revision gives Level-3 pooled accuracies of VLEG $91.67\%$ (44/48), raw retrieval $89.58\%$ (43/48), global hypothesis $83.33\%$ (40/48), and feedback-based Reflexion $81.25\%$ (39/48). VLEG exceeds raw retrieval in two seeds but is lower in the third. These replace the earlier $93.75\%$ VLEG and single-step-baseline numbers; the feedback-based comparator is not the same condition as the 7B first-proposal comparator. This reverses the descriptive ordering at 7B. Because the model family also changes and the evaluation population is small, the difference should not be attributed to parameter count alone.
+The latest archived 70B Level-3 results are VLEG $91.67\%$ (44/48), raw retrieval $89.58\%$ (43/48), global hypotheses $83.33\%$ (40/48), and feedback-based Reflexion $81.25\%$ (39/48). VLEG wins two seeds against raw retrieval and loses one. The one-correct-evaluation pooled advantage is descriptive: the model family and reflection baseline also change, so it cannot isolate parameter count. These controlled adaptations and small symbolic populations do not establish superiority over published systems on their original benchmarks.
 
 \subsection{Experiment 2: Component Isolation (Grounding Modality Ablation)}
 \label{sec:exp2}
