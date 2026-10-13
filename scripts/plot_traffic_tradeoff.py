@@ -14,6 +14,8 @@ plt.rcParams.update({'font.family':'DejaVu Sans','font.size':9,'pdf.fonttype':42
 fig,axes=plt.subplots(2,1,figsize=(6.2,7.2))
 x=np.arange(5);means=[100*r['mean_metrics'][m]['macro_f1']['mean'] for m in methods];errors=[100*r['mean_metrics'][m]['macro_f1']['stdev'] for m in methods]
 axes[0].bar(x,means,color=colors,width=.62,yerr=errors,capsize=3)
+for position,mean,error in zip(x,means,errors):
+ axes[0].text(position,mean+error+1.5,f'{mean:.2f}',ha='center',va='bottom',fontsize=9)
 axes[0].set_xticks(x,['Raw\nflows','Single\nstep','VLEG','Raw\nadmitted','Global\nsummary']);axes[0].set_ylim(0,85)
 axes[0].set_ylabel('Macro-F1 (%)');axes[0].set_title('(a) Balanced classification',loc='left',fontsize=10)
 axes[0].grid(axis='y',alpha=.2);axes[0].set_axisbelow(True)
