@@ -2,7 +2,7 @@
 
 \caption{Architectural flow of the VLEG framework components. Separate generator and verifier calls admit only candidates accepted by the implemented check to the Hybrid Memory Bank alongside their raw episodic counterparts.}
 
-\caption{State transition diagram of the Iterative Cyclic Refinement mechanism. The loop stores the first candidate accepted by the verifier to the semantic memory bank.}
+\caption{State transition diagram of the Iterative Cyclic Refinement mechanism. The loop stores the first candidate accepted by the verifier to the paired episodic--semantic memory bank.}
 
 \caption{Verified Localized Episodic Grounding (VLEG)}
 
@@ -10,11 +10,11 @@
 
 \caption{Measured Task Accuracy across grounding modalities (reduced-order reimplementation, Qwen2.5-7B-Instruct). Level 3 figures are pooled across 5 masking seeds ($n=80$ overall, $n=20$ for the masked-only subset). Hybrid Grounding wins on Level 2 but is the worst condition on Level 3, especially on the masked combinations it was intended to help with --- the opposite of the original hypothesis.}
 
-\caption{Measured parameter sensitivity of the maximum refinement iterations $K$ (reduced-order reimplementation, Qwen2.5-7B-Instruct). (a) Task Accuracy does \emph{not} plateau at $K=3$: Level 2 (a single deterministic run, confirmed identical on repeat) keeps improving through $K=5$; Level 3 (averaged over 3 masking seeds) plateaus in only 1 of 3 seeds individually. (b) Token overhead per consolidated episode is concave, not linear: most of the cost increase happens between $K{=}1$ and $K{=}2$, with sharply diminishing marginal cost for extending the budget further, since only a minority of episodes ever use the additional iterations.}
+\caption{Measured parameter sensitivity of the maximum refinement iterations $K$ (reduced-order reimplementation, Qwen2.5-7B-Instruct). (a) Task Accuracy does \emph{not} plateau at $K=3$: Level 2 (a single run whose accuracy matched on repeat) keeps improving through $K=5$; Level 3 (averaged over 3 masking seeds) plateaus in only 1 of 3 seeds individually. (b) Token overhead per consolidated episode is concave, not linear: most of the cost increase happens between $K{=}1$ and $K{=}2$, with sharply diminishing marginal cost for extending the budget further, since only a minority of episodes ever use the additional iterations.}
 
-\caption{Diagnostic Assessment of Memory Quality (Experiment 5, reduced-order reimplementation, Qwen2.5-7B-Instruct). Label correctness and spurious-attribution rate are computed deterministically against ground truth, not via LLM judgment. ``Spurious (of correct)'' = \% of label-correct reflections containing a texture/size keyword; the flag does not distinguish mention from causal assertion.}
+\caption{Diagnostic assessment of memory quality (reduced-order reimplementation, Qwen2.5-7B-Instruct). Admission is stored episodes divided by historical episodes. Label correctness and spurious-attribution rate are computed deterministically against ground truth, not via LLM judgment. ``Spurious (of correct)'' = \% of label-correct reflections containing a texture/size keyword; the flag does not distinguish mention from causal assertion.}
 
-\caption{Public-flow performance, mean $\pm$ sample standard deviation across five historical-memory seeds (percent). All seeds use the same 1,000 test fingerprints. Invalid outputs count as errors.}
+\caption{Public-flow performance, mean $\pm$ sample standard deviation across five historical-memory seeds (percent). All seeds use the same 1,000 test fingerprints. Invalid outputs count as errors: they are false negatives for their true class in Macro-F1/recall; false positive rate counts only benign flows predicted malicious.}
 
 \caption{Public-flow results across five memory seeds. Top: mean Macro-F1 with sample-standard-deviation bars. Bottom: attack recall versus false positive rate; faint points are individual seeds and large markers are means. The larger recall of VLEG is accompanied by more false alarms.}
 

@@ -151,7 +151,7 @@ VLEG's contribution is a controlled assessment of local admission checking and e
 \subsection{Overview of Verified Localized Episodic Grounding (VLEG)}
 VLEG stores a labeled historical episode with an accepted local reflection. The implementation distinguishes generation, checking and inference roles. The following formulation describes their information access and stopping behavior; it does not guarantee correctness of the verifier or general validity of an accepted rule.
 
-Let $\mathcal{E}=\{e_1,\ldots,e_n\}$ be historical episodes whose labels are available during consolidation. A pure episodic memory stores those labeled episodes directly. In the measured experiments, episodes are symbolic scene tuples. A network-flow implementation instead requires actual flow features and an independently labeled historical partition. Test labels are excluded from inference in either setting.
+Let $\mathcal{E}=\{e_1,\ldots,e_n\}$ be historical episodes whose labels are available during consolidation. A pure episodic memory stores those labeled episodes directly. The symbolic evaluations use scene tuples, while the public-flow evaluation uses UNSW-NB15 feature records from separate historical and test partitions. Write $e_i=(x_i,y_i)$, where $x_i$ denotes observed attributes and $y_i$ the historical label. The initial generator receives only $x_i$; the verifier receives $(x_i,y_i)$, and its critique can reveal $y_i$ during revision. Test labels are excluded from inference in either setting.
 
 Conversely, global semantic consolidation \cite{agarwal2026hypothesis} attempts to distill $\mathcal{E}$ into a compact set of universal rules or hypotheses, $\mathcal{H}$. This can be modeled as finding a global hypothesis set that maximizes the likelihood of the observed episodes:
 \begin{equation}
@@ -159,7 +159,7 @@ Conversely, global semantic consolidation \cite{agarwal2026hypothesis} attempts 
 \end{equation}
 A single conditional hypothesis can represent the contextual rule used here. In other datasets, a limited-length summary may omit important exceptions. This is a capacity and evidence question, not a consequence that follows from heterogeneity alone.
 
-VLEG bridges this gap by shifting the abstraction target from the global distribution to the localized episode, while enforcing strict logical verification. Rather than attempting to find a universal $\mathcal{H}^*$, VLEG constructs a memory bank consisting of verified episodic-semantic tuples:
+VLEG bridges this gap by shifting the abstraction target from the global distribution to the localized episode, while applying a model-based source-episode admission check. Rather than attempting to find a universal $\mathcal{H}^*$, VLEG constructs a memory bank consisting of verified episodic-semantic tuples:
 \begin{equation}
     \mathcal{M}_{VLEG} = \left\{ (e_i, r_i^*) \mid e_i \in \mathcal{E}, \; \mathcal{V}(r_i^* \mid e_i) = 1 \right\}
 \end{equation}
@@ -189,15 +189,15 @@ The stored tuple retains the source episode alongside its accepted reflection. T
 The implementation has a reflection generator, a verifier and a memory bank. Generation and checking use separate prompts and model calls. They use the same underlying model, so shared errors and dependent responses remain possible.
 
 \subsubsection{The Reflection Generator ($\mathcal{G}_\theta$)}
-The Reflection Generator is an LLM parameterized by $\theta$, tasked with distilling a high-dimensional raw traffic episode $e_i$ into a localized, natural language abstraction $r_i$. Formally, at iteration $j=0$, the generator samples an initial candidate reflection conditioned solely on the raw episode:
+The Reflection Generator is an LLM parameterized by $\theta$, tasked with distilling a high-dimensional raw traffic episode $e_i$ into a localized, natural language abstraction $r_i$. Formally, at iteration $j=0$, the generator samples an initial candidate reflection conditioned solely on the label-free attributes $x_i$:
 \begin{equation}
-    r_i^{(0)} \sim \mathcal{G}_\theta(\cdot \mid e_i)
+    r_i^{(0)} \sim \mathcal{G}_\theta(\cdot \mid x_i)
 \end{equation}
 In subsequent iterations ($j > 0$), if the initial reflection is deemed invalid, the generator is conditioned on the raw episode, its previous candidate reflection $r_i^{(j-1)}$, and a natural language critique $c^{(j-1)}$ provided by the verifier:
 \begin{equation}
-    r_i^{(j)} \sim \mathcal{G}_\theta(\cdot \mid e_i, r_i^{(j-1)}, c^{(j-1)})
+    r_i^{(j)} \sim \mathcal{G}_\theta(\cdot \mid x_i, r_i^{(j-1)}, c^{(j-1)})
 \end{equation}
-While systems like Reflexion \cite{shinn2023reflexion} terminate after generating $r_i^{(0)}$ and immediately commit it to memory, VLEG treats $\mathcal{G}_\theta$ strictly as a proposal distribution whose outputs are inherently untrusted until validated.
+The unverified single-step comparator stores its first proposal without checking. Feedback-based Reflexion \cite{shinn2023reflexion} is a different comparator: our latest symbolic adaptation uses bounded binary feedback and always stores a reflection. VLEG instead stores a candidate only after its source-episode check accepts it.
 
 \subsubsection{The Strict Verifier ($\mathcal{V}_\phi$)}
 The verifier checks the candidate against one labeled historical episode. It can reject a mismatched label, an invented attribute or an uncheckable claim. This role is distinct from generation, but the two calls are not statistically independent.
@@ -211,9 +211,9 @@ If $v^{(j)}=1$, the candidate passes the implemented admission check. If $v^{(j)
 \subsubsection{The Hybrid Memory Bank ($\mathcal{M}$)}
 Once a reflection successfully passes the verifier (i.e., $v^{(j)} = 1$), it is denoted as the verified reflection $r_i^*$. The Hybrid Memory Bank $\mathcal{M}$ stores the paired tuple of the raw episode and its verified abstraction:
 \begin{equation}
-    \mathcal{M} = \bigcup_{i=1}^{N} \left\{ (e_i, r_i^*) \mid \exists j \le K \text{ s.t. } \mathcal{V}_\phi(e_i, r_i^{(j)})_v = 1 \right\}
+    \mathcal{M} = \bigcup_{i=1}^{n} \left\{ (e_i, r_i^*) \mid \exists\,0\le j<K \text{ s.t. } \mathcal{V}_\phi(e_i, r_i^{(j)})_v = 1 \right\}
 \end{equation}
-where $K$ is the maximum allowed refinement iterations. If an episode fails to yield a valid reflection within $K$ iterations, it is discarded to preserve memory integrity.
+Here $K$ is the maximum number of generation--verification attempts, indexed $j=0,\ldots,K-1$, including the initial proposal. The first accepted candidate is retained. If none is accepted, the episode is omitted from this bank; rejection alone does not establish that the episode is ambiguous or its proposed explanation false.
 
 The memory bank supports retrieval of both source evidence and a local reflection. This is the representation used in the hybrid modality; raw-only and abstract-only inputs remove one of its components for comparison.
 
@@ -243,22 +243,22 @@ The memory bank supports retrieval of both source evidence and a local reflectio
 \subsection{Learning Mechanism: Iterative Cyclic Refinement}
 The refinement loop revises a rejected candidate using the verifier critique. It stops at the first accepted candidate or after $K$ attempts. Reaching the budget without acceptance discards the episode from this reflection memory.
 
-Formally, let $e_i \in \mathcal{E}$ denote a raw, high-dimensional traffic episode. The refinement process is governed by two interacting models: the Reflection Generator $G_\theta$ and the Strict Verifier $V_\phi$. At the initial iteration ($j=0$), the generator produces a candidate reflection conditioned solely on the raw episode:
+Formally, let $e_i \in \mathcal{E}$ denote a raw, high-dimensional traffic episode. The refinement process is governed by two prompted roles using the same underlying model: the Reflection Generator $G_\theta$ and the Strict Verifier $V_\phi$. At the initial iteration ($j=0$), the generator produces a candidate reflection conditioned solely on the label-free attributes $x_i$:
 \begin{equation}
-    r_i^{(0)} \sim G_\theta(\cdot \mid e_i)
+    r_i^{(0)} \sim G_\theta(\cdot \mid x_i)
 \end{equation}
-Once a candidate reflection $r_i^{(j)}$ is generated, it is passed to the verifier $V_\phi$. The verifier acts as a deterministic logical gate, evaluating the reflection strictly against the grounding evidence $e_i$. It outputs a tuple consisting of a binary validity score $v_i^{(j)} \in \{0, 1\}$ and a natural language critique $c_i^{(j)}$:
+Once a candidate reflection $r_i^{(j)}$ is generated, it is passed to the verifier $V_\phi$. The verifier returns a model-based admission decision using the labeled source $e_i$; its correctness and repeatability are not guaranteed. It outputs a tuple consisting of a binary validity score $v_i^{(j)} \in \{0, 1\}$ and a natural language critique $c_i^{(j)}$:
 \begin{equation}
     (v_i^{(j)}, c_i^{(j)}) = V_\phi(e_i, r_i^{(j)})
     \label{eq:verifier}
 \end{equation}
-Note that $V_\phi$'s only argument besides the candidate reflection is the single episode $e_i$ it was generated from --- by construction it has no access to any other episode. This can expose a reflection that misstates $e_i$'s own attributes or label, but not sufficient to determine whether an attribute the reflection treats as necessary is actually causally relevant across episodes versus merely true of this one instance. This defines a key boundary condition of the verifier, which we investigate empirically in the memory-quality assessment (Section~\ref{sec:exp5}).
+Note that $V_\phi$'s only argument besides the candidate reflection is the single episode $e_i$ it was generated from --- by construction it has no access to any other episode. This can expose a reflection that misstates $e_i$'s own attributes or label, but is not sufficient to determine whether an attribute the reflection treats as necessary is actually causally relevant across episodes versus merely true of this one instance. This defines a key boundary condition of the verifier, which we investigate empirically in the memory-quality assessment (Section~\ref{sec:exp5}).
 
-If $v_i^{(j)} = 1$, the reflection is deemed valid, the loop terminates, and the verified reflection $r_i^* = r_i^{(j)}$ is committed to the memory bank. If $v_i^{(j)} = 0$, the reflection contains a logical inconsistency or hallucination. The critique $c_i^{(j)}$ is then fed back into the generator to produce a refined reflection for the next iteration:
+If $v_i^{(j)} = 1$, the reflection is accepted by the implemented check, the loop terminates, and the verified reflection $r_i^* = r_i^{(j)}$ is committed to the memory bank. If $v_i^{(j)} = 0$, the check rejects the candidate, which can also occur for a malformed verifier response. The critique $c_i^{(j)}$ is then fed back into the generator to produce a refined reflection for the next iteration:
 \begin{equation}
-    r_i^{(j+1)} \sim G_\theta(\cdot \mid e_i, r_i^{(j)}, c_i^{(j)})
+    r_i^{(j+1)} \sim G_\theta(\cdot \mid x_i, r_i^{(j)}, c_i^{(j)})
 \end{equation}
-This process repeats until either $v_i^{(j)} = 1$ or a maximum iteration limit $K$ is reached. If the limit $K$ is exhausted without validation, the episode is deemed too ambiguous, and no reflection is stored, thereby prioritizing memory precision over recall.
+This process stops at the first acceptance or after $K$ attempts. Exhausting the budget stores no tuple for that episode, reducing coverage without establishing a precision benefit.
 
 \begin{figure*}[!t]
 \centering
@@ -280,17 +280,17 @@ This process repeats until either $v_i^{(j)} = 1$ or a maximum iteration limit $
 \draw[arrow] (verifier) -- (check);
 \draw[arrow] (check) -- node[above] {Yes} (memory);
 \draw[arrow] (check.east) -- ++(1,0)
-    |- node[right, pos=0.25] {No ($j < K$)}
+    |- node[right, pos=0.25] {No ($j+1 < K$)}
        node[above, pos=0.75] {Critique $c_i^{(j)}$}
        ([yshift=1cm]generator.north)
     -- (generator.north);
-%\draw[arrow] (check.east) -- ++(1,0) |- node[right, pos=0.25] {No ($j < K$)} node[above, pos=0.75] {Critique $c_i^{(j)}$} (generator.north);
+%\draw[arrow] (check.east) -- ++(1,0) |- node[right, pos=0.25] {No ($j+1 < K$)} node[above, pos=0.75] {Critique $c_i^{(j)}$} (generator.north);
 \end{tikzpicture}\end{adjustbox}
-\caption{State transition diagram of the Iterative Cyclic Refinement mechanism. The loop stores the first candidate accepted by the verifier to the semantic memory bank.}
+\caption{State transition diagram of the Iterative Cyclic Refinement mechanism. The loop stores the first candidate accepted by the verifier to the paired episodic--semantic memory bank.}
 \label{fig:cyclic_refinement}
 \end{figure*}
 \begin{remark}[Scope of the admission check]
-Let $A_j$ denote reaching attempt $j$, $E_j$ an erroneous candidate at that attempt, and $B_j$ its acceptance by the verifier. For $j=1,\ldots,K$, suppose
+Let $A_j$ denote reaching attempt $j$, $E_j$ an erroneous candidate at that attempt, and $B_j$ its acceptance by the verifier. Using one-based attempt indices here, for $j=1,\ldots,K$, suppose
 $\Pr(E_j\mid A_j)\leq p_h$ and
 $\Pr(B_j\mid A_j,E_j)\leq p_v$ for a specified error class.
 Since the loop stores the first accepted candidate,
@@ -303,27 +303,27 @@ Since the loop stores the first accepted candidate,
 \end{equation}
 This union bound needs no independence assumption. It does not imply that increasing $K$ reduces erroneous commitments, nor does it bound error conditional on admission. A geometric power of $p_v$ would require repeated acceptance checks on the same candidate, which the implemented loop does not perform. The probabilities are not estimated by the present experiments.
 \end{remark}
-A single labeled episode can expose a contradiction or a fabricated attribute, but cannot establish which attributes cause a label or whether a heuristic transfers to other episodes. the memory-quality assessment measures this distinction in the symbolic setting; public-flow explanations require additional cross-episode or human assessment.
+A single labeled episode can expose a contradiction or a fabricated attribute, but cannot establish which attributes cause a label or whether a heuristic transfers to other episodes. The memory-quality assessment measures this distinction in the symbolic setting; public-flow explanations require additional cross-episode or human assessment.
 
 \subsection{Inference Integration: Hybrid Episodic-Semantic Grounding}
-Once the memory bank $\mathcal{M} = \{(e_i, r_i^*)\}_{i=1}^N$ has been populated with accepted tuples through the iterative cyclic refinement process, the system must effectively leverage this knowledge to solve a novel target task $T$ (e.g., classify a held-out flow or an unseen feature combination). Traditional retrieval-augmented generation (RAG) and standard in-context learning paradigms predominantly rely on episodic-only retrieval \cite{lewis2020retrieval, zhang2022active}, injecting raw, unstructured experiences directly into the context window. While this preserves high-fidelity details, it forces the reasoning module to perform ad-hoc abstraction at test time, which frequently leads to cognitive overload and degraded performance in complex, multi-source traffic environments.
+Once the memory bank $\mathcal{M}$ has been populated with accepted tuples through the iterative cyclic refinement process, the system must effectively leverage this knowledge to solve a novel target task $T$ (e.g., classify a held-out flow or an unseen feature combination). Traditional retrieval-augmented generation (RAG) and standard in-context learning paradigms predominantly rely on episodic-only retrieval \cite{lewis2020retrieval, zhang2022active}, injecting raw, unstructured experiences directly into the context window. While this preserves high-fidelity details, it forces the reasoning module to perform ad-hoc abstraction at test time, which requires the inference model to infer useful relations from the retrieved examples. The present experiments do not establish that this requirement generally degrades performance.
 
-To overcome this limitation, VLEG introduces a dual-pathway integration strategy termed \textit{Hybrid Episodic-Semantic Grounding}. This approach simultaneously injects the raw telemetry $e_i$ and its corresponding verified semantic rule $r_i^*$ into the context window, aligning with advanced memory integration paradigms that advocate for structured, multi-level memory representations \cite{wu2025from, zhang2024survey}. Our empirical evaluations further characterize the \emph{task- and scale-dependent boundary conditions} where hybrid grounding yields advantages versus when alternative grounding modalities perform comparably or better.
+To expose both representations at inference, VLEG uses a dual-pathway integration strategy termed \textit{Hybrid Episodic-Semantic Grounding}. This approach simultaneously injects the raw telemetry $e_i$ and its corresponding verified semantic rule $r_i^*$ into the context window, aligning with advanced memory integration paradigms that advocate for structured, multi-level memory representations \cite{wu2025from, zhang2024survey}. Our empirical evaluations further characterize the \emph{task- and scale-dependent boundary conditions} where hybrid grounding yields advantages versus when alternative grounding modalities perform comparably or better.
 
 \subsubsection{Semantic-Driven Retrieval}
-Given a novel target task $T$, the system must first retrieve the top-$k$ most relevant memory tuples. Because the raw episodes $e_i$ are high-dimensional and often contain task-irrelevant noise, VLEG performs retrieval primarily in the semantic space defined by the verified reflections $r_i^*$.
+Given a novel target task $T$, the system must first retrieve the top-$k$ most relevant memory tuples. The symbolic VLEG formulation ranks admitted tuples by reflection embeddings. The public-flow adaptation instead ranks all historical records using label-free feature embeddings, then removes rejected records without replacement for VLEG and its admission control. These are distinct retrieval protocols, not interchangeable implementations.
 
-Let $\phi(\cdot)$ denote a pre-trained dense embedding function. The relevance score $S(T, \mathcal{M}_i)$ for a given memory tuple $\mathcal{M}_i = (e_i, r_i^*)$ is computed using the cosine similarity between the embedding of the target task and the embedding of the verified reflection:
+Let $f_{\mathrm{emb}}(\cdot)$ denote a pre-trained dense embedding function. The relevance score $S(T, \mathcal{M}_i)$ for a given memory tuple $\mathcal{M}_i = (e_i, r_i^*)$ is computed using the cosine similarity between the embedding of the target task and the embedding of the verified reflection:
 \begin{equation}
-    S(T, \mathcal{M}_i) = \frac{\phi(T) \cdot \phi(r_i^*)}{\|\phi(T)\| \|\phi(r_i^*)\|}
+    S(T, \mathcal{M}_i) = \frac{f_{\mathrm{emb}}(T) \cdot f_{\mathrm{emb}}(r_i^*)}{\|f_{\mathrm{emb}}(T)\| \|f_{\mathrm{emb}}(r_i^*)\|}
 \end{equation}
 The system then selects the subset of $k$ tuples that maximize this similarity score:
 \begin{equation}
-    \mathcal{M}_{top} = \mathop{\arg\max}_{\mathcal{S} \subset \mathcal{M}, |\mathcal{S}|=k} \sum_{(e_i, r_i^*) \in \mathcal{S}} S(T, (e_i, r_i^*))
+    \mathcal{M}_{top} = \mathop{\arg\max}_{\mathcal{S} \subseteq \mathcal{M}, |\mathcal{S}|=\min(k,|\mathcal{M}|)} \sum_{(e_i, r_i^*) \in \mathcal{S}} S(T, (e_i, r_i^*))
 \end{equation}
 
 \subsubsection{Hybrid Prompt Formulation}
-After retrieving $\mathcal{M}_{top}$, the inference module constructs a hybrid context window. The fundamental premise of hybrid grounding is that the verified reflection $r_i^*$ provides the abstract, logical scaffold (the ``what'' and ``why''), while the raw episode $e_i$ provides the concrete, high-dimensional grounding (the ``how''). This permits comparison with the source evidence, but does not guarantee that unsupported generalization is avoided.
+After retrieving $\mathcal{M}_{top}$, the inference module constructs a hybrid context window. The fundamental premise of hybrid grounding is that the verified reflection $r_i^*$ provides proposed local guidance, while the labeled source episode $e_i$ provides the observed evidence. Neither component is a validated causal explanation. This permits comparison with the source evidence, but does not guarantee that unsupported generalization is avoided.
 
 The final inference prompt $P$ is constructed by concatenating the target task $T$ with the retrieved hybrid tuples, separated by structural delimiters:
 \begin{equation}
@@ -334,9 +334,9 @@ The final inference prompt $P$ is constructed by concatenating the target task $
     \oplus \text{Target: }T\Bigr).
 \end{aligned}
 \end{equation}
-where $\oplus$ denotes the sequence concatenation operator. The reasoning LLM, parameterized by $\theta$, then generates the final prediction $\hat{y}$ conditioned on this hybrid prompt:
+where $\oplus$ denotes the sequence concatenation operator. The reasoning LLM, parameterized by $\psi$, then generates the final prediction $\hat{y}$ conditioned on this hybrid prompt:
 \begin{equation}
-    \hat{y} = \text{LLM}_\theta(P)
+    \hat{y} = \text{LLM}_\psi(P)
 \end{equation}
 
 Hybrid context provides a reflection and its source evidence. Its benefit depends on whether the reflection guides the model toward relevant attributes or anchors it on a misleading condition. The grounding-modality ablation compares hybrid, raw-only and abstract-only inputs under shared retrieval.
@@ -346,7 +346,7 @@ The Verified Localized Episodic Grounding (VLEG) framework synthesizes the previ
 
 The execution flow of VLEG is formally divided into two distinct phases: \textbf{Phase 1: Memory Consolidation} and \textbf{Phase 2: Hybrid Inference}.
 
-During Phase 1, the system ingests a stream of raw, high-dimensional traffic episodes $\mathcal{E} = \{e_1, e_2, \dots, e_n\}$. For each episode $e_i$, the Generator $G_\theta$ proposes an initial candidate reflection $r_i^{(0)}$. The Verifier $V_\phi$ then evaluates this candidate strictly against the grounding episode $e_i$, outputting a binary validity flag $v \in \{0, 1\}$ and a natural language critique $c$. If $v = 0$ (indicating a label-level hallucination or logical inconsistency), the critique $c$ is fed back into $G_\theta$ to produce a refined reflection $r_i^{(1)}$. This iterative cyclic refinement continues until the reflection is validated ($v=1$) or a predefined maximum iteration limit $K$ is reached. If validated, the tuple $(e_i, r_i^*)$ is committed to the Memory Bank $\mathcal{M}$. This strict gating mechanism bounds the propagation of unverified heuristics for label-contradiction errors, directly addressing the vulnerabilities of single-step reflection pipelines \cite{shinn2023reflexion}.
+During Phase 1, the system ingests a stream of raw, high-dimensional traffic episodes $\mathcal{E} = \{e_1, e_2, \dots, e_n\}$. For each episode $e_i$, the Generator $G_\theta$ proposes $r_i^{(0)}$ from label-free attributes $x_i$. The Verifier $V_\phi$ then evaluates this candidate strictly against the grounding episode $e_i$, outputting a binary validity flag $v \in \{0, 1\}$ and a natural language critique $c$. If $v = 0$ (a rejected or unparseable check), the critique $c$ is fed back into $G_\theta$ to produce a refined reflection $r_i^{(1)}$. This iterative cyclic refinement continues until the reflection is validated ($v=1$) or a predefined maximum iteration limit $K$ is reached. If validated, the tuple $(e_i, r_i^*)$ is committed to the Memory Bank $\mathcal{M}$. The gate excludes rejected candidates from memory, but can retain an erroneous candidate if the verifier accepts it. This differs from unconditional first-proposal storage and from feedback-based reflection \cite{shinn2023reflexion}.
 
 During Phase 2, the system is presented with a novel target task $T$. A Retriever $R$ computes the cosine similarity between the task embedding and the stored memory tuples, extracting the top-$k$ most relevant memories $\mathcal{M}_{top} \subset \mathcal{M}$. The Inference Module $I_\psi$ is then prompted using Hybrid Episodic-Semantic Grounding, receiving both the raw episodes and their verified reflections to generate the final output. This dual-pathway integration aligns with advanced memory paradigms \cite{wu2025from}, making both representations available for the evaluated inference conditions.
 
@@ -357,17 +357,17 @@ The complete step-by-step procedure is formalized in Algorithm \ref{alg:vleg_fin
 \label{alg:vleg_final}
 \small
 \begin{algorithmic}[1]
-\Require Episodic stream $\mathcal{E} = \{e_1, \dots, e_n\}$, Target Task $T$, Max Iterations $K$, Retriever $R$
+\Require Episodic stream $\mathcal{E} = \{e_1, \dots, e_n\}$, Target Task $T$, Max Attempts $K$, Retrieval Count $k$, Retriever $R$
 \State Initialize Memory Bank $\mathcal{M} \gets \emptyset$
 \State \textbf{// Phase 1: Memory Consolidation}
 \For{each $e_i \in \mathcal{E}$}
     \State $j \gets 0$
-    \State $c \gets \emptyset$ \Comment{Initialize empty critique}
+    \State $(r,c) \gets (\emptyset,\emptyset)$ \Comment{Previous candidate and critique}
     \State $v \gets 0$ \Comment{Initialize validity flag to Invalid}
     \While{$v = 0$ \textbf{and} $j < K$}
-        \State $r_i^{(j)} \gets G_\theta(e_i, c)$ \Comment{Generate or refine reflection}
-        \State $(v, c) \gets V_\phi(e_i, r_i^{(j)})$ \Comment{Verify reflection against raw episode}
-        \State $j \gets j + 1$
+        \State $r_i^{(j)} \gets G_\theta(x_i, r, c)$ \Comment{Generate or refine reflection}
+        \State $(v, c) \gets V_\phi(e_i, r_i^{(j)})$ \Comment{Check reflection against labeled source}
+        \State $r \gets r_i^{(j)}$; $j \gets j + 1$
     \EndWhile
     \If{$v = 1$}
         \State $\mathcal{M} \gets \mathcal{M} \cup \{(e_i, r_i^{(j-1)})\}$ \Comment{Store verified tuple}
@@ -375,7 +375,7 @@ The complete step-by-step procedure is formalized in Algorithm \ref{alg:vleg_fin
 \EndFor
 \State \textbf{// Phase 2: Hybrid Inference}
 \State $\mathcal{M}_{top} \gets R(\mathcal{M}, T, k)$ \Comment{Retrieve top-$k$ relevant tuples}
-\State $\text{Context} \gets T \cup \mathcal{M}_{top}$ \Comment{Construct hybrid prompt}
+\State $\text{Context} \gets \text{PromptBuilder}(\mathcal{M}_{top},T)$ \Comment{Construct hybrid prompt}
 \State $\text{Output} \gets I_\psi(\text{Context})$ \Comment{Generate final reasoning answer}
 \State \Return $\text{Output}$
 \end{algorithmic}
@@ -391,9 +391,9 @@ The admission gate prevents storage when the verifier rejects a candidate. Its p
 \subsection{Experimental Settings}
 The symbolic evaluations use synthetic scenes with shape, color, texture, background and a deterministic size distractor. On white backgrounds, ANOMALY requires a red circle; black backgrounds invert this rule. Texture and size are noncausal. Level 1 contains eight white-background combinations; Level 2 contains sixteen across both backgrounds. Both evaluate combinations used to form memory. Level 3 withholds four from memory and tests all sixteen; masked-only accuracy measures withheld-combination generalization. Seeds change the withheld subset, not the underlying population.
 
-Reported symbolic runs use Qwen2.5-7B-Instruct or Llama-3.3-70B-Instruct, nomic-embed-text embeddings and temperature $0$. Generator and verifier are separate calls to the same model. Generation excludes historical labels; verification receives labeled source episodes, so refinement uses supervised feedback. Target labels are reserved for scoring. We vary consolidation, grounding modality and $K\in\{1,2,3,5\}$, measuring accuracy, memory coverage, label consistency, attribution flags and construction tokens. The grounding-modality ablation shares retrieval across modalities. First-proposal reflections, feedback-based Reflexion and global hypotheses are controlled adaptations; their implementation differences are identified below.
+Reported symbolic runs use Qwen2.5-7B-Instruct or Llama-3.3-70B-Instruct, nomic-embed-text embeddings and temperature $0$. Generator and verifier are separate calls to the same model. Initial generation excludes historical labels; verification receives labeled sources, and later attempts can receive labels through supervised critique. Target labels are reserved for scoring. We vary consolidation, grounding modality and $K\in\{1,2,3,5\}$, measuring accuracy, memory coverage, label consistency, attribution flags and construction tokens. The grounding-modality ablation shares retrieval across modalities. First-proposal reflections, feedback-based Reflexion and global hypotheses are controlled adaptations; their implementation differences are identified below.
 
-The 7B and latest 70B archives have been reconciled, but lack original verifier replies and exact model digests. They precede strict boolean-parser repairs and were not rerun. Cross-scale comparisons also change model family and cannot isolate parameter count. Repeated queries across seeds are not independent samples, and temperature $0$ does not guarantee identical outputs. the public-flow benchmark separately specifies the public-flow data, frozen model versions, split, metrics and runtime costs.
+The 7B and latest 70B archives have been reconciled, but lack original verifier replies and exact model digests. They precede strict boolean-parser repairs and were not rerun. Cross-scale comparisons also change model family and cannot isolate parameter count. Repeated queries across seeds are not independent samples, and temperature $0$ does not guarantee identical outputs. The public-flow benchmark separately specifies the public-flow data, frozen model versions, split, metrics and runtime costs.
 
 \subsection{Controlled Memory-Strategy Comparison}
 \label{sec:exp1}
@@ -402,7 +402,7 @@ We compare VLEG, global-hypothesis consolidation, unverified single-step reflect
 
 Within each model-scale comparison the same underlying model and temperature are used. VLEG uses $K=3$. Level 1 has eight queries and Level 2 sixteen. Level 3 is pooled over three masking seeds, giving 48 evaluations of sixteen recurring combinations. Repeat runs matched reported accuracies in the checked conditions, which is an empirical repeatability observation rather than a determinism guarantee.
 
-The reported 7B accuracies are ICL $100.0\%$, $93.8\%$ and $87.5\%$ at Levels 1--3, versus VLEG $75.0\%$, $87.5\%$ and $75.0\%$. Global-hypothesis consolidation recovers the uniform-background rule at Level 1 ($100.0\%$), but has pooled accuracy $70.8\%$ at Level 3. The historical single-step reflection comparator scores $25.0\%$, $50.0\%$ and $50.0\%$; the inspected reflections all predict ANOMALY, making its accuracy equal to the corresponding anomaly base rate. These values describe the historical adaptation, not the changed multi-attempt feedback baseline now present in the repository.
+The reported 7B accuracies are ICL $100.0\%$, $93.8\%$ and $87.5\%$ at Levels 1--3, versus VLEG $75.0\%$, $87.5\%$ and $75.0\%$. Global-hypothesis consolidation recovers the uniform-background rule at Level 1 ($100.0\%$), but has pooled accuracy $70.8\%$ at Level 3. The historical single-step reflection comparator scores $25.0\%$, $50.0\%$ and $50.0\%$; the inspected first proposals predominantly state ANOMALY. Its aggregate accuracy tracks the anomaly base rate, although individual Level-3 seeds differ. These values describe the historical adaptation, not the changed multi-attempt feedback baseline now present in the repository.
 
 \begin{figure}[!t]
     \centering
@@ -554,7 +554,7 @@ We vary the maximum refinement budget over $K\in\{1,2,3,5\}$ and measure symboli
         \addlegendentry{Level 2, tokens/episode}
         \end{axis}
     \end{tikzpicture}\end{adjustbox}
-    \caption{Measured parameter sensitivity of the maximum refinement iterations $K$ (reduced-order reimplementation, Qwen2.5-7B-Instruct). (a) Task Accuracy does \emph{not} plateau at $K=3$: Level 2 (a single deterministic run, confirmed identical on repeat) keeps improving through $K=5$; Level 3 (averaged over 3 masking seeds) plateaus in only 1 of 3 seeds individually. (b) Token overhead per consolidated episode is concave, not linear: most of the cost increase happens between $K{=}1$ and $K{=}2$, with sharply diminishing marginal cost for extending the budget further, since only a minority of episodes ever use the additional iterations.}
+    \caption{Measured parameter sensitivity of the maximum refinement iterations $K$ (reduced-order reimplementation, Qwen2.5-7B-Instruct). (a) Task Accuracy does \emph{not} plateau at $K=3$: Level 2 (a single run whose accuracy matched on repeat) keeps improving through $K=5$; Level 3 (averaged over 3 masking seeds) plateaus in only 1 of 3 seeds individually. (b) Token overhead per consolidated episode is concave, not linear: most of the cost increase happens between $K{=}1$ and $K{=}2$, with sharply diminishing marginal cost for extending the budget further, since only a minority of episodes ever use the additional iterations.}
     \label{fig:exp4_sensitivity}
 \end{figure}
 
@@ -577,14 +577,14 @@ Table \ref{tab:exp5_memory_quality} reports $100\%$ source-label consistency amo
 
 \begin{table}[!t]
     \centering
-    \caption{Diagnostic Assessment of Memory Quality (Experiment 5, reduced-order reimplementation, Qwen2.5-7B-Instruct). Label correctness and spurious-attribution rate are computed deterministically against ground truth, not via LLM judgment. ``Spurious (of correct)'' = \% of label-correct reflections containing a texture/size keyword; the flag does not distinguish mention from causal assertion.}
+    \caption{Diagnostic assessment of memory quality (reduced-order reimplementation, Qwen2.5-7B-Instruct). Admission is stored episodes divided by historical episodes. Label correctness and spurious-attribution rate are computed deterministically against ground truth, not via LLM judgment. ``Spurious (of correct)'' = \% of label-correct reflections containing a texture/size keyword; the flag does not distinguish mention from causal assertion.}
     \label{tab:exp5_memory_quality}
     \footnotesize
     \setlength{\tabcolsep}{3pt}
     \begin{adjustbox}{max width=\linewidth}
     \begin{tabular}{@{}llccc@{}}
         \toprule
-        \textbf{Level} & \textbf{Strategy} & \textbf{Validity} & \shortstack{\textbf{Label-}\\\textbf{correct}} & \shortstack{\textbf{Spurious}\\\textbf{(of correct)}} \\
+        \textbf{Level} & \textbf{Strategy} & \textbf{Admission} & \shortstack{\textbf{Label-}\\\textbf{correct}} & \shortstack{\textbf{Spurious}\\\textbf{(of correct)}} \\
         \midrule
         \multirow{2}{*}{Level 2} & Single-Step & N/A & 50.0\% (8/16) & 87.5\% (7/8) \\
                                  & \textbf{VLEG ($K{=}3$)} & \textbf{93.8\%} & \textbf{100.0\% (15/15)} & 86.7\% (13/15) \\
@@ -598,7 +598,7 @@ Table \ref{tab:exp5_memory_quality} reports $100\%$ source-label consistency amo
 
 In this diagnostic, the admitted reflections match their source labels, but frequently cite attributes that do not affect the synthetic oracle. For example, asserting that striped texture is necessary cannot be validated from a single striped instance. Cross-episode contrast is needed to distinguish an observed property from a general condition. A keyword flag is a coarse attribution diagnostic, not a causal explanation assessment for natural traffic.
 
-At 70B, reconstructing the source order prescribed by the experiment script gives admitted-reflection label consistency of $100.0\%$, versus $50.0\%$ for first proposals. This pairing is not independently attested by a checkpoint. Unconditional texture/size keyword rates are equal for both strategies: $12.5\%$ (2/16) at Level 2 and $16.7\%$ (2/12) at Level 3, compared with approximately $80$--$87\%$ at 7B. The reduction occurs for both strategies, so it is not evidence of a verification-specific benefit. Given the small counts, equality should not be described as proof of statistical equivalence. Cross-scale grounding results are reported separately in Section~\ref{sec:exp2}.
+At 70B, reconstructing the source order prescribed by the experiment script gives admitted-reflection label consistency of $100.0\%$, versus $50.0\%$ for first proposals. This pairing is not independently attested by a checkpoint. Unconditional texture/size keyword rates are equal for both strategies: $12.5\%$ (2/16) at Level 2 and $16.7\%$ (2/12) at Level 3. For the same unconditional denominator at 7B, the rates are $93.8\%$ (15/16) and $91.7\%$ (11/12) for first proposals, versus $86.7\%$ (13/15) and $83.3\%$ (10/12) for admitted VLEG reflections. These differ from the label-correct-only rates in Table~\ref{tab:exp5_memory_quality}. The reduction occurs for both strategies, so it is not evidence of a verification-specific benefit. Given the small counts, equality should not be described as proof of statistical equivalence. Cross-scale grounding results are reported separately in Section~\ref{sec:exp2}.
 
 The distinction matters for interpreting a verified memory bank. Admission is conditioned on the source episode, while downstream usefulness depends on other queries. Agreement at the first stage cannot certify the second. Likewise, lower keyword rates at 70B occur in both strategies, so they cannot be assigned specifically to the admission mechanism. The diagnostic therefore complements the retrieval and refinement comparisons without replacing their prediction-level outcomes. Natural-flow explanations require a separate rubric because these synthetic irrelevant-attribute labels are unavailable there.
 
@@ -612,7 +612,7 @@ Raw retrieval, first-proposal reflection, VLEG and raw-on-admitted retrieval sha
 
 \begin{table*}[!t]
 \centering
-\caption{Public-flow performance, mean $\pm$ sample standard deviation across five historical-memory seeds (percent). All seeds use the same 1,000 test fingerprints. Invalid outputs count as errors.}
+\caption{Public-flow performance, mean $\pm$ sample standard deviation across five historical-memory seeds (percent). All seeds use the same 1,000 test fingerprints. Invalid outputs count as errors: they are false negatives for their true class in Macro-F1/recall; false positive rate counts only benign flows predicted malicious.}
 \label{tab:exp6_performance}
 \small
 \begin{tabular}{lrrrr}
@@ -662,7 +662,7 @@ Detailed cleaning counts, provenance, per-attack results and audit procedures ar
 \FloatBarrier
 \subsection{Limitations}
 \label{sec:limitations}
-The symbolic evaluations use small populations, while the public-flow benchmark evaluates a cleaned public-flow benchmark. The latter is a controlled adaptation with shared raw retrieval, not a production deployment or a complete validation of reflection-driven retrieval. Levels 1 and 2 evaluate seen combinations; Level 3 combines seen and withheld combinations. Their accuracy must not be interpreted as held-out network generalization. The flow experiment is restricted by deduplication/conflict exclusion, missing session metadata, one model and test partition, fixed method order and incomplete human explanation audits.
+The symbolic evaluations use small populations, while the public-flow study evaluates a cleaned UNSW-NB15 testbed partition. The latter is a controlled adaptation with shared raw retrieval, not a production deployment or a complete validation of reflection-driven retrieval. Levels 1 and 2 evaluate seen combinations; Level 3 combines seen and withheld combinations. Their accuracy must not be interpreted as held-out network generalization. The flow experiment is restricted by deduplication/conflict exclusion, missing session metadata, one model and test partition, fixed method order and incomplete human explanation audits.
 
 The synthetic rule is expressible as a single background-conditioned statement. It tests conditional rule learning, not an impossibility of global abstraction. The 7B and 70B comparisons also change model family and cannot isolate scale causally. Observed rank reversals and equal diagnostic rates are descriptive findings in these samples, not general superiority or equivalence claims.
 
