@@ -668,7 +668,6 @@ Global summary & 1.0 & 5,947 & 23.21 & 1.21 & 1.30 \\
 
 Detailed cleaning counts, provenance, per-attack results and audit procedures are supplied separately. The benchmark supports improved classification over unverified reflections, but no balanced-performance advantage over raw retrieval or production-readiness claim. Human explanation review remains incomplete.
 
-\FloatBarrier
 \subsection{Limitations}
 \label{sec:limitations}
 The symbolic evaluations use small populations, while the public-flow study evaluates a cleaned UNSW-NB15 testbed partition. The latter is a controlled adaptation with shared raw retrieval, not a production deployment or a complete validation of reflection-driven retrieval. Levels 1 and 2 evaluate seen combinations; Level 3 combines seen and withheld combinations. Their accuracy must not be interpreted as held-out network generalization. The flow experiment is restricted by deduplication/conflict exclusion, missing session metadata, one model and test partition, fixed method order and incomplete human explanation audits.
@@ -679,6 +678,7 @@ Verification sees a known historical label and tests a candidate against one sou
 
 Finally, the 7B figures are linked to the archived initial reimplementation snapshot, while updated 70B comparisons use the latest archived feedback-baseline revision. Stored item-level accuracies were independently recounted, but these historical files omit exact model digests and original verifier replies. Boolean type validation was also repaired in the oracle-audit parser; without original replies its historical impact cannot be quantified. The symbolic evaluations were not rerun, while the public-flow benchmark is independently audited against its archived predictions and frozen source. Context limits, quantization, model digests, CPU/GPU offloading and concurrent workloads require run-specific recording. The completed public-flow run records source/model/code hashes and hardware, but does not resolve every limitation of the historical experiments.
 
+\FloatBarrier
 \section{Conclusions}
 VLEG checks local reflections before memory admission and combines accepted reflections with source episodes during inference. In the reported symbolic experiments, refinement increases memory coverage and admitted reflections are more consistent with historical labels. Downstream benefits depend on the model and task: raw retrieval leads at 7B, while the latest archived 70B comparison gives a one-correct-evaluation pooled advantage to VLEG over raw retrieval. Hybrid grounding retains a disadvantage on some withheld combinations, and per-episode verification does not show a separate benefit for unsupported attribution.
 
