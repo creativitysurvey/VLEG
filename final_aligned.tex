@@ -73,6 +73,7 @@
 \algrenewcommand\algorithmicensure{\textbf{Output:}}
 
 \usepackage{graphicx}
+\usepackage{adjustbox}
 \usepackage{url}
 \usepackage{xcolor}
 \usepackage{caption}
@@ -554,10 +555,10 @@ We vary the maximum refinement budget over $K\in\{1,2,3,5\}$ and measure symboli
 
 \begin{figure}[htbp]
     \centering
-    \begin{tikzpicture}
+    \begin{adjustbox}{max width=0.48\textwidth}\begin{tikzpicture}
         \begin{axis}[
-            width=0.70\linewidth,
-            height=5.5cm,
+            width=0.48\textwidth,
+            height=4.5cm,
             xlabel={Max Iterations ($K$)},
             ylabel={Task Accuracy (\%)},
             ymin=40, ymax=100,
@@ -571,12 +572,12 @@ We vary the maximum refinement budget over $K\in\{1,2,3,5\}$ and measure symboli
         \addplot[color=red, mark=triangle, thick] coordinates {(1, 60.4) (2, 75.0) (3, 77.1) (5, 81.2)};
         \addlegendentry{Level 3 (avg. of 3 seeds)}
         \end{axis}
-    \end{tikzpicture}
+    \end{tikzpicture}\end{adjustbox}
     \par\vspace{0.5cm}
-    \begin{tikzpicture}
+    \begin{adjustbox}{max width=0.48\textwidth}\begin{tikzpicture}
         \begin{axis}[
-            width=0.70\linewidth,
-            height=5.5cm,
+            width=0.48\textwidth,
+            height=4.5cm,
             xlabel={Max Iterations ($K$)},
             ylabel={Tokens / episode},
             ymin=0, ymax=1000,
@@ -588,7 +589,7 @@ We vary the maximum refinement budget over $K\in\{1,2,3,5\}$ and measure symboli
         \addplot[color=black, mark=circle, thick, dashed] coordinates {(1, 497) (2, 776) (3, 847) (5, 882)};
         \addlegendentry{Level 2, tokens/episode}
         \end{axis}
-    \end{tikzpicture}
+    \end{tikzpicture}\end{adjustbox}
     \caption{Measured parameter sensitivity of the maximum refinement iterations $K$ (reduced-order reimplementation, Qwen2.5-7B-Instruct). (a) Task Accuracy does \emph{not} plateau at $K=3$: Level 2 (a single deterministic run, confirmed identical on repeat) keeps improving through $K=5$; Level 3 (averaged over 3 masking seeds) plateaus in only 1 of 3 seeds individually. (b) Token overhead per consolidated episode is concave, not linear: most of the cost increase happens between $K{=}1$ and $K{=}2$, with sharply diminishing marginal cost for extending the budget further, since only a minority of episodes ever use the additional iterations.}
     \label{fig:exp4_sensitivity}
 \end{figure}
@@ -661,12 +662,12 @@ Global summary & 50.22 $\pm$ 12.45 & 47.60 $\pm$ 14.13 & 87.12 $\pm$ 22.27 & 68.
 
 Table~\ref{tab:exp6_performance} and Figure~\ref{fig:exp6_tradeoff} show VLEG Macro-F1 of $59.68\%$, versus raw retrieval's $63.92\%$. Recall rises from $71.39\%$ to $77.74\%$, but false alarms rise from $38.13\%$ to $48.78\%$. Paired fingerprint bootstrap gives VLEG-minus-raw $-4.24$ points (conditional 95\% interval $[-5.91,-2.53]$), versus $+17.02$ points over first proposals ($[13.71,20.39]$). Intervals are unadjusted and conditional on fixed memories; five seeds do not create 5,000 independent flows.
 
-\begin{figure*}[!t]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=0.65\textwidth]{exp6_tradeoff.pdf}
+\includegraphics[width=0.48\textwidth]{exp6_tradeoff.pdf}
 \caption{Public-flow results across five memory seeds. Top: mean Macro-F1 with sample-standard-deviation bars. Bottom: attack recall versus false positive rate; faint points are individual seeds and large markers are means. The larger recall of VLEG is accompanied by more false alarms.}
 \label{fig:exp6_tradeoff}
-\end{figure*}
+\end{figure}
 
 Admission reaches 158/160, but 113/157 parseable accepted rules have contrary-label matches in other historical draws. This assisted screen is not a causal or human audit. There are 29 invalid first-proposal and 30 invalid VLEG predictions; they count as errors. Table~\ref{tab:exp6_cost} records construction costs; raw-on-admitted shares VLEG's cost. Fixed order/cache reuse confounds latency, and 24 identical-prompt raw/control pairs differ at temperature $0$.
 

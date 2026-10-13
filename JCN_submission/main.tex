@@ -517,12 +517,12 @@ The results support bounded refinement as a means of reducing rejection-induced 
 
 We vary the maximum refinement budget over $K\in\{1,2,3,5\}$ and measure symbolic accuracy and construction prompt-plus-completion tokens per historical episode. At $K=1$, verification still occurs, but a rejected proposal cannot be revised. Level 2 uses a fixed population; Level 3 varies the withheld subset across three masking seeds. This sweep tests whether additional attempts change memory coverage enough to justify their cost.
 
-\begin{figure*}[!t]
+\begin{figure}[!t]
     \centering
     \begin{adjustbox}{max width=\linewidth}\begin{tikzpicture}
         \begin{axis}[
-            width=0.70\linewidth,
-            height=5.5cm,
+            width=\linewidth,
+            height=4.5cm,
             xlabel={Max Iterations ($K$)},
             ylabel={Task Accuracy (\%)},
             ymin=40, ymax=100,
@@ -540,8 +540,8 @@ We vary the maximum refinement budget over $K\in\{1,2,3,5\}$ and measure symboli
     \par\vspace{0.5cm}
     \begin{adjustbox}{max width=\linewidth}\begin{tikzpicture}
         \begin{axis}[
-            width=0.70\linewidth,
-            height=5.5cm,
+            width=\linewidth,
+            height=4.5cm,
             xlabel={Max Iterations ($K$)},
             ylabel={Tokens / episode},
             ymin=0, ymax=1000,
@@ -556,7 +556,7 @@ We vary the maximum refinement budget over $K\in\{1,2,3,5\}$ and measure symboli
     \end{tikzpicture}\end{adjustbox}
     \caption{Measured parameter sensitivity of the maximum refinement iterations $K$ (reduced-order reimplementation, Qwen2.5-7B-Instruct). (a) Task Accuracy does \emph{not} plateau at $K=3$: Level 2 (a single deterministic run, confirmed identical on repeat) keeps improving through $K=5$; Level 3 (averaged over 3 masking seeds) plateaus in only 1 of 3 seeds individually. (b) Token overhead per consolidated episode is concave, not linear: most of the cost increase happens between $K{=}1$ and $K{=}2$, with sharply diminishing marginal cost for extending the budget further, since only a minority of episodes ever use the additional iterations.}
     \label{fig:exp4_sensitivity}
-\end{figure*}
+\end{figure}
 
 Figure~\ref{fig:exp4_sensitivity} shows no reliable 7B plateau at $K=3$. Level-2 accuracy rises from $87.5\%$ at $K=3$ to $93.8\%$ at $K=5$. In Level 3, only seed 42 has identical bank composition, tokens and accuracy at those budgets; the other masks do not reproduce that exact plateau. A budget sufficient for one mask can therefore remain insufficient for another. The figure's accuracy panel pools Level-3 seeds, while its token panel reports the Level-2 run.
 
@@ -626,12 +626,12 @@ Global summary & 50.22 $\pm$ 12.45 & 47.60 $\pm$ 14.13 & 87.12 $\pm$ 22.27 & 68.
 
 Table~\ref{tab:exp6_performance} and Figure~\ref{fig:exp6_tradeoff} show VLEG Macro-F1 of $59.68\%$, versus raw retrieval's $63.92\%$. Recall rises from $71.39\%$ to $77.74\%$, but false alarms rise from $38.13\%$ to $48.78\%$. Paired fingerprint bootstrap gives VLEG-minus-raw $-4.24$ points (conditional 95\% interval $[-5.91,-2.53]$), versus $+17.02$ points over first proposals ($[13.71,20.39]$). Intervals are unadjusted and conditional on fixed memories; five seeds do not create 5,000 independent flows.
 
-\begin{figure*}[!t]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=0.65\textwidth]{exp6_tradeoff.pdf}
+\includegraphics[width=\linewidth]{exp6_tradeoff.pdf}
 \caption{Public-flow results across five memory seeds. Top: mean Macro-F1 with sample-standard-deviation bars. Bottom: attack recall versus false positive rate; faint points are individual seeds and large markers are means. The larger recall of VLEG is accompanied by more false alarms.}
 \label{fig:exp6_tradeoff}
-\end{figure*}
+\end{figure}
 
 Admission reaches 158/160, but 113/157 parseable accepted rules have contrary-label matches in other historical draws. This assisted screen is not a causal or human audit. There are 29 invalid first-proposal and 30 invalid VLEG predictions; they count as errors. Table~\ref{tab:exp6_cost} records construction costs; raw-on-admitted shares VLEG's cost. Fixed order/cache reuse confounds latency, and 24 identical-prompt raw/control pairs differ at temperature $0$.
 
