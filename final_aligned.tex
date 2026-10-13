@@ -354,37 +354,7 @@ where $\oplus$ denotes the sequence concatenation operator. The reasoning LLM, p
     \hat{y} = \text{LLM}_\theta(P)
 \end{equation}
 
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[
-    node distance=1.2cm and 1.5cm,
-    box/.style={draw, rectangle, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=blue!5, font=\small},
-    db/.style={draw, cylinder, shape border rotate=90, aspect=0.25, minimum height=1.5cm, minimum width=2cm, align=center, fill=gray!10, font=\small},
-    arrow/.style={-Stealth, thick}
-]
 
-% Nodes
-\node[box, fill=green!10] (task) {Target Task $T$};
-\node[box, right=of task] (embed) {Embedding $\phi(T)$};
-\node[db, right=of embed] (memory) {Memory Bank\\$\{(e_i, r_i^*)\}$};
-\node[box, below=of memory] (retrieval) {Top-$k$ Retrieval\\$\mathcal{M}_{top}$};
-\node[box, left=of retrieval, fill=yellow!10, minimum width=4cm] (hybrid) {Hybrid Context Window\\$[e_1, r_1^*] \oplus \dots \oplus [e_k, r_k^*]$};
-\node[box, below=of hybrid, fill=red!10] (llm) {Reasoning LLM};
-\node[box, right=of llm] (output) {Prediction $\hat{y}$};
-
-% Arrows
-\draw[arrow] (task) -- (embed);
-\draw[arrow] (embed) -- node[above, font=\footnotesize] {Query} (memory);
-\draw[arrow] (memory) -- (retrieval);
-\draw[arrow] (retrieval) -- (hybrid);
-\draw[arrow] (task.south) |- (hybrid.west);
-\draw[arrow] (hybrid) -- (llm);
-\draw[arrow] (llm) -- (output);
-
-\end{tikzpicture}
-\caption{The Inference Integration flow of VLEG. The target task queries the memory bank using semantic embeddings to retrieve the top-$k$ tuples. Both the raw episodes and verified reflections are combined into a hybrid context window to ground the Reasoning LLM.}
-\label{fig:hybrid_inference}
-\end{figure}
 
 Hybrid context exposes both a reflection and its source evidence. It does not guarantee better predictions: irrelevant or over-specific reflections can also anchor the model on misleading attributes. Experiment 2 compares this modality with raw-only and abstract-only contexts under shared retrieval.
 
@@ -428,38 +398,7 @@ The complete step-by-step procedure is formalized in Algorithm \ref{alg:vleg_fin
 \end{algorithmic}
 \end{algorithm}
 
-To further illustrate the architectural data flow and the interaction between the distinct neural modules, Figure \ref{fig:vleg_flowchart} provides a schematic representation of the VLEG execution pipeline. The diagram highlights the closed-loop nature of the memory consolidation phase and the dual-modality retrieval utilized during inference.
 
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[
-    node distance=1.2cm and 1.5cm,
-    box/.style={draw, rectangle, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=blue!5},
-    arrow/.style={->, thick, >=stealth}
-]
-
-% Nodes
-\node[box] (stream) {Episodic\\Stream $\mathcal{E}$};
-\node[box, right=of stream] (gen) {Generator\\$G_\theta$};
-\node[box, right=of gen] (ver) {Verifier\\$V_\phi$};
-\node[box, below=of ver] (mem) {Memory Bank\\$\mathcal{M} = \{(e_i, r_i^*)\}$};
-\node[box, left=of mem] (ret) {Retriever\\$R$};
-\node[box, left=of ret] (inf) {Inference\\$I_\psi$};
-
-% Arrows
-\draw[arrow] (stream) -- node[above] {$e_i$} (gen);
-\draw[arrow] (gen) -- node[above] {$r_i^{(j)}$} (ver);
-\draw[arrow] (ver.north) -- ++(0,0.5) -| node[above, pos=0.25] {Critique $c$ (if $v=0$)} (gen.north);
-\draw[arrow] (ver) -- node[right] {Valid $r_i^*$ (if $v=1$)} (mem);
-\draw[arrow] (stream.south) |- node[below, pos=0.8] {Raw $e_i$} (mem.west);
-\draw[arrow] (mem) -- node[above] {Top-$k$} (ret);
-\draw[arrow] (ret) -- node[above] {$\mathcal{M}_{top}$} (inf);
-\draw[arrow] (inf.south) -- ++(0,-0.6) node[below] {Final Output};
-
-\end{tikzpicture}
-\caption{Execution flow of the VLEG framework. The upper pathway illustrates the Iterative Cyclic Refinement loop (Phase 1), while the lower pathway demonstrates the Hybrid Episodic-Semantic Grounding retrieval (Phase 2).}
-\label{fig:vleg_flowchart}
-\end{figure}
 
 The admission gate prevents storage when the verifier rejects a candidate. Its practical reliability depends on the verifier and the error class being checked. Retaining raw evidence permits downstream comparison with a reflection, but does not ensure that the model performs that comparison correctly.
 
