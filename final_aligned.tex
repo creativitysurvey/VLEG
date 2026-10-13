@@ -453,8 +453,6 @@ The reported 7B accuracies are ICL $100.0\%$, $93.8\%$ and $87.5\%$ at Levels 1-
             xlabel={Task Complexity Level},
             symbolic x coords={Level 1, Level 2, Level 3},
             xtick=data,
-            nodes near coords,
-            nodes near coords align={vertical},
             ymin=0, ymax=110,
             grid=major,
             ymajorgrids=true,
@@ -508,8 +506,6 @@ At 7B, Figure~\ref{fig:exp2_ablation} shows that hybrid grounding leads on Level
             symbolic x coords={Level 2, Level 3, Level 3 (masked only)},
             xtick=data,
             x tick label style={rotate=20, anchor=east},
-            nodes near coords,
-            nodes near coords align={vertical},
             legend style={at={(0.5,-0.25)}, anchor=north, legend columns=-1},
             title={Measured Task Accuracy by Grounding Modality}
         ]
@@ -560,7 +556,7 @@ We vary the maximum refinement budget over $K\in\{1,2,3,5\}$ and measure symboli
     \centering
     \begin{tikzpicture}
         \begin{axis}[
-            width=0.48\linewidth,
+            width=0.70\linewidth,
             height=5.5cm,
             xlabel={Max Iterations ($K$)},
             ylabel={Task Accuracy (\%)},
@@ -576,10 +572,10 @@ We vary the maximum refinement budget over $K\in\{1,2,3,5\}$ and measure symboli
         \addlegendentry{Level 3 (avg. of 3 seeds)}
         \end{axis}
     \end{tikzpicture}
-    \hfill
+    \par\vspace{0.5cm}
     \begin{tikzpicture}
         \begin{axis}[
-            width=0.48\linewidth,
+            width=0.70\linewidth,
             height=5.5cm,
             xlabel={Max Iterations ($K$)},
             ylabel={Tokens / episode},
@@ -667,8 +663,8 @@ Table~\ref{tab:exp6_performance} and Figure~\ref{fig:exp6_tradeoff} show VLEG Ma
 
 \begin{figure*}[!t]
 \centering
-\includegraphics[width=0.94\textwidth]{exp6_tradeoff.pdf}
-\caption{Public-flow results across five memory seeds. Left: mean Macro-F1 with sample-standard-deviation bars. Right: attack recall versus false positive rate; faint points are individual seeds and large markers are means. The larger recall of VLEG is accompanied by more false alarms.}
+\includegraphics[width=0.65\textwidth]{exp6_tradeoff.pdf}
+\caption{Public-flow results across five memory seeds. Top: mean Macro-F1 with sample-standard-deviation bars. Bottom: attack recall versus false positive rate; faint points are individual seeds and large markers are means. The larger recall of VLEG is accompanied by more false alarms.}
 \label{fig:exp6_tradeoff}
 \end{figure*}
 
