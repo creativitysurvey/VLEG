@@ -352,34 +352,43 @@ During Phase 2, the system is presented with a novel target task $T$. A Retrieve
 
 The complete step-by-step procedure is formalized in Algorithm \ref{alg:vleg_final}.
 
-\begin{algorithm*}[!t]
+\begin{algorithm}[!t]
 \caption{Verified Localized Episodic Grounding (VLEG)}
 \label{alg:vleg_final}
 \small
 \begin{algorithmic}[1]
-\Require Episodic stream $\mathcal{E} = \{e_1, \dots, e_n\}$, Target Task $T$, Max Attempts $K$, Retrieval Count $k$, Retriever $R$
+\Require Episodes $\mathcal{E}$, target $T$, max attempts $K$
+\Statex Retrieval count $k$, retriever $R$
 \State Initialize Memory Bank $\mathcal{M} \gets \emptyset$
 \State \textbf{// Phase 1: Memory Consolidation}
 \For{each $e_i \in \mathcal{E}$}
     \State $j \gets 0$
-    \State $(r,c) \gets (\emptyset,\emptyset)$ \Comment{Previous candidate and critique}
-    \State $v \gets 0$ \Comment{Initialize validity flag to Invalid}
+    \State $(r,c) \gets (\emptyset,\emptyset)$
+        \Statex $\triangleright$ \textit{Previous candidate and critique}
+    \State $v \gets 0$
+        \Statex $\triangleright$ \textit{Initialize validity flag to Invalid}
     \While{$v = 0$ \textbf{and} $j < K$}
-        \State $r_i^{(j)} \gets G_\theta(x_i, r, c)$ \Comment{Generate or refine reflection}
-        \State $(v, c) \gets V_\phi(e_i, r_i^{(j)})$ \Comment{Check reflection against labeled source}
+        \State $r_i^{(j)} \gets G_\theta(x_i, r, c)$
+        \Statex $\triangleright$ \textit{Generate or refine reflection}
+        \State $(v, c) \gets V_\phi(e_i, r_i^{(j)})$
+        \Statex $\triangleright$ \textit{Check reflection against labeled source}
         \State $r \gets r_i^{(j)}$; $j \gets j + 1$
     \EndWhile
     \If{$v = 1$}
-        \State $\mathcal{M} \gets \mathcal{M} \cup \{(e_i, r_i^{(j-1)})\}$ \Comment{Store verified tuple}
+        \State $\mathcal{M} \gets \mathcal{M} \cup \{(e_i, r_i^{(j-1)})\}$
+        \Statex $\triangleright$ \textit{Store verified tuple}
     \EndIf
 \EndFor
 \State \textbf{// Phase 2: Hybrid Inference}
-\State $\mathcal{M}_{top} \gets R(\mathcal{M}, T, k)$ \Comment{Retrieve top-$k$ relevant tuples}
-\State $\text{Context} \gets \text{PromptBuilder}(\mathcal{M}_{top},T)$ \Comment{Construct hybrid prompt}
-\State $\text{Output} \gets I_\psi(\text{Context})$ \Comment{Generate final reasoning answer}
+\State $\mathcal{M}_{top} \gets R(\mathcal{M}, T, k)$
+        \Statex $\triangleright$ \textit{Retrieve top-$k$ relevant tuples}
+\State $\text{Context} \gets \text{PromptBuilder}(\mathcal{M}_{top},T)$
+        \Statex $\triangleright$ \textit{Construct hybrid prompt}
+\State $\text{Output} \gets I_\psi(\text{Context})$
+        \Statex $\triangleright$ \textit{Generate final reasoning answer}
 \State \Return $\text{Output}$
 \end{algorithmic}
-\end{algorithm*}
+\end{algorithm}
 
 
 
