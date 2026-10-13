@@ -575,13 +575,16 @@ We report admitted-memory coverage, source-label consistency and a keyword-based
 
 Table \ref{tab:exp5_memory_quality} reports $100\%$ source-label consistency among admitted VLEG reflections at both levels, versus $41.7$--$50.0\%$ for the unverified single-step comparator. Conditional on label correctness, unsupported-attribution rates are $86.7\%$ versus $87.5\%$ at Level 2 and $83.3\%$ versus $80.0\%$ at Level 3. These small-sample rates show no clear verification-specific reduction. Source-label consistency is an observed diagnostic outcome, not a tautological guarantee of an imperfect model-based verifier.
 
-\begin{table*}[!t]
+\begin{table}[!t]
     \centering
     \caption{Diagnostic Assessment of Memory Quality (Experiment 5, reduced-order reimplementation, Qwen2.5-7B-Instruct). Label correctness and spurious-attribution rate are computed deterministically against ground truth, not via LLM judgment. ``Spurious (of correct)'' = \% of label-correct reflections containing a texture/size keyword; the flag does not distinguish mention from causal assertion.}
     \label{tab:exp5_memory_quality}
+    \footnotesize
+    \setlength{\tabcolsep}{3pt}
+    \begin{adjustbox}{max width=\linewidth}
     \begin{tabular}{@{}llccc@{}}
         \toprule
-        \textbf{Level} & \textbf{Strategy} & \textbf{Validity} & \textbf{Label-correct} & \textbf{Spurious (of correct)} \\
+        \textbf{Level} & \textbf{Strategy} & \textbf{Validity} & \shortstack{\textbf{Label-}\\\textbf{correct}} & \shortstack{\textbf{Spurious}\\\textbf{(of correct)}} \\
         \midrule
         \multirow{2}{*}{Level 2} & Single-Step & N/A & 50.0\% (8/16) & 87.5\% (7/8) \\
                                  & \textbf{VLEG ($K{=}3$)} & \textbf{93.8\%} & \textbf{100.0\% (15/15)} & 86.7\% (13/15) \\
@@ -590,7 +593,8 @@ Table \ref{tab:exp5_memory_quality} reports $100\%$ source-label consistency amo
                                  & \textbf{VLEG ($K{=}3$)} & \textbf{100.0\%} & \textbf{100.0\% (12/12)} & 83.3\% (10/12) \\
         \bottomrule
     \end{tabular}
-\end{table*}
+    \end{adjustbox}
+\end{table}
 
 In this diagnostic, the admitted reflections match their source labels, but frequently cite attributes that do not affect the synthetic oracle. For example, asserting that striped texture is necessary cannot be validated from a single striped instance. Cross-episode contrast is needed to distinguish an observed property from a general condition. A keyword flag is a coarse attribution diagnostic, not a causal explanation assessment for natural traffic.
 
