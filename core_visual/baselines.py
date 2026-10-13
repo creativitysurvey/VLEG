@@ -173,13 +173,8 @@ GLOBAL_VERIFIER_SYSTEM = (
 
 
 def _parse_global_verifier(text: str) -> dict:
-    match = re.search(r"\{.*\}", text, re.DOTALL)
-    candidate = match.group(0) if match else text
-    try:
-        obj = json.loads(candidate)
-        return {"valid": bool(obj["valid"]), "critique": str(obj.get("critique", ""))}
-    except Exception:
-        return {"valid": False, "critique": f"[unparseable verifier output: {text[:200]}]"}
+    from core.verification_response import parse_verification_response
+    return parse_verification_response(text)
 
 
 class HDRResult:

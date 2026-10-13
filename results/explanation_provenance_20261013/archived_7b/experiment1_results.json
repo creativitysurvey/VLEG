@@ -1,0 +1,68 @@
+[
+  {
+    "level": "Level1",
+    "n_train": 8,
+    "n_test": 8,
+    "results": {
+      "VLEG": {
+        "accuracy": 0.75,
+        "bank_size": 6
+      },
+      "HDR": {
+        "accuracy": 1.0,
+        "verified": true,
+        "hypothesis": "ANOMALY occurs when the shape is circle and the color is red regardless of texture and size, while all other combinations are considered NORMAL."
+      },
+      "Reflexion": {
+        "accuracy": 0.25
+      },
+      "ICL": {
+        "accuracy": 1.0
+      }
+    }
+  },
+  {
+    "level": "Level2",
+    "n_train": 16,
+    "n_test": 16,
+    "results": {
+      "VLEG": {
+        "accuracy": 0.875,
+        "bank_size": 15
+      },
+      "HDR": {
+        "accuracy": 0.625,
+        "verified": false,
+        "hypothesis": "ANOMALY is more likely when the shape has a blue color and large size on a white background, or when it is red with a striped texture and large size on a black background."
+      },
+      "Reflexion": {
+        "accuracy": 0.5
+      },
+      "ICL": {
+        "accuracy": 0.9375
+      }
+    }
+  },
+  {
+    "level": "Level3",
+    "n_train": 12,
+    "n_test": 16,
+    "results": {
+      "VLEG": {
+        "accuracy": 0.75,
+        "bank_size": 12
+      },
+      "HDR": {
+        "accuracy": 0.625,
+        "verified": false,
+        "hypothesis": "In white backgrounds, scenes with a square shape and red color are more likely to be labeled as ANOMALY, while in black backgrounds, anomalies tend to involve circles or squares with solid textures regardless of the shape's size or color."
+      },
+      "Reflexion": {
+        "accuracy": 0.5625
+      },
+      "ICL": {
+        "accuracy": 0.8125
+      }
+    }
+  }
+]
