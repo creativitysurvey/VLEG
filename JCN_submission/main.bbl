@@ -39,6 +39,17 @@ P.~Lewis, E.~Perez, A.~Piktus, F.~Petroni, V.~Karpukhin, N.~Goyal,
   vol.~33.\hskip 1em plus 0.5em minus 0.4em\relax Curran Associates, Inc.,
   2020, pp. 9459--9474.
 
+\bibitem{an2024why}
+C.~An, J.~Zhang, M.~Zhong, L.~Li, S.~Gong, Y.~Luo, J.~Xu, and L.~Kong, ``{{Why
+  Does the Effective Context Length of LLMs Fall Short?}}'' \emph{ArXiv}, vol.
+  abs/2410.18745, 2024.
+
+\bibitem{liu2024lost}
+N.~F. Liu, K.~Lin, J.~Hewitt, A.~Paranjape, M.~Bevilacqua, F.~Petroni, and
+  P.~Liang, ``{{Lost in the Middle: How Language Models Use Long Contexts}},''
+  \emph{Transactions of the Association for Computational Linguistics},
+  vol.~12, pp. 157--173, 2024.
+
 \bibitem{packer2023memgpt}
 C.~Packer, S.~Wooders, K.~Lin, V.~Fang, S.~G. Patil, I.~Stoica, and J.~E.
   Gonzalez, ``{{MemGPT: Towards LLMs as Operating Systems}},'' \emph{ArXiv},
@@ -64,17 +75,6 @@ Y.~Wu, S.~Liang, C.~Zhang, Y.~Wang, Y.~Zhang, H.~Guo, R.~Tang, and Y.~Liu,
 Z.~Zhang, X.~Bo, C.~Ma, R.~Li, X.~Chen, Q.~Dai, J.~Zhu, Z.~Dong, and J.-R. Wen,
   ``{{A Survey on the Memory Mechanism of Large Language Model based
   Agents}},'' \emph{ArXiv}, vol. abs/2404.13501, 2024.
-
-\bibitem{an2024why}
-C.~An, J.~Zhang, M.~Zhong, L.~Li, S.~Gong, Y.~Luo, J.~Xu, and L.~Kong, ``{{Why
-  Does the Effective Context Length of LLMs Fall Short?}}'' \emph{ArXiv}, vol.
-  abs/2410.18745, 2024.
-
-\bibitem{liu2024lost}
-N.~F. Liu, K.~Lin, J.~Hewitt, A.~Paranjape, M.~Bevilacqua, F.~Petroni, and
-  P.~Liang, ``{{Lost in the Middle: How Language Models Use Long Contexts}},''
-  \emph{Transactions of the Association for Computational Linguistics},
-  vol.~12, pp. 157--173, 2024.
 
 \bibitem{shinn2023reflexion}
 N.~Shinn, F.~Cassano, A.~Gopinath, K.~R. Narasimhan, and S.~Yao, ``{{Reflexion:
