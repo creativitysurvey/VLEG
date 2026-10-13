@@ -230,3 +230,12 @@ Preflight now recognizes this canonical alias while preserving the actual model
 digest in the run metadata. Missing or changed model objects still cause failure.
 The added regression tests cover LFS resolution, changed object identifiers,
 incorrect downloaded bytes and this model-name alias.
+
+## Completed batch supersedes the preparation-only status
+
+The node107 batch completed and its archive was independently audited on
+2026-10-13. See `docs/REAL_FLOW_RESULTS_20261013.md` and
+`results/traffic_20261013/audit.json`. Earlier notes describing an unavailable model
+service record the editing environment's preflight; they are not the current
+server-batch status. The actual experiment did not establish a VLEG advantage over
+raw retrieval, and observed timing comparisons are fixed-order/cache-confounded.

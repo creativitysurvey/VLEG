@@ -88,7 +88,7 @@
 \maketitle
 
 \begin{abstract}
-Verified Localized Episodic Grounding (VLEG) combines local reflection generation, checking against labeled historical episodes, and retrieval of reflections with their source evidence. Five controlled symbolic experiments examine memory consolidation, grounding modality, refinement budgets and reflection diagnostics with 7B and 70B language models. The reported results show improved label consistency and memory coverage, but mixed downstream benefits. Raw retrieval matches or exceeds VLEG at 7B; the reported 70B comparison gives pooled accuracies of 93.75\% for VLEG and 89.58\% for raw retrieval across three masking seeds. Hybrid grounding retains a disadvantage on some withheld combinations, and single-episode checks do not establish causal validity. The tasks contain eight to sixteen synthetic scene combinations, with seen and withheld evaluations distinguished explicitly. They do not constitute network-flow validation. A separate public-flow protocol is implemented but has not yet been executed. Historical numerical results are retained pending reconciliation with the corrected verifier parser and baseline implementation. The study identifies the scope and limits of verified local memory and the evidence required for its use in network analysis.
+Verified Localized Episodic Grounding (VLEG) combines local reflection generation, verification against labeled historical episodes, and retrieval of reflections with source evidence. Five symbolic experiments examine consolidation, grounding and refinement at 7B and 70B model scales. An additional public-flow experiment evaluates five historical-memory seeds on the same 1,000 independently partitioned, deduplicated UNSW-NB15 records using a 70B model. VLEG improves Macro-F1 over unverified first reflections by 17.02 percentage points, but underperforms raw flow retrieval: 59.68\% versus 63.92\%. Attack recall increases from 71.39\% to 77.74\%, accompanied by a false positive rate increase from 38.13\% to 48.78\%. The paired conditional 95\% interval for the Macro-F1 difference is $[-5.91,-2.53]$ points. These results distinguish source-label checking and memory coverage from reliable downstream generalization. They support neither a universal hybrid-memory advantage nor operational intrusion-detection readiness. Historical symbolic numbers remain subject to provenance reconciliation; the completed flow experiment records exact model and source versions, prediction-level checkpoints and independently recomputed metrics.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -100,11 +100,11 @@ Large Language Models, Episodic Memory, Semantic Abstraction, In-Context Learnin
 \section{Introduction}
 
 \subsection{Background: Retrieved Examples and Memory Consolidation}
-Large language models can use retrieved examples to support classification and analysis without parameter updates \cite{brown2020language,lewis2020retrieval}. In network analysis, such examples could be labeled historical flow records or incident summaries. Their usefulness depends on retaining relevant context while avoiding unsupported conclusions. This paper studies that memory-design problem using controlled symbolic tasks; it does not yet establish performance on operational network traffic.
+Large language models can use retrieved examples to support classification and analysis without parameter updates \cite{brown2020language,lewis2020retrieval}. In network analysis, such examples could be labeled historical flow records or incident summaries. Their usefulness depends on retaining relevant context while avoiding unsupported conclusions. This paper studies that memory-design problem using controlled symbolic tasks and a separate public-flow benchmark; it does not establish performance on operational production networks.
 
 Persistent memory separates stored experience from the model's finite prompt window \cite{packer2023memgpt,wang2023longmem,wang2024memoryllm}. Raw-example retrieval preserves evidence, while semantic consolidation compresses episodes into summaries or heuristics \cite{wu2025from,zhang2024survey}. Compression can reduce repeated reasoning but can also remove exceptions or introduce claims that the evidence does not support.
 
-VLEG combines local reflection generation, verification against the originating labeled episode, and retrieval of the reflection with its raw evidence. We evaluate whether these operations improve label consistency, memory coverage and downstream accuracy, and report the circumstances in which they do not. Network-flow analysis is an intended application; a separate public-flow protocol is specified below and remains unexecuted.
+VLEG combines local reflection generation, verification against the originating labeled episode, and retrieval of the reflection with its raw evidence. We evaluate whether these operations improve label consistency, memory coverage and downstream accuracy, and report the circumstances in which they do not. Network-flow analysis is evaluated in a separate public benchmark experiment with frozen historical-memory seeds and held-out flow fingerprints.
 
 \subsection{Problem Definition: Evidence and Context in Memory}
 Raw examples can burden inference as the number and complexity of episodes increase \cite{an2024why,liu2024lost}. Local reflections offer compact guidance, but a reflection can contradict its source label or cite irrelevant attributes. Feedback-based systems such as Reflexion and Voyager already use evaluation to improve later behavior \cite{shinn2023reflexion,wang2024voyager}; our focus is the narrower decision of whether to admit an individual reflection into memory after checking it against its source episode.
@@ -114,10 +114,10 @@ A global summary can represent context-dependent rules, including the background
 \subsection{Verified Localized Episodic Grounding}
 VLEG generates a candidate reflection from an episode's attributes and checks it against the complete historical episode, including its known label. Rejected candidates receive a critique and can be revised up to a fixed budget $K$. Only accepted candidates are stored. The generator and verifier are separate calls to the same underlying model, not statistically independent models.
 
-At inference, VLEG retrieves memory tuples and provides the model with both raw episodes and their accepted reflections. This hybrid context may preserve evidence while supplying a compact heuristic, but its benefit is an empirical question. The five symbolic experiments compare memory strategies, grounding modalities, iteration budgets and reflection diagnostics at 7B and 70B model scales. They show improved label consistency and memory coverage, alongside mixed downstream results and persistent unsupported attribution. These results establish boundaries of the evaluated implementation rather than universal correctness guarantees.
+At inference, VLEG retrieves memory tuples and provides the model with both raw episodes and their accepted reflections. This hybrid context may preserve evidence while supplying a compact heuristic, but its benefit is an empirical question. The five symbolic experiments compare memory strategies, grounding modalities, iteration budgets and reflection diagnostics at 7B and 70B model scales; a sixth experiment evaluates a controlled adaptation on public flow records. They show improved label consistency and memory coverage, alongside mixed downstream results and persistent unsupported attribution. These results establish boundaries of the evaluated implementation rather than universal correctness guarantees.
 
 \subsection{Paper Organization}
-Section II reviews related memory methods. Section III defines VLEG. Section IV reports the symbolic experiments, specifies the additional public-flow evaluation protocol, and discusses limitations. Section V concludes.
+Section II reviews related memory methods. Section III defines VLEG. Section IV reports the symbolic experiments, reports the additional public-flow benchmark, and discusses limitations. Section V concludes.
 
 \section{Related Work}
 
@@ -129,9 +129,9 @@ The foundational instantiation of this approach is In-Context Learning (ICL), in
 
 Subsequent research within this paradigm has focused heavily on optimizing the retrieval and selection mechanisms to maximize the utility of the retrieved episodes. For instance, Zhang et al. \cite{zhang2022active} proposed active retrieval strategies to dynamically select the most informative examples for ICL, while Purohit et al. \cite{purohit2025sample} explored sample-efficient retrieval techniques to minimize context bloat. Despite these optimizations, these approaches remain fundamentally constrained by their lack of an active abstraction mechanism. Because they rely on Single-Step Direct Generation over raw data at test time, the burden of inducing latent rules from a noisy sea of unstructured experiences falls entirely on the inference model's ad-hoc reasoning capabilities.
 
-This architectural reliance on pure episodic data introduces a critical vulnerability. As empirically demonstrated by An et al. \cite{an2024why}, LLMs suffer a significant degradation in reasoning performance as the raw episodes become more complex or heterogeneous. When faced with high-dimensional, multi-modal tasks where local rules may contradict global distributions (such as the masked combinations in our Level 3 Experience-Transfer task), the model becomes overwhelmed by episodic noise and fails to autonomously distill the underlying abstract patterns.
+Retrieval quality and context selection affect how useful historical examples are \cite{an2024why}. Small symbolic tasks and flow records can expose different failure modes, so performance in one domain does not establish a fixed ordering of memory strategies. Experiment 6 shows that raw retrieval remains a competitive control in the public-flow setting.
 
-The shortcomings of Pure Episodic Retention directly highlight the research gaps addressed by our proposed Verified Localized Episodic Grounding (VLEG) framework. The failure of models to process complex raw episodes without hallucination underscores the necessity of moving beyond Episodic-Only Retrieval. By introducing an Iterative Cyclic Refinement pipeline to generate verified local reflections, and subsequently employing Hybrid Grounding during inference, VLEG actively bridges the gap between the high-fidelity noise of pure episodic retention \cite{brown2020language, lewis2020retrieval} and the need for robust, reliable semantic abstraction.
+Raw retrieval and semantic consolidation make different trade-offs. Raw examples retain labels and exceptions but consume context; consolidation can shorten that context while introducing unsupported conditions. We compare these alternatives empirically rather than assuming that abstraction improves predictions.
 
 \subsection{Localized Episodic Reflection}
 
@@ -185,7 +185,7 @@ VLEG bridges this gap by shifting the abstraction target from the global distrib
 \begin{equation}
     \mathcal{M}_{VLEG} = \left\{ (e_i, r_i^*) \mid e_i \in \mathcal{E}, \; \mathcal{V}(r_i^* \mid e_i) = 1 \right\}
 \end{equation}
-where $r_i^*$ is a localized semantic reflection (a rule or heuristic) derived specifically from episode $e_i$, and $\mathcal{V}(\cdot \mid e_i)$ is a strict verification function that evaluates to $1$ if and only if the reflection is logically consistent with the raw episode $e_i$.
+where $r_i^*$ is a localized semantic reflection (a rule or heuristic) derived specifically from episode $e_i$, and $\mathcal{V}(\cdot \mid e_i)$ is a strict verification function that returns $1$ when the implemented verifier accepts the candidate under its checking prompt; acceptance is a model judgment and can be wrong.
 
 \begin{figure}[htbp]
 \centering
@@ -363,7 +363,7 @@ The system then selects the subset of $k$ tuples that maximize this similarity s
 
 \subsubsection{Hybrid Prompt Formulation}
 
-After retrieving $\mathcal{M}_{top}$, the inference module constructs a hybrid context window. The fundamental premise of hybrid grounding is that the verified reflection $r_i^*$ provides the abstract, logical scaffold (the ``what'' and ``why''), while the raw episode $e_i$ provides the concrete, high-dimensional grounding (the ``how''). This prevents the semantic over-abstraction that occurs when rules are applied without their originating context.
+After retrieving $\mathcal{M}_{top}$, the inference module constructs a hybrid context window. The fundamental premise of hybrid grounding is that the verified reflection $r_i^*$ provides the abstract, logical scaffold (the ``what'' and ``why''), while the raw episode $e_i$ provides the concrete, high-dimensional grounding (the ``how''). This permits comparison with the source evidence, but does not guarantee that unsupported generalization is avoided.
 
 The final inference prompt $P$ is constructed by concatenating the target task $T$ with the retrieved hybrid tuples, separated by structural delimiters:
 \begin{equation}
@@ -416,7 +416,7 @@ The execution flow of VLEG is formally divided into two distinct phases: \textbf
 
 During Phase 1, the system ingests a stream of raw, high-dimensional multi-modal episodes $\mathcal{E} = \{e_1, e_2, \dots, e_n\}$. For each episode $e_i$, the Generator $G_\theta$ proposes an initial candidate reflection $r_i^{(0)}$. The Verifier $V_\phi$ then evaluates this candidate strictly against the grounding episode $e_i$, outputting a binary validity flag $v \in \{0, 1\}$ and a natural language critique $c$. If $v = 0$ (indicating a hallucination or logical inconsistency), the critique $c$ is fed back into $G_\theta$ to produce a refined reflection $r_i^{(1)}$. This iterative cyclic refinement continues until the reflection is validated ($v=1$) or a predefined maximum iteration limit $K$ is reached. If validated, the tuple $(e_i, r_i^*)$ is committed to the Memory Bank $\mathcal{M}$. This strict gating mechanism mathematically bounds the propagation of unverified heuristics, directly addressing the vulnerabilities of single-step reflection pipelines \cite{shinn2023reflexion}.
 
-During Phase 2, the system is presented with a novel target task $T$. A Retriever $R$ computes the cosine similarity between the task embedding and the stored memory tuples, extracting the top-$k$ most relevant memories $\mathcal{M}_{top} \subset \mathcal{M}$. The Inference Module $I_\psi$ is then prompted using Hybrid Episodic-Semantic Grounding, receiving both the raw episodes and their verified reflections to generate the final output. This dual-pathway integration aligns with advanced memory paradigms \cite{wu2025from}, ensuring the model benefits from abstract rules without losing critical high-fidelity contextual details.
+During Phase 2, the system is presented with a novel target task $T$. A Retriever $R$ computes the cosine similarity between the task embedding and the stored memory tuples, extracting the top-$k$ most relevant memories $\mathcal{M}_{top} \subset \mathcal{M}$. The Inference Module $I_\psi$ is then prompted using Hybrid Episodic-Semantic Grounding, receiving both the raw episodes and their verified reflections to generate the final output. This dual-pathway integration aligns with advanced memory paradigms \cite{wu2025from}, making both representations available for the evaluated inference conditions.
 
 The complete step-by-step procedure is formalized in Algorithm \ref{alg:vleg_final}.
 
@@ -705,30 +705,84 @@ In this diagnostic, the admitted reflections match their source labels, but freq
 
 \textbf{Cross-scale check.} At 70B, the reported admitted-reflection label consistency remains $100.0\%$, while the single-step comparator is $50.0\%$. Unsupported attribution rates are numerically equal for the two strategies: $12.5\%$ at Level 2 and $16.7\%$ at Level 3, compared with approximately $80$--$87\%$ at 7B. The reduction occurs for both strategies, so it is not evidence of a verification-specific benefit. Given the small counts, equality should not be described as proof of statistical equivalence. Cross-scale grounding results are reported separately in Experiment 2.
 
-\subsection{Experiment 6: Public-Flow Evaluation Protocol (Not Yet Executed)}
+\subsection{Experiment 6: Public-Flow Benchmark Validation}
 \label{sec:exp6}
-The repository now provides a separate CSV-based pipeline for UNSW-NB15 and CICIDS2017. These public benchmarks contain recorded/generated testbed traffic; they are not production deployment evidence \cite{moustafa2015unsw,sharafaldin2018cicids}. No result from this pipeline is reported in this draft. The protocol addresses the domain-validation gap without relabeling symbolic scene experiments as flow experiments.
+This experiment tests whether local verification and hybrid memory improve classification of independent public flow records. It uses UNSW-NB15, a captured testbed benchmark containing normal and generated attack traffic \cite{moustafa2015unsw}. It is not a production deployment or zero-day detection study. The completed archive contains 500 pilot predictions and 25,000 formal predictions; an offline audit reproduces the metrics, conditional bootstrap intervals and construction-cost totals from the stored records.
 
-A labeled historical partition builds memory, and an independent test partition supplies target flow features. The published UNSW-NB15 split or documented nonoverlapping CICIDS2017 periods are used; session-group overlap is rejected when group metadata is supplied. Identical selected-feature vectors in the test partition are excluded if they occur anywhere in the historical source partition. IP addresses, timestamps, attack names, labels and identifiers do not enter test prompts or retrieval keys. Cleaning, source hashes, class counts and sampled-row identities are recorded.
+\textbf{Data and partition audit.} The source partitions contain 175,341 historical and 82,332 test records. The frozen feature representation uses nineteen fields: duration, protocol, service, state, directional packet and byte counts, rate, TTL, load, inter-packet timing, jitter and mean packet size. IPs, timestamps, row identifiers, attack names and target labels are excluded from model inputs and retrieval keys. The public mirror is pinned to a commit; its file names are reversed relative to the official partition sizes, so role mapping is recorded explicitly and checked by row count, size, MD5 and SHA256. Bytes agree with an independent research deposit, although the original author-hosted files were not directly accessible.
 
-The initial formal protocol fixes sixteen memory examples per class, up to 1,000 naturally distributed test flows, five memory seeds, $K=3$ and retrieval size $k=3$. Pilot samples and formal samples are kept separate. All conditions share one label-free raw-feature retrieval pass and the same model and context ceiling. The conditions are raw retrieval, unverified first-proposal reflection, VLEG, raw retrieval restricted to the identical VLEG admission mask, and a single global summary of the labeled memory. These are controlled adaptations, not published-system reproductions. Fixed raw retrieval differs from VLEG's reflection-based retrieval and isolates consolidation; testing the full retrieval formulation requires a separate ablation.
+Identical selected-feature vectors sometimes have conflicting labels. We exclude every row in such groups rather than choosing a label: 6,896 historical rows in 273 groups and 2,912 test rows in 105 groups. We also remove 79,746 and 33,161 remaining same-label duplicate rows, respectively, leaving 88,699 historical and 46,259 test fingerprints. A further 1,044 test fingerprints overlap the cleaned historical source and are excluded. Thus the evaluated population is deduplicated and unambiguous in this representation; removing these cases can change difficulty and class balance, so these results do not estimate performance on the original flow-frequency distribution. Session-level independence cannot be established because this partition lacks session-group metadata.
 
-The evaluation records Macro-F1, attack recall, benign recall, false positive rate, invalid-output count, construction and query tokens, and query mean/p95 latency. Invalid responses are counted as errors. Shared retrieval latency is recorded separately. Repeated test flows across memory seeds are not independent observations. Stored generation/verification histories support an additional human audit of label consistency, invented fields and unsupported generalization. The pipeline's local fixture tests check implementation semantics only and do not establish empirical effectiveness.
+\textbf{Frozen evaluation and implementation.} Each of five memory seeds (20261020--20261024) selects sixteen benign and sixteen malicious historical examples. They share the same 1,000 test fingerprints: 663 benign and 337 malicious. The 100 pilot queries do not overlap these formal queries. We use Llama-3.3-70B (70.6B parameters, Q4\_K\_M), nomic-embed-text (137M, F16), temperature $0$, $K=3$, $k=3$, and a 32,768-token chat-context ceiling. The run records exact model digests, source/code hashes and Python 3.13.13; the server has two A800 80GB GPUs. Generator and verifier are separate calls to the same model. Historical labels are available to verification and the raw baseline, but target labels are used only after inference for scoring. The generator's first proposal receives only historical flow features.
+
+The five conditions are raw flow retrieval, an unverified first reflection, VLEG, raw flow retrieval restricted to VLEG's admitted examples, and a single global summary of the labeled historical memory. All local conditions share a label-free raw-feature embedding retrieval pass and the same selected top-three candidates. A rejected candidate is dropped without replacement. The raw-on-admitted control therefore removes reflection content while retaining the same admission mask as VLEG. This shared raw retrieval deliberately differs from the reflection-driven formulation in Section III and tests consolidation/admission under controlled retrieval; it does not evaluate every component of the full formulation. Global-summary inference sees a corpus summary rather than the same top-three examples, and is a memory-architecture comparison rather than an equal-evidence modality ablation. These are controlled adaptations, not complete published Reflexion/HDR reproductions.
+
+\begin{table*}[!t]
+\centering
+\caption{Public-flow performance, mean $\pm$ sample standard deviation across five historical-memory seeds (percent). All seeds use the same 1,000 test fingerprints. Invalid outputs count as errors.}
+\label{tab:exp6_performance}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Condition & Accuracy & Macro-F1 & Attack recall & False positive rate \\
+\midrule
+Raw flow retrieval & 65.08 $\pm$ 2.93 & 63.92 $\pm$ 2.54 & 71.39 $\pm$ 8.44 & 38.13 $\pm$ 6.85 \\
+Unverified single-step & 61.38 $\pm$ 1.08 & 42.66 $\pm$ 1.35 & 6.17 $\pm$ 1.43 & 9.89 $\pm$ 2.03 \\
+VLEG & 59.74 $\pm$ 2.03 & 59.68 $\pm$ 2.03 & 77.74 $\pm$ 5.69 & 48.78 $\pm$ 1.67 \\
+Raw on admitted flows & 64.86 $\pm$ 2.96 & 63.70 $\pm$ 2.68 & 71.16 $\pm$ 8.71 & 38.34 $\pm$ 6.61 \\
+Global summary & 50.22 $\pm$ 12.45 & 47.60 $\pm$ 14.13 & 87.12 $\pm$ 22.27 & 68.54 $\pm$ 24.20 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\textbf{Performance and trade-off.} Table~\ref{tab:exp6_performance} and Figure~\ref{fig:exp6_tradeoff} show that raw retrieval has the highest mean Macro-F1 among the evaluated conditions ($63.92\%$), while VLEG reaches $59.68\%$. VLEG increases attack recall from $71.39\%$ to $77.74\%$, but increases the false positive rate from $38.13\%$ to $48.78\%$. Its accuracy falls from $65.08\%$ to $59.74\%$. A post hoc always-benign reference has accuracy $66.30\%$, Macro-F1 $39.87\%$ and zero attack recall; this illustrates why accuracy alone is insufficient here. None of these conditions establishes deployment-quality intrusion detection, and no comparison against a trained conventional intrusion classifier is made.
+
+Verification is beneficial relative to the unverified first-reflection condition: Macro-F1 improves by $17.02$ percentage points, and attack recall rises from $6.17\%$ to $77.74\%$. However, high admitted-memory coverage ($98.75\%$, 158/160 historical episodes) does not establish reliable cross-flow explanations. Raw-on-admitted retrieval nearly matches the raw baseline ($63.70\%$ versus $63.92\%$ Macro-F1), whereas adding the accepted reflections reduces its mean score to $59.68\%$. These comparisons are consistent with reflection content changing the decision trade-off; they do not establish a specific anchoring or causal-attribution mechanism. The human-audit worksheets are blank, so no completed explanation-quality audit is claimed.
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=0.94\textwidth]{exp6_tradeoff.pdf}
+\caption{Public-flow results across five memory seeds. Left: mean Macro-F1 with sample-standard-deviation bars. Right: attack recall versus false positive rate; faint points are individual seeds and large markers are means. The larger recall of VLEG is accompanied by more false alarms.}
+\label{fig:exp6_tradeoff}
+\end{figure*}
+
+\textbf{Paired uncertainty and repeated-query dependence.} A paired bootstrap resamples the same 1,000 fingerprints synchronously across methods and all five memory seeds (1,000 replicates). The mean VLEG-minus-raw Macro-F1 difference is $-4.24$ percentage points, with a conditional 95\% interval of $[-5.91,-2.53]$; VLEG is lower in four seeds and slightly higher in one. VLEG-minus-single-step is $+17.02$ points, interval $[13.71,20.39]$. VLEG-minus-raw-on-admitted is $-4.02$ points, interval $[-5.79,-2.28]$. These are unadjusted descriptive intervals conditional on the fixed memory draws and an assumption of independent fingerprints; they do not quantify uncertainty over new networks, sessions, model weights or memory-seed populations. Five repeated evaluations do not create 5,000 independent test flows. Per-attack recalls are archived, but rare categories include only one Backdoor, one Worms and three Shellcode cases; their percentages cannot support precise category-specific conclusions.
+
+\textbf{Costs and repeatability.} Table~\ref{tab:exp6_cost} separates one-time memory construction from query chat time. VLEG uses a mean 40,094 construction tokens and 419.43 seconds, versus 9,405 tokens and 126.54 seconds for first-proposal reflections. Raw storage needs no construction chat calls; embedding cost is separate and embedding tokens are not included. VLEG query input averages 909 tokens versus 780 for raw retrieval. Methods run in the fixed order raw, single-step, VLEG, raw-on-admitted, global summary. Consequently, prompt caching and order confound latency comparisons: the shorter observed VLEG chat time is not evidence of a causal speed advantage. Moreover, among 4,968 raw/raw-on-admitted pairs with identical reconstructed prompts, 24 predictions differ despite temperature $0$. This variation limits interpretation of the small raw-versus-admission-control gap. There are 29 invalid single-step outputs and 30 invalid VLEG outputs across 5,000 predictions each; all other conditions have zero invalid outputs. False positive rate counts explicit malicious predictions on benign flows, so invalid-output counts and benign recall must be considered alongside it.
+
+\begin{table*}[!t]
+\centering
+\caption{Observed public-flow costs, means across five memory seeds. Construction tokens include input and output. Chat latency excludes shared retrieval and is confounded by fixed method order/cache reuse.}
+\label{tab:exp6_cost}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Condition & Construction calls & Construction tokens & Construction (s) & Query mean (s) & Query p95 (s) \\
+\midrule
+Raw flow retrieval & 0 & 0 & 0 & 2.12 & 2.67 \\
+Unverified single-step & 32.0 & 9,405 & 126.54 & 2.23 & 2.75 \\
+VLEG & 120.4 & 40,094 & 419.43 & 1.74 & 2.68 \\
+Raw on admitted flows & 120.4 & 40,094 & 419.43 & 0.95 & 1.19 \\
+Global summary & 1.0 & 5,947 & 23.21 & 1.21 & 1.30 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+The admission-control condition shares VLEG's construction process and its cost; it does not obtain the mask for free. The completed experiment therefore supports a bounded result: checking first reflections improves on an unverified adaptation, but accepted hybrid reflections do not improve balanced classification over raw retrieval on this cleaned public-flow population.
 
 \subsection{Limitations}
 \label{sec:limitations}
-The measured evidence is limited to small symbolic populations, with a separate rendered-image implementation in the repository. It establishes neither public-flow classification performance nor operational intrusion-detection reliability. Levels 1 and 2 evaluate seen combinations; Level 3 combines seen and withheld combinations. Overall accuracy therefore must not be interpreted as held-out network generalization. Public-flow results and independent explanation audits remain outstanding.
+Experiments 1--5 use small symbolic populations, while Experiment 6 evaluates a cleaned public-flow benchmark. The latter is a controlled adaptation with shared raw retrieval, not a production deployment or a complete validation of reflection-driven retrieval. Levels 1 and 2 evaluate seen combinations; Level 3 combines seen and withheld combinations. Their accuracy must not be interpreted as held-out network generalization. The flow experiment is restricted by deduplication/conflict exclusion, missing session metadata, one model and test partition, fixed method order and incomplete human explanation audits.
 
 The synthetic rule is expressible as a single background-conditioned statement. It tests conditional rule learning, not an impossibility of global abstraction. The 7B and 70B comparisons also change model family and cannot isolate scale causally. Observed rank reversals and equal diagnostic rates are descriptive findings in these samples, not general superiority or equivalence claims.
 
 Verification sees a known historical label and tests a candidate against one source episode. It can reject inconsistencies detected by the model, but agreement does not establish causal attribution or cross-episode validity. Reflection diagnostics based on known synthetic attributes cannot be transferred unchanged to natural traffic, where ground-truth explanations are generally unavailable.
 
-Finally, the strict-parser repair and the repository's changed feedback baseline require result-provenance reconciliation before submission. Existing figures retain historical values; this revision does not imply they were rerun. Context limits, quantization, model digests, CPU/GPU offloading and concurrent workloads require run-specific recording. The proposed public-flow pipeline makes these controls and unresolved evaluation status explicit.
+Finally, the strict-parser repair and the repository's changed feedback baseline require result-provenance reconciliation before submission. The figures for Experiments 1--5 retain historical values and were not rerun; Experiment 6 is independently audited against its archived predictions and frozen source. Context limits, quantization, model digests, CPU/GPU offloading and concurrent workloads require run-specific recording. The completed public-flow run records source/model/code hashes and hardware, but does not resolve every limitation of the historical experiments.
 
 \section{Conclusions}
 VLEG checks local reflections before memory admission and combines accepted reflections with source episodes during inference. In the reported symbolic experiments, refinement increases memory coverage and admitted reflections are more consistent with historical labels. Downstream benefits depend on the model and task: raw retrieval leads at 7B, while the reported 70B comparison favors VLEG. Hybrid grounding retains a disadvantage on some withheld combinations, and per-episode verification does not show a separate benefit for unsupported attribution.
 
-These findings support a bounded claim about the evaluated mechanisms. They do not demonstrate reliable intrusion detection, a universal iteration budget or a general advantage over global memory. The public-flow protocol and implementation provide the next empirical test; its results, explanation audits and reconciliation of historical-run provenance are required before broader application claims are made.
+The public-flow experiment strengthens this bounded interpretation. At 70B, VLEG improves Macro-F1 over unverified first reflections but is lower than raw retrieval, while increasing both attack recall and false alarms. High memory admission coverage therefore does not establish reliable cross-flow reasoning. Further work should test calibration and cross-episode validation on new, independently reserved data, complete explanation audits, and control timing/repeatability before making deployment claims. Historical symbolic-run provenance still requires reconciliation.
 
 \bibliographystyle{unsrt}
 \bibliography{references}

@@ -439,7 +439,7 @@ and isolation scores were used.
 ## Public network-flow extension (Experiment 6)
 
 `traffic/` adds an independent public-flow benchmark pipeline for UNSW-NB15
-and CICIDS2017 CSVs. It has **not yet produced real-model/public-flow results**.
+and CICIDS2017 CSVs. Its first completed public-flow batch has been independently audited; see [the measured results](docs/REAL_FLOW_RESULTS_20261013.md).
 See [the protocol and commands](docs/TRAFFIC_BENCHMARK.md) for preparation,
 leakage checks, controlled methods, checkpoint/resume, scoring and human audit.
 
@@ -452,3 +452,25 @@ Both verifier pipelines now require a genuine JSON boolean for `valid`; strings
 such as `"false"` are rejected. Old results predate this repair and require a
 provenance review/rerun; numeric files were not overwritten. Run the regression
 and traffic pipeline tests with `python -m unittest discover -s tests -v`.
+
+## Completed public-flow results (2026-10-13)
+
+Five paired historical-memory seeds on 1,000 shared cleaned UNSW-NB15 test flows
+produced 25,000 formal predictions, plus 500 pilot predictions. Independent
+recalculation reproduces metrics, per-attack recalls, costs and conditional paired
+intervals. Mean Macro-F1 is raw 63.92%, single-step 42.66%, VLEG 59.68%,
+raw-on-admitted 63.70%, global summary 47.60%. VLEG raises attack recall relative
+to raw retrieval (77.74% vs 71.39%) but also false positives (48.78% vs 38.13%).
+This supports checking over the unverified adaptation, not a general hybrid-memory
+advantage. Recorded fixed-order timings are cache/order-confounded; blank human
+audit sheets are not counted as explanation validation.
+
+Frozen sources and independent audit artifacts: `results/traffic_20261013/`.
+Reproduce the offline audit (requires NumPy, but makes no model calls):
+
+```bash
+python scripts/audit_traffic_results.py \
+  --root /path/to/extracted/outputs_traffic/unsw_70b_formal_20261012 \
+  --output /path/to/audit_output \
+  --archive /path/to/VLEG-exp6-results-20261013.tar.gz --repo .
+```
