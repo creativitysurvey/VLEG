@@ -39,6 +39,28 @@ P.~Lewis, E.~Perez, A.~Piktus, F.~Petroni, V.~Karpukhin, N.~Goyal,
   vol.~33.\hskip 1em plus 0.5em minus 0.4em\relax Curran Associates, Inc.,
   2020, pp. 9459--9474.
 
+\bibitem{lin2022etbert}
+X.~Lin, G.~Xiong, G.~Gou, Z.~Li, J.~Shi, and J.~Yu, ``{{ET-BERT: A
+  Contextualized Datagram Representation with Pre-training Transformers for
+  Encrypted Traffic Classification}},'' in \emph{Proceedings of the ACM Web
+  Conference 2022}, 2022, pp. 633--642.
+
+\bibitem{sharafaldin2018cicids}
+I.~Sharafaldin, A.~H. Lashkari, and A.~A. Ghorbani, ``Toward generating a new
+  intrusion detection dataset and intrusion traffic characterization,'' in
+  \emph{International Conference on Information Systems Security and Privacy
+  (ICISSP)}, 2018.
+
+\bibitem{houssel2024explainable}
+P.~R.~B. Houssel, P.~Singh, S.~Layeghy, and M.~Portmann, ``{{Towards
+  Explainable Network Intrusion Detection using Large Language Models}},''
+  \emph{ArXiv}, vol. abs/2408.04342, 2024.
+
+\bibitem{islam2026maids}
+M.~S. Islam, L.~G. Jaimes, and A.~S. Dina, ``{{MA-IDS: Multi-Agent RAG
+  Framework for IoT Network Intrusion Detection with an Experience Library}},''
+  \emph{ArXiv}, vol. abs/2604.05458, 2026.
+
 \bibitem{an2024why}
 C.~An, J.~Zhang, M.~Zhong, L.~Li, S.~Gong, Y.~Luo, J.~Xu, and L.~Kong, ``{{Why
   Does the Effective Context Length of LLMs Fall Short?}}'' \emph{ArXiv}, vol.
@@ -65,6 +87,16 @@ Y.~Wang, Y.~Gao, X.~Chen, H.~Jiang, S.~Li, J.~Yang, Q.~Yin, Z.~Li, X.~Li,
   B.~Yin, J.~Shang, and J.~McAuley, ``{{MEMORYLLM: Towards Self-Updatable Large
   Language Models}},'' in \emph{Proceedings of the 41st International
   Conference on Machine Learning}, vol. 235, 2024, pp. 50\,453--50\,466.
+
+\bibitem{gutierrez2024hipporag}
+B.~Jimenez~Gutierrez, Y.~Shu, Y.~Gu, M.~Yasunaga, and Y.~Su, ``{{HippoRAG:
+  Neurobiologically Inspired Long-Term Memory for Large Language Models}},'' in
+  \emph{Advances in Neural Information Processing Systems}, vol.~37, 2024.
+
+\bibitem{maharana2024evaluating}
+A.~Maharana, D.-H. Lee, S.~Tulyakov, M.~Bansal, F.~Barbieri, and Y.~Fang,
+  ``{{Evaluating Very Long-Term Conversational Memory of LLM Agents}},''
+  \emph{ArXiv}, vol. abs/2402.17753, 2024.
 
 \bibitem{wu2025from}
 Y.~Wu, S.~Liang, C.~Zhang, Y.~Wang, Y.~Zhang, H.~Guo, R.~Tang, and Y.~Liu,
@@ -135,7 +167,7 @@ S.~Kim, P.~Phunyaphibarn, D.~Ahn, and S.~Kim, ``{{Playgrounds for Abstraction
   Symbolic AI (nCSI)}, 2022.
 
 \bibitem{lee2024generating}
-K.~il~Lee, H.~Koh, D.~Lee, S.~Yoon, M.~Kim, and K.~Jung, ``{{Generating Diverse
+K.-i. Lee, H.~Koh, D.~Lee, S.~Yoon, M.~Kim, and K.~Jung, ``{{Generating Diverse
   Hypotheses for Inductive Reasoning}},'' \emph{ArXiv}, vol. abs/2412.13422,
   2024.
 
@@ -158,7 +190,7 @@ T.~Kim, M.~Cochez, V.~Fran\c{c}ois-Lavet, M.~Neerincx, and P.~Vossen, ``{{A
   \emph{Proceedings of the Thirty-Seventh AAAI Conference on Artificial
   Intelligence and Thirty-Fifth Conference on Innovative Applications of
   Artificial Intelligence and Thirteenth Symposium on Educational Advances in
-  Artificial Intelligence, AAAI'23/IAAI'23/EAAI'23}, 2023.
+  Artificial Intelligence, {AAAI'23/IAAI'23/EAAI'23}}, 2023.
 
 \bibitem{li2024memory}
 J.~Li and J.~Li, ``{{Memory, Consciousness and Large Language Model}},''
@@ -167,6 +199,18 @@ J.~Li and J.~Li, ``{{Memory, Consciousness and Large Language Model}},''
 \bibitem{wang2025mirix}
 Y.~Wang and X.~Chen, ``{{MIRIX: Multi-Agent Memory System for LLM-Based
   Agents}},'' \emph{ArXiv}, vol. abs/2507.07957, 2025.
+
+\bibitem{manakul2023selfcheckgpt}
+P.~Manakul, A.~Liusie, and M.~Gales, ``{{SelfCheckGPT: Zero-Resource Black-Box
+  Hallucination Detection for Generative Large Language Models}},'' in
+  \emph{Proceedings of the 2023 Conference on Empirical Methods in Natural
+  Language Processing}, 2023, pp. 9004--9017.
+
+\bibitem{dhuliawala2024chain}
+S.~Dhuliawala, M.~Komeili, J.~Xu, R.~Raileanu, X.~Li, A.~Celikyilmaz, and
+  J.~Weston, ``{{Chain-of-Verification Reduces Hallucination in Large Language
+  Models}},'' in \emph{Findings of the Association for Computational
+  Linguistics: ACL 2024}, 2024, pp. 3563--3578.
 
 \bibitem{madaan2023selfrefine}
 A.~Madaan, N.~Tandon, P.~Gupta, S.~Hallinan, L.~Gao, S.~Wiegreffe, U.~Alon,
