@@ -1,0 +1,455 @@
+{
+  "experiment": "Experiment 3 - Iterative Refinement Ablation",
+  "model": "llama3.3:70b",
+  "k1_result": {
+    "label": "ablated_single_step",
+    "K": 1,
+    "consolidation_stats": {
+      "n_episodes": 12,
+      "n_verified": 6,
+      "n_discarded": 6,
+      "total_iterations": 12
+    },
+    "consolidation_time_sec": 552.4,
+    "eval_time_sec": 178.8,
+    "overall_accuracy": 0.75,
+    "masked_combo_accuracy": 1.0,
+    "seen_combo_accuracy": 0.6666666666666666,
+    "per_item": [
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "solid",
+          "background": "white",
+          "size": "small",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": false,
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "solid",
+          "background": "black",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "masked_at_train": false,
+        "predicted": "ANOMALY",
+        "correct": false
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": false,
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "striped",
+          "background": "black",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "masked_at_train": false,
+        "predicted": "ANOMALY",
+        "correct": false
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "solid",
+          "background": "white",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "masked_at_train": false,
+        "predicted": "NORMAL",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "solid",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": true,
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "masked_at_train": true,
+        "predicted": "NORMAL",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "striped",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": true,
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "solid",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "masked_at_train": false,
+        "predicted": "ANOMALY",
+        "correct": false
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "solid",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": true,
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "striped",
+          "background": "white",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "masked_at_train": false,
+        "predicted": "ANOMALY",
+        "correct": false
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "striped",
+          "background": "black",
+          "size": "small",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": false,
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "solid",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "masked_at_train": false,
+        "predicted": "NORMAL",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "solid",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": false,
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "masked_at_train": false,
+        "predicted": "NORMAL",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "striped",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": false,
+        "predicted": "ANOMALY",
+        "correct": true
+      }
+    ]
+  },
+  "k3_result": {
+    "label": "full_VLEG",
+    "K": 3,
+    "consolidation_stats": {
+      "n_episodes": 12,
+      "n_verified": 12,
+      "n_discarded": 0,
+      "total_iterations": 18
+    },
+    "consolidation_time_sec": 757.9,
+    "eval_time_sec": 219.3,
+    "overall_accuracy": 0.9375,
+    "masked_combo_accuracy": 0.75,
+    "seen_combo_accuracy": 1.0,
+    "per_item": [
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "solid",
+          "background": "white",
+          "size": "small",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": false,
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "solid",
+          "background": "black",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "masked_at_train": false,
+        "predicted": "NORMAL",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": false,
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "striped",
+          "background": "black",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "masked_at_train": false,
+        "predicted": "NORMAL",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "solid",
+          "background": "white",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "masked_at_train": false,
+        "predicted": "NORMAL",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "solid",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": true,
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "masked_at_train": true,
+        "predicted": "ANOMALY",
+        "correct": false
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "striped",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": true,
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "solid",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "masked_at_train": false,
+        "predicted": "NORMAL",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "solid",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": true,
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "striped",
+          "background": "white",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "masked_at_train": false,
+        "predicted": "NORMAL",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "striped",
+          "background": "black",
+          "size": "small",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": false,
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "solid",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "masked_at_train": false,
+        "predicted": "NORMAL",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "solid",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": false,
+        "predicted": "ANOMALY",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "masked_at_train": false,
+        "predicted": "NORMAL",
+        "correct": true
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "striped",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "masked_at_train": false,
+        "predicted": "ANOMALY",
+        "correct": true
+      }
+    ]
+  },
+  "accuracy_delta_pp": 18.75
+}

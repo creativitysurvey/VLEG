@@ -17,3 +17,20 @@ Thumbs.db
 # its own evidence, not just the code that could someday reproduce it.
 logs_*.txt
 ollama_serve.log
+
+# Public-flow data and resumable runs (may include sensitive metadata)
+data/private/
+outputs_traffic/
+__pycache__/
+JCN_submission/*.aux
+JCN_submission/*.log
+JCN_submission/*.out
+JCN_submission/*.fls
+JCN_submission/*.fdb_latexmk
+JCN_submission/*.blg
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.blg
