@@ -27,8 +27,8 @@ T.~B. Brown, B.~Mann, N.~Ryder, M.~Subbiah, J.~Kaplan, P.~Dhariwal,
   G.~Krueger, T.~J. Henighan, R.~Child, A.~Ramesh, D.~M. Ziegler, J.~Wu,
   C.~Winter, C.~Hesse, M.~Chen, E.~Sigler, M.~Litwin, S.~Gray, B.~Chess,
   J.~Clark, C.~Berner, S.~McCandlish, A.~Radford, I.~Sutskever, and D.~Amodei,
-  ``{{Language Models are Few-Shot Learners}},'' in \emph{Advances in Neural
-  Information Processing Systems}, vol.~33, 2020, pp. 1877--1901.
+  ``{{Language Models are Few-Shot Learners}},'' \emph{ArXiv}, vol.
+  abs/2005.14165, 2020.
 
 \bibitem{lewis2020retrieval}
 P.~Lewis, E.~Perez, A.~Piktus, F.~Petroni, V.~Karpukhin, N.~Goyal,
@@ -128,6 +128,57 @@ S.~H. Kim, K.~T. Ong, T.~Kwon, N.~Kim, K.~Ka, S.~Bae, Y.~Jo, S.~Hwang, D.~Lee,
   and J.~Yeo, ``{{Towards Lifelong Dialogue Agents via Timeline-based Memory
   Management}},'' in \emph{North American Chapter of the Association for
   Computational Linguistics}, 2024.
+
+\bibitem{kim2022playgrounds}
+S.~Kim, P.~Phunyaphibarn, D.~Ahn, and S.~Kim, ``{{Playgrounds for Abstraction
+  and Reasoning}},'' in \emph{NeurIPS 2022 Workshop on Neuro Causal and
+  Symbolic AI (nCSI)}, 2022.
+
+\bibitem{lee2024generating}
+K.~il~Lee, H.~Koh, D.~Lee, S.~Yoon, M.~Kim, and K.~Jung, ``{{Generating Diverse
+  Hypotheses for Inductive Reasoning}},'' \emph{ArXiv}, vol. abs/2412.13422,
+  2024.
+
+\bibitem{qiu2024phenomenal}
+L.~Qiu, L.~Jiang, X.~Lu, M.~Sclar, V.~Pyatkin, C.~Bhagavatula, B.~Wang, Y.~Kim,
+  Y.~Choi, N.~Dziri, and X.~Ren, ``{{Phenomenal Yet Puzzling: Testing Inductive
+  Reasoning Capabilities of Language Models with Hypothesis Refinement}},'' in
+  \emph{International Conference on Representation Learning}, B.~Kim, Y.~Yue,
+  S.~Chaudhuri, K.~Fragkiadaki, M.~Khan, and Y.~Sun, Eds., vol. 2024, 2024, pp.
+  1452--1481.
+
+\bibitem{zhou2024hypothesis}
+Y.~Zhou, H.~Liu, T.~Srivastava, H.~Mei, and C.~Tan, ``{{Hypothesis Generation
+  with Large Language Models}},'' in \emph{Proceedings of EMNLP Workshop of NLP
+  for Science}, 2024.
+
+\bibitem{kim2023machine}
+T.~Kim, M.~Cochez, V.~Fran\c{c}ois-Lavet, M.~Neerincx, and P.~Vossen, ``{{A
+  machine with short-term, episodic, and semantic memory systems}},'' in
+  \emph{Proceedings of the Thirty-Seventh AAAI Conference on Artificial
+  Intelligence and Thirty-Fifth Conference on Innovative Applications of
+  Artificial Intelligence and Thirteenth Symposium on Educational Advances in
+  Artificial Intelligence, AAAI'23/IAAI'23/EAAI'23}, 2023.
+
+\bibitem{li2024memory}
+J.~Li and J.~Li, ``{{Memory, Consciousness and Large Language Model}},''
+  \emph{ArXiv}, vol. abs/2401.02509, 2024.
+
+\bibitem{wang2025mirix}
+Y.~Wang and X.~Chen, ``{{MIRIX: Multi-Agent Memory System for LLM-Based
+  Agents}},'' \emph{ArXiv}, vol. abs/2507.07957, 2025.
+
+\bibitem{madaan2023selfrefine}
+A.~Madaan, N.~Tandon, P.~Gupta, S.~Hallinan, L.~Gao, S.~Wiegreffe, U.~Alon,
+  N.~Dziri, S.~Prabhumoye, Y.~Yang, S.~Gupta, B.~P. Majumder, K.~Hermann,
+  S.~Welleck, A.~Yazdanbakhsh, and P.~Clark, ``{{Self-Refine: Iterative
+  Refinement with Self-Feedback}},'' in \emph{Advances in Neural Information
+  Processing Systems}, vol.~36, 2023.
+
+\bibitem{gou2024critic}
+Z.~Gou, Z.~Shao, Y.~Gong, Y.~Shen, Y.~Yang, N.~Duan, and W.~Chen, ``{{CRITIC:
+  Large Language Models Can Self-Correct with Tool-Interactive Critiquing}},''
+  in \emph{International Conference on Learning Representations}, 2024.
 
 \bibitem{moustafa2015unsw}
 N.~Moustafa and J.~Slay, ``{UNSW-NB15}: A comprehensive data set for network
