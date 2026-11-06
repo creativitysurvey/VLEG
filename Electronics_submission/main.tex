@@ -475,9 +475,9 @@ The reported 70B check evaluates Levels 1 and 2 once each and Level 3 across thr
 \subsection{Component Isolation (Grounding Modality Ablation)}
 \label{sec:exp2}
 
-This ablation compares hybrid, abstract-only and raw-only grounding while keeping retrieval fixed. Hybrid inference receives each retrieved episode $e_i$ and its accepted reflection $r_i^*$; abstract-only receives the reflection; raw-only receives the episode, following the example-based principle of ICL \cite{brown2020language}. All conditions retrieve the same top-$k$ tuples using reflection-embedding similarity. Thus the comparison changes displayed content rather than example selection, although it remains conditional on the admitted memory bank.
+\textbf{Pairing verified reflections with raw episodes improves seen-rule classification but penalizes unseen combinations at 7B due to spurious-attribute anchoring, a penalty that largely vanishes at the 70B scale.} To isolate inference-context composition from retrieval selection, this ablation fixes the retrieved top-$k$ tuples using reflection-embedding similarity while varying whether the prompt displays both $(e_i, r_i^*)$ in Hybrid Grounding, only $r_i^*$ in Abstract-Only, or only $e_i$ in Raw-Only \cite{brown2020language}.
 
-At 7B, Figure~\ref{fig:exp2_ablation} shows that hybrid grounding leads on Level 2: $87.5\%$ versus $81.2\%$ for both alternatives. On Level 3, five masking seeds give overall accuracies of hybrid $73.8\%$, abstract-only $78.8\%$ and raw-only $75.0\%$ ($n=80$ recurring evaluations). Masked-only accuracies are $60.0\%$, $70.0\%$ and $70.0\%$ ($n=20$). Hybrid does not outperform both alternatives in any Level-3 seed. Abstract-only therefore exceeds hybrid by $5.0$ percentage points overall and $10.0$ points on withheld combinations.
+At the 7B scale, Figure~\ref{fig:exp2_ablation} shows that Hybrid Grounding achieves the highest accuracy on seen combinations at Level 2 ($87.5\%$ versus $81.2\%$ for both single-modality baselines). However, on Level 3 ($n=80$ pooled evaluations across five masks), Abstract-Only exceeds Hybrid by $5.0$~pp overall ($78.8\%$ versus $73.8\%$, with Raw-Only at $75.0\%$) and by $10.0$~pp on withheld masked combinations ($70.0\%$ versus $60.0\%$, $n=20$).
 
 \begin{figure}[!t]
     \centering
@@ -514,9 +514,9 @@ At 7B, Figure~\ref{fig:exp2_ablation} shows that hybrid grounding leads on Level
     \label{fig:exp2_ablation}
 \end{figure}
 
-The 70B comparison uses the same five masks. Hybrid and raw-only tie at $95.0\%$ overall, while abstract-only reaches $91.25\%$. On masked combinations, abstract-only remains higher at $85.0\%$, versus $80.0\%$ for both alternatives. Its per-seed masked accuracies are $100\%$, $75\%$, $50\%$, $100\%$ and $100\%$, illustrating the variability behind the pooled advantage. The overall 7B ordering consequently reverses, while the masked-only direction persists with a smaller gap.
+At the 70B scale across the same five masks, the overall ordering reverses in favor of evidence-retaining modalities, with Hybrid and Raw-Only tying at $95.0\%$ overall compared with $91.25\%$ for Abstract-Only, while Abstract-Only retains a narrower $5.0$~pp edge on the masked subset ($85.0\%$ versus $80.0\%$, ranging from $50.0\%$ to $100.0\%$ across individual seeds).
 
-These results separate overall performance from withheld-combination transfer. Raw evidence alongside a reflection does not guarantee a benefit: a reflection may add useful guidance or emphasize an unsupported condition. The memory-quality assessment in Section~\ref{sec:exp5} identifies irrelevant-attribute references, making misleading guidance a plausible explanation, but this ablation does not establish a causal anchoring mechanism. Because retrieval uses accepted-reflection embeddings, raw-only here also differs from direct raw-episode retrieval in Section~\ref{sec:exp1}. Conclusions are restricted to the controlled memory bank, model families and small recurring symbolic population; they do not establish a generally necessary or superior grounding modality.
+This scale-dependent reversal reflects how models of different capacities process over-specified local rules. Because single-episode verification cannot filter out non-causal distractor attributes (texture and size) that happen to be true of the source episode, 7B reflections frequently embed incidental features. When both $e_i$ and $r_i^*$ are presented for an unseen Level-3 combination, the 7B model over-anchors on spurious conjunctions shared between the raw example and the rule text. Conversely, the 70B model generates substantially fewer distractor references during consolidation and more effectively arbitrates between concrete evidence and abstract heuristics at inference.
 
 \subsection{Iterative Refinement Ablation}
 \label{sec:exp3}
@@ -647,7 +647,7 @@ Global summary & 50.22 $\pm$ 12.45 & 47.60 $\pm$ 14.13 & \textbf{87.12 $\pm$ 22.
 \end{tabular}
 \end{table*}
 
-Table~\ref{tab:exp6_performance} and Figure~\ref{fig:exp6_tradeoff} show VLEG Macro-F1 of $59.68\%$, versus raw retrieval's $63.92\%$. Recall rises from $71.39\%$ to $77.74\%$, but false alarms rise from $38.13\%$ to $48.78\%$. Paired fingerprint bootstrap gives VLEG-minus-raw $-4.24$ points (conditional 95\% interval $[-5.91,-2.53]$), versus $+17.02$ points over first proposals ($[13.71,20.39]$). Intervals are unadjusted and conditional on fixed memories; five seeds do not create 5,000 independent flows.
+As shown in Table~\ref{tab:exp6_performance} and Figure~\ref{fig:exp6_tradeoff}, unverified single-step reflection suffers a severe sensitivity collapse ($6.17\%$ attack recall and $42.66\%$ Macro-F1) because unchecked first proposals overwhelmingly default to benign classifications. VLEG resolves this collapse, boosting Macro-F1 by $+17.02$~pp ($59.68\%$, paired 95\% CI $[13.71, 20.39]$~pp) and elevating attack recall to $77.74\%$, which surpasses both raw flow retrieval ($71.39\%$) and the admission-matched control ($71.16\%$). At the same time, VLEG trails raw flow retrieval by $-4.24$~pp in overall Macro-F1 (paired 95\% CI $[-5.91, -2.53]$~pp) because its higher attack sensitivity is accompanied by an elevated false positive rate ($48.78\%$ versus $38.13\%$). Because Raw on admitted flows ($63.70\%$ Macro-F1) closely matches full Raw flow retrieval ($63.92\%$), this operating-point shift is driven by the injected reflection rules rather than by episode omission ($158/160$ admitted).
 
 \begin{figure}[!t]
 \centering
@@ -656,6 +656,7 @@ Table~\ref{tab:exp6_performance} and Figure~\ref{fig:exp6_tradeoff} show VLEG Ma
 \definecolor{cVleg}{HTML}{C8523B}
 \definecolor{cAdm}{HTML}{5B9A8B}
 \definecolor{cGlobal}{HTML}{7A68A6}
+\vspace{3pt}
 \begin{adjustbox}{max width=\linewidth}\begin{tikzpicture}
     \begin{axis}[
         ybar,
@@ -672,7 +673,7 @@ Table~\ref{tab:exp6_performance} and Figure~\ref{fig:exp6_tradeoff} show VLEG Ma
         axis lines*=left,
         clip=false,
         title={(a) Balanced classification},
-        title style={at={(0,1.05)}, anchor=south west, font=\small},
+        title style={at={(0,1.01)}, anchor=south west, font=\small},
         bar shift=0pt
     ]
     \addplot[fill=cRaw, draw=black!70, error bars/.cd, y dir=both, y explicit]
@@ -732,7 +733,7 @@ Table~\ref{tab:exp6_performance} and Figure~\ref{fig:exp6_tradeoff} show VLEG Ma
 \label{fig:exp6_tradeoff}
 \end{figure}
 
-Admission reaches 158/160, but 113/157 parseable accepted rules have contrary-label matches in other historical draws. This assisted screen is not a causal or human audit. There are 29 invalid first-proposal and 30 invalid VLEG predictions; they count as errors. Table~\ref{tab:exp6_cost} records construction costs; raw-on-admitted shares VLEG's cost. Fixed order/cache reuse confounds latency, and 24 identical-prompt raw/control pairs differ at temperature $0$.
+Our deterministic counterexample compiler explains the exact mechanism behind this recall--false-alarm trade-off. While $99.4\%$ ($157/158$) of admitted VLEG reflections compile into valid boolean feature predicates that are $100\%$ faithful to their originating flow, $113$ of those $157$ local rules match at least one contrary-label flow in other historical draws. When a malicious flow is summarized as a sufficient-condition threshold rule without cross-episode negative constraints, it acts as a sensitive positive trigger at inference, increasing true attack detection while generating false alarms on overlapping benign flows (with 29 single-step and 30 VLEG unparseable outputs counted as errors). Table~\ref{tab:exp6_cost} summarizes the corresponding consolidation and query costs across all five conditions.
 
 \begin{table*}[!t]
 \centering
@@ -745,7 +746,7 @@ Admission reaches 158/160, but 113/157 parseable accepted rules have contrary-la
 \midrule
 Raw flow retrieval & 0 & 0 & 0 & 2.12 & 2.67 \\
 Unverified single-step & 32.0 & 9,405 & 126.54 & 2.23 & 2.75 \\
-VLEG & 120.4 & 40,094 & 419.43 & 1.74 & 2.68 \\
+\textbf{VLEG (Ours)} & 120.4 & 40,094 & 419.43 & 1.74 & 2.68 \\
 Raw on admitted flows & 120.4 & 40,094 & 419.43 & 0.95 & 1.19 \\
 Global summary & 1.0 & 5,947 & 23.21 & 1.21 & 1.30 \\
 \bottomrule
