@@ -1,0 +1,321 @@
+[
+  {
+    "level": "Level2",
+    "strategy": "single_step",
+    "n": 16,
+    "correct_rate": 0.0625,
+    "over_specified_rate": 0.5625,
+    "wrong_condition_rate": 0.375,
+    "vague_rate": 0.0,
+    "details": [
+      {
+        "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "correct",
+        "reason": "The rule's condition matches the true rule and does not include texture or size."
+      },
+      {
+        "reflection": "On a black background, small circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "includes size as a required condition"
+      },
+      {
+        "reflection": "On a white background, striped large shapes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "Includes irrelevant attributes (texture and size)"
+      },
+      {
+        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The rule has the wrong condition for anomaly detection on black backgrounds and incorrectly specifies texture as determinative."
+      },
+      {
+        "reflection": "On a white background, blue solid small circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "Includes unnecessary conditions for shape, color, and size."
+      },
+      {
+        "reflection": "On a black background, large solid blue circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "includes size and color as conditions, beyond the true rule requirements."
+      },
+      {
+        "reflection": "On a white background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The condition involves texture (striped) which should not be considered according to the true rule, and the background color does not match the true rule's white background for an anomaly."
+      },
+      {
+        "reflection": "On a black background, striped large circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "includes texture and size as required conditions"
+      },
+      {
+        "reflection": "On a white background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "Includes irrelevant attributes (size and shape) not present in the true rule."
+      },
+      {
+        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The condition includes irrelevant attributes (size and shape) and the wrong logic for a black background."
+      },
+      {
+        "reflection": "On a white background, striped red small shapes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "includes texture and size as required conditions"
+      },
+      {
+        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The rule has the wrong condition for anomaly detection on black backgrounds and incorrectly specifies texture as determinative."
+      },
+      {
+        "reflection": "On a white background, large solid blue square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "Includes irrelevant attributes (size and color) not present in the true rule."
+      },
+      {
+        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The condition includes irrelevant attributes (size and shape) and the wrong logic for a black background."
+      },
+      {
+        "reflection": "On a white background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "Includes irrelevant attributes (size and texture)"
+      },
+      {
+        "reflection": "On a black background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The condition includes irrelevant attributes (size and texture) and has the wrong logic for a black background."
+      }
+    ]
+  },
+  {
+    "level": "Level2",
+    "strategy": "VLEG",
+    "n": 15,
+    "correct_rate": 0.06666666666666667,
+    "over_specified_rate": 0.26666666666666666,
+    "wrong_condition_rate": 0.6,
+    "vague_rate": 0.06666666666666667,
+    "details": [
+      {
+        "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "correct",
+        "reason": "The rule's condition matches the true rule and does not include texture or size as required conditions."
+      },
+      {
+        "reflection": "On a black background, small circle+red scenes are NORMAL; this scene is therefore NORMAL.",
+        "category": "wrong_condition",
+        "reason": "The condition for ANOMALY on a black background is incorrect."
+      },
+      {
+        "reflection": "On a white background, striped large shapes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "Includes irrelevant attributes (texture and size)"
+      },
+      {
+        "reflection": "On a black background, circle+red scenes are NORMAL; this scene is therefore NORMAL.",
+        "category": "wrong_condition",
+        "reason": "The condition is inverted for black backgrounds."
+      },
+      {
+        "reflection": "On a white background, blue solid small circle scenes are NORMAL; this scene is therefore NORMAL.",
+        "category": "wrong_condition",
+        "reason": "The shape and color conditions are incorrect."
+      },
+      {
+        "reflection": "On a black background, large solid blue circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "includes size and color as conditions, beyond the true rule requirements."
+      },
+      {
+        "reflection": "On a black background, striped large circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "includes texture and size as required conditions"
+      },
+      {
+        "reflection": "On a white background, large solid-colored square scenes are NORMAL; this scene is therefore NORMAL.",
+        "category": "wrong_condition",
+        "reason": "The shape and color conditions are incorrect."
+      },
+      {
+        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The condition includes irrelevant attributes (size and shape) and the wrong logic for a black background."
+      },
+      {
+        "reflection": "On a white background, striped red small shapes are NORMAL; this scene is therefore NORMAL.",
+        "category": "over_specified",
+        "reason": "includes texture and size as required conditions"
+      },
+      {
+        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The rule has the wrong condition for anomaly detection on black backgrounds and incorrectly specifies texture as determinative."
+      },
+      {
+        "reflection": "On a white background, large solid blue square scenes are NORMAL; this scene is therefore NORMAL.",
+        "category": "wrong_condition",
+        "reason": "The shape and color do not match the true rule."
+      },
+      {
+        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The condition includes irrelevant attributes (size and shape) and the wrong logic for a black background."
+      },
+      {
+        "reflection": "On a white background, large striped scenes are NORMAL; this scene is therefore NORMAL.",
+        "category": "vague",
+        "reason": "The rule is too vague due to mentioning irrelevant attributes (size and texture) and does not match the true rule's conditions."
+      },
+      {
+        "reflection": "On a black background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The condition includes irrelevant attributes (size and texture) and has the wrong logic for a black background."
+      }
+    ]
+  },
+  {
+    "level": "Level3",
+    "strategy": "single_step",
+    "n": 12,
+    "correct_rate": 0.08333333333333333,
+    "over_specified_rate": 0.5833333333333334,
+    "wrong_condition_rate": 0.3333333333333333,
+    "vague_rate": 0.0,
+    "details": [
+      {
+        "reflection": "On a white background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "Includes irrelevant attributes (size and texture)"
+      },
+      {
+        "reflection": "On a white background, striped red small shapes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "Includes texture and size as required conditions."
+      },
+      {
+        "reflection": "On a white background, large solid blue square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "Includes irrelevant attributes (size, color) and incorrect shape."
+      },
+      {
+        "reflection": "On a white background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "Includes irrelevant attributes (size and shape) not present in the true rule."
+      },
+      {
+        "reflection": "On a black background, small circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "includes size as a required condition"
+      },
+      {
+        "reflection": "On a white background, striped large shapes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "Includes irrelevant attributes (texture and size)"
+      },
+      {
+        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The condition includes irrelevant attributes (size and shape) and the wrong logic for a black background."
+      },
+      {
+        "reflection": "On a black background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The condition includes irrelevant attributes (size and texture) and has the wrong logic for a black background."
+      },
+      {
+        "reflection": "On a white background, blue solid small circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "Includes unnecessary conditions for shape, color, and size."
+      },
+      {
+        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The rule has the wrong condition for anomaly detection on black backgrounds and incorrectly specifies texture as determinative."
+      },
+      {
+        "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "correct",
+        "reason": "The rule's condition matches the true rule and does not include texture or size as required conditions."
+      },
+      {
+        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The rule has the wrong condition for anomaly detection on black backgrounds and incorrectly specifies texture as determinative."
+      }
+    ]
+  },
+  {
+    "level": "Level3",
+    "strategy": "VLEG",
+    "n": 12,
+    "correct_rate": 0.08333333333333333,
+    "over_specified_rate": 0.16666666666666666,
+    "wrong_condition_rate": 0.6666666666666666,
+    "vague_rate": 0.08333333333333333,
+    "details": [
+      {
+        "reflection": "On a white background, large striped scenes are NORMAL; this scene is therefore NORMAL.",
+        "category": "vague",
+        "reason": "The rule is too vague due to mentioning irrelevant attributes (size and texture) and does not match the true rule's conditions."
+      },
+      {
+        "reflection": "On a white background, striped red small shapes are NORMAL; this scene is therefore NORMAL.",
+        "category": "over_specified",
+        "reason": "includes texture and size as required conditions"
+      },
+      {
+        "reflection": "On a white background, large solid blue square scenes are NORMAL; this scene is therefore NORMAL.",
+        "category": "wrong_condition",
+        "reason": "The shape and color do not match the true rule."
+      },
+      {
+        "reflection": "On a white background, large solid-colored square scenes are NORMAL; this scene is therefore NORMAL.",
+        "category": "wrong_condition",
+        "reason": "The candidate rule uses the wrong shape and does not match the true rule's condition for ANOMALY on a white background."
+      },
+      {
+        "reflection": "On a black background, small circle+red scenes are NORMAL; this scene is therefore NORMAL.",
+        "category": "wrong_condition",
+        "reason": "The condition for ANOMALY on a black background is incorrect."
+      },
+      {
+        "reflection": "On a white background, striped large shapes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "over_specified",
+        "reason": "Includes irrelevant attributes (texture and size)"
+      },
+      {
+        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The condition includes irrelevant attributes (size and shape) and the wrong logic for a black background."
+      },
+      {
+        "reflection": "On a black background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The condition includes irrelevant attributes (size and texture) and has the wrong logic for a black background."
+      },
+      {
+        "reflection": "On a white background, blue solid small circle scenes are NORMAL; this scene is therefore NORMAL.",
+        "category": "wrong_condition",
+        "reason": "The shape and color conditions are incorrect."
+      },
+      {
+        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "wrong_condition",
+        "reason": "The rule has the wrong condition for anomaly detection on black backgrounds and incorrectly specifies texture as determinative."
+      },
+      {
+        "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "category": "correct",
+        "reason": "The rule's condition matches the true rule and does not include texture or size as required conditions."
+      },
+      {
+        "reflection": "On a black background, circle+red scenes are NORMAL; this scene is therefore NORMAL.",
+        "category": "wrong_condition",
+        "reason": "The condition is inverted for black backgrounds."
+      }
+    ]
+  }
+]

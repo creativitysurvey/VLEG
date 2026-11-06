@@ -28,18 +28,8 @@ SYSTEM_PROMPT = (
 
 
 def _parse_json_response(text: str) -> dict:
-    # models sometimes wrap JSON in ```json fences or add stray text
-    match = re.search(r"\{.*\}", text, re.DOTALL)
-    candidate = match.group(0) if match else text
-    try:
-        obj = json.loads(candidate)
-        assert "valid" in obj
-        return {"valid": bool(obj["valid"]), "critique": str(obj.get("critique", ""))}
-    except Exception:
-        # Fail safe: treat unparseable verifier output as invalid, with the
-        # raw text as the critique, so the loop can still make progress
-        # instead of crashing.
-        return {"valid": False, "critique": f"[verifier output unparseable: {text[:200]}]"}
+    from core.verification_response import parse_verification_response
+    return parse_verification_response(text)
 
 
 def verify_reflection(episode_text: str, reflection: str) -> tuple[bool, str]:

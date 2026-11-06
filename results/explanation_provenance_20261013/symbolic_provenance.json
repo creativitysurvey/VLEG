@@ -1,0 +1,763 @@
+{
+  "snapshots": [
+    {
+      "snapshot": "archived_7b",
+      "commit": "fa33091db95af08f3fde232f78dbbcd9cd7c04d5",
+      "path": "outputs/experiment1_multiseed_results.json",
+      "sha256": "7533f01fa571af8ac35a557e10e0364e8c8df639b105677508fcf435c3f6750c"
+    },
+    {
+      "snapshot": "archived_7b",
+      "commit": "fa33091db95af08f3fde232f78dbbcd9cd7c04d5",
+      "path": "outputs/experiment1_results.json",
+      "sha256": "45a24a2bfecaaf7cc3614bcf0dd9493588aa052243e3800cec020ecf25084711"
+    },
+    {
+      "snapshot": "archived_7b",
+      "commit": "fa33091db95af08f3fde232f78dbbcd9cd7c04d5",
+      "path": "outputs/experiment2_multiseed_results.json",
+      "sha256": "462fae9c910ff6cb8032064e3a13e3e38931c6f8e733f818b93918ea3c140799"
+    },
+    {
+      "snapshot": "archived_7b",
+      "commit": "fa33091db95af08f3fde232f78dbbcd9cd7c04d5",
+      "path": "outputs/experiment2_results.json",
+      "sha256": "93ea9b41d8a36560905d7b28fedf7a4a1ab0103d4fd70d6e01af33ab2528a138"
+    },
+    {
+      "snapshot": "archived_7b",
+      "commit": "fa33091db95af08f3fde232f78dbbcd9cd7c04d5",
+      "path": "outputs/experiment3_multiseed_results.json",
+      "sha256": "22386d6d74ee09216b70f96c11811aed8f606c1a8413d5d835b6aa818a1e36af"
+    },
+    {
+      "snapshot": "archived_7b",
+      "commit": "fa33091db95af08f3fde232f78dbbcd9cd7c04d5",
+      "path": "outputs/experiment3_results.json",
+      "sha256": "e8c160be2cfb7d01bc8a8fc9fc992b47b307739ab64d4900fa71c832cd73292b"
+    },
+    {
+      "snapshot": "archived_7b",
+      "commit": "fa33091db95af08f3fde232f78dbbcd9cd7c04d5",
+      "path": "outputs/experiment4_multiseed_results.json",
+      "sha256": "ee80cff7d22dbe2c6b2bca48860e6c530da291af8743426578e56ae36cff411e"
+    },
+    {
+      "snapshot": "archived_7b",
+      "commit": "fa33091db95af08f3fde232f78dbbcd9cd7c04d5",
+      "path": "outputs/experiment4_results.json",
+      "sha256": "4e993fb8a5a55170a04c95f489c60df48f2e3034909720c5ea3318aca9fcd819"
+    },
+    {
+      "snapshot": "archived_7b",
+      "commit": "fa33091db95af08f3fde232f78dbbcd9cd7c04d5",
+      "path": "outputs/experiment5_detailed_audit.json",
+      "sha256": "0c1efe4f17c4b42d2be5d5a688e894aeb64ba70b6d7f04d81b0649b240e37d8a"
+    },
+    {
+      "snapshot": "archived_7b",
+      "commit": "fa33091db95af08f3fde232f78dbbcd9cd7c04d5",
+      "path": "outputs/experiment5_ground_truth_audit.json",
+      "sha256": "1f14a4f4d03969b859c9a62757b2d28079ee41aba7dc0ff2c4651ae0ab1d958f"
+    },
+    {
+      "snapshot": "archived_7b",
+      "commit": "fa33091db95af08f3fde232f78dbbcd9cd7c04d5",
+      "path": "outputs/experiment5_results.json",
+      "sha256": "1797ecc3b2bc4431af1a6a29ae2461c169b345721cea214fad61f95efd79b20b"
+    },
+    {
+      "snapshot": "latest_archived_70b",
+      "commit": "7c39efe5fdacaa73312641aade3ba701ca431fea",
+      "path": "outputs/experiment1_multiseed_results.json",
+      "sha256": "566a4f7c7a78c9e6a24ec4242ca535dd85ef39b1ea22e27962e7cb8b63815abc"
+    },
+    {
+      "snapshot": "latest_archived_70b",
+      "commit": "7c39efe5fdacaa73312641aade3ba701ca431fea",
+      "path": "outputs/experiment1_results.json",
+      "sha256": "2e9d95446576a929adfd131c10c4d0d6bd5d2ea61f2db908d48dc1e2fa674f60"
+    },
+    {
+      "snapshot": "latest_archived_70b",
+      "commit": "7c39efe5fdacaa73312641aade3ba701ca431fea",
+      "path": "outputs/experiment2_multiseed_results.json",
+      "sha256": "a2cb1e896baeb3380167130129d547db79f1cdd65fe4bf3de62c16eeb5aa548d"
+    },
+    {
+      "snapshot": "latest_archived_70b",
+      "commit": "7c39efe5fdacaa73312641aade3ba701ca431fea",
+      "path": "outputs/experiment2_results.json",
+      "sha256": "4d7c56aeb92db5d2b584f5090cd8eac0fa2e35e943fba4fdcadc3666206272c7"
+    },
+    {
+      "snapshot": "latest_archived_70b",
+      "commit": "7c39efe5fdacaa73312641aade3ba701ca431fea",
+      "path": "outputs/experiment3_multiseed_results.json",
+      "sha256": "77e1a4f5722408bdfda8000d7367ac517e3a493f931772d48d0f4ca84c2024cf"
+    },
+    {
+      "snapshot": "latest_archived_70b",
+      "commit": "7c39efe5fdacaa73312641aade3ba701ca431fea",
+      "path": "outputs/experiment3_results.json",
+      "sha256": "1db9737daf011c35b21d3ce172d90c32e125cab515e1108f4dfa73144ea8dbcc"
+    },
+    {
+      "snapshot": "latest_archived_70b",
+      "commit": "7c39efe5fdacaa73312641aade3ba701ca431fea",
+      "path": "outputs/experiment4_multiseed_results.json",
+      "sha256": "969142432a696ad885dee7d59a5bba384cda23a8a3968d9e2ebc2e5dc3fa484c"
+    },
+    {
+      "snapshot": "latest_archived_70b",
+      "commit": "7c39efe5fdacaa73312641aade3ba701ca431fea",
+      "path": "outputs/experiment4_results.json",
+      "sha256": "a174b77d1df82266dac19b482295dc34e522ed03e39b246f313c3eb47312c3dc"
+    },
+    {
+      "snapshot": "latest_archived_70b",
+      "commit": "7c39efe5fdacaa73312641aade3ba701ca431fea",
+      "path": "outputs/experiment5_detailed_audit.json",
+      "sha256": "0c1efe4f17c4b42d2be5d5a688e894aeb64ba70b6d7f04d81b0649b240e37d8a"
+    },
+    {
+      "snapshot": "latest_archived_70b",
+      "commit": "7c39efe5fdacaa73312641aade3ba701ca431fea",
+      "path": "outputs/experiment5_ground_truth_audit.json",
+      "sha256": "1f14a4f4d03969b859c9a62757b2d28079ee41aba7dc0ff2c4651ae0ab1d958f"
+    },
+    {
+      "snapshot": "latest_archived_70b",
+      "commit": "7c39efe5fdacaa73312641aade3ba701ca431fea",
+      "path": "outputs/experiment5_results.json",
+      "sha256": "426c13dce7a7771a519b958110727b8dc087fbd3a5da9272a32b2f690f8bf5ce"
+    }
+  ],
+  "derived": {
+    "archived_7b": {
+      "model_declaration": "\"qwen2.5:7b-instruct\"  # matches user's `ollama list` output",
+      "exp1_pooled_level3": {
+        "VLEG": 0.75,
+        "HDR": 0.7083333333333334,
+        "Reflexion": 0.5,
+        "ICL": 0.875
+      },
+      "exp1_seed_values": [
+        {
+          "level": "Level3_seed42",
+          "n_train": 12,
+          "n_test": 16,
+          "results": {
+            "VLEG": {
+              "accuracy": 0.75,
+              "bank_size": 12
+            },
+            "HDR": {
+              "accuracy": 0.625,
+              "verified": false,
+              "hypothesis": "In white backgrounds, scenes with a square shape and red color are more likely to be labeled as ANOMALY, while in black backgrounds, anomalies tend to involve circles or squares with solid textures regardless of the shape's size or color."
+            },
+            "Reflexion": {
+              "accuracy": 0.5625
+            },
+            "ICL": {
+              "accuracy": 0.8125
+            }
+          },
+          "seed": 42
+        },
+        {
+          "level": "Level3_seed7",
+          "n_train": 12,
+          "n_test": 16,
+          "results": {
+            "VLEG": {
+              "accuracy": 0.75,
+              "bank_size": 11
+            },
+            "HDR": {
+              "accuracy": 0.75,
+              "verified": false,
+              "hypothesis": "ANOMALY scenes are characterized by a black background with blue or red objects of any size and texture, while NORMAL scenes have either a white background with blue objects of small size or a white background with red objects of large size and striped texture."
+            },
+            "Reflexion": {
+              "accuracy": 0.5
+            },
+            "ICL": {
+              "accuracy": 0.8125
+            }
+          },
+          "seed": 7
+        },
+        {
+          "level": "Level3_seed123",
+          "n_train": 12,
+          "n_test": 16,
+          "results": {
+            "VLEG": {
+              "accuracy": 0.75,
+              "bank_size": 11
+            },
+            "HDR": {
+              "accuracy": 0.75,
+              "verified": false,
+              "hypothesis": "ANOMALY is more likely when the background is white and the object is red with a striped texture, regardless of shape and size, while ANOMALY is also indicated by black backgrounds with blue objects having a striped texture, particularly when they are squares or large in size."
+            },
+            "Reflexion": {
+              "accuracy": 0.4375
+            },
+            "ICL": {
+              "accuracy": 1.0
+            }
+          },
+          "seed": 123
+        }
+      ],
+      "exp2_pooled_level3": {
+        "hybrid": 0.7375,
+        "abstract_only": 0.7875,
+        "raw_only": 0.75
+      },
+      "exp3_delta_mean": 0.1125,
+      "exp3_delta_sample_sd": 0.08149003006503311,
+      "exp4_by_seed": [
+        {
+          "level": "Level3_seed42",
+          "K": 1,
+          "bank_size": 5,
+          "n_train": 12,
+          "accuracy": 0.625,
+          "consolidation_prompt_tokens": 5389,
+          "consolidation_completion_tokens": 588,
+          "consolidation_total_tokens": 5977,
+          "consolidation_calls": 24,
+          "tokens_per_episode": 498.0833333333333,
+          "consolidation_time_sec": 63.5,
+          "eval_time_sec": 30.8,
+          "seed": 42
+        },
+        {
+          "level": "Level3_seed42",
+          "K": 2,
+          "bank_size": 11,
+          "n_train": 12,
+          "accuracy": 0.6875,
+          "consolidation_prompt_tokens": 9043,
+          "consolidation_completion_tokens": 818,
+          "consolidation_total_tokens": 9861,
+          "consolidation_calls": 38,
+          "tokens_per_episode": 821.75,
+          "consolidation_time_sec": 94.9,
+          "eval_time_sec": 33.5,
+          "seed": 42
+        },
+        {
+          "level": "Level3_seed42",
+          "K": 3,
+          "bank_size": 12,
+          "n_train": 12,
+          "accuracy": 0.75,
+          "consolidation_prompt_tokens": 9549,
+          "consolidation_completion_tokens": 849,
+          "consolidation_total_tokens": 10398,
+          "consolidation_calls": 40,
+          "tokens_per_episode": 866.5,
+          "consolidation_time_sec": 96.1,
+          "eval_time_sec": 29.1,
+          "seed": 42
+        },
+        {
+          "level": "Level3_seed42",
+          "K": 5,
+          "bank_size": 12,
+          "n_train": 12,
+          "accuracy": 0.75,
+          "consolidation_prompt_tokens": 9549,
+          "consolidation_completion_tokens": 849,
+          "consolidation_total_tokens": 10398,
+          "consolidation_calls": 40,
+          "tokens_per_episode": 866.5,
+          "consolidation_time_sec": 95.0,
+          "eval_time_sec": 29.5,
+          "seed": 42
+        },
+        {
+          "level": "Level3_seed7",
+          "K": 1,
+          "bank_size": 6,
+          "n_train": 12,
+          "accuracy": 0.5625,
+          "consolidation_prompt_tokens": 5393,
+          "consolidation_completion_tokens": 568,
+          "consolidation_total_tokens": 5961,
+          "consolidation_calls": 24,
+          "tokens_per_episode": 496.75,
+          "consolidation_time_sec": 59.5,
+          "eval_time_sec": 33.2,
+          "seed": 7
+        },
+        {
+          "level": "Level3_seed7",
+          "K": 2,
+          "bank_size": 11,
+          "n_train": 12,
+          "accuracy": 0.75,
+          "consolidation_prompt_tokens": 8526,
+          "consolidation_completion_tokens": 792,
+          "consolidation_total_tokens": 9318,
+          "consolidation_calls": 36,
+          "tokens_per_episode": 776.5,
+          "consolidation_time_sec": 83.7,
+          "eval_time_sec": 30.8,
+          "seed": 7
+        },
+        {
+          "level": "Level3_seed7",
+          "K": 3,
+          "bank_size": 11,
+          "n_train": 12,
+          "accuracy": 0.75,
+          "consolidation_prompt_tokens": 9065,
+          "consolidation_completion_tokens": 853,
+          "consolidation_total_tokens": 9918,
+          "consolidation_calls": 38,
+          "tokens_per_episode": 826.5,
+          "consolidation_time_sec": 91.7,
+          "eval_time_sec": 27.4,
+          "seed": 7
+        },
+        {
+          "level": "Level3_seed7",
+          "K": 5,
+          "bank_size": 12,
+          "n_train": 12,
+          "accuracy": 0.875,
+          "consolidation_prompt_tokens": 9595,
+          "consolidation_completion_tokens": 888,
+          "consolidation_total_tokens": 10483,
+          "consolidation_calls": 40,
+          "tokens_per_episode": 873.5833333333334,
+          "consolidation_time_sec": 95.6,
+          "eval_time_sec": 30.0,
+          "seed": 7
+        },
+        {
+          "level": "Level3_seed123",
+          "K": 1,
+          "bank_size": 6,
+          "n_train": 12,
+          "accuracy": 0.625,
+          "consolidation_prompt_tokens": 5394,
+          "consolidation_completion_tokens": 568,
+          "consolidation_total_tokens": 5962,
+          "consolidation_calls": 24,
+          "tokens_per_episode": 496.8333333333333,
+          "consolidation_time_sec": 59.7,
+          "eval_time_sec": 32.2,
+          "seed": 123
+        },
+        {
+          "level": "Level3_seed123",
+          "K": 2,
+          "bank_size": 11,
+          "n_train": 12,
+          "accuracy": 0.8125,
+          "consolidation_prompt_tokens": 8525,
+          "consolidation_completion_tokens": 788,
+          "consolidation_total_tokens": 9313,
+          "consolidation_calls": 36,
+          "tokens_per_episode": 776.0833333333334,
+          "consolidation_time_sec": 87.0,
+          "eval_time_sec": 28.3,
+          "seed": 123
+        },
+        {
+          "level": "Level3_seed123",
+          "K": 3,
+          "bank_size": 11,
+          "n_train": 12,
+          "accuracy": 0.8125,
+          "consolidation_prompt_tokens": 9064,
+          "consolidation_completion_tokens": 849,
+          "consolidation_total_tokens": 9913,
+          "consolidation_calls": 38,
+          "tokens_per_episode": 826.0833333333334,
+          "consolidation_time_sec": 92.8,
+          "eval_time_sec": 25.2,
+          "seed": 123
+        },
+        {
+          "level": "Level3_seed123",
+          "K": 5,
+          "bank_size": 12,
+          "n_train": 12,
+          "accuracy": 0.8125,
+          "consolidation_prompt_tokens": 9594,
+          "consolidation_completion_tokens": 884,
+          "consolidation_total_tokens": 10478,
+          "consolidation_calls": 40,
+          "tokens_per_episode": 873.1666666666666,
+          "consolidation_time_sec": 94.7,
+          "eval_time_sec": 28.9,
+          "seed": 123
+        }
+      ],
+      "exp5_keyword_recount": [
+        {
+          "level": "Level2",
+          "strategy": "single_step",
+          "n": 16,
+          "mentions_irrelevant_attributes": 15,
+          "source_label_matches_reconstructed_order": 8,
+          "keyword_mentions_among_label_correct": 7,
+          "original_llm_hallucination_flags": 15
+        },
+        {
+          "level": "Level2",
+          "strategy": "VLEG",
+          "n": 15,
+          "mentions_irrelevant_attributes": 13,
+          "source_label_matches_reconstructed_order": 15,
+          "keyword_mentions_among_label_correct": 13,
+          "original_llm_hallucination_flags": 14
+        },
+        {
+          "level": "Level3",
+          "strategy": "single_step",
+          "n": 12,
+          "mentions_irrelevant_attributes": 11,
+          "source_label_matches_reconstructed_order": 5,
+          "keyword_mentions_among_label_correct": 4,
+          "original_llm_hallucination_flags": 11
+        },
+        {
+          "level": "Level3",
+          "strategy": "VLEG",
+          "n": 12,
+          "mentions_irrelevant_attributes": 10,
+          "source_label_matches_reconstructed_order": 12,
+          "keyword_mentions_among_label_correct": 10,
+          "original_llm_hallucination_flags": 11
+        }
+      ],
+      "per_item_accuracy_checks": 24,
+      "per_item_accuracy_failures": []
+    },
+    "latest_archived_70b": {
+      "model_declaration": "\"llama3.3:70b\"",
+      "exp1_pooled_level3": {
+        "VLEG": 0.9166666666666666,
+        "HDR": 0.8333333333333334,
+        "Reflexion": 0.8125,
+        "ICL": 0.8958333333333334
+      },
+      "exp1_seed_values": [
+        {
+          "level": "Level3_seed42",
+          "n_train": 12,
+          "n_test": 16,
+          "results": {
+            "VLEG": {
+              "accuracy": 0.9375,
+              "bank_size": 12
+            },
+            "HDR": {
+              "accuracy": 0.875,
+              "verified": false,
+              "hypothesis": "The pattern across the entire dataset can be explained by the hypothesis that a scene is labeled as NORMAL if it has a white background and a square shape, regardless of color, texture, or size, or if it has a black background and a circle shape with a red color, solid or striped texture, and small size. For scenes with a white background and a circle shape, the label is NORMAL if the size is small, regardless of color or texture. This hypothesis correctly predicts the labels for all scenes, including those that were previously mispredicted, such as Scene 6 and Scene 11, which are now correctly labeled as ANOMALY and ANOMALY, respectively, due to their large size and solid texture, respectively."
+            },
+            "Reflexion": {
+              "accuracy": 0.75
+            },
+            "ICL": {
+              "accuracy": 0.875
+            }
+          },
+          "seed": 42
+        },
+        {
+          "level": "Level3_seed7",
+          "n_train": 12,
+          "n_test": 16,
+          "results": {
+            "VLEG": {
+              "accuracy": 0.9375,
+              "bank_size": 12
+            },
+            "HDR": {
+              "accuracy": 0.75,
+              "verified": false,
+              "hypothesis": "The pattern across the entire dataset can be explained by the hypothesis that a scene is labeled as ANOMALY if it has a black background, regardless of other attributes. For scenes with a white background, a scene is labeled as ANOMALY if it has a circle shape and a red color, or if it has a striped texture and a large size, but not if it has a square shape and a solid texture. This rule suggests that the combination of background color, shape, and texture are crucial in determining the anomaly, with size playing a secondary role only in specific cases with a white background and striped texture."
+            },
+            "Reflexion": {
+              "accuracy": 0.8125
+            },
+            "ICL": {
+              "accuracy": 0.875
+            }
+          },
+          "seed": 7
+        },
+        {
+          "level": "Level3_seed123",
+          "n_train": 12,
+          "n_test": 16,
+          "results": {
+            "VLEG": {
+              "accuracy": 0.875,
+              "bank_size": 12
+            },
+            "HDR": {
+              "accuracy": 0.875,
+              "verified": false,
+              "hypothesis": "The pattern across the entire dataset suggests that an observed scene is labeled as ANOMALY if it has a black background and either a square shape with any attributes or a circle shape with solid texture and small size, or if it has a white background and a circle shape with red color regardless of texture and size. On a white background, scenes are generally NORMAL unless they have a circle shape with red color. On a black background, scenes tend to be ANOMALY, especially with square shapes or specific circle attributes."
+            },
+            "Reflexion": {
+              "accuracy": 0.875
+            },
+            "ICL": {
+              "accuracy": 0.9375
+            }
+          },
+          "seed": 123
+        }
+      ],
+      "exp2_pooled_level3": {
+        "hybrid": 0.95,
+        "abstract_only": 0.9125,
+        "raw_only": 0.95
+      },
+      "exp3_delta_mean": 0.2625,
+      "exp3_delta_sample_sd": 0.08149003006503311,
+      "exp4_by_seed": [
+        {
+          "level": "Level3_seed42",
+          "K": 1,
+          "bank_size": 6,
+          "n_train": 12,
+          "accuracy": 0.75,
+          "consolidation_prompt_tokens": 5411,
+          "consolidation_completion_tokens": 574,
+          "consolidation_total_tokens": 5985,
+          "consolidation_calls": 24,
+          "tokens_per_episode": 498.75,
+          "consolidation_time_sec": 1756.2,
+          "eval_time_sec": 1343.5,
+          "seed": 42
+        },
+        {
+          "level": "Level3_seed42",
+          "K": 2,
+          "bank_size": 12,
+          "n_train": 12,
+          "accuracy": 1.0,
+          "consolidation_prompt_tokens": 8670,
+          "consolidation_completion_tokens": 836,
+          "consolidation_total_tokens": 9506,
+          "consolidation_calls": 36,
+          "tokens_per_episode": 792.1666666666666,
+          "consolidation_time_sec": 3303.5,
+          "eval_time_sec": 1075.1,
+          "seed": 42
+        },
+        {
+          "level": "Level3_seed42",
+          "K": 3,
+          "bank_size": 12,
+          "n_train": 12,
+          "accuracy": 1.0,
+          "consolidation_prompt_tokens": 8670,
+          "consolidation_completion_tokens": 836,
+          "consolidation_total_tokens": 9506,
+          "consolidation_calls": 36,
+          "tokens_per_episode": 792.1666666666666,
+          "consolidation_time_sec": 2895.8,
+          "eval_time_sec": 501.1,
+          "seed": 42
+        },
+        {
+          "level": "Level3_seed42",
+          "K": 5,
+          "bank_size": 12,
+          "n_train": 12,
+          "accuracy": 1.0,
+          "consolidation_prompt_tokens": 8670,
+          "consolidation_completion_tokens": 836,
+          "consolidation_total_tokens": 9506,
+          "consolidation_calls": 36,
+          "tokens_per_episode": 792.1666666666666,
+          "consolidation_time_sec": 578.5,
+          "eval_time_sec": 94.3,
+          "seed": 42
+        },
+        {
+          "level": "Level3_seed7",
+          "K": 1,
+          "bank_size": 6,
+          "n_train": 12,
+          "accuracy": 0.625,
+          "consolidation_prompt_tokens": 5406,
+          "consolidation_completion_tokens": 571,
+          "consolidation_total_tokens": 5977,
+          "consolidation_calls": 24,
+          "tokens_per_episode": 498.0833333333333,
+          "consolidation_time_sec": 402.6,
+          "eval_time_sec": 98.7,
+          "seed": 7
+        },
+        {
+          "level": "Level3_seed7",
+          "K": 2,
+          "bank_size": 12,
+          "n_train": 12,
+          "accuracy": 0.9375,
+          "consolidation_prompt_tokens": 8616,
+          "consolidation_completion_tokens": 786,
+          "consolidation_total_tokens": 9402,
+          "consolidation_calls": 36,
+          "tokens_per_episode": 783.5,
+          "consolidation_time_sec": 552.5,
+          "eval_time_sec": 94.2,
+          "seed": 7
+        },
+        {
+          "level": "Level3_seed7",
+          "K": 3,
+          "bank_size": 12,
+          "n_train": 12,
+          "accuracy": 0.9375,
+          "consolidation_prompt_tokens": 8616,
+          "consolidation_completion_tokens": 786,
+          "consolidation_total_tokens": 9402,
+          "consolidation_calls": 36,
+          "tokens_per_episode": 783.5,
+          "consolidation_time_sec": 550.6,
+          "eval_time_sec": 92.3,
+          "seed": 7
+        },
+        {
+          "level": "Level3_seed7",
+          "K": 5,
+          "bank_size": 12,
+          "n_train": 12,
+          "accuracy": 0.9375,
+          "consolidation_prompt_tokens": 8616,
+          "consolidation_completion_tokens": 786,
+          "consolidation_total_tokens": 9402,
+          "consolidation_calls": 36,
+          "tokens_per_episode": 783.5,
+          "consolidation_time_sec": 551.7,
+          "eval_time_sec": 89.4,
+          "seed": 7
+        },
+        {
+          "level": "Level3_seed123",
+          "K": 1,
+          "bank_size": 7,
+          "n_train": 12,
+          "accuracy": 0.75,
+          "consolidation_prompt_tokens": 5404,
+          "consolidation_completion_tokens": 530,
+          "consolidation_total_tokens": 5934,
+          "consolidation_calls": 24,
+          "tokens_per_episode": 494.5,
+          "consolidation_time_sec": 377.0,
+          "eval_time_sec": 95.6,
+          "seed": 123
+        },
+        {
+          "level": "Level3_seed123",
+          "K": 2,
+          "bank_size": 12,
+          "n_train": 12,
+          "accuracy": 0.875,
+          "consolidation_prompt_tokens": 8080,
+          "consolidation_completion_tokens": 717,
+          "consolidation_total_tokens": 8797,
+          "consolidation_calls": 34,
+          "tokens_per_episode": 733.0833333333334,
+          "consolidation_time_sec": 506.0,
+          "eval_time_sec": 92.7,
+          "seed": 123
+        },
+        {
+          "level": "Level3_seed123",
+          "K": 3,
+          "bank_size": 12,
+          "n_train": 12,
+          "accuracy": 0.875,
+          "consolidation_prompt_tokens": 8080,
+          "consolidation_completion_tokens": 717,
+          "consolidation_total_tokens": 8797,
+          "consolidation_calls": 34,
+          "tokens_per_episode": 733.0833333333334,
+          "consolidation_time_sec": 507.9,
+          "eval_time_sec": 89.3,
+          "seed": 123
+        },
+        {
+          "level": "Level3_seed123",
+          "K": 5,
+          "bank_size": 12,
+          "n_train": 12,
+          "accuracy": 0.875,
+          "consolidation_prompt_tokens": 8080,
+          "consolidation_completion_tokens": 717,
+          "consolidation_total_tokens": 8797,
+          "consolidation_calls": 34,
+          "tokens_per_episode": 733.0833333333334,
+          "consolidation_time_sec": 510.8,
+          "eval_time_sec": 86.3,
+          "seed": 123
+        }
+      ],
+      "exp5_keyword_recount": [
+        {
+          "level": "Level2",
+          "strategy": "single_step",
+          "n": 16,
+          "mentions_irrelevant_attributes": 2,
+          "source_label_matches_reconstructed_order": 8,
+          "keyword_mentions_among_label_correct": 1,
+          "original_llm_hallucination_flags": 8
+        },
+        {
+          "level": "Level2",
+          "strategy": "VLEG",
+          "n": 16,
+          "mentions_irrelevant_attributes": 2,
+          "source_label_matches_reconstructed_order": 16,
+          "keyword_mentions_among_label_correct": 2,
+          "original_llm_hallucination_flags": 10
+        },
+        {
+          "level": "Level3",
+          "strategy": "single_step",
+          "n": 12,
+          "mentions_irrelevant_attributes": 2,
+          "source_label_matches_reconstructed_order": 6,
+          "keyword_mentions_among_label_correct": 1,
+          "original_llm_hallucination_flags": 4
+        },
+        {
+          "level": "Level3",
+          "strategy": "VLEG",
+          "n": 12,
+          "mentions_irrelevant_attributes": 2,
+          "source_label_matches_reconstructed_order": 12,
+          "keyword_mentions_among_label_correct": 2,
+          "original_llm_hallucination_flags": 6
+        }
+      ],
+      "per_item_accuracy_checks": 24,
+      "per_item_accuracy_failures": []
+    }
+  },
+  "limits": [
+    "Git records establish archived byte provenance, not execution attestation.",
+    "Old snapshots omit exact model digests, runtime manifests and raw verifier replies.",
+    "7B and 70B baseline implementations differ; scale cannot be isolated.",
+    "The 7B audit script contains manually transcribed reflections; it is not a complete original checkpoint.",
+    "Old bool(string) parser risks cannot be quantified without original replies."
+  ]
+}

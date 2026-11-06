@@ -1,0 +1,68 @@
+[
+  {
+    "level": "Level1",
+    "n_train": 8,
+    "n_test": 8,
+    "results": {
+      "VLEG": {
+        "accuracy": 1.0,
+        "bank_size": 8
+      },
+      "HDR": {
+        "accuracy": 1.0,
+        "verified": true,
+        "hypothesis": "The pattern across the entire dataset suggests that scenes are labeled as ANOMALY when the shape is a circle and the color is red, regardless of the texture or size. For all other combinations of attributes, including different shapes or colors, the outcome is NORMAL. The background color in these examples is consistently white, but there is not enough information to determine if the rule differs by background color. The hypothesis can be summarized as: a scene is ANOMALY if it contains a red circle, and NORMAL otherwise."
+      },
+      "Reflexion": {
+        "accuracy": 0.875
+      },
+      "ICL": {
+        "accuracy": 1.0
+      }
+    }
+  },
+  {
+    "level": "Level2",
+    "n_train": 16,
+    "n_test": 16,
+    "results": {
+      "VLEG": {
+        "accuracy": 1.0,
+        "bank_size": 16
+      },
+      "HDR": {
+        "accuracy": 1.0,
+        "verified": false,
+        "hypothesis": "The pattern across the entire dataset can be explained by the hypothesis that a scene is labeled as ANOMALY if the background color is black and the object is not a small, red circle or square with solid or striped texture. Conversely, if the background color is white, the scene is generally labeled as NORMAL, unless it contains a small, red circle. This rule suggests that the primary determinant of the ANOMALY/NORMAL label is the combination of background color and specific object attributes, particularly for small, red objects on a black background, which are exceptions to the general rule. For scenes with a black background, any object that is not a small, red circle or square with solid or striped texture will be labeled as ANOMALY, while for white backgrounds, only small, red circles are consistently labeled as ANOMALY."
+      },
+      "Reflexion": {
+        "accuracy": 0.75
+      },
+      "ICL": {
+        "accuracy": 0.9375
+      }
+    }
+  },
+  {
+    "level": "Level3",
+    "n_train": 12,
+    "n_test": 16,
+    "results": {
+      "VLEG": {
+        "accuracy": 0.9375,
+        "bank_size": 12
+      },
+      "HDR": {
+        "accuracy": 0.875,
+        "verified": false,
+        "hypothesis": "The pattern across the entire dataset can be explained by the hypothesis that a scene is labeled as NORMAL if it has a white background and either a square shape, or a circle with solid texture and small size, but not if the circle has striped texture regardless of size. For scenes with a black background, a scene is labeled as NORMAL only if it has a circle shape with specific combinations of attributes (e.g., red color, solid or striped texture, and small size), while all other combinations result in an ANOMALY label. This revised rule aims to correct the mispredictions by accounting for the distinction between solid and striped textures for circles on white backgrounds."
+      },
+      "Reflexion": {
+        "accuracy": 0.75
+      },
+      "ICL": {
+        "accuracy": 0.875
+      }
+    }
+  }
+]

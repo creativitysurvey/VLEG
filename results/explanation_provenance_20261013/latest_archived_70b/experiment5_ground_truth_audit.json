@@ -1,0 +1,842 @@
+[
+  {
+    "level": "Level2",
+    "strategy": "single_step",
+    "n": 16,
+    "label_correct_rate": 0.125,
+    "quality_given_correct": {
+      "clean_correct": 0.5,
+      "over_specified": 0.5
+    },
+    "quality_overall": {
+      "clean_correct": 1,
+      "causally_wrong": 11,
+      "over_specified": 4
+    },
+    "details": [
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "solid",
+          "background": "white",
+          "size": "small",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": true,
+        "condition_quality": "clean_correct",
+        "reason": "Correctly identifies shape and color as determinative on a white background."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "solid",
+          "background": "black",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a black background, small circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to size and color instead of just shape on a black background."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a white background, striped large shapes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": true,
+        "condition_quality": "over_specified",
+        "reason": "Correctly labels the scene but incorrectly identifies texture and size as required."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "striped",
+          "background": "black",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to texture instead of shape and background."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "solid",
+          "background": "white",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, blue solid small circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to color and texture instead of shape and the background."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "solid",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, large solid blue circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "over_specified",
+        "reason": "Correctly identifies the background and shape as determinative but incorrectly treats color and texture as required."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to texture when shape and color are the determinative factors."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "striped",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, striped large circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the anomaly to texture and size instead of the shape and background."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "solid",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to size and texture instead of shape."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "solid",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "over_specified",
+        "reason": "The rule incorrectly treats texture and size as required for the label."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "striped",
+          "background": "white",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, striped red small shapes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to texture and size instead of shape."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "striped",
+          "background": "black",
+          "size": "small",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the anomaly status to texture (striped) instead of shape (square) on a black background."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "solid",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, large solid blue square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to size and texture instead of shape and color."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "solid",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "over_specified",
+        "reason": "The rule incorrectly treats texture and size as required for the label, while only shape matters on black backgrounds."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to size and texture instead of shape and color."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "striped",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the anomaly to size and texture instead of the shape."
+      }
+    ]
+  },
+  {
+    "level": "Level2",
+    "strategy": "VLEG",
+    "n": 15,
+    "label_correct_rate": 0.2,
+    "quality_given_correct": {
+      "clean_correct": 0.6666666666666666,
+      "over_specified": 0.3333333333333333
+    },
+    "quality_overall": {
+      "clean_correct": 3,
+      "causally_wrong": 4,
+      "over_specified": 5,
+      "vague": 3
+    },
+    "details": [
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "solid",
+          "background": "white",
+          "size": "small",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": true,
+        "condition_quality": "clean_correct",
+        "reason": "Correctly identifies shape and color as determinative on a white background."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "solid",
+          "background": "black",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a black background, small circle+red scenes are NORMAL; this scene is therefore NORMAL.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to size when shape and color are what actually matter on a black background."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a white background, striped large shapes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": true,
+        "condition_quality": "over_specified",
+        "reason": "Correctly labels the scene but incorrectly identifies texture and size as required."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "striped",
+          "background": "black",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a black background, circle+red scenes are NORMAL; this scene is therefore NORMAL.",
+        "label_correct": false,
+        "condition_quality": "clean_correct",
+        "reason": "The rule correctly identifies the key factors but concludes the wrong label for this scene."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "solid",
+          "background": "white",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, blue solid small circle scenes are NORMAL; this scene is therefore NORMAL.",
+        "label_correct": true,
+        "condition_quality": "clean_correct",
+        "reason": "The rule correctly identifies the relevant attributes and their combination for a white background."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "solid",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, large solid blue circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "over_specified",
+        "reason": "Correctly identifies the background and shape as determinative but incorrectly treats color and texture as required."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "striped",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, striped large circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the anomaly to texture and size instead of shape or color."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "solid",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, large solid-colored square scenes are NORMAL; this scene is therefore NORMAL.",
+        "label_correct": false,
+        "condition_quality": "vague",
+        "reason": "The rule does not correctly identify the shape and color as determining factors for the label on a white background."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "solid",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "over_specified",
+        "reason": "The rule incorrectly treats texture and size as required for the label."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "striped",
+          "background": "white",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, striped red small shapes are NORMAL; this scene is therefore NORMAL.",
+        "label_correct": false,
+        "condition_quality": "over_specified",
+        "reason": "Treats texture and size as required when they are not."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "striped",
+          "background": "black",
+          "size": "small",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the anomaly status to texture (striped) instead of shape (square) on a black background."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "solid",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, large solid blue square scenes are NORMAL; this scene is therefore NORMAL.",
+        "label_correct": false,
+        "condition_quality": "vague",
+        "reason": "The rule does not correctly identify the relevant factors and treats texture and size as required."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "solid",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "over_specified",
+        "reason": "The rule incorrectly treats texture and size as required for the label, while only shape matters on black backgrounds."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, large striped scenes are NORMAL; this scene is therefore NORMAL.",
+        "label_correct": false,
+        "condition_quality": "vague",
+        "reason": "The rule does not correctly identify the relevant factors and treats texture as required."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "striped",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the anomaly to size and texture instead of the shape."
+      }
+    ]
+  },
+  {
+    "level": "Level3",
+    "strategy": "single_step",
+    "n": 12,
+    "label_correct_rate": 0.16666666666666666,
+    "quality_given_correct": {
+      "over_specified": 0.5,
+      "clean_correct": 0.5
+    },
+    "quality_overall": {
+      "causally_wrong": 9,
+      "over_specified": 2,
+      "clean_correct": 1
+    },
+    "details": [
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to size and texture instead of shape and color."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "striped",
+          "background": "white",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, striped red small shapes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to texture and size instead of shape."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "solid",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, large solid blue square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to size and texture instead of shape and color."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "solid",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to size and texture instead of shape."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "solid",
+          "background": "black",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a black background, small circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to size and color instead of just shape on a black background."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a white background, striped large shapes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": true,
+        "condition_quality": "over_specified",
+        "reason": "Correctly labels the scene but incorrectly identifies texture and size as required."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "solid",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "over_specified",
+        "reason": "The rule incorrectly treats texture and size as required for the label, while only shape matters on black backgrounds."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "striped",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the anomaly status to size and texture instead of shape."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "solid",
+          "background": "white",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, blue solid small circle scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to color and texture instead of shape and the background."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "striped",
+          "background": "black",
+          "size": "small",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the anomaly status to texture (striped) instead of shape (square) on a black background."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "solid",
+          "background": "white",
+          "size": "small",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": true,
+        "condition_quality": "clean_correct",
+        "reason": "Correctly identifies shape and color as determinative on a white background."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "striped",
+          "background": "black",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to texture instead of shape and background."
+      }
+    ]
+  },
+  {
+    "level": "Level3",
+    "strategy": "VLEG",
+    "n": 12,
+    "label_correct_rate": 0.25,
+    "quality_given_correct": {
+      "over_specified": 0.3333333333333333,
+      "clean_correct": 0.6666666666666666
+    },
+    "quality_overall": {
+      "vague": 3,
+      "over_specified": 3,
+      "causally_wrong": 3,
+      "clean_correct": 3
+    },
+    "details": [
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, large striped scenes are NORMAL; this scene is therefore NORMAL.",
+        "label_correct": false,
+        "condition_quality": "vague",
+        "reason": "The rule does not correctly identify the relevant factors and treats texture as required."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "striped",
+          "background": "white",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, striped red small shapes are NORMAL; this scene is therefore NORMAL.",
+        "label_correct": false,
+        "condition_quality": "over_specified",
+        "reason": "Treats texture and size as required when they are not."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "solid",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, large solid blue square scenes are NORMAL; this scene is therefore NORMAL.",
+        "label_correct": false,
+        "condition_quality": "vague",
+        "reason": "The rule does not correctly identify the relevant factors and treats texture and size as required."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "solid",
+          "background": "white",
+          "size": "large",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, large solid-colored square scenes are NORMAL; this scene is therefore NORMAL.",
+        "label_correct": false,
+        "condition_quality": "vague",
+        "reason": "The rule does not correctly identify the shape and color as determining factors for the label on a white background."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "solid",
+          "background": "black",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a black background, small circle+red scenes are NORMAL; this scene is therefore NORMAL.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the outcome to size when shape and color are what actually matter on a black background."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "striped",
+          "background": "white",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a white background, striped large shapes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": true,
+        "condition_quality": "over_specified",
+        "reason": "Correctly labels the scene but incorrectly identifies texture and size as required."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "solid",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, large solid-colored square scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "over_specified",
+        "reason": "The rule incorrectly treats texture and size as required for the label, while only shape matters on black backgrounds."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "blue",
+          "texture": "striped",
+          "background": "black",
+          "size": "large",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, large striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the anomaly status to size and texture instead of shape."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "blue",
+          "texture": "solid",
+          "background": "white",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a white background, blue solid small circle scenes are NORMAL; this scene is therefore NORMAL.",
+        "label_correct": true,
+        "condition_quality": "clean_correct",
+        "reason": "The rule correctly identifies the relevant attributes and their combination for a white background."
+      },
+      {
+        "combo": {
+          "shape": "square",
+          "color": "red",
+          "texture": "striped",
+          "background": "black",
+          "size": "small",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a black background, striped scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": false,
+        "condition_quality": "causally_wrong",
+        "reason": "The rule incorrectly attributes the anomaly status to texture (striped) instead of shape (square) on a black background."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "solid",
+          "background": "white",
+          "size": "small",
+          "label": "ANOMALY"
+        },
+        "reflection": "On a white background, circle+red scenes are ANOMALY; this scene is therefore ANOMALY.",
+        "label_correct": true,
+        "condition_quality": "clean_correct",
+        "reason": "Correctly identifies shape and color as determinative on a white background."
+      },
+      {
+        "combo": {
+          "shape": "circle",
+          "color": "red",
+          "texture": "striped",
+          "background": "black",
+          "size": "small",
+          "label": "NORMAL"
+        },
+        "reflection": "On a black background, circle+red scenes are NORMAL; this scene is therefore NORMAL.",
+        "label_correct": false,
+        "condition_quality": "clean_correct",
+        "reason": "The rule correctly identifies the key factors but concludes the wrong label for this scene."
+      }
+    ]
+  }
+]
