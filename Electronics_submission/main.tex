@@ -1,32 +1,32 @@
-\documentclass[journal]{IEEEtran}
+\documentclass[10pt,a4paper,onecolumn]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage[top=2.4cm,bottom=2.4cm,left=3.2cm,right=2.0cm]{geometry}
 \usepackage{mathtools}
-\usepackage{amssymb}
 \usepackage{amsmath}
-% Use the journal template's consecutive equation numbering.
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator{\diag}{diag}
 \usepackage{amsthm}
-\usepackage{thmtools}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem*{note}{Note}
+\newtheorem{definition}{Definition}
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{tabularx}
 \usepackage{longtable}
-\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=false}
+\titlespacing*{\section}{0pt}{2.2ex plus 0.6ex minus 0.3ex}{1.0ex}
+\titlespacing*{\subsection}{0pt}{1.8ex plus 0.4ex minus 0.2ex}{0.8ex}
+\titlespacing*{\subsubsection}{0pt}{1.4ex plus 0.3ex minus 0.2ex}{0.6ex}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries\itshape}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}{\normalsize\itshape}{\thesubsubsection.}{0.5em}{}
+
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
@@ -38,16 +38,8 @@
   fit,
   calc,
   matrix,
-  shapes.misc
-}
-\tikzset{
-  base/.style = {rectangle, rounded corners, draw=black, minimum width=2.5cm, minimum height=1cm, text centered, font=\sffamily},
-  startstop/.style = {base, fill=red!20, drop shadow},
-  process/.style = {base, fill=blue!20, drop shadow},
-  decision/.style = {diamond, aspect=1.5, draw=black, fill=green!20, drop shadow, align=center},
-  arrow/.style = {thick, -{Stealth[length=3mm]}},
-  matrix_style/.style={matrix of nodes, row sep=0.5cm, column sep=0.5cm, nodes={anchor=center}},
-  dashdot/.style={dash pattern=on 3pt off 3pt on 1pt off 3pt}
+  shapes.misc,
+  shapes.symbols
 }
 \usepackage{algorithm}
 \usepackage{algorithmicx}
@@ -59,235 +51,181 @@
 \usepackage{url}
 \usepackage{xcolor}
 \usepackage{cite}
-\usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={Verified Localized Episodic Grounding for Auditable LLM-Assisted Network Traffic Analysis}}
-\usetikzlibrary{shapes.symbols}
-
-\renewcommand{\dblfloatpagefraction}{0.7}
-\setlength{\dblfloatsep}{10pt plus 2pt minus 2pt}
+\usepackage[colorlinks=true,allcolors=blue!60!black]{hyperref}
 \usepackage{placeins}
-\renewcommand{\IEEEkeywordsname}{Keywords}
-\begin{document}
-\title{Verified Localized Episodic Grounding for Auditable LLM-Assisted Network Traffic Analysis}
-\author{Ye~Tang$^{1,\dagger}$, Ruikai~Han$^{1,\dagger}$, Yi~Hu$^{1}$, and Ruzhen~Chen$^{2,*}$\\[0.4em]
-{\normalsize $^{1}$School of Information Science and Technology, Xizang University, Lhasa 850000, China}\\
-{\normalsize $^{2}$School of Education, Xizang University, Lhasa 850000, China}%
-\thanks{Supported by the Science and Technology Projects of Ngari Prefecture, Xizang Autonomous Region, China (QYXTZX-AL2026-01).}%
-\thanks{$^{1}$School of Information Science and Technology, Xizang University, Lhasa 850000, China.}%
-\thanks{$^{2}$School of Education, Xizang University, Lhasa 850000, China.}%
-\thanks{Email addresses: Ye Tang: \texttt{3441691137@qq.com}; Ruikai Han: \texttt{1763683932@qq.com}; Yi Hu: \texttt{hy610400@163.com}; Ruzhen Chen: \texttt{crz@xzu.edu.cn}.}%
-\thanks{$^{\dagger}$Ye Tang and Ruikai Han contributed equally to this work and share first authorship.}%
-\thanks{$^{*}$Corresponding author: Ruzhen Chen (\texttt{crz@xzu.edu.cn}).}%
-}
-\maketitle
-\begin{abstract}
-Memory-augmented large language models (LLMs) leverage historical telemetry to classify network traffic without parameter updates, yet compressing raw records into reusable natural-language rules creates a fundamental tension between local source fidelity and cross-episode generalization. We propose Verified Localized Episodic Grounding (VLEG), an auditable memory-consolidation and hybrid-inference framework that checks each candidate reflection against its labeled historical source within a bounded refinement budget $K$ before pairing admitted rules with raw episodic evidence at inference. Across five symbolic evaluations at 7B and 70B model scales, VLEG elevates memory admission coverage to $93.8\%$--$100\%$, guarantees $100\%$ source-label consistency, and attains a peak Level-3 generalization accuracy of $91.67\%$ at the 70B scale, surpassing raw in-context retrieval at $89.58\%$, global hypothesis consolidation at $83.33\%$, and feedback-driven Reflexion at $81.25\%$. Across 25,000 audited predictions over 1,000 shared UNSW-NB15 test fingerprints and five memory seeds, VLEG improves Macro-F1 by $+17.02$ percentage points (pp) over unverified single-step reflection ($59.68\%$ versus $42.66\%$) and boosts attack recall from $71.39\%$ to $77.74\%$ relative to raw flow retrieval, operating as a recall-prioritized detector while trading off false alarms ($48.78\%$ versus $38.13\%$, with raw retrieval at $63.92\%$ Macro-F1). Using a deterministic counterexample compiler that parses $99.4\%$ of admitted traffic rules, we decouple single-instance source fidelity from cross-flow specificity and establish an actionable diagnostic benchmark for LLM-assisted Security Operations Center (SOC) triage.
-\end{abstract}
-\begin{IEEEkeywords}
-Episodic memory, hallucination mitigation, large language models, network traffic analysis, verified memory consolidation
-\end{IEEEkeywords}
+\usepackage{fancyhdr}
 
-\smallskip\noindent\textbf{Featured Application:} \textit{The proposed Verified Localized Episodic Grounding (VLEG) framework provides a parameter-free, auditable memory consolidation and rule-verification pipeline for large language model (LLM)-assisted network traffic analysis and Security Operations Center (SOC) intrusion triage, enabling analysts to pair high-recall local detection heuristics with raw flow records while deterministically screening candidate rules against historical counterexamples.}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\textit{Electronics} \textbf{2026}, \textit{15}, x}
+\fancyhead[R]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.35em}
+\renewcommand{\baselinestretch}{1.08}
+
+\hypersetup{pdftitle={Verified Localized Episodic Grounding for Auditable LLM-Assisted Network Traffic Analysis: Counterexample Diagnosis and Gating}}
+
+\begin{document}
+
+\noindent{\footnotesize\textit{Article}}\\[0.4em]
+{\LARGE\bfseries Verified Localized Episodic Grounding for Auditable LLM-Assisted Network Traffic Analysis: Counterexample Diagnosis and Gating\par}
+\vspace{0.8em}
+
+\noindent{\bfseries Ye Tang$^{1,\dagger}$, Ruikai Han$^{1,\dagger}$, Yi Hu$^{1}$ and Ruzhen Chen$^{2,}$*}\\[0.4em]
+{\small
+$^{1}$ School of Information Science and Technology, Xizang University, Lhasa 850000, China; 3441691137@qq.com (Y.T.); 1763683932@qq.com (R.H.); hy610400@163.com (Y.H.)\\
+$^{2}$ School of Education, Xizang University, Lhasa 850000, China\\
+$^{*}$ Correspondence: crz@xzu.edu.cn\\
+$^{\dagger}$ These authors contributed equally to this work.
+}
+
+\vspace{0.8em}
+\hrule
+\vspace{0.6em}
+\noindent\textbf{Abstract:} Memory-augmented large language models (LLMs) can assist network intrusion triage by retrieving historical flows without parameter updates, yet compressing raw telemetry into natural-language rules creates a fundamental tension between single-record faithfulness and cross-flow specificity. We present Verified Localized Episodic Grounding (VLEG), an auditable memory-consolidation and hybrid-inference framework that verifies candidate reflections against their labeled source records within a bounded refinement budget $K$ and pairs admitted rules with raw flow evidence. In a 16-scene symbolic sanity check at 7B and 70B scales, bounded verification eliminates source-label inversions ($100\%$ observed source-label agreement on admitted episodes versus $41.7\%$--$50.0\%$ for unverified proposals), reaching accuracy comparable to raw in-context retrieval at 70B ($91.67\%$ versus $89.58\%$, $44/48$ versus $43/48$) while trailing raw retrieval at 7B ($75.0\%$ versus $87.5\%$). On a 32-episode few-shot benchmark over 1000 deduplicated UNSW-NB15 test fingerprints across five memory seeds, unverified single-step reflection mislabels $95.0\%$ ($76/80$) of malicious historical flows as benign, causing attack recall to collapse to $6.17\%$ ($42.66\%$ Macro-F1). Standard VLEG ($K=3$) restores $100\%$ source-label agreement ($158/158$) and raises attack recall to $77.74\%$ and Macro-F1 to $59.68\%$ ($+17.02$ percentage points, pp), but trails zero-cost raw flow retrieval ($63.92\%$ Macro-F1) by $4.24$~pp due to a $48.78\%$ false positive rate (FPR). Using a deterministic counterexample compiler that parses $99.4\%$ ($157/158$) of admitted rules into executable Boolean predicates, we show that $72.0\%$ ($113/157$) of source-consistent rules match contrary-label historical flows. Integrating this compiler as a within-seed counterexample gate (VLEG-CG) without additional LLM calls reduces the FPR by $9.35$--$10.92$~pp (down to $37.86\%$--$39.43\%$, comparable to 32-flow Random Forest at $40.66\%$ and GBDT at $39.22\%$) and recovers Macro-F1 to $63.32\%$--$63.55\%$.
+
+\vspace{0.4em}
+\noindent\textbf{Keywords:} episodic memory; hallucination mitigation; large language models; network traffic analysis; intrusion detection; rule over-generalization; verified memory consolidation
+\vspace{0.6em}
+\hrule
+\vspace{1.0em}
 
 \section{Introduction}
 \subsection{Background and Motivation}
-Large language models can use examples to support classification and analysis without parameter updates \cite{brown2020language,lewis2020retrieval}. For network traffic analysis and intrusion detection \cite{lin2022etbert,sharafaldin2018cicids,houssel2024explainable,islam2026maids}, historical flow records and incident summaries offer critical evidence for interpreting new observations. Their usefulness depends on retaining relevant conditions and exceptions while avoiding unsupported conclusions. Finite and imperfectly used context windows make the selection and organization of this evidence important \cite{an2024why,liu2024lost}.
+Large language models (LLMs) can use in-context demonstrations to support classification and incident analysis without parameter updates \cite{brown2020language,lewis2020retrieval}. In network traffic analysis and Security Operations Center (SOC) intrusion triage \cite{lin2022etbert,sharafaldin2018cicids,houssel2024explainable,islam2026maids}, security teams increasingly explore LLM agents to link novel flow telemetry to historical incidents via human-auditable verbal rules. Whereas traditional supervised classifiers such as Random Forest (RF) and Gradient Boosting Decision Trees (GBDT) excel at high-throughput binary filtering when trained on tens of thousands of labeled flows, cold-start triage often operates with only a small curated bank of investigated episodes where analysts require explicit rule rationales. However, finite and imperfectly utilized context windows make the selection and verification of this historical evidence critical \cite{an2024why,liu2024lost}.
 
-Persistent-memory systems provide access to experience beyond the current prompt \cite{packer2023memgpt,wang2023longmem,wang2024memoryllm,gutierrez2024hipporag,maharana2024evaluating}. Raw records preserve detail, while reflections and summaries supply compact guidance. However, a summary can omit an exception or turn an incidental attribute into a general rule. This paper examines that trade-off using controlled symbolic tasks and a public-flow benchmark.
+Persistent-memory architectures extend an agent's access to experience beyond the current prompt \cite{packer2023memgpt,wang2023longmem,wang2024memoryllm,gutierrez2024hipporag,maharana2024evaluating}. Retaining raw flow records preserves instance-level detail, whereas converting records into natural-language reflections or global summaries supplies compact decision heuristics. Yet rule compression introduces two distinct failure modes: (1) unverified reflections generated without label supervision can hallucinate class labels, and (2) locally verified reflections that accurately describe a single source flow can still assert overly broad conditions that trigger false alarms across benign background traffic.
 
-The memory-design problem is particularly visible when a model must relate a new observation to a small collection of labeled examples. Keeping every detail can preserve useful exceptions, but the model must still infer which differences matter. Compressing the same examples into natural-language rules shifts this burden because inference can follow the stored guidance directly, even though the abstraction may be less faithful than the underlying records. The design decision therefore concerns both what is retained and what evidence accompanies an abstraction when it is reused.
+Crucially, single-episode source fidelity and cross-episode specificity are distinct requirements. Checking a candidate explanation against its originating record alone can catch label inversions or fabricated attributes, but cannot determine whether the selected feature thresholds separate classes across the broader traffic distribution. Evaluating reflective memory systems therefore requires auditing admission coverage, source-label agreement, cross-episode counterexample rates, and downstream classification trade-offs together.
 
-Source agreement and general validity are distinct requirements. A proposed explanation can correctly describe one record while asserting a condition that fails elsewhere. For example, an observed attribute may coincide with a label without being sufficient to determine it. Checking the explanation against that single record cannot resolve the distinction. A useful memory system must consequently be evaluated beyond successful storage: the resulting memory should support predictions on reserved queries, and its explanatory claims should be examined separately. This motivates measuring memory coverage, label consistency and downstream outcomes together rather than treating an admission rate as a complete measure of memory quality.
+\subsection{Research Positioning and Study Scope}
+Memory-augmented language models retain and reuse experience through episodic retrieval, local reflection, and global semantic consolidation \cite{wu2025from,zhang2024survey}. Feedback-driven agents revise behavior using trial rewards \cite{shinn2023reflexion,wang2024voyager}, while global hypothesis frameworks synthesize and verify rules across multiple records \cite{agarwal2026hypothesis,he2024idea}. Rather than claiming that LLM reflection outperforms supervised tabular classifiers or raw retrieval in unconditional accuracy, this study conducts a rigorous diagnostic audit of per-episode verification, rule over-generalization, and counterexample gating under strict few-shot memory budgets.
 
-\subsection{Memory Research and Study Positioning}
-Memory-augmented language models retain and reuse experience through episodic retrieval, local reflection, and semantic consolidation \cite{wu2025from,zhang2024survey}. These approaches differ in their abstraction unit, correction signal and inference evidence. Feedback-based agents already revise behavior using past experience \cite{shinn2023reflexion,wang2024voyager}; global hypothesis methods also generate and verify abstractions \cite{agarwal2026hypothesis,he2024idea}. Our focus is the narrower combination of per-episode admission checking and evidence--reflection pairing. We compare its outcomes against raw and abstract memory rather than assuming that local verification or hybrid context is universally superior.
+Specifically, we address three engineering questions:
+\begin{enumerate}[leftmargin=1.8em]
+    \item Does checking each local reflection against its labeled source episode before memory admission prevent the label-inversion and recall collapse of unverified reflection?
+    \item Why do $100\%$ source-consistent local rules still elevate false alarms when paired with raw telemetry on deduplicated network flows?
+    \item Can a deterministic counterexample compiler screen out over-generalized local rules within the historical memory bank to suppress false positives without extra LLM calls?
+\end{enumerate}
 
-The choice between these approaches depends on what must be preserved and how stored knowledge will be reused. Episodic retrieval retains concrete examples; reflection converts local experience into reusable guidance; semantic consolidation summarizes patterns across records. Hybrid inference combines an abstraction with retrieved evidence. Each can be useful under suitable conditions, and each introduces different failure modes when evidence is incomplete or an abstraction is applied outside its support.
+\subsection{Proposed VLEG Framework and Counterexample Gate}
+We propose Verified Localized Episodic Grounding (VLEG), an inspectable memory-consolidation and hybrid-inference framework paired with a deterministic counterexample compiler and gate (VLEG-CG). During consolidation, a generator proposes a natural-language reflection from label-free episode attributes, and a separate verifier checks the candidate against the labeled source episode. Rejected candidates receive diagnostic critique and are revised within a maximum budget $K$, admitting the first accepted reflection alongside its source record.
 
-The specific research question is whether checking a local reflection before admission improves later classification enough to justify its construction cost. A second question is whether pairing that reflection with its source is preferable to supplying either component alone. These questions require controlled comparisons: a change in retrieval quality must be distinguished from a change in displayed context, and the opportunity to revise must be distinguished from the decision to discard. The proposed study evaluates those distinctions and reports where expected benefits do not occur.
+To resolve the precision degradation caused by single-episode verification, our deterministic counterexample compiler parses admitted natural-language traffic rules into executable Boolean predicates over flow features. By evaluating each compiled rule against the remaining historical episodes within the same memory seed, VLEG-CG identifies and gates out over-generalized rules that match contrary-label historical flows, falling back to raw episodic evidence when retrieved rules fail cross-episode specificity.
 
-\subsection{Proposed VLEG Method}
-We propose Verified Localized Episodic Grounding (VLEG) to check local abstractions before they enter memory while retaining the evidence from which they were derived. A generator proposes a local reflection from historical attributes, and a verifier checks it against the labeled source episode. Rejected candidates receive diagnostic critique and undergo iterative revision within a maximum budget $K$, after which the first accepted candidate is stored alongside its source record. At inference, retrieved tuples provide both raw evidence and accepted reflections.
-
-Generation and verification are separate calls to the same model. Target labels are withheld from inference. While the admission check exposes direct contradictions with a source episode, acceptance remains a local model judgment rather than a guarantee of causal validity or cross-episode transfer. These limits define the questions examined experimentally.
-
-The consolidation procedure operates on labeled historical episodes rather than on the target query. A proposed reflection may summarize a local condition or heuristic. If the verifier rejects it, the critique becomes available to the next generation attempt. The iteration budget bounds the number of revision attempts, omitting any episode whose proposals remain rejected from the admitted memory bank. This creates a practical trade-off between construction work and the amount of historical evidence retained for inference.
-
-Each admitted tuple keeps the episode and its accepted reflection together, allowing the inference prompt to expose both. The method formulation retrieves tuples through semantic similarity and constructs hybrid context from the selected memories. Keeping the source visible provides evidence with which to assess the abstraction, although the reasoning model can still follow misleading guidance. In the public-flow evaluation, we standardize feature-based example selection across all local conditions so that differences in downstream classification strictly isolate memory-consolidation and admission quality from retrieval variance.
-
-The framework's intended contribution is thus an explicit, inspectable memory-admission procedure and a controlled evaluation of its consequences. The verifier does not access an independent population of episodes, and generator/verifier roles share model weights. Neither the stopping rule nor source consistency supplies a universal correctness guarantee. The resulting memory bank records which source supports each abstraction, while the explicit information-access boundaries make clear what an admission decision can establish.
-
-\subsection{Experimental Evaluation}
-We evaluate VLEG on symbolic tasks at 7B and 70B model scales and on a controlled public-flow benchmark. Comparisons vary memory construction, inference context and refinement budget, while tracking construction cost and reflection quality. We systematically evaluate how bounded verification improves memory coverage, source-label fidelity, and downstream attack detection across scales.
-
-Our multi-scale evaluation spans synthetic symbolic environments with known ground-truth rules and a public network intrusion benchmark on UNSW-NB15. Rather than treating memory admission rate as a sufficient proxy for downstream utility, we jointly measure admission coverage, deterministic source-label fidelity, non-causal distractor attribution, token construction overhead, and held-out classification performance. Specifically, the main contributions of this work are three-fold:
-\begin{itemize}
-    \item \textbf{Auditable Local Consolidation and Hybrid Grounding:} We formulate VLEG, a parameter-free memory framework that enforces bounded cyclic generation--verification prior to memory admission and pairs accepted natural-language heuristics with raw episodic telemetry under domain-aligned retrieval indexing.
-    \item \textbf{Multi-Scale Symbolic Mechanism Isolation:} Across five controlled evaluations at 7B and 70B scales, we decouple memory coverage recovery from explanation quality, demonstrating how bounded verification eliminates label hallucinations, why smaller models suffer from spurious-attribute anchoring on unseen combinations, and how scaling to 70B enables VLEG to surpass raw retrieval, global hypothesis induction, and feedback-based Reflexion.
-    \item \textbf{Public Intrusion Triage Benchmark and Counterexample Compiler:} Across 25,000 audited flow predictions on UNSW-NB15, we show that VLEG prevents the sensitivity collapse of unverified reflection and achieves the highest attack recall among local memory strategies, while our deterministic counterexample compiler quantifies cross-flow rule over-generalization to guide practical SOC deployment.
+\subsection{Summary of Contributions}
+We evaluate VLEG through a 16-scene symbolic sanity check (at 7B and 70B scales) and a 25,000-prediction public network intrusion benchmark on deduplicated UNSW-NB15 flows \cite{moustafa2015unsw}, contextualized against both few-shot and full-dataset Random Forest and GBDT baselines. Our primary contributions are four-fold:
+\begin{itemize}[leftmargin=1.8em]
+    \item \textbf{Auditable Local Consolidation and Counterexample Formulation:} We formulate VLEG and explicitly characterize the theoretical boundary between single-episode source verification $\mathcal{V}_\phi((x_i,y_i), r_i^*)$ and cross-episode counterexample specificity $\mathcal{C}(r_i^* \mid \mathcal{E}_{-i})$.
+    \item \textbf{Controlled Symbolic Sanity Check:} Using a 16-scene synthetic environment with known ground-truth rules and non-causal distractors, we verify that bounded refinement ($K=3$) eliminates source-label inversions ($100\%$ observed source-label agreement versus $41.7\%$--$50.0\%$ for unverified proposals) and recovers admission coverage ($93.8\%$--$100\%$), while confirming that single-episode checks cannot filter out coincidental distractor attributes.
+    \item \textbf{Mechanistic Diagnosis of Reflection Collapse and False Alarms on UNSW-NB15:} Across five 32-flow memory seeds on 1000 shared UNSW-NB15 test fingerprints, our deterministic compiler ($99.4\%$ rule parseability) reveals that unverified single-step reflection mislabels $95.0\%$ ($76/80$) of malicious historical flows as benign, causing test attack recall to collapse to $6.17\%$. Standard VLEG restores $100\%$ source-label agreement ($158/158$) and lifts attack recall to $77.74\%$ ($59.68\%$ Macro-F1), but trails raw retrieval ($63.92\%$ Macro-F1) by $4.24$~pp because $72.0\%$ ($113/157$) of source-consistent rules match contrary-label historical flows.
+    \item \textbf{Counterexample-Gated VLEG (VLEG-CG) and Tabular ML Benchmarking:} We demonstrate that gating over-generalized rules via within-seed counterexample screening (VLEG-CG) slashes VLEG's false positive rate by $9.35$--$10.92$~pp (from $48.78\%$ down to $37.86\%$--$39.43\%$) and recovers Macro-F1 to $63.32\%$--$63.55\%$ at zero additional LLM cost. We further benchmark few-shot ($32$-flow) and full-train ($88,699$-flow) Random Forest and GBDT models on the exact same deduplicated test split to establish clear operational boundaries for SOC deployment.
 \end{itemize}
 
-\subsection{Paper Organization}
-The remainder of this paper moves from the memory-design choices motivating the study to the proposed framework and its empirical assessment. Section II reviews episodic retrieval, local reflection and semantic consolidation, clarifying the differences in evidence retention, feedback and inference context that guide our comparisons. Building on this discussion, Section III develops VLEG, explains its memory-consolidation and hybrid-inference phases, and specifies the verification loop, information-access boundaries and overall algorithm. Section IV then evaluates the framework through controlled symbolic comparisons and a public-flow benchmark. It examines memory strategies, grounding modalities, refinement budgets, construction costs and reflection quality, before discussing what the findings support and where the evidence remains limited. Finally, Section V brings together the principal conclusions and identifies the further validation needed for broader use of verified local memory.
-
 \section{Related Work}
-\subsection{Episodic Memory and Retrieval}
-In-context learning uses demonstrations in the prompt to support task adaptation without parameter updates \cite{brown2020language}. Retrieval-augmented generation connects generation to external evidence retrieved for the current input \cite{lewis2020retrieval}. LongMem extends access to past context through a memory bank and retrieval mechanism \cite{wang2023longmem}. These approaches make historical evidence available without requiring every experience to be converted into a rule. Their memory contents and training procedures differ, so they should not be treated as interchangeable implementations of a single memory architecture.
+\subsection{Episodic Memory and Demonstration Retrieval}
+In-context learning adapts LLMs to classification tasks using prompt demonstrations without gradient updates \cite{brown2020language}, while retrieval-augmented generation (RAG) conditions predictions on external evidence retrieved by embedding similarity \cite{lewis2020retrieval}. LongMem \cite{wang2023longmem}, MemGPT \cite{packer2023memgpt}, MemoryLLM \cite{wang2024memoryllm}, and HippoRAG \cite{gutierrez2024hipporag} extend context capacity via persistent memory banks. Related studies examine demonstration selection \cite{zhang2022active,purohit2025sample} and long-context utilization limits \cite{an2024why,liu2024lost,maharana2024evaluating,wu2025from,zhang2024survey}.
 
-Retrieval studies address demonstration selection \cite{zhang2022active,purohit2025sample} and effective context length \cite{an2024why}, complementing broader surveys of memory design \cite{wu2025from,zhang2024survey}. These questions concern which evidence reaches inference, independently of whether that evidence is subsequently summarized.
+In network traffic analysis, raw episodic retrieval provides a strong, zero-consolidation-cost baseline: each retrieved flow retains its exact feature values and ground-truth label, preserving local exceptions that compressed summaries discard. However, raw retrieval supplies no explicit verbal rule for analyst verification. In our public-flow evaluation, we share label-free feature retrieval across all local memory conditions so that classification differences strictly reflect memory representation and gating rather than candidate-selection variance.
 
-For labeled classification tasks, raw-example retrieval offers a direct control: each historical record retains its observed features and label. It can preserve exceptions that a compressed summary omits, but its usefulness depends on selecting relevant examples within a finite context budget. A retrieved example also does not establish that a neighboring target has the same label. Retrieval relevance, evidence coverage and prediction correctness therefore require separate evaluation.
+\subsection{Local Reflection and Self-Verification}
+Agent memory frameworks frequently convert raw interactions into verbal reflections. MemoryBank updates interaction summaries over time \cite{zhong2024memorybank}, Generative Agents synthesize higher-level reflections from event streams \cite{park2023generative}, and Reflexion converts binary task feedback into verbal critiques for subsequent trials \cite{shinn2023reflexion}. Related works investigate procedural skill libraries \cite{wang2024voyager}, structured agentic memory \cite{xu2025amem}, timeline memory \cite{kim2024towards}, and self-critique or hallucination verification \cite{madaan2023selfrefine,gou2024critic,manakul2023selfcheckgpt,dhuliawala2024chain}.
 
-Our raw-memory baseline follows this evidence-preserving principle. It provides labeled historical episodes at inference without reflection-generation calls. The symbolic experiments compare it with abstract and hybrid context, while the public-flow experiment shares label-free feature retrieval across conditions to control example selection. This adaptation isolates the supplied memory content more closely than a comparison that changes both retrieval and context construction. It remains a controlled classification baseline, rather than a reproduction of the full training and retrieval procedures of the cited systems.
+A fundamental distinction separates outcome feedback from source-episode admission checking. Outcome feedback signals whether a downstream prediction succeeded, whereas a source admission check evaluates whether a candidate explanation agrees with the historical record from which it was induced. As we show both theoretically and empirically, single-episode verification eliminates label hallucinations but cannot prevent rule over-generalization unless paired with cross-episode counterexample screening.
 
-\subsection{Local Reflection and Feedback}
-MemoryBank stores, retrieves and updates information from past interactions \cite{zhong2024memorybank}. Generative agents combine an experience store with higher-level reflections \cite{park2023generative}, while Reflexion converts task feedback into verbal reflections retained for subsequent trials \cite{shinn2023reflexion}. These works show several ways to use experience beyond storing raw examples. They differ in what constitutes an episode, which feedback is available, when memories are updated and how stored text influences later behavior.
+\subsection{Semantic Consolidation and Intrusion Detection Systems}
+Global semantic consolidation compresses multiple episodes into unified hypotheses \cite{agarwal2026hypothesis,he2024idea,kim2022playgrounds,lee2024generating,qiu2024phenomenal,zhou2024hypothesis,kim2023machine,li2024memory,wang2025mirix}. In network intrusion detection, pre-trained packet transformers such as ET-BERT \cite{lin2022etbert} and supervised tree ensembles (e.g., Random Forest and GBDT/XGBoost on UNSW-NB15 \cite{moustafa2015unsw} and CICIDS2017 \cite{sharafaldin2018cicids}) provide strong discriminative performance when trained on large labeled datasets. Recently, Houssel et al. \cite{houssel2024explainable} evaluated LLMs for explainable intrusion detection, and Islam et al. \cite{islam2026maids} introduced MA-IDS, a multi-agent RAG framework with an experience library for IoT traffic.
 
-Related work also examines procedural skill acquisition \cite{wang2024voyager}, structured agent memory \cite{xu2025amem}, and timeline-based memory management \cite{kim2024towards}. Their different memory objectives motivate explicit controls for the classification setting studied here.
+Our study complements prior LLM-IDS research \cite{houssel2024explainable,islam2026maids} in two ways. First, we evaluate traditional tree ensembles (RF and GBDT) alongside LLM memory strategies on the exact same deduplicated UNSW-NB15 splits under both 32-flow few-shot and 88,699-flow full-train regimes. Second, we isolate why unscreened natural-language traffic rules inflate false alarms and demonstrate how deterministic counterexample gating restores precision.
 
-The distinction between feedback and verification is especially relevant here. Feedback can identify an unsuccessful action or prediction and motivate revision. A source-episode check instead asks whether a candidate explanation agrees with the observed record under a specified prompt. Neither mechanism, by itself, proves that the resulting explanation identifies the correct causal factors. A reflection may repair its label while retaining an unsupported threshold or treating an incidental attribute as a general condition.
-
-VLEG studies a bounded per-episode admission procedure: generate a candidate, check it against the labeled source, revise rejected candidates, and store an accepted reflection with its evidence. Historical labels are available to the check, whereas target labels are excluded from inference. We distinguish an unverified first proposal from a feedback-based multi-attempt comparator; these provide different opportunities for correction. Both are controlled adaptations, not complete reproductions of published agent systems. The evaluation consequently separates admission coverage and source-label agreement from explanation support and downstream generalization.
-
-\subsection{Semantic Consolidation and Hybrid Grounding}
-Semantic consolidation compresses experience into hypotheses or summaries that guide subsequent reasoning. Hypothesis-Driven Reasoning iteratively generates and verifies hypotheses against episodic evidence, then combines hypotheses with retrieved episodes at inference \cite{agarwal2026hypothesis}. It provides a close comparison for the unit of abstraction: hypotheses induced across episodes versus VLEG's reflections attached to individual source records. Global hypotheses can express conditional relations; indeed, one background-conditioned rule represents our synthetic environment. Heterogeneity alone therefore does not imply that global abstraction must fail.
-
-Inductive reasoning and hypothesis generation are studied in \cite{he2024idea,kim2022playgrounds,lee2024generating,qiu2024phenomenal,zhou2024hypothesis}; complementary work considers memory architectures \cite{kim2023machine,li2024memory,wang2025mirix}, hallucination verification \cite{manakul2023selfcheckgpt,dhuliawala2024chain}, and iterative critique \cite{madaan2023selfrefine,gou2024critic}. We compare these research directions through abstraction scope, correction signals and inference evidence.
-
-Hybrid grounding supplies both an abstraction and supporting examples. This retains access to concrete evidence, but can introduce conflicting guidance when the abstraction is inaccurate or applies too broadly. Its effectiveness depends on the content and applicability of the reflection, not merely the presence of both memory types. Comparing raw, abstract and hybrid context is necessary to identify these trade-offs.
-
-VLEG's contribution is a controlled assessment of local admission checking and evidence--reflection pairing, including their limitations. The public-flow evaluation also includes raw retrieval restricted to admitted episodes, helping distinguish admission from reflection content. We report balanced classification, attack recall, false alarms and construction cost rather than inferring utility from memory coverage alone. These comparisons test when verified local memory is useful without assuming a universal advantage over direct retrieval or global consolidation.
-
-\section{The Proposed Method}
+\section{Proposed Methodology}
 \label{sec:vleg-methodology}
-\subsection{Overview of Verified Localized Episodic Grounding (VLEG)}
-VLEG stores a labeled historical episode with an accepted local reflection. The implementation distinguishes generation, checking and inference roles. The following formulation describes their information access and stopping behavior; it does not guarantee correctness of the verifier or general validity of an accepted rule.
+\subsection{Problem Formulation and Memory Spectrum}
+Let $\mathcal{E}=\{e_1,\ldots,e_n\}$ denote a support bank of labeled historical episodes available during memory consolidation, where each episode $e_i=(x_i,y_i)$ comprises observed feature attributes $x_i \in \mathcal{X}$ and a ground-truth label $y_i \in \mathcal{Y}$. Target test labels are strictly withheld from inference.
 
-Let $\mathcal{E}=\{e_1,\ldots,e_n\}$ be historical episodes whose labels are available during consolidation. A pure episodic memory stores those labeled episodes directly. The symbolic evaluations use scene tuples, while the public-flow evaluation uses UNSW-NB15 feature records from separate historical and test partitions. Write $e_i=(x_i,y_i)$, where $x_i$ denotes observed attributes and $y_i$ the historical label. The initial generator receives only $x_i$; the verifier receives $(x_i,y_i)$, and its critique can reveal $y_i$ during revision. Test labels are excluded from inference in either setting.
-
-Conversely, global semantic consolidation \cite{agarwal2026hypothesis} attempts to distill $\mathcal{E}$ into a compact set of universal rules or hypotheses, $\mathcal{H}$. This can be modeled as finding a global hypothesis set that maximizes the likelihood of the observed episodes:
+Pure episodic memory retains raw records $\mathcal{M}_{\mathrm{raw}} = \mathcal{E}$ directly. Conversely, global semantic consolidation \cite{agarwal2026hypothesis} compresses $\mathcal{E}$ into a global hypothesis set $\mathcal{H}^*$:
 \begin{equation}
-    \mathcal{H}^* = \arg\max_{\mathcal{H}} P(\mathcal{H} \mid e_1, e_2, \dots, e_n)
+    \mathcal{H}^* = \arg\max_{\mathcal{H}} P(\mathcal{H} \mid e_1, e_2, \dots, e_n).
 \end{equation}
-A single conditional hypothesis can represent the contextual rule used here. In other datasets, a limited-length summary may omit important exceptions. This is a capacity and evidence question, not a consequence that follows from heterogeneity alone.
-
-VLEG bridges this gap by shifting the abstraction target from the global distribution to the localized episode, while applying a model-based source-episode admission check. Rather than attempting to find a universal $\mathcal{H}^*$, VLEG constructs a memory bank consisting of verified episodic-semantic tuples:
+To preserve instance-level evidence while providing inspectable local heuristics, VLEG constructs a bank of source-verified episodic--semantic tuples (Figure~\ref{fig:vleg_spectrum}):
 \begin{equation}
-    \mathcal{M}_{VLEG} = \left\{ (e_i, r_i^*) \mid e_i \in \mathcal{E}, \; \mathcal{V}(r_i^* \mid e_i) = 1 \right\}
+    \mathcal{M}_{\mathrm{VLEG}} = \left\{ (e_i, r_i^*) \;\middle|\; e_i \in \mathcal{E}, \; \mathcal{V}_\phi(e_i, r_i^*)_v = 1 \right\},
 \end{equation}
-where $r_i^*$ is a localized semantic reflection (a detection rule or heuristic) derived specifically from episode $e_i$, and $\mathcal{V}(\cdot \mid e_i)$ is a strict verification function that returns $1$ when the implemented verifier accepts the candidate under its checking prompt; acceptance is a model judgment and can be wrong.
+where $r_i^*$ is a natural-language detection rule induced from $e_i$, and $\mathcal{V}_\phi(e_i, r_i^*)_v \in \{0,1\}$ is the binary acceptance decision of the source verifier.
 
-\begin{figure*}[!t]
+\begin{figure}[!t]
 \centering
-\begin{adjustbox}{max width=\linewidth}\begin{tikzpicture}[
-    node distance=2cm and 2.5cm,
+\begin{adjustbox}{max width=0.92\linewidth}\begin{tikzpicture}[
+    node distance=1.8cm and 2.2cm,
     box/.style={draw, rectangle, rounded corners, minimum width=3.5cm, minimum height=1.2cm, align=center, fill=gray!10, drop shadow},
     arrow/.style={-Stealth, thick}
 ]
-% Nodes
-\node[box, fill=blue!10] (episodic) {\textbf{Pure Episodic} \cite{brown2020language}\\$\mathcal{M} = \{e_1, e_2, \dots, e_n\}$\\(High Noise, High Detail)};
-\node[box, fill=green!10, right=of episodic] (vleg) {\textbf{VLEG (Ours)}\\$\mathcal{M} = \{(e_i, r_i^*)\}$\\(Verified Local Rules)};
-\node[box, fill=red!10, right=of vleg] (semantic) {\textbf{Global Semantic} \cite{agarwal2026hypothesis}\\$\mathcal{M} = \mathcal{H}^*$\\(Over-Abstraction Risk)};
-% Arrows
-\draw[arrow, dashed] (episodic) -- node[above] {Abstraction} (vleg);
-\draw[arrow, dashed] (vleg) -- node[above] {Generalization} (semantic);
+\node[box, fill=blue!10] (episodic) {\textbf{Pure Episodic} \cite{brown2020language}\\$\mathcal{M} = \{e_1, e_2, \dots, e_n\}$\\(Instance Detail, No Explicit Rule)};
+\node[box, fill=green!10, right=of episodic] (vleg) {\textbf{VLEG / VLEG-CG (Ours)}\\$\mathcal{M} = \{(e_i, r_i^*)\}$\\(Verified \& Screened Local Rules)};
+\node[box, fill=red!10, right=of vleg] (semantic) {\textbf{Global Semantic} \cite{agarwal2026hypothesis}\\$\mathcal{M} = \mathcal{H}^{*}$\\(High Compression Risk)};
+\draw[arrow, dashed] (episodic) -- node[above] {Local Induction} (vleg);
+\draw[arrow, dashed] (vleg) -- node[above] {Global Aggregation} (semantic);
 \end{tikzpicture}\end{adjustbox}
-\caption{The theoretical positioning of VLEG within the memory abstraction spectrum. VLEG bridges the gap between pure episodic retention of raw traffic and global semantic consolidation by pairing raw episodes with accepted local abstractions.}
+\caption{Positioning of VLEG across the memory abstraction spectrum. VLEG pairs raw episodic records with source-verified and counterexample-screened local abstractions.}
 \label{fig:vleg_spectrum}
-\end{figure*}
-The stored tuple retains the source episode alongside its accepted reflection. This permits later comparison with the evidence, although the inference model may still follow an unsupported condition. The admission gate is only as reliable as the verifier for the specified error class.
+\end{figure}
 
-\subsection{Framework Components: Generator, Verifier, and Memory Bank}
-The implementation has a reflection generator, a verifier and a memory bank. Generation and checking use separate prompts and model calls. They use the same underlying model, so shared errors and dependent responses remain possible.
+\subsection{Generator, Strict Source Verifier, and Bounded Cyclic Refinement}
+VLEG separates consolidation into two prompted roles executed via separate calls to the same model: the Reflection Generator $\mathcal{G}_\theta$ and the Strict Verifier $\mathcal{V}_\phi$ (Figure~\ref{fig:vleg_components}).
 
-\subsubsection{The Reflection Generator (\texorpdfstring{$\mathcal{G}_\theta$}{G\_theta})}
-The Reflection Generator is an LLM parameterized by $\theta$, tasked with distilling a high-dimensional raw traffic episode $e_i$ into a localized, natural language abstraction $r_i$. Formally, at iteration $j=0$, the generator samples an initial candidate reflection conditioned solely on the label-free attributes $x_i$:
+At initial attempt $j=0$, the generator proposes a candidate reflection conditioned only on the label-free attributes $x_i$:
 \begin{equation}
-    r_i^{(0)} \sim \mathcal{G}_\theta(\cdot \mid x_i)
+    r_i^{(0)} \sim \mathcal{G}_\theta(\cdot \mid x_i).
 \end{equation}
-In subsequent iterations ($j > 0$), if the initial reflection is deemed invalid, the generator is conditioned on the raw episode, its previous candidate reflection $r_i^{(j-1)}$, and a natural language critique $c_i^{(j-1)}$ provided by the verifier:
+In subsequent iterations ($1 \le j < K$), if the candidate is rejected, the generator receives $x_i$, its previous proposal $r_i^{(j-1)}$, and the verifier's critique $c_i^{(j-1)}$:
 \begin{equation}
-    r_i^{(j)} \sim \mathcal{G}_\theta(\cdot \mid x_i, r_i^{(j-1)}, c_i^{(j-1)})
+    r_i^{(j)} \sim \mathcal{G}_\theta(\cdot \mid x_i, r_i^{(j-1)}, c_i^{(j-1)}).
 \end{equation}
-The unverified single-step comparator stores its first proposal without checking. Feedback-based Reflexion \cite{shinn2023reflexion} is a different comparator: our latest symbolic adaptation uses bounded binary feedback and always stores a reflection. VLEG instead stores a candidate only after its source-episode check accepts it.
-
-\subsubsection{The Strict Verifier (\texorpdfstring{$\mathcal{V}_\phi$}{V\_phi})}
-The verifier checks the candidate against one labeled historical episode. It can reject a mismatched label, an invented attribute or an uncheckable claim. This role is distinct from generation, but the two calls are not statistically independent.
-
-The verifier outputs a tuple consisting of a binary validity score $v_i^{(j)} \in \{0, 1\}$ and a diagnostic critique $c_i^{(j)}$:
+The verifier checks $r_i^{(j)}$ against the full labeled source episode $e_i=(x_i,y_i)$ under a fail-closed native-Boolean JSON schema, outputting binary validity decision $v_i^{(j)} \in \{0,1\}$ and critique $c_i^{(j)}$:
 \begin{equation}
-    (v_i^{(j)}, c_i^{(j)}) = \mathcal{V}_\phi(e_i, r_i^{(j)})
+    (v_i^{(j)}, c_i^{(j)}) = \mathcal{V}_\phi\big((x_i, y_i),\; r_i^{(j)}\big).
+    \label{eq:verifier}
 \end{equation}
-If $v_i^{(j)}=1$, the candidate passes the implemented admission check. If $v_i^{(j)}=0$, its critique is returned to the generator. Admission establishes only that this verifier accepted the reflection for this episode; it does not certify a universal rule or a lower false-positive rate than another system.
-
-\subsubsection{The Hybrid Memory Bank (\texorpdfstring{$\mathcal{M}$}{M})}
-Once a reflection successfully passes the verifier at attempt $j$ with $v_i^{(j)} = 1$, it is denoted as the verified reflection $r_i^*$. The Hybrid Memory Bank $\mathcal{M}$ stores the paired tuple of the raw episode and its verified abstraction:
+Let $j_i^* = \min\{0 \le j < K \mid v_i^{(j)} = 1\}$ denote the stopping iteration (Figure~\ref{fig:cyclic_refinement}). If $j_i^*$ exists, the loop commits $r_i^* = r_i^{(j_i^*)}$ to the Hybrid Memory Bank:
 \begin{equation}
-    \mathcal{M} = \bigcup_{i=1}^{n} \left\{ (e_i, r_i^*) \mid \exists\,0\le j<K \text{ s.t. } \mathcal{V}_\phi(e_i, r_i^{(j)})_v = 1 \right\}
+    \mathcal{M} = \bigcup_{i=1}^{n} \left\{ (e_i, r_i^*) \;\middle|\; \exists\,0\le j<K \text{ s.t. } v_i^{(j)} = 1 \right\}.
 \end{equation}
-Here $K$ is the maximum number of generation--verification attempts, indexed $j=0,\ldots,K-1$, including the initial proposal. The first accepted candidate is retained. If none is accepted, the episode is omitted from this bank; rejection alone does not establish that the episode is ambiguous or its proposed explanation false.
 
-The memory bank supports retrieval of both source evidence and a local reflection. This is the representation used in the hybrid modality; raw-only and abstract-only inputs remove one of its components for comparison.
-
-\begin{figure*}[!t]
+\begin{figure}[!t]
 \centering
-\begin{adjustbox}{max width=\linewidth}\begin{tikzpicture}[
-    node distance=2cm and 2.5cm,
-    box/.style={draw, rectangle, rounded corners, minimum width=2.8cm, minimum height=1.2cm, align=center, fill=blue!5, drop shadow},
+\begin{adjustbox}{max width=0.82\linewidth}\begin{tikzpicture}[
+    node distance=1.6cm and 2.2cm,
+    box/.style={draw, rectangle, rounded corners, minimum width=2.8cm, minimum height=1.1cm, align=center, fill=blue!5, drop shadow},
     arrow/.style={-Stealth, thick}
 ]
-% Nodes
-\node[box] (episode) {Raw Episode\\$e_i$};
+\node[box] (episode) {Raw Episode\\$e_i=(x_i,y_i)$};
 \node[box, right=of episode] (generator) {Generator $\mathcal{G}_\theta$\\$r_i^{(j)}$};
 \node[box, right=of generator] (verifier) {Verifier $\mathcal{V}_\phi$\\$(v_i^{(j)}, c_i^{(j)})$};
 \node[box, below=of verifier] (memory) {Memory Bank $\mathcal{M}$\\$\{(e_i, r_i^*)\}$};
-% Arrows
-\draw[arrow] (episode) -- (generator);
+\draw[arrow] (episode) -- node[above] {$x_i$} (generator);
 \draw[arrow] (generator) -- node[above] {Propose $r_i^{(j)}$} (verifier);
-\draw[arrow] (verifier.north) to[bend right=35] node[above] {Critique $c_i^{(j)}$ ($v_i^{(j)}=0$)} (generator.north);
-\draw[arrow] (verifier) -- node[right] {Valid ($v=1$)} (memory);
+\draw[arrow] (verifier.north) to[bend right=32] node[above] {Critique $c_i^{(j)}$ ($v_i^{(j)}=0$)} (generator.north);
+\draw[arrow] (verifier) -- node[right] {Admit ($v_i^{(j)}=1$)} (memory);
 \draw[arrow] (episode.south) |- (memory.west);
 \end{tikzpicture}\end{adjustbox}
-\caption{Architectural flow of the VLEG framework components. Separate generator and verifier calls admit only candidates accepted by the implemented check to the Hybrid Memory Bank alongside their raw episodic counterparts.}
+\caption{Architectural flow of VLEG memory consolidation.}
 \label{fig:vleg_components}
-\end{figure*}
+\end{figure}
 
-\subsection{Learning Mechanism: Iterative Cyclic Refinement}
-The refinement loop revises a rejected candidate using the verifier critique. It stops at the first accepted candidate or after $K$ attempts. Reaching the budget without acceptance discards the episode from this reflection memory.
-
-Formally, let $e_i \in \mathcal{E}$ denote a raw, high-dimensional traffic episode. The refinement process is governed by two prompted roles using the same underlying model: the Reflection Generator $\mathcal{G}_\theta$ and the Strict Verifier $\mathcal{V}_\phi$. At any iteration $j \in \{0,\ldots,K-1\}$, letting $(r_i^{(-1)}, c_i^{(-1)}) = (\emptyset, \emptyset)$ at $j=0$, the generator synthesizes a candidate reflection conditioned on the label-free attributes $x_i$ and prior feedback:
-\begin{equation}
-    r_i^{(j)} \sim \mathcal{G}_\theta(\cdot \mid x_i, r_i^{(j-1)}, c_i^{(j-1)})
-\end{equation}
-Once candidate $r_i^{(j)}$ is generated, the verifier $\mathcal{V}_\phi$ evaluates it against the full labeled source episode $e_i = (x_i, y_i)$ under a fail-closed native-Boolean JSON gate, outputting a binary validity decision $v_i^{(j)} \in \{0, 1\}$ and a diagnostic critique $c_i^{(j)}$:
-\begin{equation}
-    (v_i^{(j)}, c_i^{(j)}) = \mathcal{V}_\phi\big((x_i, y_i),\; r_i^{(j)}\big)
-    \label{eq:verifier}
-\end{equation}
-Note that $\mathcal{V}_\phi$'s only argument besides the candidate reflection is the single episode $e_i$ it was generated from --- by construction it has no access to any other episode. This can expose a reflection that misstates $e_i$'s own attributes or label, but is not sufficient to determine whether an attribute the reflection treats as necessary is actually causally relevant across episodes versus merely true of this one instance. This defines a fundamental boundary condition between single-episode source consistency and cross-episode causal validity.
-
-Define the stopping iteration $j_i^*$ as the first attempt accepted by the verifier within the refinement budget $K$:
-\begin{equation}
-    j_i^* = \min\big\{0 \le j < K \;\big|\; v_i^{(j)} = 1\big\}
-\end{equation}
-If $j_i^*$ exists, the loop terminates immediately at $j = j_i^*$ and commits $r_i^* = r_i^{(j_i^*)}$ to the memory bank; if $v_i^{(j)} = 0$ (including any malformed verifier response), the critique $c_i^{(j)}$ is fed back into the generator for iteration $j+1$.
-This process stops at the first acceptance or after $K$ attempts. Exhausting the budget stores no tuple for that episode, reducing coverage without establishing a precision benefit.
-
-\begin{figure*}[!t]
+\begin{figure}[!t]
 \centering
-\begin{adjustbox}{max width=\linewidth}\begin{tikzpicture}[
-    node distance=1.5cm and 2cm,
+\begin{adjustbox}{max width=0.82\linewidth}\begin{tikzpicture}[
+    node distance=1.4cm and 2.0cm,
     box/.style={draw, rectangle, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=blue!5, thick},
     decision/.style={draw, diamond, aspect=1.5, minimum width=2cm, align=center, fill=orange!10, thick},
     arrow/.style={-Stealth, thick}
 ]
-% Nodes
 \node[box] (episode) {Raw Episode\\$e_i$};
 \node[box, right=of episode] (generator) {Generator $\mathcal{G}_\theta$\\$r_i^{(j)}$};
 \node[box, right=of generator] (verifier) {Verifier $\mathcal{V}_\phi$\\$(v_i^{(j)}, c_i^{(j)})$};
 \node[decision, below=of verifier] (check) {$v_i^{(j)} == 1$?};
-\node[box, left=of check] (memory) {Memory Bank\\$\mathcal{M} \gets \mathcal{M} \cup (e_i, r_i^*)$};
-% Arrows
+\node[box, left=of check] (memory) {Memory Bank\\$\mathcal{M} \gets \mathcal{M} \cup \{(e_i, r_i^*)\}$};
 \draw[arrow] (episode) -- (generator);
 \draw[arrow] (generator) -- (verifier);
 \draw[arrow] (verifier) -- (check);
@@ -295,149 +233,98 @@ This process stops at the first acceptance or after $K$ attempts. Exhausting the
 \draw[arrow] (check.east) -- ++(1,0)
     |- node[right, pos=0.25] {No ($j+1 < K$)}
        node[above, pos=0.75] {Critique $c_i^{(j)}$}
-       ([yshift=1cm]generator.north)
+       ([yshift=0.9cm]generator.north)
     -- (generator.north);
-%\draw[arrow] (check.east) -- ++(1,0) |- node[right, pos=0.25] {No ($j+1 < K$)} node[above, pos=0.75] {Critique $c_i^{(j)}$} (generator.north);
 \end{tikzpicture}\end{adjustbox}
-\caption{State transition diagram of the Iterative Cyclic Refinement mechanism. The loop stores the first candidate accepted by the verifier to the paired episodic--semantic memory bank.}
+\caption{State transition diagram of bounded Iterative Cyclic Refinement.}
 \label{fig:cyclic_refinement}
-\end{figure*}
-\begin{remark}[Scope of the admission check]
-Let $A_j$ denote reaching attempt $j$, $E_j$ an erroneous candidate at that attempt, and $B_j$ its acceptance by the verifier. Using one-based attempt indices here, for $j=1,\ldots,K$, suppose
-$\Pr(E_j\mid A_j)\leq p_h$ and
-$\Pr(B_j\mid A_j,E_j)\leq p_v$ for a specified error class.
-Since the loop stores the first accepted candidate,
+\end{figure}
+
+\subsection{Deterministic Counterexample Compiler and Cross-Episode Gating (VLEG-CG)}
+By construction, Equation~(\ref{eq:verifier}) conditions $\mathcal{V}_\phi$ only on the single source episode $e_i=(x_i,y_i)$. While this prevents label inversions and fabricated features with respect to $e_i$, it has zero access to the remaining historical episodes $\mathcal{E}_{-i} = \mathcal{E} \setminus \{e_i\}$.
+
+To bridge single-episode verification and cross-episode specificity without additional LLM calls, we introduce a deterministic counterexample compiler $\Psi$. Given a natural-language reflection $r_i^*$ formatted as a conjunctive \texttt{IF ... THEN ...} statement over flow attributes, $\Psi$ parses the antecedent into a list of atomic feature comparisons $\pi(r_i^*)(x) = \bigwedge_{m=1}^{d_i} \mathrm{op}_m(x[\mathrm{field}_m], \mathrm{val}_m) \in \{0,1\}$ and extracts the consequent class $\hat{y}(r_i^*) \in \{\texttt{BENIGN}, \texttt{MALICIOUS}\}$.
+
+\begin{definition}[Within-Bank Counterexample Count and Gate]
+For an admitted tuple $(e_i, r_i^*) \in \mathcal{M}$, let $\mathrm{CE}(r_i^* \mid \mathcal{E}_{-i})$ denote the number of contrary-label episodes in the historical support bank $\mathcal{E}_{-i}$ that satisfy the compiled antecedent $\pi(r_i^*)$:
 \begin{equation}
-\begin{aligned}
-\Pr(\text{erroneous commitment})
-&\leq \sum_{j=1}^{K}\Pr(A_j\cap E_j\cap B_j)\\
-&\leq \min\{1,Kp_hp_v\}.
-\end{aligned}
+    \mathrm{CE}(r_i^* \mid \mathcal{E}_{-i}) = \sum_{e_m = (x_m, y_m) \in \mathcal{E}_{-i}} \mathbb{I}\!\left(\pi(r_i^*)(x_m) = 1 \;\wedge\; y_m \neq \hat{y}(r_i^*)\right).
+    \label{eq:counterexample}
 \end{equation}
-This union bound needs no independence assumption. It does not imply that increasing $K$ reduces erroneous commitments, nor does it bound error conditional on admission. A geometric power of $p_v$ would require repeated acceptance checks on the same candidate, which the implemented loop does not perform. The probabilities are not estimated by the present experiments.
-\end{remark}
-A single labeled episode can expose a contradiction or a fabricated attribute, but cannot establish which attributes cause a label or whether a heuristic transfers to other episodes. The memory-quality assessment measures this distinction in the symbolic setting; public-flow explanations require additional cross-episode or human assessment.
+We define two deterministic counterexample-gating policies over retrieved top-$k$ tuples $\mathcal{M}_{\mathrm{top}}(T)$:
+\begin{enumerate}[leftmargin=1.8em]
+    \item \textbf{Malicious-Rule Counterexample Gate (VLEG-CG-Mal):} Because false positives in intrusion triage are driven by overly broad malicious heuristics firing on benign flows, VLEG-CG-Mal flags a retrieved tuple $(e_i, r_i^*)$ as over-generalized if $y_i = \texttt{MALICIOUS}$ and $\mathrm{CE}(r_i^* \mid \mathcal{E}_{-i}) > 0$ (or if $r_i^*$ fails compilation). If any retrieved tuple in $\mathcal{M}_{\mathrm{top}}(T)$ is flagged, inference strips the verbal reflections and falls back to the raw admitted flow records $\{e_i\}_{(e_i,r_i^*)\in\mathcal{M}_{\mathrm{top}}(T)}$.
+    \item \textbf{All-Rule Counterexample Gate (VLEG-CG):} VLEG-CG applies the zero-counterexample constraint symmetrically across both classes, falling back to raw admitted flow records whenever any retrieved tuple in $\mathcal{M}_{\mathrm{top}}(T)$ has $\mathrm{CE}(r_i^* \mid \mathcal{E}_{-i}) > 0$.
+\end{enumerate}
+\end{definition}
 
-\subsection{Inference Integration: Hybrid Episodic-Semantic Grounding}
-Once the memory bank $\mathcal{M}$ has been populated with accepted tuples through the iterative cyclic refinement process, the system must effectively leverage this knowledge to solve a novel target task $T$ (e.g., classify a held-out flow or an unseen feature combination). Traditional retrieval-augmented generation (RAG) and standard in-context learning paradigms predominantly rely on episodic-only retrieval \cite{lewis2020retrieval, zhang2022active}, injecting raw, unstructured experiences directly into the context window. While raw retrieval preserves instance-level details, it provides no explicit, auditable decision rule at test time, requiring the inference model to perform implicit ad-hoc induction over high-dimensional telemetry.
-
-To expose both representations at inference, VLEG uses a dual-pathway integration strategy termed \textit{Hybrid Episodic-Semantic Grounding}. This approach simultaneously injects the raw telemetry $e_i$ and its corresponding verified semantic rule $r_i^*$ into the context window, aligning with advanced memory integration paradigms that advocate for structured, multi-level memory representations \cite{wu2025from, zhang2024survey}. Our empirical evaluations further characterize the \emph{task- and scale-dependent boundary conditions} where hybrid grounding yields advantages versus when alternative grounding modalities perform comparably or better.
-
-\subsubsection{Semantic-Driven Retrieval}
-Given a novel target task $T$, the system must first retrieve the top-$k$ most relevant memory tuples. The VLEG retrieval module supports two domain-aligned indexing modes: semantic reflection-embedding indexing for symbolic rules and standardized feature-embedding indexing for tabular network flows (where rejected candidates are masked without replacement to strictly isolate memory-consolidation effects from candidate-selection variance).
-
-Let $f_{\mathrm{emb}}(\cdot)$ denote a pre-trained dense embedding function, and let $z_i \in \{r_i^*, x_i\}$ denote the active indexing key for tuple $\mathcal{M}_i = (e_i, r_i^*)$ corresponding to reflection-indexed symbolic retrieval ($z_i = r_i^*$) or feature-indexed flow retrieval ($z_i = x_i$). The relevance score $S(T, \mathcal{M}_i)$ is computed via cosine similarity:
+\subsection{Hybrid Episodic--Semantic Inference and Complete Algorithm}
+Given a target query $T$, VLEG retrieves the top-$k$ memory tuples from $\mathcal{M}$. Let $z_i \in \{r_i^*, x_i\}$ denote the active indexing key for tuple $\mathcal{M}_i = (e_i, r_i^*)$, corresponding to reflection-embedding retrieval in symbolic tasks ($z_i = r_i^*$) and standardized feature-embedding retrieval in network flow tasks ($z_i = x_i$). Using dense embedding function $f_{\mathrm{emb}}(\cdot)$, similarity is computed as:
 \begin{equation}
-    S(T, \mathcal{M}_i) = \frac{f_{\mathrm{emb}}(T) \cdot f_{\mathrm{emb}}(z_i)}{\|f_{\mathrm{emb}}(T)\| \|f_{\mathrm{emb}}(z_i)\|}
+    S(T, \mathcal{M}_i) = \frac{f_{\mathrm{emb}}(T) \cdot f_{\mathrm{emb}}(z_i)}{\|f_{\mathrm{emb}}(T)\| \|f_{\mathrm{emb}}(z_i)\|}, \qquad
+    \mathcal{M}_{\mathrm{top}} = \mathop{\arg\max}_{\mathcal{S} \subseteq \mathcal{M},\, |\mathcal{S}|=\min(k,|\mathcal{M}|)} \sum_{(e_i, r_i^*) \in \mathcal{S}} S(T, (e_i, r_i^*)).
 \end{equation}
-The system then selects the subset of $k$ tuples that maximize this similarity score:
+For standard VLEG (and un-gated queries under VLEG-CG), the inference prompt $P$ pairs each retrieved episode with its verified reflection $Q_i = [\text{Episode: }e_i \oplus \text{Verified Rule: }r_i^*]$; for counterexample-gated queries under VLEG-CG, $Q_i = [\text{Episode: }e_i]$ retains only the verified source flow:
 \begin{equation}
-    \mathcal{M}_{top} = \mathop{\arg\max}_{\mathcal{S} \subseteq \mathcal{M}, |\mathcal{S}|=\min(k,|\mathcal{M}|)} \sum_{(e_i, r_i^*) \in \mathcal{S}} S(T, (e_i, r_i^*))
+    P = \mathrm{PromptBuilder}\!\left(\bigoplus_{(e_i,r_i^*)\in\mathcal{M}_{\mathrm{top}}} Q_i \oplus \text{Target: }T\right), \qquad \hat{y} = \mathrm{LLM}_\psi(P).
 \end{equation}
-
-\subsubsection{Hybrid Prompt Formulation}
-After retrieving $\mathcal{M}_{top}$, the inference module constructs a hybrid context window. The fundamental premise of hybrid grounding is that the verified reflection $r_i^*$ provides proposed local guidance, while the labeled source episode $e_i$ provides the observed evidence. Neither component is a validated causal explanation. This permits comparison with the source evidence, but does not guarantee that unsupported generalization is avoided.
-
-The final inference prompt $P$ is constructed by concatenating the target task $T$ with the retrieved hybrid tuples, separated by structural delimiters:
-\begin{equation}
-\begin{aligned}
-    Q_i &= \big[\text{Episode: }e_i \oplus \text{Verified Rule: }r_i^*\big],\\
-    P &= \text{PromptBuilder}\Bigl(
-    \bigoplus_{(e_i,r_i^*)\in\mathcal{M}_{top}} Q_i
-    \oplus \text{Target: }T\Bigr).
-\end{aligned}
-\end{equation}
-where $\oplus$ denotes the sequence concatenation operator. The reasoning LLM, parameterized by $\psi$, then generates the final prediction $\hat{y}$ conditioned on this hybrid prompt:
-\begin{equation}
-    \hat{y} = \text{LLM}_\psi(P)
-\end{equation}
-
-Hybrid context provides a reflection and its source evidence. Its benefit depends on whether the reflection guides the model toward relevant attributes or anchors it on a misleading condition. The grounding-modality ablation compares hybrid, raw-only and abstract-only inputs under shared retrieval.
-
-\subsection{Final Algorithm and Execution Flow}
-The Verified Localized Episodic Grounding (VLEG) framework synthesizes the previously defined components---the Reflection Generator $\mathcal{G}_\theta$, the Strict Verifier $\mathcal{V}_\phi$, and the Hybrid Inference Module $I_\psi$---into a cohesive, end-to-end execution pipeline. This pipeline systematically bridges the gap between raw episodic retention \cite{brown2020language} and abstract semantic reasoning \cite{agarwal2026hypothesis} by ensuring that only accepted local heuristics are utilized during downstream inference.
-
-The execution flow of VLEG is formally divided into two distinct phases: \textbf{Phase 1: Memory Consolidation} and \textbf{Phase 2: Hybrid Inference}.
-
-During Phase 1, the system ingests a stream of raw, high-dimensional traffic episodes $\mathcal{E} = \{e_1, e_2, \dots, e_n\}$. For each episode $e_i$, the Generator $\mathcal{G}_\theta$ proposes $r_i^{(0)}$ from label-free attributes $x_i$. The Verifier $\mathcal{V}_\phi$ then evaluates this candidate strictly against the grounding episode $e_i$, outputting a binary validity flag $v \in \{0, 1\}$ and a natural language critique $c$. If $v = 0$ (a rejected or unparseable check), the critique $c$ is fed back into $\mathcal{G}_\theta$ to produce a refined reflection $r_i^{(1)}$. This iterative cyclic refinement continues until the reflection is validated ($v=1$) or a predefined maximum iteration limit $K$ is reached. If validated, the tuple $(e_i, r_i^*)$ is committed to the Memory Bank $\mathcal{M}$. The gate excludes rejected candidates from memory, but can retain an erroneous candidate if the verifier accepts it. This differs from unconditional first-proposal storage and from feedback-based reflection \cite{shinn2023reflexion}.
-
-During Phase 2, the system is presented with a novel target task $T$. A Retriever $R$ computes the cosine similarity between the task embedding and the stored memory tuples, extracting the top-$k$ most relevant memories $\mathcal{M}_{top} \subset \mathcal{M}$. The Inference Module $I_\psi$ is then prompted using Hybrid Episodic-Semantic Grounding, receiving both the raw episodes and their verified reflections to generate the final output. This dual-pathway integration aligns with advanced memory paradigms \cite{wu2025from}, making both representations available for the evaluated inference conditions.
-
-The complete step-by-step procedure is formalized in Algorithm \ref{alg:vleg_final}.
+Algorithm~\ref{alg:vleg_final} summarizes the unified VLEG and VLEG-CG pipeline.
 
 \begin{algorithm}[!t]
-\caption{Verified Localized Episodic Grounding (VLEG)}
+\caption{Verified Localized Episodic Grounding with Counterexample Gating (VLEG / VLEG-CG)}
 \label{alg:vleg_final}
 \small
 \begin{algorithmic}[1]
-\Require Episodes $\mathcal{E}$, target $T$, max attempts $K$
-\Statex Retrieval count $k$, retriever $R$
+\Require Support episodes $\mathcal{E}$, target query $T$, budget $K$, retrieval count $k$, retriever $R$, gate mode $\mathrm{ Gate } \in \{\text{None}, \text{CG-Mal}, \text{CG-All}\}$
 \State Initialize Memory Bank $\mathcal{M} \gets \emptyset$
-\State \textbf{// Phase 1: Memory Consolidation}
-\For{each $e_i \in \mathcal{E}$}
-    \State $j \gets 0$
-    \State $(r,c) \gets (\emptyset,\emptyset)$
-        \Statex $\triangleright$ \textit{Previous candidate and critique}
-    \State $v \gets 0$
-        \Statex $\triangleright$ \textit{Initialize validity flag to Invalid}
+\State \textbf{// Phase 1: Bounded Source-Verified Consolidation}
+\For{each $e_i = (x_i, y_i) \in \mathcal{E}$}
+    \State $j \gets 0$; $(r,c) \gets (\emptyset,\emptyset)$; $v \gets 0$
     \While{$v = 0$ \textbf{and} $j < K$}
-        \State $r_i^{(j)} \gets \mathcal{G}_\theta(x_i, r, c)$
-        \Statex $\triangleright$ \textit{Generate or refine reflection}
-        \State $(v, c) \gets \mathcal{V}_\phi(e_i, r_i^{(j)})$
-        \Statex $\triangleright$ \textit{Check reflection against labeled source}
+        \State $r_i^{(j)} \gets \mathcal{G}_\theta(x_i, r, c)$ \Comment{Generate or revise local reflection}
+        \State $(v, c) \gets \mathcal{V}_\phi((x_i, y_i), r_i^{(j)})$ \Comment{Verify against labeled source episode}
         \State $r \gets r_i^{(j)}$; $j \gets j + 1$
     \EndWhile
     \If{$v = 1$}
-        \State $\mathcal{M} \gets \mathcal{M} \cup \{(e_i, r_i^{(j-1)})\}$
-        \Statex $\triangleright$ \textit{Store verified tuple}
+        \State $r_i^* \gets r$; Compute $\mathrm{CE}(r_i^* \mid \mathcal{E} \setminus \{e_i\})$ via compiler $\Psi$ (Equation~(\ref{eq:counterexample}))
+        \State $\mathcal{M} \gets \mathcal{M} \cup \{(e_i, r_i^*, \mathrm{CE}_i)\}$
     \EndIf
 \EndFor
-\State \textbf{// Phase 2: Hybrid Inference}
-\State $\mathcal{M}_{top} \gets R(\mathcal{M}, T, k)$
-        \Statex $\triangleright$ \textit{Retrieve top-$k$ relevant tuples}
-\State $\text{Context} \gets \text{PromptBuilder}(\mathcal{M}_{top},T)$
-        \Statex $\triangleright$ \textit{Construct hybrid prompt}
-\State $\text{Output} \gets I_\psi(\text{Context})$
-        \Statex $\triangleright$ \textit{Generate final reasoning answer}
-\State \Return $\text{Output}$
+\State \textbf{// Phase 2: Counterexample-Gated Hybrid Inference}
+\State $\mathcal{M}_{\mathrm{top}} \gets R(\mathcal{M}, T, k)$
+\If{$\mathrm{Gate} \neq \text{None}$ \textbf{and} any $(e_i, r_i^*, \mathrm{CE}_i) \in \mathcal{M}_{\mathrm{top}}$ violates gate threshold}
+    \State $\mathrm{Context} \gets \mathrm{PromptBuilder}(\{(e_i, \emptyset)\}_{(e_i,r_i^*)\in\mathcal{M}_{\mathrm{top}}}, T)$ \Comment{Fallback to raw admitted flows}
+\Else
+    \State $\mathrm{Context} \gets \mathrm{PromptBuilder}(\mathcal{M}_{\mathrm{top}}, T)$ \Comment{Hybrid episode + rule context}
+\EndIf
+\State \Return $I_\psi(\mathrm{Context})$
 \end{algorithmic}
 \end{algorithm}
 
+\section{Experiments and Diagnostic Results}
+\subsection{Experimental Architecture}
+Our evaluation comprises two complementary stages:
+\begin{enumerate}[leftmargin=1.8em]
+    \item \textbf{Controlled Symbolic Sanity Check (Sections~\ref{sec:exp1}--\ref{sec:exp5}):} We first use a deterministic 16-scene synthetic environment with a known ground-truth rule and controllable non-causal distractors (\texttt{texture} and \texttt{size}). Because this environment contains only 16 combinations ($n=48$ pooled queries across 3 masking seeds at Level 3), we use it strictly as a controlled sanity check to verify how bounded refinement affects admission coverage, source-label agreement, and distractor mention rates under Qwen2.5-7B-Instruct and Llama-3.3-70B-Instruct (\texttt{nomic-embed-text}, temperature $0$).
+    \item \textbf{Public Network Flow Benchmark, Counterexample Audit, and ML Baseline Comparison (Sections~\ref{sec:exp6}--\ref{sec:exp7}):} Our primary evaluation tests five historical-memory seeds (32 flows/seed: 16 benign, 16 malicious) over 1000 shared deduplicated UNSW-NB15 test fingerprints (663 benign, 337 malicious; 25,000 formal LLM predictions) on a dual-A800 server running Llama-3.3-70B-Instruct (\texttt{Q4\_K\_M}, $K=k=3$, 32,768-token context). We evaluate VLEG, VLEG-CG-Mal, VLEG-CG, raw retrieval, unverified reflection, admission-matched raw control, global summary, and both 32-flow few-shot and 88,699-flow full-train Random Forest and GBDT baselines.
+\end{enumerate}
 
-
-The admission gate prevents storage when the verifier rejects a candidate. Its practical reliability depends on the verifier and the error class being checked. Retaining raw evidence permits downstream comparison with a reflection, but does not ensure that the model performs that comparison correctly.
-
-
-\section{Experiments}
-
-\subsection{Experimental Settings}
-The symbolic evaluations use synthetic scenes with shape, color, texture, background and a deterministic size distractor. On white backgrounds, ANOMALY requires a red circle; black backgrounds invert this rule. Texture and size are noncausal. Level 1 contains eight white-background combinations; Level 2 contains sixteen across both backgrounds. Both evaluate combinations used to form memory. Level 3 withholds four from memory and tests all sixteen; masked-only accuracy measures withheld-combination generalization. Seeds change the withheld subset, not the underlying population.
-
-Reported symbolic runs use Qwen2.5-7B-Instruct or Llama-3.3-70B-Instruct, nomic-embed-text embeddings and temperature $0$. Generator and verifier are separate calls to the same model. Initial generation excludes historical labels; verification receives labeled sources, and later attempts can receive labels through supervised critique. Target labels are reserved for scoring. We vary consolidation, grounding modality and $K\in\{1,2,3,5\}$, measuring accuracy, memory coverage, label consistency, attribution flags and construction tokens. The grounding-modality ablation shares retrieval across modalities. First-proposal reflections, feedback-based Reflexion and global hypotheses are controlled adaptations; their implementation differences are identified below.
-
-The 7B and 70B symbolic evaluations are reported from reconciled immutable snapshots prior to strict Boolean-parser hardening, whereas the public-flow benchmark logs full verifier replies and model digests. Cross-scale comparisons also change model family and cannot isolate parameter count. Repeated queries across seeds are not independent samples, and temperature $0$ does not guarantee identical outputs. The public-flow benchmark separately specifies the public-flow data, frozen model versions, split, metrics and runtime costs.
-
-\subsection{Controlled Memory-Strategy Comparison}
+\subsection{Symbolic Sanity Check: Consolidation Strategies}
 \label{sec:exp1}
-
-\textbf{Verified local consolidation exhibits a pronounced capacity threshold, trailing raw retrieval at 7B but surpassing all baselines at 70B once the reasoning model can reliably suppress incidental attributes.} To isolate core consolidation mechanisms under identical model weights and retrieval budgets, we compare VLEG against global-hypothesis consolidation (HDR), unverified single-step reflection, and raw in-context learning (ICL) across the three symbolic complexity levels.
-
-Within each model-scale comparison the same underlying model and temperature are used. VLEG uses $K=3$. Level 1 has eight queries and Level 2 sixteen. Level 3 is pooled over three masking seeds, giving 48 evaluations of sixteen recurring combinations. Repeat runs matched reported accuracies in the checked conditions, which is an empirical repeatability observation rather than a determinism guarantee.
-
-The reported 7B accuracies are ICL $100.0\%$, $93.8\%$ and $87.5\%$ at Levels 1--3, versus VLEG $75.0\%$, $87.5\%$ and $75.0\%$. Global-hypothesis consolidation recovers the uniform-background rule at Level 1 ($100.0\%$), but has pooled accuracy $70.8\%$ at Level 3. The historical single-step reflection comparator scores $25.0\%$, $50.0\%$ and $50.0\%$; the inspected first proposals predominantly state ANOMALY. Its aggregate accuracy tracks the anomaly base rate, although individual Level-3 seeds differ. These values characterize the unverified single-step comparator rather than a multi-attempt feedback-driven baseline.
+\textbf{On the 16-scene symbolic sanity check, VLEG eliminates the label-inversion collapse of unverified reflection and performs comparably to raw retrieval at 70B ($44/48$ versus $43/48$), while trailing raw retrieval at 7B ($75.0\%$ versus $87.5\%$).} In this synthetic environment, white backgrounds require a red circle for \texttt{ANOMALY}, black backgrounds invert this rule, and texture and size are non-causal distractors. Level 1 tests 8 white-background scenes; Level 2 tests all 16 scenes; and Level 3 withholds 4 scenes from the 12-scene support bank and evaluates all 16 scenes across three masking seeds ($n=48$).
 
 \begin{figure}[!t]
     \centering
-    \begin{adjustbox}{max width=\linewidth}\begin{tikzpicture}
+    \begin{adjustbox}{max width=0.66\linewidth}\begin{tikzpicture}
         \begin{axis}[
             ybar,
-            bar width=7pt,
-            width=0.98\linewidth,
-            height=5.5cm,
-            enlarge x limits=0.2,
-            legend style={at={(0.5,-0.38)}, anchor=north, legend columns=-1, font=\scriptsize},
+            bar width=9pt,
+            width=10.2cm,
+            height=5.0cm,
+            enlarge x limits=0.22,
+            legend style={at={(0.5,-0.28)}, anchor=north, legend columns=-1, font=\footnotesize},
             ylabel={Task Accuracy (\%)},
-            xlabel={Task Complexity Level},
+            xlabel={Symbolic Sanity-Check Level},
             symbolic x coords={Level 1, Level 2, Level 3},
             xtick=data,
             ymin=0, ymax=110,
@@ -445,102 +332,63 @@ The reported 7B accuracies are ICL $100.0\%$, $93.8\%$ and $87.5\%$ at Levels 1-
             ymajorgrids=true,
             xmajorgrids=false,
         ]
-
-        % VLEG
         \addplot[fill=blue!60] coordinates {(Level 1, 75.0) (Level 2, 87.5) (Level 3, 75.0)};
-        \addlegendentry{VLEG (Ours)}
-
-        % HDR
+        \addlegendentry{VLEG ($K{=}3$)}
         \addplot[fill=red!60] coordinates {(Level 1, 100.0) (Level 2, 62.5) (Level 3, 70.8)};
-        \addlegendentry{HDR}
-
-        % Single-step
+        \addlegendentry{Global Hypothesis (HDR)}
         \addplot[fill=green!60] coordinates {(Level 1, 25.0) (Level 2, 50.0) (Level 3, 50.0)};
-        \addlegendentry{Single-step}
-
-        % ICL
+        \addlegendentry{Unverified Single-Step}
         \addplot[fill=gray!60] coordinates {(Level 1, 100.0) (Level 2, 93.8) (Level 3, 87.5)};
-        \addlegendentry{ICL}
-
+        \addlegendentry{Raw Retrieval (ICL)}
         \end{axis}
     \end{tikzpicture}\end{adjustbox}
-    \caption{Measured Task Accuracy (\%) across three levels of task complexity (Qwen2.5-7B-Instruct; Level 3 pooled across 3 masking seeds, $n=48$). ICL leads at every level; HDR is bimodal (perfect at Level 1's non-conditional rule, weak once the rule becomes background-conditional); Single-step tracks each level's ANOMALY base rate rather than discriminating between scenes.}
+    \caption{Symbolic sanity-check accuracy (\%) across three complexity levels using Qwen2.5-7B-Instruct (Level 3 pooled across 3 masking seeds, $n=48$).}
     \label{fig:exp1_results}
 \end{figure}
 
-At the 7B scale, VLEG outperforms unverified single-step reflection by up to $+50.0$~pp and exceeds global hypothesis consolidation on background-conditional rules by $+25.0$~pp at Level 2 and $+4.2$~pp at Level 3, while closing the gap with raw retrieval as model capacity scales to 70B.
+At 7B (Figure~\ref{fig:exp1_results}), raw retrieval (ICL) leads across Levels 1--3 ($100.0\%$, $93.8\%$, and $87.5\%$) compared with VLEG ($75.0\%$, $87.5\%$, and $75.0\%$). Global hypothesis consolidation (HDR adaptation) solves the uniform Level-1 rule ($100.0\%$) but drops to $62.5\%$ and $70.8\%$ when background conditioning is required. Unverified single-step reflection collapses to the anomaly base rate ($25.0\%$, $50.0\%$, and $50.0\%$) because unchecked proposals predominantly default to \texttt{ANOMALY}. Under Llama-3.3-70B-Instruct at Level 3 ($n=48$), VLEG reaches $91.67\%$ ($44/48$), which is comparable to raw retrieval at $89.58\%$ ($43/48$, a one-query difference across 48 evaluations, with VLEG higher in two seeds and lower in one) and above global hypothesis consolidation ($83.33\%$, $40/48$) and binary-feedback Reflexion ($81.25\%$, $39/48$).
 
-The reported 70B check evaluates Levels 1 and 2 once each and Level 3 across three masking seeds. The latest archived, feedback-baseline revision gives Level-3 pooled accuracies of VLEG $91.67\%$ (44/48), raw retrieval $89.58\%$ (43/48), global hypothesis $83.33\%$ (40/48), and feedback-based Reflexion $81.25\%$ (39/48). VLEG exceeds raw retrieval in two seeds but is lower in the third. Note that the 70B evaluation pairs VLEG against the stronger multi-attempt binary-feedback Reflexion comparator rather than the unverified single-step baseline. This reverses the descriptive ordering at 7B. Because the model family also changes and the evaluation population is small, the difference should not be attributed to parameter count alone.
-
-\subsection{Component Isolation (Grounding Modality Ablation)}
+\subsection{Symbolic Sanity Check: Grounding Modality Ablation}
 \label{sec:exp2}
-
-\textbf{Pairing verified reflections with raw episodes improves seen-rule classification but penalizes unseen combinations at 7B due to spurious-attribute anchoring, a penalty that largely vanishes at the 70B scale.} To isolate inference-context composition from retrieval selection, this ablation fixes the retrieved top-$k$ tuples using reflection-embedding similarity while varying whether the prompt displays both $(e_i, r_i^*)$ in Hybrid Grounding, only $r_i^*$ in Abstract-Only, or only $e_i$ in Raw-Only \cite{brown2020language}.
-
-At the 7B scale, Figure~\ref{fig:exp2_ablation} shows that Hybrid Grounding achieves the highest accuracy on seen combinations at Level 2 ($87.5\%$ versus $81.2\%$ for both single-modality baselines). However, on Level 3 ($n=80$ pooled evaluations across five masks), Abstract-Only exceeds Hybrid by $5.0$~pp overall ($78.8\%$ versus $73.8\%$, with Raw-Only at $75.0\%$) and by $10.0$~pp on withheld masked combinations ($70.0\%$ versus $60.0\%$, $n=20$).
+\textbf{Under shared retrieval at 7B, hybrid grounding improves seen-combination accuracy ($87.5\%$) but trails single-modality context on withheld combinations ($60.0\%$ versus $70.0\%$).} Figure~\ref{fig:exp2_ablation} compares Hybrid $(e_i, r_i^*)$, Abstract-Only $(r_i^*)$, and Raw-Only $(e_i)$ across five Level-3 masking seeds ($n=80$ overall, $n=20$ masked-only). At 7B, Hybrid leads at Level 2 ($87.5\%$ versus $81.2\%$) but scores $73.8\%$ overall and $60.0\%$ on masked combinations at Level 3 (versus $78.8\%$/$70.0\%$ for Abstract-Only and $75.0\%$/$70.0\%$ for Raw-Only). Under Llama-3.3-70B-Instruct, Hybrid and Raw-Only tie at $95.0\%$ overall (versus $91.25\%$ for Abstract-Only), while Abstract-Only scores $85.0\%$ on the 20 masked queries versus $80.0\%$ for Hybrid and Raw-Only.
 
 \begin{figure}[!t]
     \centering
-    \begin{adjustbox}{max width=\linewidth}\begin{tikzpicture}
+    \begin{adjustbox}{max width=0.66\linewidth}\begin{tikzpicture}
         \begin{axis}[
             ybar=2pt,
-            bar width=7pt,
-            width=0.98\linewidth,
-            height=5.5cm,
-            enlarge x limits=0.5,
+            bar width=9pt,
+            width=10.2cm,
+            height=5.0cm,
+            enlarge x limits=0.35,
             ylabel={Task Accuracy (\%)},
             ymin=0, ymax=100,
             symbolic x coords={Level 2, Level 3, Level 3 (masked only)},
             xtick=data,
-            x tick label style={rotate=20, anchor=east},
-            legend style={at={(0.5,-0.4)}, anchor=north, legend columns=-1, font=\scriptsize}
+            legend style={at={(0.5,-0.25)}, anchor=north, legend columns=-1, font=\footnotesize}
         ]
-
-        % Hybrid Grounding
         \addplot[fill=blue!60] coordinates {(Level 2, 87.5) (Level 3, 73.8) (Level 3 (masked only), 60.0)};
         \addlegendentry{Hybrid (VLEG)}
-
-        % Abstract-Only Grounding
         \addplot[fill=red!60] coordinates {(Level 2, 81.2) (Level 3, 78.8) (Level 3 (masked only), 70.0)};
         \addlegendentry{Abstract-Only}
-
-        % Raw-Only Grounding
         \addplot[fill=gray!60] coordinates {(Level 2, 81.2) (Level 3, 75.0) (Level 3 (masked only), 70.0)};
         \addlegendentry{Raw-Only}
-
         \end{axis}
     \end{tikzpicture}\end{adjustbox}
-    \caption{Measured Task Accuracy across grounding modalities (Qwen2.5-7B-Instruct). Level 3 figures are pooled across 5 masking seeds ($n=80$ overall, $n=20$ for the masked-only subset). Hybrid Grounding achieves the highest accuracy on Level 2 ($87.5\%$) while revealing the sensitivity of smaller 7B models to local rule specificity on unseen Level-3 combinations, an effect that is overcome at the 70B scale ($95.0\%$).}
+    \caption{Grounding modality ablation under Qwen2.5-7B-Instruct (Level 3 pooled across 5 masking seeds, $n=80$ overall, $n=20$ masked-only).}
     \label{fig:exp2_ablation}
 \end{figure}
 
-At the 70B scale across the same five masks, the overall ordering reverses in favor of evidence-retaining modalities, with Hybrid and Raw-Only tying at $95.0\%$ overall compared with $91.25\%$ for Abstract-Only, while Abstract-Only retains a narrower $5.0$~pp edge on the masked subset ($85.0\%$ versus $80.0\%$, ranging from $50.0\%$ to $100.0\%$ across individual seeds).
-
-This scale-dependent reversal reflects how models of different capacities process over-specified local rules. Because single-episode verification cannot filter out non-causal distractor attributes (texture and size) that happen to be true of the source episode, 7B reflections frequently embed incidental features. When both $e_i$ and $r_i^*$ are presented for an unseen Level-3 combination, the 7B model over-anchors on spurious conjunctions shared between the raw example and the rule text. Conversely, the 70B model generates substantially fewer distractor references during consolidation and more effectively arbitrates between concrete evidence and abstract heuristics at inference.
-
-\subsection{Iterative Refinement Ablation}
+\subsection{Symbolic Sanity Check: Refinement Budget and Overhead}
 \label{sec:exp3}
-
-\textbf{Bounded cyclic refinement ($\boldsymbol{K=3}$) substantially improves downstream accuracy primarily by recovering rejected historical episodes rather than by purifying causal explanations.} Both $K=1$ and $K=3$ employ the same generator, strict verifier, and hybrid inference module, stopping at the first accepted proposal. Whereas $K=1$ immediately discards any episode whose initial reflection fails verification, $K=3$ allows up to two critique-guided revisions before omission.
-
-Across five 7B masking seeds, $K=3$ achieves $75.0\%$ overall accuracy ($60/80$), compared with $63.75\%$ ($51/80$) at $K=1$, an $11.25$-percentage-point increase. Masked-only accuracy rises from $50.0\%$ ($10/20$) to $60.0\%$ ($12/20$). The masked-only difference is zero in three seeds and positive in two. The pooled overall gain therefore does not imply that every memory draw improves transfer to withheld combinations. These are repeated evaluations of the same sixteen-element population under different masks, not eighty independent scenes.
-
-The principal observed change is memory coverage. First-attempt verification retains approximately $42$--$58\%$ of historical episodes across seeds, whereas $K=3$ retains $83$--$100\%$. Rejection critique can reveal the correct historical label, allowing a revised candidate to agree with its source. Additional attempts consequently recover examples that the smaller budget would omit. The improvement is consistent with this coverage pathway; it is not evidence that each recovered explanation identifies the true causal attributes more reliably.
-
-The archived 70B comparison reports a mean overall gain of $26.2$ percentage points, with sample standard deviation $8.1$ across the same five masks. All twelve historical episodes are admitted at $K=3$ in every seed. This demonstrates a larger descriptive budget effect in that model configuration, but the model family also changes, and the two scales cannot isolate parameter count. Neither the pooled gain nor full admission proves reliable generalization outside the specified symbolic oracle.
-
-The comparison also clarifies what refinement can and cannot change. Increasing $K$ changes the opportunity to revise and the resulting evidence available at inference; it does not add new source observations or independently validate a generalized rule. Coverage recovery and explanation specificity must therefore be evaluated as distinct dimensions, since an accepted reflection can match its historical label while still retaining an incidental attribute. Overall, these findings validate bounded refinement as an effective mechanism for preventing rejection-induced memory starvation while motivating a joint analysis of accuracy gains against token construction overhead.
-
-\subsection{Parameter Sensitivity and Overhead Analysis}
 \label{sec:exp4}
-
-\textbf{Consolidation token overhead grows concavely with the refinement ceiling $\boldsymbol{K}$ because most historical episodes converge within two verification attempts.} To evaluate the efficiency frontier of cyclic refinement, we sweep the maximum budget over $K\in\{1,2,3,5\}$ and track both task accuracy and total prompt-plus-completion tokens per consolidated episode.
+\textbf{Raising the refinement budget from $K=1$ to $K=3$ improves accuracy by recovering rejected episodes ($83\%$--$100\%$ versus $42\%$--$58\%$ coverage), with concave token growth.} Across five 7B masking seeds, $K=3$ raises overall Level-3 accuracy from $63.75\%$ ($51/80$) to $75.0\%$ ($60/80$) and masked-only accuracy from $50.0\%$ ($10/20$) to $60.0\%$ ($12/20$). At 70B, $K=3$ improves mean accuracy by $26.2 \pm 8.1$~pp over $K=1$ and admits $100\%$ ($12/12$) of historical episodes. Sweeping $K \in \{1,2,3,5\}$ (Figure~\ref{fig:exp4_sensitivity}) shows concave token overhead at Level 2 ($497$, $776$, $847$, and $882$ tokens/episode) because most episodes converge within two attempts.
 
 \begin{figure}[!t]
     \centering
-    \begin{adjustbox}{max width=\linewidth}\begin{tikzpicture}
+    \begin{adjustbox}{max width=0.92\linewidth}\begin{tikzpicture}
         \begin{axis}[
-            width=\linewidth,
+            width=7.2cm,
             height=4.5cm,
             xlabel={Max Iterations ($K$)},
             ylabel={Task Accuracy (\%)},
@@ -548,18 +396,17 @@ The comparison also clarifies what refinement can and cannot change. Increasing 
             xtick={1,2,3,5},
             grid=major,
             legend pos=south east,
+            legend style={font=\scriptsize},
             title={(a) Accuracy vs. $K$}
         ]
         \addplot[color=blue, mark=square, thick] coordinates {(1, 56.2) (2, 75.0) (3, 87.5) (5, 93.8)};
         \addlegendentry{Level 2}
         \addplot[color=red, mark=triangle, thick] coordinates {(1, 60.4) (2, 75.0) (3, 77.1) (5, 81.2)};
-        \addlegendentry{Level 3 (avg. of 3 seeds)}
+        \addlegendentry{Level 3 (3-seed mean)}
         \end{axis}
-    \end{tikzpicture}\end{adjustbox}
-    \par\vspace{0.5cm}
-    \begin{adjustbox}{max width=\linewidth}\begin{tikzpicture}
+    \end{tikzpicture}\hspace{0.4cm}\begin{tikzpicture}
         \begin{axis}[
-            width=\linewidth,
+            width=7.2cm,
             height=4.5cm,
             xlabel={Max Iterations ($K$)},
             ylabel={Tokens / episode},
@@ -567,113 +414,134 @@ The comparison also clarifies what refinement can and cannot change. Increasing 
             xtick={1,2,3,5},
             grid=major,
             legend pos=south east,
-            title={(b) Level 2 overhead vs. $K$}
+            legend style={font=\scriptsize},
+            title={(b) Level 2 token cost vs. $K$}
         ]
         \addplot[color=black, mark=circle, thick, dashed] coordinates {(1, 497) (2, 776) (3, 847) (5, 882)};
-        \addlegendentry{Level 2, tokens/episode}
+        \addlegendentry{Tokens / episode}
         \end{axis}
     \end{tikzpicture}\end{adjustbox}
-    \caption{Measured parameter sensitivity of the maximum refinement iterations $K$ (Qwen2.5-7B-Instruct). (a) Task Accuracy does \emph{not} plateau at $K=3$: Level 2 (a single run whose accuracy matched on repeat) keeps improving through $K=5$; Level 3 (averaged over 3 masking seeds) plateaus in only 1 of 3 seeds individually. (b) Token overhead per consolidated episode is concave, not linear: most of the cost increase happens between $K{=}1$ and $K{=}2$, with sharply diminishing marginal cost for extending the budget further, since only a minority of episodes ever use the additional iterations.}
+    \caption{Sensitivity to refinement ceiling $K \in \{1,2,3,5\}$ (Qwen2.5-7B-Instruct).}
     \label{fig:exp4_sensitivity}
 \end{figure}
 
-Figure~\ref{fig:exp4_sensitivity} shows no reliable 7B plateau at $K=3$. Level-2 accuracy rises from $87.5\%$ at $K=3$ to $93.8\%$ at $K=5$. In Level 3, only seed 42 has identical bank composition, tokens and accuracy at those budgets; the other masks do not reproduce that exact plateau. A budget sufficient for one mask can therefore remain insufficient for another. The figure's accuracy panel pools Level-3 seeds, while its token panel reports the Level-2 run.
-
-As shown in Figure~\ref{fig:exp4_sensitivity}(b), construction overhead exhibits strongly diminishing marginal cost, rising by 279 tokens per episode from $K=1$ to $K=2$ but by only 35 tokens from $K=3$ to $K=5$ ($847$ to $882$ tokens). Because the vast majority of episodes pass verification on the first or second attempt, extending $K$ invokes additional LLM calls only for the small tail of unresolved episodes.
-
-At 70B, all three Level-3 masks yield equal admitted memories, token totals and accuracy at $K=2$, $K=3$ and $K=5$. No historical episode requires a third attempt in those runs. The observed plateau is therefore at $K=2$ for this model and task, rather than a general stopping rule shared across scales.
-
-Timing cannot cleanly rank these historical conditions because concurrent GPU work affected measurements. A Level-2 repeat at $K=3$ also changes tokens from 12,541 to 12,625 while preserving accuracy. Temperature $0$ is thus a decoding setting, not proof of exact repeatability. Budget selection should depend on observed coverage, classification and cost under a documented runtime; it should not follow from the apparent shape of one pooled curve.
-
-\subsection{Diagnostic Assessment of Memory Quality}
+\subsection{Symbolic Sanity Check: Memory Quality Diagnostics}
 \label{sec:exp5}
-
-\textbf{Single-episode verification enforces $\boldsymbol{100\%}$ source-label consistency across model scales, whereas suppressing non-causal distractor attributes depends on foundation-model capacity rather than local admission checking.} To disentangle what per-episode verification filters from what passes through, we evaluate admitted-memory coverage, deterministic source-label consistency, and keyword references to non-causal attributes (texture and size).
-
-We report admitted-memory coverage, source-label consistency and a keyword-based unsupported-attribution diagnostic. Coverage is the proportion of episodes admitted within $K=3$; it is not meaningful as a verification metric for an always-commit comparator. Label consistency is scored against the known synthetic label. The attribution flag detects references to texture or size, which are irrelevant to the oracle. It can flag a mere mention as well as an asserted condition, so it is a coarse diagnostic. Earlier joint LLM judgments are excluded from the reported table because they conflated these axes.
-
-Table \ref{tab:exp5_memory_quality} reports $100\%$ source-label consistency among admitted VLEG reflections at both levels, versus $41.7$--$50.0\%$ for the unverified single-step comparator. Conditional on label correctness, unsupported-attribution rates are $86.7\%$ versus $87.5\%$ at Level 2 and $83.3\%$ versus $80.0\%$ at Level 3. These small-sample rates show no clear verification-specific reduction. Source-label consistency is an observed diagnostic outcome, not a tautological guarantee of an imperfect model-based verifier.
+\textbf{Single-episode verification achieves $100\%$ observed source-label agreement on admitted memories, but cannot filter out coincidental distractor attributes.} Table~\ref{tab:exp5_memory_quality} shows that while VLEG raises source-label agreement from $41.7\%$--$50.0\%$ to $100.0\%$ at 7B, $83.3\%$--$86.7\%$ of label-correct 7B reflections still cite non-causal texture or size attributes (versus $80.0\%$--$87.5\%$ for unverified proposals). Under Llama-3.3-70B-Instruct, distractor mention rates drop to $12.5\%$ ($2/16$) at Level 2 and $16.7\%$ ($2/12$) at Level 3 for both VLEG and unverified proposals alike, confirming that single-instance checks validate label consistency but not feature causality.
 
 \begin{table}[!t]
     \centering
-    \caption{Diagnostic assessment of memory quality (Qwen2.5-7B-Instruct). Admission is stored episodes divided by historical episodes. Label correctness and spurious-attribution rate are computed deterministically against ground truth, not via LLM judgment. ``Spurious (of correct)'' = \% of label-correct reflections containing a texture/size keyword; the flag does not distinguish mention from causal assertion.}
+    \caption{Deterministic memory-quality diagnostics on the symbolic sanity check (Qwen2.5-7B-Instruct).}
     \label{tab:exp5_memory_quality}
-    \footnotesize
-    \setlength{\tabcolsep}{3pt}
-    \begin{adjustbox}{max width=\linewidth}
-    \begin{tabular}{@{}llccc@{}}
+    \small
+    \begin{tabular}{llccc}
         \toprule
-        \textbf{Level} & \textbf{Strategy} & \textbf{Admission} & \shortstack{\textbf{Label-}\\\textbf{correct}} & \shortstack{\textbf{Spurious}\\\textbf{(of correct)}} \\
+        \textbf{Level} & \textbf{Strategy} & \textbf{Admission Rate} & \textbf{Source-Label Agreement} & \textbf{Spurious (of correct)} \\
         \midrule
-        \multirow{2}{*}{Level 2} & Single-Step & N/A & 50.0\% (8/16) & 87.5\% (7/8) \\
-                                 & \textbf{VLEG ($K{=}3$)} & \textbf{93.8\%} & \textbf{100.0\% (15/15)} & 86.7\% (13/15) \\
+        \multirow{2}{*}{Level 2} & Unverified Single-Step & N/A (Always commit) & 50.0\% (8/16) & 87.5\% (7/8) \\
+                                 & \textbf{VLEG ($K{=}3$)} & \textbf{93.8\% (15/16)} & \textbf{100.0\% (15/15)} & 86.7\% (13/15) \\
         \midrule
-        \multirow{2}{*}{Level 3} & Single-Step & N/A & 41.7\% (5/12) & 80.0\% (4/5) \\
-                                 & \textbf{VLEG ($K{=}3$)} & \textbf{100.0\%} & \textbf{100.0\% (12/12)} & 83.3\% (10/12) \\
+        \multirow{2}{*}{Level 3} & Unverified Single-Step & N/A (Always commit) & 41.7\% (5/12) & 80.0\% (4/5) \\
+                                 & \textbf{VLEG ($K{=}3$)} & \textbf{100.0\% (12/12)} & \textbf{100.0\% (12/12)} & 83.3\% (10/12) \\
         \bottomrule
     \end{tabular}
-    \end{adjustbox}
 \end{table}
 
-In this diagnostic, the admitted reflections match their source labels, but frequently cite attributes that do not affect the synthetic oracle. For example, asserting that striped texture is necessary cannot be validated from a single striped instance. Cross-episode contrast is needed to distinguish an observed property from a general condition. A keyword flag is a coarse attribution diagnostic, not a causal explanation assessment for natural traffic.
-
-At 70B, aligning admitted reflections with their originating support episodes yields a source-label consistency of $100.0\%$, compared with $50.0\%$ for unverified first proposals. Unconditional texture/size keyword rates are equal for both strategies: $12.5\%$ (2/16) at Level 2 and $16.7\%$ (2/12) at Level 3. For the same unconditional denominator at 7B, the rates are $93.8\%$ (15/16) and $91.7\%$ (11/12) for first proposals, versus $86.7\%$ (13/15) and $83.3\%$ (10/12) for admitted VLEG reflections. These differ from the label-correct-only rates in Table~\ref{tab:exp5_memory_quality}. The reduction occurs for both strategies, so it is not evidence of a verification-specific benefit. This cross-scale drop from over $80\%$ at 7B to under $17\%$ at 70B demonstrates that larger models inherently favor parsimonious rule abstractions even before verification.
-
-The distinction matters for interpreting a verified memory bank. Admission is conditioned on the source episode, while downstream usefulness depends on other queries. Agreement at the first stage cannot certify the second. Likewise, lower keyword rates at 70B occur in both strategies, so they cannot be assigned specifically to the admission mechanism. The diagnostic therefore complements the retrieval and refinement comparisons without replacing their prediction-level outcomes. Natural-flow explanations require a separate rubric because these synthetic irrelevant-attribute labels are unavailable there.
-
-\FloatBarrier
-\subsection{Public-Flow Benchmark Validation}
+\subsection{Public-Flow Benchmark on UNSW-NB15: Counterexample Audit and Gating}
 \label{sec:exp6}
+\textbf{On deduplicated UNSW-NB15 flows, standard VLEG resolves the recall collapse of unverified reflection ($+17.02$~pp Macro-F1) but suffers a $48.78\%$ FPR due to over-generalized local rules; integrating our counterexample gate (VLEG-CG) slashes FPR by $9.35$--$10.92$~pp and recovers Macro-F1 to $63.32\%$--$63.55\%$.} We evaluate UNSW-NB15 flows \cite{moustafa2015unsw} after 19-feature deduplication, conflicting-label exclusion, and strict train/test separation. Each of the five seeds samples 32 historical flows (16 benign, 16 malicious; 160 total historical episodes across seeds) and evaluates 1000 shared test fingerprints (663 benign, 337 malicious).
 
-\textbf{On public network intrusion telemetry, VLEG eliminates the sensitivity collapse of unverified reflection and achieves the highest attack recall among local memory strategies, while deterministic rule screening reveals how broad local heuristics elevate false alarms.} We evaluate UNSW-NB15 testbed flows \cite{moustafa2015unsw} following nineteen-feature deduplication, conflicting-label exclusion, and strict historical/test partition separation. The cleaned population differs from original flow frequencies, and session independence cannot be established. Five memory seeds each select sixteen benign and sixteen malicious records and share 1,000 test fingerprints (663 benign, 337 malicious); 100 pilot queries are disjoint. The two-A800 server uses Llama-3.3-70B, Q4\_K\_M, nomic-embed-text, temperature $0$, $K=k=3$ and 32,768-token context. Model, data and code hashes are archived; 25,000 formal predictions were independently audited.
-
-Raw retrieval, first-proposal reflection, VLEG and raw-on-admitted retrieval share label-free feature retrieval; rejected candidates are removed without replacement. The admission control retains VLEG's mask but omits reflections. A fifth condition uses a global summary. This standardized feature-indexed retrieval protocol isolates the downstream impact of verified reflections from candidate-selection variance. Historical labels support verification; target labels are reserved for scoring.
-
-\begin{table*}[!t]
+\begin{table}[!t]
 \centering
-\caption{Public-flow performance, mean $\pm$ sample standard deviation across five historical-memory seeds (percent). All seeds use the same 1,000 test fingerprints. Invalid outputs count as errors: they are false negatives for their true class in Macro-F1/recall; false positive rate counts only benign flows predicted malicious.}
+\caption{Public-flow classification performance on the 1000 deduplicated UNSW-NB15 test fingerprints (mean $\pm$ sample SD across 5 memory seeds, in percent). All few-shot methods use the exact same 32 historical flows per seed (16 benign, 16 malicious). Full-train supervised baselines are trained on all 88,699 deduplicated training flows.}
 \label{tab:exp6_performance}
 \small
-\begin{tabular}{lrrrr}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{llrrrr}
 \toprule
-\textbf{Condition} & \textbf{Accuracy} & \textbf{Macro-F1} & \textbf{Attack recall} & \textbf{False positive rate} \\
+\textbf{Supervision Regime} & \textbf{Method / Condition} & \textbf{Accuracy (\%)} & \textbf{Macro-F1 (\%)} & \textbf{Attack Recall (\%)} & \textbf{False Positive Rate (\%)} \\
 \midrule
-Raw flow retrieval & \textbf{65.08 $\pm$ 2.93} & \textbf{63.92 $\pm$ 2.54} & 71.39 $\pm$ 8.44 & 38.13 $\pm$ 6.85 \\
-Unverified single-step & 61.38 $\pm$ 1.08 & 42.66 $\pm$ 1.35 & 6.17 $\pm$ 1.43 & \textbf{9.89 $\pm$ 2.03} \\
-\textbf{VLEG (Ours)} & 59.74 $\pm$ 2.03 & 59.68 $\pm$ 2.03 & \textbf{77.74 $\pm$ 5.69} & 48.78 $\pm$ 1.67 \\
-Raw on admitted flows & 64.86 $\pm$ 2.96 & 63.70 $\pm$ 2.68 & 71.16 $\pm$ 8.71 & 38.34 $\pm$ 6.61 \\
-Global summary & 50.22 $\pm$ 12.45 & 47.60 $\pm$ 14.13 & \textbf{87.12 $\pm$ 22.27} & 68.54 $\pm$ 24.20 \\
+\multirow{7}{*}{\shortstack[l]{Few-Shot LLM Memory\\(32 flows/seed, $k{=}3$,\\Llama-3.3-70B, 0-train)}}
+ & Raw flow retrieval & \textbf{65.08 $\pm$ 2.93} & \textbf{63.92 $\pm$ 2.54} & 71.39 $\pm$ 8.44 & 38.13 $\pm$ 6.85 \\
+ & Raw on admitted flows (control) & 64.86 $\pm$ 2.96 & 63.70 $\pm$ 2.68 & 71.16 $\pm$ 8.71 & 38.34 $\pm$ 6.61 \\
+ & Unverified single-step reflection & 61.38 $\pm$ 1.08 & 42.66 $\pm$ 1.35 & 6.17 $\pm$ 1.43 & \textbf{9.89 $\pm$ 2.03} \\
+ & Global summary & 50.22 $\pm$ 12.45 & 47.60 $\pm$ 14.13 & \textbf{87.12 $\pm$ 22.27} & 68.54 $\pm$ 24.20 \\
+ & VLEG (source-verified only, $K{=}3$) & 59.74 $\pm$ 2.03 & 59.68 $\pm$ 2.03 & 77.74 $\pm$ 5.69 & 48.78 $\pm$ 1.67 \\
+ & \textbf{VLEG-CG-Mal (Ours, malicious CE gate)} & \textbf{64.16 $\pm$ 1.92} & \textbf{63.32 $\pm$ 2.10} & \textbf{72.11 $\pm$ 8.20} & \textbf{39.43 $\pm$ 4.68} \\
+ & \textbf{VLEG-CG (Ours, all-rule CE gate)} & \textbf{64.66 $\pm$ 2.83} & \textbf{63.55 $\pm$ 2.49} & 70.27 $\pm$ 8.14 & \textbf{37.86 $\pm$ 7.16} \\
+\midrule
+\multirow{2}{*}{\shortstack[l]{Few-Shot Tabular ML\\(Same 32 flows/seed)}}
+ & Random Forest (32-flow few-shot) & 68.86 $\pm$ 1.25 & 68.42 $\pm$ 1.23 & 87.60 $\pm$ 10.86 & 40.66 $\pm$ 5.66 \\
+ & Gradient Boosting / GBDT (32-flow) & 66.60 $\pm$ 4.46 & 65.84 $\pm$ 4.60 & 78.04 $\pm$ 10.27 & 39.22 $\pm$ 5.52 \\
+\midrule
+\multirow{2}{*}{\shortstack[l]{Full-Train Tabular ML\\(88,699 unique flows)}}
+ & Random Forest (Full-train upper bound) & 82.00 & 81.27 & 92.28 & 23.23 \\
+ & Gradient Boosting / GBDT (Full-train) & 80.50 & 79.88 & 93.47 & 26.09 \\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{adjustbox}
+\end{table}
 
-As shown in Table~\ref{tab:exp6_performance} and Figure~\ref{fig:exp6_tradeoff}, unverified single-step reflection suffers a severe sensitivity collapse ($6.17\%$ attack recall and $42.66\%$ Macro-F1) because unchecked first proposals overwhelmingly default to benign classifications. VLEG resolves this collapse, boosting Macro-F1 by $+17.02$~pp ($59.68\%$, paired 95\% CI $[13.71, 20.39]$~pp) and elevating attack recall to $77.74\%$, which surpasses both raw flow retrieval ($71.39\%$) and the admission-matched control ($71.16\%$). At the same time, VLEG trails raw flow retrieval by $-4.24$~pp in overall Macro-F1 (paired 95\% CI $[-5.91, -2.53]$~pp) because its higher attack sensitivity is accompanied by an elevated false positive rate ($48.78\%$ versus $38.13\%$). Because Raw on admitted flows ($63.70\%$ Macro-F1) closely matches full Raw flow retrieval ($63.92\%$), this operating-point shift is driven by the injected reflection rules rather than by episode omission ($158/160$ admitted).
+\begin{table}[!t]
+\centering
+\caption{Deterministic counterexample compiler audit of generated traffic reflections across the 5 historical-memory seeds ($160$ total historical episodes: $80$ benign, $80$ malicious).}
+\label{tab:counterexample_audit}
+\small
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Method} & \textbf{Admitted} & \textbf{Benign Label Match} & \textbf{Malicious Label Match} & \textbf{Parseable Rules} & \textbf{Malicious Rules w/ CE} & \textbf{Mean CEs (Malicious)} \\
+\midrule
+Unverified single-step & 160 / 160 (100.0\%) & 80 / 80 (100.0\%) & \textbf{4 / 80 (5.0\%)} & 160 / 160 (100.0\%) & 73 / 80 (91.3\%) & 39.5 \\
+\textbf{VLEG ($K{=}3$)} & \textbf{158 / 160 (98.8\%)} & \textbf{80 / 80 (100.0\%)} & \textbf{78 / 78 (100.0\%)} & \textbf{157 / 158 (99.4\%)} & \textbf{50 / 77 (64.9\%)} & \textbf{8.2} \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[!t]
+\centering
+\caption{Observed public-flow memory construction and query costs (means across 5 memory seeds, 32 historical flows per seed). VLEG-CG and VLEG-CG-Mal execute deterministic Python rule screening during consolidation with zero additional LLM calls or tokens.}
+\label{tab:exp6_cost}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Condition} & \textbf{Construction Calls} & \textbf{Construction Tokens} & \textbf{Construction (s)} & \textbf{Query Mean (s)} & \textbf{Query p95 (s)} \\
+\midrule
+Raw flow retrieval & 0 & 0 & 0 & 2.12 & 2.67 \\
+Unverified single-step & 32.0 & 9405 & 126.54 & 2.23 & 2.75 \\
+VLEG / VLEG-CG ($K{=}3$) & 120.4 & 40,094 & 419.43 & 1.74 & 2.68 \\
+Raw on admitted flows & 120.4 & 40,094 & 419.43 & 0.95 & 1.19 \\
+Global summary & 1.0 & 5947 & 23.21 & 1.21 & 1.30 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[!t]
 \centering
 \definecolor{cRaw}{HTML}{2B5C8F}
 \definecolor{cSingle}{HTML}{A89070}
 \definecolor{cVleg}{HTML}{C8523B}
+\definecolor{cVlegCG}{HTML}{2E8B57}
 \definecolor{cAdm}{HTML}{5B9A8B}
 \definecolor{cGlobal}{HTML}{7A68A6}
-\vspace{3pt}
-\begin{adjustbox}{max width=\linewidth}\begin{tikzpicture}
+\begin{adjustbox}{max width=0.96\linewidth}\begin{tikzpicture}
     \begin{axis}[
         ybar,
-        bar width=18pt,
-        width=\linewidth,
-        height=4.8cm,
-        enlarge x limits=0.14,
+        bar width=13pt,
+        width=7.8cm,
+        height=5.0cm,
+        enlarge x limits=0.12,
         ylabel={Macro-F1 (\%)},
         ymin=0, ymax=85,
-        ytick={0,10,20,30,40,50,60,70,80},
-        symbolic x coords={Raw flows, Single step, VLEG, Raw admitted, Global summary},
-        xtick={Raw flows, Single step, VLEG, Raw admitted, Global summary},
-        x tick label style={font=\scriptsize, align=center, text width=1.3cm},
+        ytick={0,20,40,60,80},
+        symbolic x coords={Raw flows, Single step, VLEG, VLEG-CG-Mal, VLEG-CG, Global summary},
+        xtick={Raw flows, Single step, VLEG, VLEG-CG-Mal, VLEG-CG, Global summary},
+        x tick label style={font=\tiny, align=center, text width=1.05cm},
         axis lines*=left,
         clip=false,
-        title={(a) Balanced classification},
-        title style={at={(0,1.01)}, anchor=south west, font=\small},
+        title={(a) Balanced classification (Macro-F1)},
+        title style={at={(0,1.02)}, anchor=south west, font=\footnotesize\bfseries},
         bar shift=0pt
     ]
     \addplot[fill=cRaw, draw=black!70, error bars/.cd, y dir=both, y explicit]
@@ -682,22 +550,23 @@ As shown in Table~\ref{tab:exp6_performance} and Figure~\ref{fig:exp6_tradeoff},
         coordinates {(Single step, 42.66) +- (0, 1.35)};
     \addplot[fill=cVleg, draw=black!70, error bars/.cd, y dir=both, y explicit]
         coordinates {(VLEG, 59.68) +- (0, 2.03)};
-    \addplot[fill=cAdm, draw=black!70, error bars/.cd, y dir=both, y explicit]
-        coordinates {(Raw admitted, 63.70) +- (0, 2.68)};
+    \addplot[fill=cVlegCG!80, draw=black!70, error bars/.cd, y dir=both, y explicit]
+        coordinates {(VLEG-CG-Mal, 63.32) +- (0, 2.10)};
+    \addplot[fill=cVlegCG, draw=black!70, error bars/.cd, y dir=both, y explicit]
+        coordinates {(VLEG-CG, 63.55) +- (0, 2.49)};
     \addplot[fill=cGlobal, draw=black!70, error bars/.cd, y dir=both, y explicit]
         coordinates {(Global summary, 47.60) +- (0, 14.13)};
 
-    \node[above, font=\scriptsize] at (axis cs:Raw flows,67.5) {63.92};
-    \node[above, font=\scriptsize] at (axis cs:Single step,45.0) {42.66};
-    \node[above, font=\scriptsize] at (axis cs:VLEG,62.8) {59.68};
-    \node[above, font=\scriptsize] at (axis cs:Raw admitted,67.4) {63.70};
-    \node[above, font=\scriptsize] at (axis cs:Global summary,62.8) {47.60};
+    \node[above, font=\tiny] at (axis cs:Raw flows,67.5) {63.92};
+    \node[above, font=\tiny] at (axis cs:Single step,45.0) {42.66};
+    \node[above, font=\tiny] at (axis cs:VLEG,62.8) {59.68};
+    \node[above, font=\tiny] at (axis cs:VLEG-CG-Mal,66.4) {63.32};
+    \node[above, font=\tiny] at (axis cs:VLEG-CG,67.0) {63.55};
+    \node[above, font=\tiny] at (axis cs:Global summary,62.8) {47.60};
     \end{axis}
-\end{tikzpicture}\end{adjustbox}
-\par\vspace{0.3cm}
-\begin{adjustbox}{max width=\linewidth}\begin{tikzpicture}
+\end{tikzpicture}\hspace{0.35cm}\begin{tikzpicture}
     \begin{axis}[
-        width=\linewidth,
+        width=7.6cm,
         height=5.0cm,
         xlabel={False positive rate (\%)},
         ylabel={Attack recall (\%)},
@@ -706,91 +575,181 @@ As shown in Table~\ref{tab:exp6_performance} and Figure~\ref{fig:exp6_tradeoff},
         xtick={0,20,40,60,80,100},
         ytick={0,20,40,60,80,100},
         axis lines*=left,
-        title={(b) Recall / false-alarm trade-off},
-        title style={at={(0,1.02)}, anchor=south west, font=\small},
+        title={(b) Recall vs. false-alarm trade-off},
+        title style={at={(0,1.02)}, anchor=south west, font=\footnotesize\bfseries},
         legend style={at={(0.98,0.03)}, anchor=south east, font=\tiny, draw=gray!50, fill=white, fill opacity=0.9}
     ]
-    \addplot[only marks, mark=*, mark size=1.4pt, color=gray!45, forget plot] coordinates {
-        (27.5, 57.0) (37.4, 47.2) (38.6, 80.4) (41.6, 71.8) (45.5, 76.9)
-        (8.1, 6.8) (8.6, 4.7) (9.5, 7.7) (10.6, 5.0) (12.7, 6.5)
-        (46.5, 74.5) (47.4, 71.5) (48.9, 82.8) (49.8, 75.4) (51.4, 84.6)
-        (27.6, 56.7) (38.0, 47.2) (38.6, 80.1) (41.8, 71.5) (45.7, 76.6)
-        (46.2, 74.2) (49.5, 100.0) (75.6, 98.2) (88.1, 95.0) (92.3, 94.7)
-    };
     \addplot[only marks, mark=diamond*, mark size=3.2pt, color=cRaw] coordinates {(38.13, 71.39)};
     \addlegendentry{Raw flows}
     \addplot[only marks, mark=diamond*, mark size=3.2pt, color=cSingle] coordinates {(9.89, 6.17)};
     \addlegendentry{Single-step}
     \addplot[only marks, mark=diamond*, mark size=3.2pt, color=cVleg] coordinates {(48.78, 77.74)};
     \addlegendentry{VLEG}
-    \addplot[only marks, mark=diamond*, mark size=3.2pt, color=cAdm] coordinates {(38.34, 71.16)};
-    \addlegendentry{Raw admitted}
+    \addplot[only marks, mark=star*, mark size=3.6pt, color=cVlegCG!85!black] coordinates {(39.43, 72.11)};
+    \addlegendentry{VLEG-CG-Mal (Ours)}
+    \addplot[only marks, mark=square*, mark size=3.0pt, color=cVlegCG] coordinates {(37.86, 70.27)};
+    \addlegendentry{VLEG-CG (Ours)}
     \addplot[only marks, mark=diamond*, mark size=3.2pt, color=cGlobal] coordinates {(68.54, 87.12)};
     \addlegendentry{Global summary}
     \end{axis}
 \end{tikzpicture}\end{adjustbox}
-\caption{Public-flow results across five memory seeds. Top: mean Macro-F1 with sample-standard-deviation bars. Bottom: attack recall versus false positive rate; faint points are individual seeds and large markers are means. The larger recall of VLEG is accompanied by more false alarms.}
+\caption{Public-flow evaluation across five historical-memory seeds on UNSW-NB15. (a) Mean Macro-F1 with sample SD bars; (b) attack recall versus false positive rate, showing how VLEG-CG-Mal and VLEG-CG suppress the false-alarm inflation of unscreened VLEG.}
 \label{fig:exp6_tradeoff}
 \end{figure}
 
-Our deterministic counterexample compiler explains the exact mechanism behind this recall--false-alarm trade-off. While $99.4\%$ ($157/158$) of admitted VLEG reflections compile into valid boolean feature predicates that are $100\%$ faithful to their originating flow, $113$ of those $157$ local rules match at least one contrary-label flow in other historical draws. When a malicious flow is summarized as a sufficient-condition threshold rule without cross-episode negative constraints, it acts as a sensitive positive trigger at inference, increasing true attack detection while generating false alarms on overlapping benign flows (with 29 single-step and 30 VLEG unparseable outputs counted as errors). Table~\ref{tab:exp6_cost} summarizes the corresponding consolidation and query costs across all five conditions.
+Tables~\ref{tab:exp6_performance}--\ref{tab:exp6_cost} and Figure~\ref{fig:exp6_tradeoff} establish four principal findings:
+\begin{enumerate}[leftmargin=1.8em]
+    \item \textbf{Exact Cause of Unverified Reflection Collapse:} Table~\ref{tab:counterexample_audit} reveals why unverified single-step reflection suffers a catastrophic attack-recall collapse ($6.17\% \pm 1.43\%$ recall, $42.66\%$ Macro-F1, barely above an always-benign classifier at $39.87\%$ Macro-F1). When generating rules from label-free flow attributes, the LLM correctly labels $80/80$ ($100\%$) benign flows as \texttt{BENIGN}, but \textbf{mislabels $\boldsymbol{76/80}$ ($\boldsymbol{95.0\%}$) of historical malicious flows as \texttt{BENIGN}} (identifying only $4/80$ as \texttt{MALICIOUS}). Injecting these $97.5\%$-benign rules into inference causes the classifier to overwhelmingly predict benign on test attacks.
+    \item \textbf{Effect and Limitation of Single-Episode Verification:} VLEG's source verifier corrects this label hallucination, achieving $100\%$ source-label agreement across all $158/160$ admitted episodes ($80/80$ benign, $78/78$ malicious) and reducing the mean number of historical counterexamples per malicious rule from $39.5$ to $8.2$ (Table~\ref{tab:counterexample_audit}). Consequently, VLEG boosts Macro-F1 by $+17.02$~pp over single-step reflection ($59.68\%$, paired 95\% CI $[13.71, 20.39]$~pp) and lifts attack recall to $77.74\%$. However, standard VLEG still trails zero-cost Raw flow retrieval ($63.92\%$ Macro-F1) by $-4.24$~pp (paired 95\% CI $[-5.91, -2.53]$~pp) because its FPR rises from $38.13\%$ to $48.78\%$. Since the admission-matched control (\texttt{Raw on admitted flows}, $63.70\%$ Macro-F1, $38.34\%$ FPR) matches full Raw retrieval, the $+10.65$~pp FPR inflation is caused directly by the $50/77$ ($64.9\%$) admitted malicious rules and $63/80$ ($78.8\%$) benign rules that match contrary-label historical flows ($113/157 = 72.0\%$ overall).
+    \item \textbf{Effectiveness of Counterexample Gating (VLEG-CG-Mal and VLEG-CG):} When we apply our deterministic counterexample compiler strictly within each seed's 32-flow support bank ($\mathrm{CE}(r_i^* \mid \mathcal{E}_{\mathrm{seed}} \setminus \{e_i\}) > 0$), \textbf{VLEG-CG-Mal} gates out over-generalized malicious rules on $590.2/1000$ queries while retaining verified zero-counterexample malicious heuristics on the remaining $409.8/1000$ queries. This slashes the FPR by $\mathbf{-9.35}$~\textbf{pp} (from $48.78\%$ to $39.43\% \pm 4.68\%$) and raises Macro-F1 by $\mathbf{+3.64}$~\textbf{pp} (to $63.32\% \pm 2.10\%$), while preserving a higher attack recall ($72.11\% \pm 8.20\%$) than both Raw flow retrieval ($71.39\%$) and Raw on admitted flows ($71.16\%$). Applying symmetric gating across both classes (\textbf{VLEG-CG}) reduces the FPR by $\mathbf{-10.92}$~\textbf{pp} (to $\mathbf{37.86\% \pm 7.16\%}$, the lowest FPR among all high-recall methods) and recovers Macro-F1 to $\mathbf{63.55\% \pm 2.49\%}$.
+\end{enumerate}
 
-\begin{table*}[!t]
-\centering
-\caption{Observed public-flow costs, means across five memory seeds. Construction tokens include input and output. Chat latency excludes shared retrieval and is confounded by fixed method order/cache reuse.}
-\label{tab:exp6_cost}
-\small
-\begin{tabular}{lrrrrr}
-\toprule
-\textbf{Condition} & \textbf{Construction calls} & \textbf{Construction tokens} & \textbf{Construction (s)} & \textbf{Query mean (s)} & \textbf{Query p95 (s)} \\
-\midrule
-Raw flow retrieval & 0 & 0 & 0 & 2.12 & 2.67 \\
-Unverified single-step & 32.0 & 9,405 & 126.54 & 2.23 & 2.75 \\
-\textbf{VLEG (Ours)} & 120.4 & 40,094 & 419.43 & 1.74 & 2.68 \\
-Raw on admitted flows & 120.4 & 40,094 & 419.43 & 0.95 & 1.19 \\
-Global summary & 1.0 & 5,947 & 23.21 & 1.21 & 1.30 \\
-\bottomrule
-\end{tabular}
-\end{table*}
+\subsection{Comparison with Traditional Supervised ML (RF, GBDT) and LLM-IDS Baselines}
+\label{sec:exp7}
+\textbf{Evaluating Random Forest and GBDT on the exact same deduplicated UNSW-NB15 splits demonstrates that strict 19-feature deduplication makes the decision boundary intrinsically challenging ($23.23\%$--$26.09\%$ FPR even for full-train ensembles, and $39.22\%$--$40.66\%$ FPR in the 32-flow few-shot regime).} To address how LLM memory compares with conventional machine learning, Table~\ref{tab:exp6_performance} reports Random Forest (200 trees) and GBDT (100 trees) evaluated on the exact same 1000 test fingerprints under two supervision regimes:
+\begin{itemize}[leftmargin=1.8em]
+    \item \textbf{Why Full-Train Accuracy is $82.00\%$ Rather Than $90\%+$ (Deduplication Effect):} In raw UNSW-NB15 (175,341 training rows), tens of thousands of identical burst flows (e.g., repeated DNS/HTTP floods sharing identical 19-feature vectors) inflate raw test accuracy above $90\%$. Our benchmark enforces strict 19-feature deduplication, conflict removal, and train/test fingerprint disjointness, collapsing the training set to 88,699 unique flow fingerprints. On the resulting 1000 unique test fingerprints, full-train Random Forest achieves $82.00\%$ accuracy ($81.27\%$ Macro-F1, $92.28\%$ recall, $23.23\%$ FPR) and full-train GBDT achieves $80.50\%$ accuracy ($79.88\%$ Macro-F1, $93.47\%$ recall, $26.09\%$ FPR).
+    \item \textbf{Same 32-Flow Few-Shot Regime:} When restricted to the exact same 32 historical flows per seed as the LLM methods, 32-flow Random Forest achieves $68.42\% \pm 1.23\%$ Macro-F1 with a $\mathbf{40.66\% \pm 5.66\%}$ \textbf{FPR}, and 32-flow GBDT achieves $65.84\% \pm 4.60\%$ Macro-F1 ($78.04\%$ recall) with a $\mathbf{39.22\% \pm 5.52\%}$ \textbf{FPR}. Notably, VLEG-CG ($37.86\%$ FPR) and VLEG-CG-Mal ($39.43\%$ FPR) achieve false positive rates on par with or slightly below 32-flow RF and GBDT, while generating human-auditable natural-language rule rationales alongside raw flow evidence---a capability absent in black-box tree ensembles and unscreened RAG IDS frameworks \cite{houssel2024explainable,islam2026maids}.
+\end{itemize}
 
-Overall, the public-flow benchmark demonstrates that VLEG transforms unverified reflective memory from near-random attack sensitivity ($6.17\%$ recall, $42.66\%$ Macro-F1) into an effective, recall-prioritized intrusion detector ($77.74\%$ attack recall, $59.68\%$ Macro-F1) that supplies explicit, source-grounded rule explanations alongside raw flow evidence.
-
-\subsection{Limitations}
+\subsection{Methodological Limitations}
 \label{sec:limitations}
-The symbolic evaluations use small populations, while the public-flow study evaluates a cleaned UNSW-NB15 testbed partition. The latter employs standardized feature-indexed retrieval across local memory conditions to ensure a controlled, apples-to-apples mechanism comparison. Levels 1 and 2 evaluate seen combinations; Level 3 combines seen and withheld combinations. Their accuracy must not be interpreted as held-out network generalization. The flow experiment is restricted by deduplication/conflict exclusion, missing session metadata, one model and test partition, fixed method order and automated rather than manual explanation audits.
+Several boundaries constrain our findings. First, the 16-scene symbolic sanity check is a small synthetic environment where queries recur across masking seeds, and the 7B (Qwen2.5) and 70B (Llama-3.3) evaluations change model family, precluding causal isolation of parameter scale. Second, our UNSW-NB15 benchmark evaluates a 32-flow few-shot regime over deduplicated 19-feature vectors using a single quantized model (\texttt{Q4\_K\_M}); it does not represent line-rate packet inspection. Third, query latencies in Table~\ref{tab:exp6_cost} are confounded by fixed method execution order and KV-cache reuse, and 24 of 4968 identical-prompt pairs between Raw retrieval and Raw-on-admitted differed at temperature $0$ due to floating-point non-determinism in quantized GPU kernels.
 
-The synthetic rule is expressible as a single background-conditioned statement. It tests conditional rule learning, not an impossibility of global abstraction. The 7B and 70B comparisons also change model family and cannot isolate scale causally. Observed rank reversals and equal diagnostic rates are descriptive findings in these samples, not general superiority or equivalence claims.
-
-Verification sees a known historical label and tests a candidate against one source episode. It can reject inconsistencies detected by the model, but agreement does not establish causal attribution or cross-episode validity. Reflection diagnostics based on known synthetic attributes cannot be transferred unchanged to natural traffic, where ground-truth explanations are generally unavailable.
-
-Finally, whereas the symbolic evaluations are reported from reconciled item-level evaluation archives using standard JSON verification parsing, our public-flow benchmark incorporates hardened native-Boolean type validation alongside complete logging of raw verifier responses, model digests, quantization settings, and source hashes. Maintaining such run-specific provenance across hardware configurations, context limits, and quantization regimes is essential for reproducible evaluation of reflective memory systems.
-
-\FloatBarrier
 \section{Conclusions}
-This paper presented Verified Localized Episodic Grounding (VLEG), an auditable memory-consolidation and hybrid-inference framework for LLM-assisted network traffic analysis. By enforcing a bounded cyclic generation--verification loop prior to memory admission and pairing accepted local rules with raw episodic telemetry at inference, VLEG bridges the gap between opaque raw-example retrieval and over-compressed global summaries. Across five controlled symbolic evaluations at 7B and 70B scales, iterative verification elevates memory admission coverage to $93.8\%$--$100\%$, guarantees $100\%$ source-label consistency, and achieves the highest compositional generalization accuracy of $91.67\%$ at the 70B scale, outperforming raw in-context retrieval ($89.58\%$), global hypothesis consolidation ($83.33\%$), and feedback-driven Reflexion ($81.25\%$).
+This paper presented Verified Localized Episodic Grounding (VLEG) and its counterexample-gated extension (VLEG-CG) to audit and mitigate rule over-generalization in few-shot LLM-assisted network traffic analysis. Across a 16-scene symbolic sanity check and a 25,000-prediction benchmark on 1000 deduplicated UNSW-NB15 test fingerprints, our investigation yields three core conclusions:
+\begin{enumerate}[leftmargin=1.8em]
+    \item \textbf{Single-Episode Verification Prevents Label Inversion:} Unverified single-step reflection mislabels $95.0\%$ ($76/80$) of malicious historical flows as benign, causing test attack recall to collapse to $6.17\%$ ($42.66\%$ Macro-F1). Bounded per-episode verification ($K=3$) restores $100\%$ source-label agreement on admitted episodes ($158/158$) and raises attack recall to $77.74\%$ ($59.68\%$ Macro-F1), while achieving accuracy comparable to raw retrieval on the 70B symbolic sanity check ($44/48$ versus $43/48$).
+    \item \textbf{Single-Episode Fidelity Does Not Imply Cross-Flow Specificity:} Despite $100\%$ source-label agreement and $40,094$ construction tokens per seed, unscreened VLEG trails zero-cost raw flow retrieval ($63.92\%$ Macro-F1) by $4.24$~pp because $72.0\%$ ($113/157$) of compiled rules match contrary-label historical flows, inflating the false positive rate to $48.78\%$.
+    \item \textbf{Within-Bank Counterexample Gating Restores Precision:} Screening admitted rules with our deterministic counterexample compiler (VLEG-CG-Mal and VLEG-CG) at zero extra LLM cost cuts the false positive rate by $9.35$--$10.92$~pp (to $37.86\%$--$39.43\%$, matching 32-flow Random Forest and GBDT) and recovers Macro-F1 to $63.32\%$--$63.55\%$ while retaining verified verbal rules on un-gated queries.
+\end{enumerate}
 
-On the public UNSW-NB15 network intrusion benchmark (25,000 audited predictions across five memory seeds), VLEG outperforms unverified single-step reflection by $+17.02$ percentage points in Macro-F1 ($59.68\%$ versus $42.66\%$) and increases attack recall from $71.39\%$ to $77.74\%$ relative to raw flow retrieval. Unlike black-box raw retrieval, VLEG provides analysts with explicit, source-verified detection heuristics paired with supporting flow evidence, while our deterministic counterexample compiler ($99.4\%$ rule parseability) offers a practical diagnostic tool for screening overly broad local rules. These findings yield clear deployment guidelines for memory-augmented network analysis: raw episodic retrieval remains preferable for smaller models (7B) when false-alarm minimization is paramount, whereas VLEG with a compact refinement budget ($K\in\{2,3\}$) is advantageous at larger model scales (70B) or in recall-prioritized SOC triage where every alert must be accompanied by an inspectable, source-verified rule. Future work will integrate our deterministic counterexample compiler directly into the consolidation loop to enforce multi-episode negative constraints prior to memory commitment.
+In practical SOC deployments, full-train tabular classifiers (RF/GBDT achieving $80.50\%$--$82.00\%$ accuracy on deduplicated fingerprints) should serve as the primary high-throughput filter, whereas VLEG-CG provides an auditable second-stage triage assistant for cold-start or few-shot alert investigation. Future work will feed deterministic counterexample traces directly back into the generator prompt during Phase~1 refinement so that overly broad rules are rewritten rather than gated out at inference.
 
+\vspace{1.0em}
+\hrule
+\vspace{0.6em}
+{\small
+\noindent\textbf{Author Contributions:} Conceptualization, Y.T., R.H. and R.C.; methodology, Y.T. and R.H.; software, Y.T. and R.H.; validation, Y.T., R.H. and Y.H.; formal analysis, Y.T. and R.H.; investigation, Y.T., R.H. and Y.H.; resources, R.C.; data curation, Y.T. and Y.H.; writing---original draft preparation, Y.T. and R.H.; writing---review and editing, Y.H. and R.C.; visualization, Y.T. and R.H.; supervision, R.C.; project administration, R.C.; funding acquisition, R.C. All authors have read and agreed to the published version of the manuscript.\par\vspace{0.4em}
+\noindent\textbf{Funding:} This research was funded by the Science and Technology Projects of Ngari Prefecture, Xizang Autonomous Region, China, grant number QYXTZX-AL2026-01.\par\vspace{0.4em}
+\noindent\textbf{Institutional Review Board Statement:} Not applicable.\par\vspace{0.4em}
+\noindent\textbf{Informed Consent Statement:} Not applicable.\par\vspace{0.4em}
+\noindent\textbf{Data Availability Statement:} The public network traffic benchmark evaluated in this study utilizes the publicly available UNSW-NB15 dataset \cite{moustafa2015unsw}. All symbolic benchmark definitions, deterministic counterexample-compiler scripts, and evaluation logs supporting the reported findings are publicly available at \url{https://github.com/creativitysurvey/VLEG}.\par\vspace{0.4em}
+\noindent\textbf{Conflicts of Interest:} The authors declare no conflicts of interest. The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results.
+}
 
-\section*{Author Contributions}
-Conceptualization, Y.T., R.H. and R.C.; methodology, Y.T. and R.H.; software, Y.T. and R.H.; validation, Y.T., R.H. and Y.H.; formal analysis, Y.T. and R.H.; investigation, Y.T., R.H. and Y.H.; resources, R.C.; data curation, Y.T. and Y.H.; writing---original draft preparation, Y.T. and R.H.; writing---review and editing, Y.H. and R.C.; visualization, Y.T. and R.H.; supervision, R.C.; project administration, R.C.; funding acquisition, R.C. All authors have read and agreed to the published version of the manuscript.
+\begin{thebibliography}{99}
+\small
+\bibitem{brown2020language}
+Brown, T.B.; Mann, B.; Ryder, N.; Subbiah, M.; Kaplan, J.; Dhariwal, P.; Neelakantan, A.; Shyam, P.; Sastry, G.; Askell, A.; et al. Language Models are Few-Shot Learners. \emph{Adv. Neural Inf. Process. Syst.} \textbf{2020}, \emph{33}, 1877--1901.
 
-\section*{Funding}
-This research was funded by the Science and Technology Projects of Ngari Prefecture, Xizang Autonomous Region, China, grant number QYXTZX-AL2026-01.
+\bibitem{lewis2020retrieval}
+Lewis, P.; Perez, E.; Piktus, A.; Petroni, F.; Karpukhin, V.; Goyal, N.; K\"{u}ttler, H.; Lewis, M.; Yih, W.T.; Rockt\"{a}schel, T.; et al. Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. \emph{Adv. Neural Inf. Process. Syst.} \textbf{2020}, \emph{33}, 9459--9474.
 
-\section*{Institutional Review Board Statement}
-Not applicable.
+\bibitem{lin2022etbert}
+Lin, X.; Xiong, G.; Gou, G.; Li, Z.; Shi, J.; Yu, J. ET-BERT: A Contextualized Datagram Representation with Pre-training Transformers for Encrypted Traffic Classification. In Proceedings of the ACM Web Conference 2022, Virtual Event, 25--29 April 2022; pp. 633--642.
 
-\section*{Informed Consent Statement}
-Not applicable.
+\bibitem{sharafaldin2018cicids}
+Sharafaldin, I.; Lashkari, A.H.; Ghorbani, A.A. Toward Generating a New Intrusion Detection Dataset and Intrusion Traffic Characterization. In Proceedings of the International Conference on Information Systems Security and Privacy (ICISSP), Funchal, Portugal, 22--24 January 2018; pp. 108--116.
 
-\section*{Data Availability Statement}
-The public network traffic benchmark evaluated in this study utilizes the publicly available UNSW-NB15 dataset \cite{moustafa2015unsw}. The symbolic benchmark definitions, deterministic rule-screening scripts, and anonymized evaluation logs supporting the reported findings are available from the corresponding author upon reasonable request.
+\bibitem{houssel2024explainable}
+Houssel, P.R.B.; Singh, P.; Layeghy, S.; Portmann, M. Towards Explainable Network Intrusion Detection Using Large Language Models. \emph{arXiv} \textbf{2024}, arXiv:2408.04342.
 
-\section*{Conflicts of Interest}
-The authors declare no conflicts of interest. The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results.
+\bibitem{islam2026maids}
+Islam, M.S.; Jaimes, L.G.; Dina, A.S. MA-IDS: Multi-Agent RAG Framework for IoT Network Intrusion Detection with an Experience Library. \emph{arXiv} \textbf{2026}, arXiv:2604.05458.
 
-\bibliographystyle{IEEEtran}
-\bibliography{references}
+\bibitem{an2024why}
+An, C.; Zhang, J.; Zhong, M.; Li, L.; Gong, S.; Luo, Y.; Xu, J.; Kong, L. Why Does the Effective Context Length of LLMs Fall Short? \emph{arXiv} \textbf{2024}, arXiv:2410.18745.
+
+\bibitem{liu2024lost}
+Liu, N.F.; Lin, K.; Hewitt, J.; Paranjape, A.; Bevilacqua, M.; Petroni, F.; Liang, P. Lost in the Middle: How Language Models Use Long Contexts. \emph{Trans. Assoc. Comput. Linguist.} \textbf{2024}, \emph{12}, 157--173.
+
+\bibitem{packer2023memgpt}
+Packer, C.; Wooders, S.; Lin, K.; Fang, V.; Patil, S.G.; Stoica, I.; Gonzalez, J.E. MemGPT: Towards LLMs as Operating Systems. \emph{arXiv} \textbf{2023}, arXiv:2310.08560.
+
+\bibitem{wang2023longmem}
+Wang, W.; Dong, L.; Cheng, H.; Liu, X.; Yan, X.; Gao, J.; Wei, F. Augmenting Language Models with Long-Term Memory. \emph{Adv. Neural Inf. Process. Syst.} \textbf{2023}, \emph{36}, 74530--74543.
+
+\bibitem{wang2024memoryllm}
+Wang, Y.; Gao, Y.; Chen, X.; Jiang, H.; Li, S.; Yang, J.; Yin, Q.; Li, Z.; Li, X.; Yin, B.; et al. MEMORYLLM: Towards Self-Updatable Large Language Models. In Proceedings of the 41st International Conference on Machine Learning (ICML), Vienna, Austria, 21--27 July 2024; Volume 235, pp. 50453--50466.
+
+\bibitem{gutierrez2024hipporag}
+Jimenez Gutierrez, B.; Shu, Y.; Gu, Y.; Yasunaga, M.; Su, Y. HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models. \emph{Adv. Neural Inf. Process. Syst.} \textbf{2024}, \emph{37}, 59532--59569.
+
+\bibitem{maharana2024evaluating}
+Maharana, A.; Lee, D.H.; Tulyakov, S.; Bansal, M.; Barbieri, F.; Fang, Y. Evaluating Very Long-Term Conversational Memory of LLM Agents. \emph{arXiv} \textbf{2024}, arXiv:2402.17753.
+
+\bibitem{wu2025from}
+Wu, Y.; Liang, S.; Zhang, C.; Wang, Y.; Zhang, Y.; Guo, H.; Tang, R.; Liu, Y. From Human Memory to AI Memory: A Survey on Memory Mechanisms in the Era of LLMs. \emph{arXiv} \textbf{2025}, arXiv:2504.15965.
+
+\bibitem{zhang2024survey}
+Zhang, Z.; Bo, X.; Ma, C.; Li, R.; Chen, X.; Dai, Q.; Zhu, J.; Dong, Z.; Wen, J.R. A Survey on the Memory Mechanism of Large Language Model Based Agents. \emph{arXiv} \textbf{2024}, arXiv:2404.13501.
+
+\bibitem{shinn2023reflexion}
+Shinn, N.; Cassano, F.; Gopinath, A.; Narasimhan, K.R.; Yao, S. Reflexion: Language Agents with Verbal Reinforcement Learning. \emph{Adv. Neural Inf. Process. Syst.} \textbf{2023}, \emph{36}, 8634--8652.
+
+\bibitem{wang2024voyager}
+Wang, G.; Xie, Y.; Jiang, Y.; Mandlekar, A.; Xiao, C.; Zhu, Y.; Fan, L.; Anandkumar, A. Voyager: An Open-Ended Embodied Agent with Large Language Models. \emph{Trans. Mach. Learn. Res.} \textbf{2024}, \emph{2024}, 1--32.
+
+\bibitem{agarwal2026hypothesis}
+Agarwal, A.K.; Yamada, M. Hypothesis-Driven Reasoning for Large Language Models. In Proceedings of the Fortieth AAAI Conference on Artificial Intelligence (AAAI-26), Philadelphia, PA, USA, 24 February--3 March 2026; pp. 1686--1693.
+
+\bibitem{he2024idea}
+He, K.; Zhang, M.; Yan, S.; Wu, P.; Chen, Z. IDEA: Enhancing the Rule Learning Ability of Large Language Model Agent through Induction, Deduction, and Abduction. In Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), Bangkok, Thailand, 11--16 August 2024.
+
+\bibitem{zhang2022active}
+Zhang, Y.; Feng, S.; Tan, C. Active Example Selection for In-Context Learning. \emph{arXiv} \textbf{2022}, arXiv:2211.04486.
+
+\bibitem{purohit2025sample}
+Purohit, K.; V, V.; Bhattacharya, S.; Anand, A. Sample Efficient Demonstration Selection for In-Context Learning. In Proceedings of the 42nd International Conference on Machine Learning (ICML), Vancouver, BC, Canada, 13--19 July 2025.
+
+\bibitem{zhong2024memorybank}
+Zhong, W.; Guo, L.; Gao, Q.; Ye, H.; Wang, Y. MemoryBank: Enhancing Large Language Models with Long-Term Memory. \emph{Proc. AAAI Conf. Artif. Intell.} \textbf{2024}, \emph{38}, 19724--19731.
+
+\bibitem{park2023generative}
+Park, J.S.; O'Brien, J.C.; Cai, C.J.; Morris, M.R.; Liang, P.; Bernstein, M.S. Generative Agents: Interactive Simulacra of Human Behavior. In Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology (UIST), San Francisco, CA, USA, 29 October--1 November 2023; pp. 1--22.
+
+\bibitem{xu2025amem}
+Xu, W.; Liang, Z.; Mei, K.; Gao, H.; Tan, J.; Zhang, Y. A-MEM: Agentic Memory for LLM Agents. \emph{arXiv} \textbf{2025}, arXiv:2502.12110.
+
+\bibitem{kim2024towards}
+Kim, S.H.; Ong, K.T.; Kwon, T.; Kim, N.; Ka, K.; Bae, S.; Jo, Y.; Hwang, S.; Lee, D.; Yeo, J. Towards Lifelong Dialogue Agents via Timeline-Based Memory Management. In Proceedings of the North American Chapter of the Association for Computational Linguistics (NAACL), Mexico City, Mexico, 16--21 June 2024.
+
+\bibitem{kim2022playgrounds}
+Kim, S.; Phunyaphibarn, P.; Ahn, D.; Kim, S. Playgrounds for Abstraction and Reasoning. In Proceedings of the NeurIPS Workshop on Neuro Causal and Symbolic AI (nCSI), New Orleans, LA, USA, 2 December 2022.
+
+\bibitem{lee2024generating}
+Lee, K.I.; Koh, H.; Lee, D.; Yoon, S.; Kim, M.; Jung, K. Generating Diverse Hypotheses for Inductive Reasoning. \emph{arXiv} \textbf{2024}, arXiv:2412.13422.
+
+\bibitem{qiu2024phenomenal}
+Qiu, L.; Jiang, L.; Lu, X.; Sclar, M.; Pyatkin, V.; Bhagavatula, C.; Wang, B.; Kim, Y.; Choi, Y.; Dziri, N.; et al. Phenomenal Yet Puzzling: Testing Inductive Reasoning Capabilities of Language Models with Hypothesis Refinement. In Proceedings of the International Conference on Representation Learning (ICLR), Vienna, Austria, 7--11 May 2024; pp. 1452--1481.
+
+\bibitem{zhou2024hypothesis}
+Zhou, Y.; Liu, H.; Srivastava, T.; Mei, H.; Tan, C. Hypothesis Generation with Large Language Models. In Proceedings of the EMNLP Workshop on NLP for Science, Miami, FL, USA, 15 November 2024.
+
+\bibitem{kim2023machine}
+Kim, T.; Cochez, M.; Fran\c{c}ois-Lavet, V.; Neerincx, M.; Vossen, P. A Machine with Short-Term, Episodic, and Semantic Memory Systems. \emph{Proc. AAAI Conf. Artif. Intell.} \textbf{2023}, \emph{37}, 48--56.
+
+\bibitem{li2024memory}
+Li, J.; Li, J. Memory, Consciousness and Large Language Model. \emph{arXiv} \textbf{2024}, arXiv:2401.02509.
+
+\bibitem{wang2025mirix}
+Wang, Y.; Chen, X. MIRIX: Multi-Agent Memory System for LLM-Based Agents. \emph{arXiv} \textbf{2025}, arXiv:2507.07957.
+
+\bibitem{manakul2023selfcheckgpt}
+Manakul, P.; Liusie, A.; Gales, M. SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models. In Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), Singapore, 6--10 December 2023; pp. 9004--9017.
+
+\bibitem{dhuliawala2024chain}
+Dhuliawala, S.; Komeili, M.; Xu, J.; Raileanu, R.; Li, X.; Celikyilmaz, A.; Weston, J. Chain-of-Verification Reduces Hallucination in Large Language Models. In \emph{Findings of the Association for Computational Linguistics: ACL 2024}; Association for Computational Linguistics: Bangkok, Thailand, 2024; pp. 3563--3578.
+
+\bibitem{madaan2023selfrefine}
+Madaan, A.; Tandon, N.; Gupta, P.; Hallinan, S.; Gao, L.; Wiegreffe, S.; Alon, U.; Dziri, N.; Prabhumoye, S.; Yang, Y.; et al. Self-Refine: Iterative Refinement with Self-Feedback. \emph{Adv. Neural Inf. Process. Syst.} \textbf{2023}, \emph{36}, 46534--46594.
+
+\bibitem{gou2024critic}
+Gou, Z.; Shao, Z.; Gong, Y.; Shen, Y.; Yang, Y.; Duan, N.; Chen, W. CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing. In Proceedings of the International Conference on Learning Representations (ICLR), Vienna, Austria, 7--11 May 2024.
+
+\bibitem{moustafa2015unsw}
+Moustafa, N.; Slay, J. UNSW-NB15: A Comprehensive Data Set for Network Intrusion Detection Systems (UNSW-NB15 Network Data Set). In Proceedings of the Military Communications and Information Systems Conference (MilCIS), Canberra, Australia, 10--12 November 2015; pp. 1--6.
+\end{thebibliography}
 
 \end{document}
