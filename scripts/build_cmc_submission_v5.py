@@ -201,7 +201,7 @@ TEX_TEMPLATE = r"""\documentclass[11pt,letterpaper,onecolumn]{article}
 \fancyhead[R]{\footnotesize\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \setlength{\parindent}{0.20in}
-\setlength{\parskip}{2.5pt}
+\setlength{\parskip}{2.1pt}
 \renewcommand{\baselinestretch}{1.05}
 \emergencystretch=1.5em
 
@@ -944,4 +944,4 @@ branch = subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"], c
 subprocess.run(["git", "push", "origin", branch], cwd=REPO, check=True)
 if branch != "main":
     subprocess.run(["git", "push", "origin", f"{branch}:main"], cwd=REPO, check=False)
-print("[ALL DONE] Manuscript v4 passed pixel bbox audit, layout checks, ZIP build, and GitHub push!")
+print("[ALL DONE] Manuscript v5 (17 pages, zero orphan tail) passed all QA checks, zipped, and pushed to GitHub!")
