@@ -27,5 +27,5 @@ python3 -u scripts/run_vleg_cr.py --mode pilot_and_phase1
 python3 -u scripts/run_formal_vleg_cr_fast.py
 python3 -u scripts/run_reviewer_supplements.py
 python3 -u scripts/prepare_v2_data.py
-python3 scripts/build_cmc_submission_v4.py
+python3 scripts/build_cmc_submission_v5.py
 ```

@@ -100,7 +100,7 @@ Evaluated across a multi-level symbolic benchmark at 7B and 70B scales and a fiv
     \item \textbf{Two-Stage Verified and Counterexample-Refined Consolidation:} We design a closed-loop consolidation pipeline uniting LLM source verification with a deterministic predicate compiler $\Psi$ that iteratively eliminates within-bank counterexamples while blocking float-literal memorization.
     \item \textbf{Mechanistic Isolation of Three Reflection Failure Modes:} Across synthetic scenes and real network flows, we disentangle unverified malicious-to-benign label collapse (including under a label-informed unverified control), cross-flow over-generalization of source-consistent rules, and LLM false-positive anchoring induced by non-firing rules in hybrid prompts.
     \item \textbf{Neuro-Symbolic Triage Surpassing Raw Retrieval with Lower Compute:} Coupling counterexample-refined rules with deterministic symbolic execution yields statistically significant Macro-F1 gains of up to $+1.38$ percentage points over raw flow retrieval, reduces false positives below raw retrieval and all 32-flow unconstrained-tree and ensemble baselines, and eliminates nearly half of online 70B LLM calls.
-    \item \textbf{Complementary Integration with Shallow Decision Trees:} Benchmarking against leak-free 32-flow CART, RF, and GBDT models clarifies the trade-off between global impurity optimization and modular relational rules, demonstrating that routing uncovered boundary flows to a shallow CART fallback eliminates $100\%$ of online LLM calls (and $100\%$ of online embedding calls in Bank scope) while boosting few-shot Macro-F1 above 32-flow GBDT.
+    \item \textbf{Complementary Integration with Shallow Decision Trees:} Benchmarking against leak-free 32-flow CART, RF, and GBDT models clarifies the trade-off between global impurity optimization and modular relational rules, demonstrating that routing uncovered boundary flows to a shallow CART fallback eliminates $100\%$ of online LLM calls (and $100\%$ of online embedding calls in Bank scope) while matching or surpassing 32-flow GBDT in Macro-F1 with lower false-alarm rates.
 \end{itemize}
 
 \subsection{Paper Organization}
@@ -135,26 +135,26 @@ Consider a small labeled historical support bank $\mathcal{E}_{\mathrm{seed}} = 
 ]
 % Phase 1 Banner
 \node[anchor=west, font=\footnotesize\bfseries, text=blue!65!black] at (-0.1, 2.95) {Phase 1: Offline Two-Stage Verified \& Counterexample-Refined Consolidation};
-\node[stageA] (ep) at (1.00, 2.00) {Historical Episode\\$e_i = (x_i, y_i)$};
-\node[stageA] (genA) at (3.80, 2.00) {Generator $\mathcal{G}_\theta$\\Proposal $r_i^{(j)}$};
-\node[dec] (verA) at (6.65, 2.00) {Verifier $\mathcal{V}_\phi$\\$v_i^{(j)} = 1$?};
-\node[box, fill=red!10] (drop) at (6.65, 0.20) {Omit Episode\\($j = K$)};
+\node[stageA] (ep) at (0.85, 2.00) {Historical Episode\\$e_i = (x_i, y_i)$};
+\node[stageA] (genA) at (3.65, 2.00) {Generator $\mathcal{G}_\theta$\\Proposal $r_i^{(j)}$};
+\node[dec] (verA) at (7.05, 2.00) {Verifier $\mathcal{V}_\phi$\\$v_i^{(j)} = 1$?};
+\node[box, fill=red!10] (drop) at (7.05, 0.20) {Omit Episode\\($j = K$)};
 
-\node[dec] (comp) at (10.55, 2.00) {Compiler $\Psi$\\$\mathrm{CE}_{\mathrm{seed}}=0$?};
-\node[stageB] (genB) at (10.55, 0.20) {Stage-B Refinement ($K_{\mathrm{CR}}$)\\Critique $\tilde{c}_i^{(t)}$ from $\mathcal{E}_{-i}^{\mathrm{seed}}$ + $\mathcal{V}_\phi$};
-\node[mem] (bank) at (14.65, 2.00) {Verified Memory $\mathcal{M}$\\$\big(e_i,\; r_i^{\mathrm{CR}},\; \pi(r_i^{\mathrm{CR}}),\; S_{\mathrm{pos}}\big)$};
+\node[dec] (comp) at (10.85, 2.00) {Compiler $\Psi$\\$\mathrm{CE}_{\mathrm{seed}}=0$?};
+\node[stageB] (genB) at (10.85, 0.20) {Stage-B Refinement ($K_{\mathrm{CR}}$)\\Critique $\tilde{c}_i^{(t)}$ from $\mathcal{E}_{-i}^{\mathrm{seed}}$ + $\mathcal{V}_\phi$};
+\node[mem] (bank) at (15.15, 2.00) {Verified Memory $\mathcal{M}$\\$\big(e_i,\; r_i^{\mathrm{CR}},\; \pi(r_i^{\mathrm{CR}}),\; S_{\mathrm{pos}}\big)$};
 
-\draw[arr] (ep) -- node[above, font=\tiny]{$x_i$} (genA);
-\draw[arr] (genA) -- node[above, font=\tiny]{$r_i^{(j)}$} (verA);
-\draw[arr] (verA.north) -- ++(0,0.34) -| node[pos=0.25, above, font=\tiny]{No ($j < K$), critique $c_i^{(j)}$} (genA.north);
+\draw[arr] (ep) -- node[above=2pt, font=\tiny]{$x_i$} (genA);
+\draw[arr] (genA) -- node[above=2.5pt, pos=0.44, font=\tiny]{$r_i^{(j)}$} (verA);
+\draw[arr] (verA.north) -- ++(0,0.35) -| node[pos=0.25, above, font=\tiny]{No ($j < K$), critique $c_i^{(j)}$} (genA.north);
 \draw[arr] (verA.south) -- node[left=2.5pt, pos=0.48, font=\tiny]{No ($j = K$)} (drop.north);
-\draw[arr] (verA) -- node[above, font=\tiny]{Yes ($r_i^*$)} (comp);
+\draw[arr] (verA) -- node[above=2.2pt, pos=0.48, font=\tiny]{Yes ($r_i^*$)} (comp);
 \draw[arr] (comp.south) -- node[right=2.5pt, pos=0.48, font=\tiny]{No ($\mathrm{CE}_{\mathrm{seed}}>0$)} (genB.north);
 \draw[arr] (genB.west) -- ++(-0.42,0) |- node[pos=0.28, left=1.5pt, font=\tiny]{$\tilde{r}_i^{(t)}$} (comp.south west);
-\draw[arr] (comp) -- node[above, font=\tiny]{Yes / Fallback} (bank);
+\draw[arr] (comp) -- node[above=2.2pt, pos=0.48, font=\tiny]{Yes / Raw} (bank);
 
 % Divider
-\draw[dashed, gray!70, thick] (-0.1, -0.58) -- (16.10, -0.58);
+\draw[dashed, gray!70, thick] (-0.1, -0.58) -- (16.65, -0.58);
 
 % Phase 2 Banner
 \node[anchor=west, font=\footnotesize\bfseries, text=green!45!black] at (-0.1, -0.92) {Phase 2: Online Neuro-Symbolic Rule Triage};
@@ -162,11 +162,11 @@ Consider a small labeled historical support bank $\mathcal{E}_{\mathrm{seed}} = 
 \node[phase2] (ret) at (3.65, -1.95) {Lazy Top-$k$\\Retrieval};
 \node[phase2] (exec) at (6.80, -1.95) {Deterministic $\Psi$ Eval\\$\mathrm{Vote}_y(x_T)$ ($< 0.1$~ms)};
 \node[dec] (fire) at (9.85, -1.95) {Unambiguous\\Rule Fire?};
-\node[box, fill=green!18, minimum width=3.15cm] (out1) at (14.55, -1.30) {Rule Prediction $\hat{y}_T$\\+ Auditable Rule (0 LLM)};
-\node[box, fill=purple!10, minimum width=3.15cm] (out2) at (14.55, -2.60) {Boundary Fallback\\Top-$k$ Raw LLM or CART};
+\node[box, fill=green!18, minimum width=3.15cm] (out1) at (15.05, -1.30) {Rule Prediction $\hat{y}_T$\\+ Auditable Rule (0 LLM)};
+\node[box, fill=purple!10, minimum width=3.15cm] (out2) at (15.05, -2.60) {Boundary Fallback\\Top-$k$ Raw LLM or CART};
 
 \draw[arr] (query) -- (ret);
-\draw[arr, densely dashed, teal!70!black] (bank.south) -- (14.65, -0.38) -- (8.30, -0.38) -- (8.30, -1.22) -| (ret.north);
+\draw[arr, densely dashed, teal!70!black] (bank.south) -- (15.15, -0.38) -- (8.30, -0.38) -- (8.30, -1.22) -| (ret.north);
 \draw[arr, densely dashed, teal!70!black] (8.30, -1.22) -| (exec.north);
 \draw[arr] (ret) -- (exec);
 \draw[arr] (exec) -- (fire);
@@ -298,12 +298,12 @@ Algorithm~\ref{alg:vleg_final} details the complete two-phase procedure, enforci
 \EndIf
 \State Compute deterministic votes $\big(\mathrm{Vote}_{\texttt{BEN}}(x_T), \mathrm{Vote}_{\texttt{MAL}}(x_T)\big)$ over $\mathcal{R}_{\mathrm{cand}}$ via Eq.~(\ref{eq:ns_votes})
 \If{$\mathrm{Vote}_{\texttt{MAL}}(x_T) \neq \mathrm{Vote}_{\texttt{BEN}}(x_T)$ \textbf{and} ($\text{scope} = \text{Bank}$ \textbf{or} $\min(\mathrm{Vote}_{\texttt{BEN}}, \mathrm{Vote}_{\texttt{MAL}}) = 0$)}
-    \State \Return $\arg\max_{y} \mathrm{Vote}_y(x_T)$ with firing verified rule rationales (0 LLM calls)
+    \State \textbf{return} $\operatorname{arg\,max}_{y \in \mathcal{Y}} \mathrm{Vote}_y(x_T)$ with firing verified rule rationales (0 LLM calls)
 \ElsIf{fallback $=$ CART}
-    \State \textbf{return} \textrm{CART}$_{\mathrm{depth}=3}(x_T)$ trained on $\mathcal{E}_{\mathrm{seed}}$ (0 neural/LLM calls in Bank scope)
+    \State \textbf{return} $\textnormal{CART}_{\textnormal{depth}=3}(x_T)$ trained on $\mathcal{E}_{\mathrm{seed}}$ (0 neural/LLM calls in Bank scope)
 \Else
     \If{scope $=$ Bank} \State $\mathcal{M}_{\mathrm{top}} \gets \mathrm{Retrieve}(\mathcal{M}, x_T, k)$ \EndIf
-    \State \Return $\mathrm{LLM}_\psi\big(\mathrm{PromptBuilder}(\{e_i\}_{(e_i,\cdot)\in\mathcal{M}_{\mathrm{top}}}, x_T)\big)$
+    \State \textbf{return} $\mathrm{LLM}_\psi\big(\mathrm{PromptBuilder}(\{e_i\}_{(e_i,\cdot)\in\mathcal{M}_{\mathrm{top}}}, x_T)\big)$
 \EndIf
 \end{algorithmic}
 \end{algorithm}
@@ -495,10 +495,10 @@ Unconditionally injecting Stage-B rules into prompts (prompt-only \textbf{VLEG-C
 \caption{Factorial ablation of Phase~1 consolidation and Phase~2 execution across the pilot set ($n=100$) and five formal seeds ($5 \times 1,000$ queries). Paired cluster bootstrap $95\%$ CIs compare formal Macro-F1 against Raw flow retrieval ($63.92\%$).}
 \label{tab:ns_ablation}
 \footnotesize
-\setlength{\tabcolsep}{3.4pt}
-\resizebox{0.97\textwidth}{!}{\begin{tabular}{@{}llccccc@{}}
+\setlength{\tabcolsep}{3.6pt}
+\noindent\resizebox{0.95\textwidth}{!}{\begin{tabular}{llccccc}
 \toprule
-\textbf{Phase 1 Rules} & \textbf{Phase 2 Inference Mechanism} & \textbf{Pilot F1} & \textbf{Formal Macro-F1 (\%)} & \textbf{Formal FPR (\%)} & \textbf{Rule Coverage} & \textbf{$\Delta$F1 vs. Raw (95\% CI)} \\
+\textbf{Phase 1 Rules} & \textbf{Phase 2 Inference Mechanism} & \textbf{Pilot F1} & \textbf{Macro-F1 (\%)} & \textbf{FPR (\%)} & \textbf{Rule Cov.} & \textbf{$\Delta$F1 vs. Raw (95\% CI)\,} \\
 \midrule
 None (Raw) & LLM prompt over top-$3$ raw flows & 54.63\% & 63.92 $\pm$ 2.54 & 38.13 $\pm$ 6.85 & 0.0\% & Baseline (0.00) \\
 None (CART) & Shallow Decision Tree (CART, $d{=}3$) & 54.53\% & 68.71 $\pm$ 2.02 & 34.96 $\pm$ 8.78 & 0.0\% (tree) & $+4.79$ $[+2.95, +6.76]$ \\
@@ -534,34 +534,35 @@ Table~\ref{tab:ns_ablation} and Figure~\ref{fig:exp6_tradeoff} confirm that both
 \definecolor{cCart}{HTML}{6A4C93}
 \begin{adjustbox}{max width=0.98\textwidth}\begin{tikzpicture}
     \begin{axis}[
-        ybar, bar width=10pt, width=8.2cm, height=5.0cm, enlarge x limits=0.09,
+        ybar, bar width=9.5pt, width=8.4cm, height=5.0cm, enlarge x limits=0.10,
         ylabel={Macro-F1 (\%)}, ymin=0, ymax=84, ytick={0,20,40,60,80},
-        symbolic x coords={Single, VLEG, VLEG-CR, Raw, CR-NS, CR-Bank, CR-NS+CART},
-        xtick={Single, VLEG, VLEG-CR, Raw, CR-NS, CR-Bank, CR-NS+CART},
-        x tick label style={font=\fontsize{5.5}{6.5}\selectfont, align=center}, tick label style={font=\scriptsize}, label style={font=\scriptsize},
+        symbolic x coords={Single, VLEG, VLEGCR, Raw, CRNS, CRBank, CRNSCART},
+        xtick={Single, VLEG, VLEGCR, Raw, CRNS, CRBank, CRNSCART},
+        xticklabels={Single, VLEG, VLEG-CR, Raw, CR-NS, CR-Bank, {CR-NS\\+CART}},
+        x tick label style={font=\fontsize{5.4}{6.1}\selectfont, align=center}, tick label style={font=\scriptsize}, label style={font=\scriptsize},
         axis lines*=left, clip=false, title={(a) 5-seed Macro-F1 progression},
         title style={at={(0,1.02)}, anchor=south west, font=\footnotesize\bfseries}, bar shift=0pt
     ]
     \addplot[fill=cSingle, draw=black!70, error bars/.cd, y dir=both, y explicit] coordinates {(Single, 42.66) +- (0, 1.35)};
     \addplot[fill=cVleg, draw=black!70, error bars/.cd, y dir=both, y explicit] coordinates {(VLEG, 59.68) +- (0, 2.03)};
-    \addplot[fill=cPromptCR, draw=black!70, error bars/.cd, y dir=both, y explicit] coordinates {(VLEG-CR, 61.45) +- (0, 2.17)};
+    \addplot[fill=cPromptCR, draw=black!70, error bars/.cd, y dir=both, y explicit] coordinates {(VLEGCR, 61.45) +- (0, 2.17)};
     \addplot[fill=cRaw, draw=black!70, error bars/.cd, y dir=both, y explicit] coordinates {(Raw, 63.92) +- (0, 2.54)};
-    \addplot[fill=cNS, draw=black!70, error bars/.cd, y dir=both, y explicit] coordinates {(CR-NS, 64.88) +- (0, 2.58)};
-    \addplot[fill=cBank, draw=black!70, error bars/.cd, y dir=both, y explicit] coordinates {(CR-Bank, 65.30) +- (0, 2.74)};
-    \addplot[fill=cHyb, draw=black!70, error bars/.cd, y dir=both, y explicit] coordinates {(CR-NS+CART, 67.57) +- (0, 3.08)};
+    \addplot[fill=cNS, draw=black!70, error bars/.cd, y dir=both, y explicit] coordinates {(CRNS, 64.88) +- (0, 2.58)};
+    \addplot[fill=cBank, draw=black!70, error bars/.cd, y dir=both, y explicit] coordinates {(CRBank, 65.30) +- (0, 2.74)};
+    \addplot[fill=cHyb, draw=black!70, error bars/.cd, y dir=both, y explicit] coordinates {(CRNSCART, 67.57) +- (0, 3.08)};
 
     \node[above, font=\tiny] at (axis cs:Single,44.8) {42.7};
     \node[above, font=\tiny] at (axis cs:VLEG,62.3) {59.7};
-    \node[above, font=\tiny] at (axis cs:VLEG-CR,64.2) {61.5};
+    \node[above, font=\tiny] at (axis cs:VLEGCR,64.2) {61.5};
     \node[above, font=\tiny] at (axis cs:Raw,67.0) {63.9};
-    \node[above, font=\tiny\bfseries] at (axis cs:CR-NS,68.0) {64.9};
-    \node[above, font=\tiny\bfseries] at (axis cs:CR-Bank,68.6) {65.3};
-    \node[above, font=\tiny\bfseries] at (axis cs:CR-NS+CART,71.3) {67.6};
+    \node[above, font=\tiny\bfseries] at (axis cs:CRNS,68.0) {64.9};
+    \node[above, font=\tiny\bfseries] at (axis cs:CRBank,68.6) {65.3};
+    \node[above, font=\tiny\bfseries] at (axis cs:CRNSCART,71.3) {67.6};
     \end{axis}
 \end{tikzpicture}\hspace{0.26cm}\begin{tikzpicture}
     \begin{axis}[
         width=7.6cm, height=5.0cm, xlabel={False positive rate (\%)}, ylabel={Attack recall (\%)},
-        xmin=5, xmax=54, ymin=0, ymax=94, xtick={10,20,30,40,50}, ytick={0,20,40,60,80},
+        xmin=5, xmax=54, ymin=0, ymax=102, xtick={10,20,30,40,50}, ytick={0,20,40,60,80,100},
         tick label style={font=\scriptsize}, label style={font=\scriptsize},
         axis lines*=left, grid=major, title={(b) Recall vs. FPR operating points},
         title style={at={(0,1.02)}, anchor=south west, font=\footnotesize\bfseries},
@@ -582,7 +583,7 @@ Table~\ref{tab:ns_ablation} and Figure~\ref{fig:exp6_tradeoff} confirm that both
     \addplot[only marks, mark=triangle*, mark options={rotate=180}, mark size=3.5pt, color=cBank] coordinates {(35.99, 71.63)}; \addlegendentry{VLEG-CR-Bank}
     \addplot[only marks, mark=oplus*, mark size=3.1pt, thick, color=cHyb] coordinates {(37.01, 79.35)}; \addlegendentry{CR-NS+CART}
     \addplot[only marks, mark=otimes*, mark size=3.1pt, thick, color=cCart] coordinates {(34.96, 79.41)}; \addlegendentry{CART (depth=3)}
-    \node[font=\fontsize{5.3}{6.2}\selectfont, text=cVleg!85!black, align=center] at (axis cs:47.3, 86.2) {Prompt-anchored\\[-1pt]FPR shift};
+    \node[font=\fontsize{5.3}{6.2}\selectfont, text=cVleg!85!black, align=center, anchor=south] at (axis cs:46.8, 85.5) {Prompt-anchored\\[-0.5pt]FPR shift};
     \end{axis}
 \end{tikzpicture}\end{adjustbox}
 \caption{UNSW-NB15 five-seed performance summary: (a) Macro-F1 ($\pm$ SD) across LLM, neuro-symbolic, and zero-hyperparameter CR-NS+CART variants; (b) attack recall vs. FPR operating trade-offs with all eight baselines clearly separated above the legend.}
@@ -617,7 +618,7 @@ Table~\ref{tab:exp6_cost} quantifies end-to-end token and latency budgets. Stage
 \label{sec:exp7}
 \textbf{While standalone shallow CART trees achieve higher recall via global impurity optimization, VLEG-CR rules deliver higher precision on covered traffic, tighter false-alarm stability, relational cross-feature auditability, and zero-LLM hybridization.} Comparing Regimes A, B, and C in Table~\ref{tab:exp6_performance} clarifies why neuro-symbolic memory and decision trees are complementary rather than mutually exclusive:
 \begin{enumerate}[leftmargin=1.8em,topsep=2pt,itemsep=2pt]
-    \item \textbf{Diagnosing the Recall Gap and Eliminating Online Neural Cost:} Under identical 32-flow support encoding, standalone depth-3 CART (68.71\% Macro-F1, 79.41\% recall, 34.96\% FPR) outperforms pure LLM-fallback VLEG-CR-Bank ($65.30\%$ Macro-F1) by $+3.41$~pp. Subset decomposition reveals that on the $49.0\%$ of queries where VLEG-CR-Bank ($\tau_{\mathrm{sup}}=3$) rules fire, deterministic rule accuracy is \textbf{$78.54\%$} ($77.29\%$ for VLEG-CR-NS on $47.1\%$ of queries), substantially higher than standalone CART's 69.88\%; the Macro-F1 gap arises solely on the uncovered boundary flows where zero-shot Raw LLM fallback under-recalls subtle attacks. Replacing the 70B LLM fallback with the exact same 32-flow depth-3 CART tree without re-tuning $\tau_{\mathrm{sup}}$ eliminates $100\%$ of online LLM calls and raises Macro-F1 to \textbf{$67.05\%$} (\textbf{VLEG-CR-Bank + CART}, within $0.2$~ms pure CPU and zero embedding calls via lazy retrieval in Algorithm~\ref{alg:vleg_final}) and \textbf{$67.57\%$} (\textbf{VLEG-CR-NS + CART}, $\tau_{\mathrm{sup}}=0$), surpassing 32-flow GBDT (67.12\% Macro-F1, 38.13\% FPR) in both Macro-F1 and false-alarm control ($37.01\%$ FPR) with tighter cross-seed FPR stability ($\pm 5.72\%$ versus $\pm 8.78\%$ for standalone depth-3 CART). Tightening support to $\tau_{\mathrm{sup}}=5$ in a sensitivity check reaches $68.16\%$ Macro-F1 while preserving verified rules on $33.1\%$ of queries (Table~\ref{tab:ns_ablation}).
+    \item \textbf{Diagnosing the Recall Gap and Eliminating Online Neural Cost:} Under identical 32-flow support encoding, standalone depth-3 CART (68.71\% Macro-F1, 79.41\% recall, 34.96\% FPR) outperforms pure LLM-fallback VLEG-CR-Bank ($65.30\%$ Macro-F1) by $+3.41$~pp. Subset decomposition reveals that on the $49.0\%$ of queries where VLEG-CR-Bank ($\tau_{\mathrm{sup}}=3$) rules fire, deterministic rule accuracy is \textbf{$78.54\%$} ($77.29\%$ for VLEG-CR-NS on $47.1\%$ of queries), substantially higher than standalone CART's 69.88\%; the Macro-F1 gap arises solely on the uncovered boundary flows where zero-shot Raw LLM fallback under-recalls subtle attacks. Replacing the 70B LLM fallback with the exact same 32-flow depth-3 CART tree without re-tuning $\tau_{\mathrm{sup}}$ eliminates $100\%$ of online LLM calls and raises Macro-F1 to \textbf{$67.05\%$} (\textbf{VLEG-CR-Bank + CART}, within $0.2$~ms pure CPU and zero embedding calls via lazy retrieval in Algorithm~\ref{alg:vleg_final}) and \textbf{$67.57\%$} (\textbf{VLEG-CR-NS + CART}, $\tau_{\mathrm{sup}}=0$), matching or surpassing 32-flow GBDT (67.12\% Macro-F1, 38.13\% FPR) in Macro-F1 while achieving lower false positive rates ($37.80\%$ and $37.01\%$) and tighter cross-seed FPR stability ($\pm 5.72\%$ for VLEG-CR-NS + CART versus $\pm 8.78\%$ for standalone depth-3 CART). Tightening support to $\tau_{\mathrm{sup}}=5$ in a sensitivity check reaches $68.16\%$ Macro-F1 while preserving verified rules on $33.1\%$ of queries (Table~\ref{tab:ns_ablation}).
     \item \textbf{Cross-Feature Relational Expressiveness and Modular Rule Governance:} Axis-aligned CART trees test single features against scalar thresholds (e.g., \texttt{sttl <= 46.50} $\to$ \texttt{BENIGN}; \texttt{dinpkt <= 67.08} $\to$ \texttt{MALICIOUS}), which cannot express directional ratios or protocol semantics and must be globally regrown when false-alarm signatures change \cite{jacobs2022ai}. VLEG-CR rules directly encode cross-feature relations such as \texttt{sbytes > dbytes} paired with human-verifiable protocol explanations, allowing SOC analysts to inspect, edit, or revoke individual episodic rules modularly.
 \end{enumerate}
 
@@ -631,7 +632,7 @@ We presented Verified Localized Episodic Grounding (VLEG), Counterexample-Refine
     \item \textbf{Necessity of Multi-Step Source Verification:} Unverified local reflections suffer severe malicious-to-benign label collapse on network telemetry, and even providing ground-truth labels in an unverified single-step prompt leaves over $94\%$ of episodes either unparseable or falsified by within-bank counterexamples. Iterative verification restores full source-label fidelity across admitted episodes.
     \item \textbf{Transferable Specificity via Counterexample-Guided Refinement:} Feeding within-seed counterexamples and separating feature bounds back to the generator more than doubles zero-counterexample rule coverage ($40.0\%$ to $83.1\%$ of all support flows) and cuts unseen cross-seed false matches by over thirty percentage points without memorizing continuous float literals.
     \item \textbf{Elimination of Non-Firing Prompt Anchoring via Neuro-Symbolic Triage:} Displaying non-firing malicious rules in LLM prompts inflates false positives on benign traffic through textual anchoring. Executing compiled zero-counterexample predicates deterministically prior to raw-retrieval fallback delivers statistically significant Macro-F1 gains of up to $+1.38$ percentage points over raw retrieval, reduces false alarms below raw retrieval and 32-flow tree ensembles, and cuts online 70B LLM calls by nearly half.
-    \item \textbf{Zero-Online-LLM Synergy with Shallow Decision Trees:} Combining high-precision VLEG-CR relational rules on covered flows with a shallow 32-flow CART fallback on uncovered boundary flows eliminates $100\%$ of online LLM inference cost (and $100\%$ of online embedding cost in Bank scope) while surpassing 32-flow GBDT in both Macro-F1 and false-alarm control and retaining human-auditable protocol explanations for SOC triage.
+    \item \textbf{Zero-Online-LLM Synergy with Shallow Decision Trees:} Combining high-precision VLEG-CR relational rules on covered flows with a shallow 32-flow CART fallback on uncovered boundary flows eliminates $100\%$ of online LLM inference cost (and $100\%$ of online embedding cost in Bank scope) while matching or surpassing 32-flow GBDT in Macro-F1 with consistently lower false-alarm rates and retaining human-auditable protocol explanations for SOC triage.
 \end{enumerate}
 
 \vspace{0.7em}
