@@ -1,0 +1,262 @@
+{
+  "formal_20261020": {
+    "d8f1f114db624a4ef3a09cd62f5954c580194647167b531df4aa72bed9473522": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 15.393886973615736,
+      "prompt_tokens": 666,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "256d7e4cb7589ac077d985521b261873f570908f0f54d7e0578e815aae671933": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 1.9800624181516469,
+      "prompt_tokens": 717,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "254f193693fc8dcadd1afb26b24b447789c6b0906eff3e79560ec5503702759c": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 1.894378409255296,
+      "prompt_tokens": 690,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "25d2eeb64e9e74f47d51c57debea06f43de54acb0c175fd87f00fc3f664d0e42": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 2.113343606237322,
+      "prompt_tokens": 767,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "60576f810bc0682e957ec9ca74cb2765b87ece4c20cda92555fd10a8d42352b0": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 1.6036373199895024,
+      "prompt_tokens": 715,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "5bced91aa00137621b1efc5cccd8aa6a87936ad399df544509be286d64d797a5": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 1.898942266125232,
+      "prompt_tokens": 689,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "71731d91728a7ebc4e460dc506ef4c310c4ad52fbd8b14bef05b30bb0ff07927": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 1.1541878888383508,
+      "prompt_tokens": 766,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "b6b3f5ccb8e2d36d41dcd19084319d3000bfe6da67e745fa9ce07b5aa84cd063": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 1.6564821270294487,
+      "prompt_tokens": 742,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "023cc9af1dcd15d90df63775ed8f2183bb72ee19ad7ed8122cee98ce35a87175": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 0.9944545850157738,
+      "prompt_tokens": 742,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "1863d06350e3792d1becf0daa63a09c0c218d0cfcf9500deeb4d5b7168348b99": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 1.6547595961019397,
+      "prompt_tokens": 741,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "a61dc204f3f6b29735328224bb57fba8de29480f3f291fc1ff567591d79d2b26": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 1.6383443968370557,
+      "prompt_tokens": 740,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "934c0fad50f704880ffae5407850052a8faac6e94b75d471879dbd3f88da57f7": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 1.6537604089826345,
+      "prompt_tokens": 767,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "ed56718aadd1ba5e91a7fd37aadd1b62b29f2986d3f6489c2325b3955acf5e4a": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 1.159189776983112,
+      "prompt_tokens": 743,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "ab700719b7edec6e589ec152efbe53a354f2faf81edaa286b37d4a46854dfee8": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 1.1837543547153473,
+      "prompt_tokens": 741,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "5cfc6bbbd0202de1b39845b83e0aebde7c46d83cf0cb908fbf567e4bff4aaa97": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 1.1859265840612352,
+      "prompt_tokens": 688,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "9a90a2aeca0ba2f5505fd9909f9054e46c9667e6258f844beb89375e86694fb7": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 1.9512092983350158,
+      "prompt_tokens": 723,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "b4553357ad15b42f5976877f154fbbac7b78f7bbfb794766e01a4506f0d17ab9": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 1.2934353151358664,
+      "prompt_tokens": 767,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "d964dd5e32fcb51dabf7d3dc5dd64990cb60607ac3cc332fc46fb1778c219ad9": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 1.3852089769206941,
+      "prompt_tokens": 689,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "ec48b67d22db6bde717cbff584836c744a5d3b55917ce769956947e7d6d77f3c": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 1.8511716178618371,
+      "prompt_tokens": 767,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "b7acfb971cb8e73515cd4d65c6d0544d20709e137f83c973a193f0222de8ff75": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 1.0170722473412752,
+      "prompt_tokens": 767,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "775482448bb583f7aeb7c95699cbb132677284ed6142923495ad159a9b9c876b": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 1.0380429909564555,
+      "prompt_tokens": 767,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "5c9db436a6a41d38e19087f6a961740b0c9a63468e94cc11a032f1aafc874f4f": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 0.9880154062993824,
+      "prompt_tokens": 767,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "6ee063c6f33c0515ef8d59956ca9560057de294ed7886f33329c552d0a19733a": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 1.3773666736669838,
+      "prompt_tokens": 715,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "9cd73da281f9f5dea2dbdc8488a8c830e0b1f4fe85c8bc89db1f0a7b497c2184": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 1.0138042601756752,
+      "prompt_tokens": 715,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "ee5ad670344c1c6725a6cd39359a484f86e50823f8560646636dc67d290ac110": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 1.8628150699660182,
+      "prompt_tokens": 743,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "1e25cf1fe15255ebdd0ac1e799d5ac1d8460410b7d165879ba5691557a14f12f": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 1.3076996356248856,
+      "prompt_tokens": 713,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  },
+  "formal_20261022": {
+    "962e3d97c90fa03ce8680e28476dfca872aa50c69c7517fd538e5d4cc44d3ada": {
+      "prediction": "MALICIOUS",
+      "reply": "MALICIOUS",
+      "seconds": 2.202418490778655,
+      "prompt_tokens": 744,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "d785dc8c730d025be06e10c3ee1351ae983cdf502113b75b94b8b8e3c58b1f7f": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 2.205789430066943,
+      "prompt_tokens": 766,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "8620dadd67da4d55b9e8856166b4508a35a340e178eb9d576fd0b1a1b60d60a4": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 1.459168448112905,
+      "prompt_tokens": 686,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "29457e54b842fb932464c3f9599b56872486025ba4a9fe136660c8a0ad7d1108": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 1.6222222340293229,
+      "prompt_tokens": 739,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "e2f7271130131d3538c28a3afd2bd325de0b255956f5c6bce3d87ea347652911": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 1.7179199350066483,
+      "prompt_tokens": 773,
+      "completion_tokens": 4,
+      "calls": 1
+    },
+    "e613636b3c3245bf35af86f8a431f3d093ec10b57876b91ed9d6ce587791ea0f": {
+      "prediction": "BENIGN",
+      "reply": "BENIGN",
+      "seconds": 1.428257045801729,
+      "prompt_tokens": 682,
+      "completion_tokens": 4,
+      "calls": 1
+    }
+  }
+}
