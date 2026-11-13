@@ -1,0 +1,151 @@
+{
+  "vleg_cr_mean_macro_f1": 61.32711751992744,
+  "vleg_cr_sd_macro_f1": 2.112519341000204,
+  "vleg_cr_mean_acc": 61.6,
+  "vleg_cr_sd_acc": 2.357965224510318,
+  "vleg_cr_mean_recall": 78.81305637982196,
+  "vleg_cr_sd_recall": 7.616350018827574,
+  "vleg_cr_mean_fpr": 46.81749622926093,
+  "vleg_cr_sd_fpr": 5.178530460996015,
+  "per_seed_macro_f1_delta_vs_raw": [
+    -6.773138468519713,
+    1.326985674494674,
+    0.5745371235062802,
+    -1.6149644031503096,
+    -6.459422643940982
+  ],
+  "paired_bootstrap_95ci_vs_raw": [
+    -4.037126452998594,
+    -1.070364659261128
+  ],
+  "queries_with_at_least_1_rule_pct": 97.06,
+  "queries_with_all_3_rules_pct": 59.86,
+  "mean_rules_per_query": 2.4084,
+  "by_seed": [
+    {
+      "n": 1000,
+      "confusion": {
+        "BENIGN": {
+          "BENIGN": 327,
+          "MALICIOUS": 330,
+          "INVALID": 6
+        },
+        "MALICIOUS": {
+          "BENIGN": 83,
+          "MALICIOUS": 252,
+          "INVALID": 2
+        }
+      },
+      "accuracy": 0.579,
+      "macro_f1": 0.5789641279116345,
+      "attack_recall": 0.7477744807121661,
+      "benign_recall": 0.49321266968325794,
+      "false_positive_rate": 0.497737556561086,
+      "invalid_predictions": 8,
+      "latency_mean_s": 2.236058450368566,
+      "latency_p95_s": 4.382402604911476,
+      "prompt_tokens": 960185,
+      "completion_tokens": 4008
+    },
+    {
+      "n": 1000,
+      "confusion": {
+        "BENIGN": {
+          "BENIGN": 339,
+          "MALICIOUS": 324,
+          "INVALID": 0
+        },
+        "MALICIOUS": {
+          "BENIGN": 55,
+          "MALICIOUS": 282,
+          "INVALID": 0
+        }
+      },
+      "accuracy": 0.621,
+      "macro_f1": 0.6197646152348981,
+      "attack_recall": 0.8367952522255193,
+      "benign_recall": 0.5113122171945701,
+      "false_positive_rate": 0.48868778280542985,
+      "invalid_predictions": 0,
+      "latency_mean_s": 1.906120027328081,
+      "latency_p95_s": 3.856363080907613,
+      "prompt_tokens": 959422,
+      "completion_tokens": 4000
+    },
+    {
+      "n": 1000,
+      "confusion": {
+        "BENIGN": {
+          "BENIGN": 331,
+          "MALICIOUS": 332,
+          "INVALID": 0
+        },
+        "MALICIOUS": {
+          "BENIGN": 39,
+          "MALICIOUS": 298,
+          "INVALID": 0
+        }
+      },
+      "accuracy": 0.629,
+      "macro_f1": 0.6285955405436521,
+      "attack_recall": 0.884272997032641,
+      "benign_recall": 0.49924585218702866,
+      "false_positive_rate": 0.5007541478129713,
+      "invalid_predictions": 0,
+      "latency_mean_s": 1.4239918461515844,
+      "latency_p95_s": 2.6344226337969303,
+      "prompt_tokens": 945249,
+      "completion_tokens": 4000
+    },
+    {
+      "n": 1000,
+      "confusion": {
+        "BENIGN": {
+          "BENIGN": 409,
+          "MALICIOUS": 250,
+          "INVALID": 4
+        },
+        "MALICIOUS": {
+          "BENIGN": 105,
+          "MALICIOUS": 232,
+          "INVALID": 0
+        }
+      },
+      "accuracy": 0.641,
+      "macro_f1": 0.6307659111397429,
+      "attack_recall": 0.6884272997032641,
+      "benign_recall": 0.6168929110105581,
+      "false_positive_rate": 0.3770739064856712,
+      "invalid_predictions": 4,
+      "latency_mean_s": 1.409694301289055,
+      "latency_p95_s": 2.6491936510428786,
+      "prompt_tokens": 936663,
+      "completion_tokens": 4004
+    },
+    {
+      "n": 1000,
+      "confusion": {
+        "BENIGN": {
+          "BENIGN": 346,
+          "MALICIOUS": 316,
+          "INVALID": 1
+        },
+        "MALICIOUS": {
+          "BENIGN": 71,
+          "MALICIOUS": 264,
+          "INVALID": 2
+        }
+      },
+      "accuracy": 0.61,
+      "macro_f1": 0.6082656811664445,
+      "attack_recall": 0.7833827893175074,
+      "benign_recall": 0.521870286576169,
+      "false_positive_rate": 0.4766214177978884,
+      "invalid_predictions": 3,
+      "latency_mean_s": 1.355401091622698,
+      "latency_p95_s": 2.627312393859029,
+      "prompt_tokens": 913369,
+      "completion_tokens": 4003
+    }
+  ]
+}

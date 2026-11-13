@@ -1,0 +1,116 @@
+{
+  "Ablation: Unrefined VLEG + NS (top-k, sup>=0)": {
+    "acc": "64.84 +/- 2.91",
+    "macro_f1": "63.99 +/- 2.62",
+    "recall": "75.07 +/- 8.22",
+    "fpr": "40.36 +/- 6.54",
+    "rule_used": "20.1 +/- 5.4%",
+    "delta_vs_raw_mean": 0.08,
+    "delta_vs_raw_95ci": [
+      -0.5,
+      0.63
+    ],
+    "per_seed_deltas": [
+      -0.08,
+      0.46,
+      -0.23,
+      -0.31,
+      0.56
+    ]
+  },
+  "Ablation: Unrefined VLEG + NS (bank, sup>=3)": {
+    "acc": "64.34 +/- 3.39",
+    "macro_f1": "63.52 +/- 2.92",
+    "recall": "75.43 +/- 8.46",
+    "fpr": "41.30 +/- 8.15",
+    "rule_used": "15.0 +/- 8.7%",
+    "delta_vs_raw_mean": -0.4,
+    "delta_vs_raw_95ci": [
+      -0.95,
+      0.19
+    ],
+    "per_seed_deltas": [
+      -0.2,
+      -1.03,
+      -0.47,
+      -0.29,
+      0.0
+    ]
+  },
+  "VLEG-CR Active-Prompt Gate (top-k, sup>=0)": {
+    "acc": "64.84 +/- 2.63",
+    "macro_f1": "64.08 +/- 2.57",
+    "recall": "75.37 +/- 7.07",
+    "fpr": "40.51 +/- 4.96",
+    "rule_used": "47.1 +/- 7.1%",
+    "delta_vs_raw_mean": 0.16,
+    "delta_vs_raw_95ci": [
+      -0.58,
+      0.93
+    ],
+    "per_seed_deltas": [
+      -1.87,
+      0.05,
+      1.63,
+      0.83,
+      0.16
+    ]
+  },
+  "VLEG-CR-NS (top-k shared retrieval, sup>=0)": {
+    "acc": "65.78 +/- 2.53",
+    "macro_f1": "64.85 +/- 2.58",
+    "recall": "74.72 +/- 8.26",
+    "fpr": "38.76 +/- 5.17",
+    "rule_used": "47.1 +/- 7.1%",
+    "delta_vs_raw_mean": 0.93,
+    "delta_vs_raw_95ci": [
+      0.13,
+      1.71
+    ],
+    "per_seed_deltas": [
+      -1.76,
+      2.52,
+      1.55,
+      0.44,
+      1.91
+    ]
+  },
+  "VLEG-CR-Bank (all-bank majority, sup>=0)": {
+    "acc": "66.42 +/- 2.98",
+    "macro_f1": "65.11 +/- 2.85",
+    "recall": "71.04 +/- 8.71",
+    "fpr": "35.93 +/- 6.27",
+    "rule_used": "68.5 +/- 7.2%",
+    "delta_vs_raw_mean": 1.19,
+    "delta_vs_raw_95ci": [
+      -0.21,
+      2.71
+    ],
+    "per_seed_deltas": [
+      0.34,
+      2.28,
+      2.63,
+      -1.86,
+      2.57
+    ]
+  },
+  "VLEG-CR-Bank (Pilot-selected sup>=3)": {
+    "acc": "66.58 +/- 2.79",
+    "macro_f1": "65.30 +/- 2.74",
+    "recall": "71.63 +/- 9.32",
+    "fpr": "35.99 +/- 6.06",
+    "rule_used": "49.0 +/- 14.9%",
+    "delta_vs_raw_mean": 1.38,
+    "delta_vs_raw_95ci": [
+      0.28,
+      2.6
+    ],
+    "per_seed_deltas": [
+      0.5,
+      2.65,
+      3.71,
+      -2.18,
+      2.22
+    ]
+  }
+}
