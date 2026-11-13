@@ -3,7 +3,7 @@
 Official code, deterministic predicate compiler, and benchmark audit logs for **Verified Localized Episodic Grounding (VLEG)**, **Counterexample-Refined consolidation (VLEG-CR)**, and **Neuro-Symbolic Rule Triage (VLEG-CR-NS / VLEG-CR-Bank)**.
 
 - **Phase 1 Consolidation (5 formal seeds, 160 support flows):** Stage-A VLEG admits `158/160` source-verified episodes; Stage-B VLEG-CR raises verified zero-counterexample (`CE_seed = 0`) rule coverage from `40.0%` (`64/160`) to **`83.1%` (`133/160`, or `84.2%` of the `158` Stage-A admitted episodes)** and cuts unseen cross-seed counterexamples from `72.0%` to **`40.6%` (`54/133`)**.
-- **Phase 2 Online Triage (5 x 1,000 deduplicated UNSW-NB15 test fingerprints):**
+- **Phase 2 Online Triage (5 x 1,000 deduplicated UNSW-NB15 test fingerprints, strict leak-free 32-flow support encoding):**
 
 | Regime | Method | Accuracy (%) | Macro-F1 (%) | Attack Recall (%) | FPR (%) | Online LLM Calls Saved |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -16,16 +16,16 @@ Official code, deterministic predicate compiler, and benchmark audit logs for **
 | **Neuro-Symbolic (Ours)** | **VLEG-CR-Bank (Pilot tau_sup=3 + Raw LLM)** | **66.58 +/- 2.79** | **65.30 +/- 2.74** | **71.63 +/- 9.32** | **35.99 +/- 6.06** | **49.0%** |
 | **Zero-LLM Hybrid (Ours)** | **VLEG-CR-Bank (fixed tau_sup=3) + CART (d=3)** | **67.92 +/- 2.99** | **67.05 +/- 2.95** | **79.17 +/- 12.32** | **37.80 +/- 6.70** | **100.0% (0 embed)** |
 | **Zero-LLM Hybrid (Ours)** | **VLEG-CR-NS (tau_sup=0) + CART (d=3)** | **68.50 +/- 2.69** | **67.57 +/- 3.08** | **79.35 +/- 13.64** | **37.01 +/- 5.72** | **100.0%** |
-| Few-Shot Tabular (32 flows) | Shallow Decision Tree (CART, depth=3) | 70.18 +/- 1.64 | 69.39 +/- 1.76 | 83.38 +/- 12.86 | 36.53 +/- 6.76 | N/A |
-| Few-Shot Tabular (32 flows) | Gradient Boosting / GBDT (32-flow) | 66.60 +/- 4.46 | 65.84 +/- 4.60 | 78.04 +/- 10.27 | 39.22 +/- 5.52 | N/A |
+| Few-Shot Tabular (32 flows) | Shallow Decision Tree (CART, depth=3) | 69.88 +/- 1.91 | 68.71 +/- 2.02 | 79.41 +/- 16.27 | 34.96 +/- 8.78 | N/A |
+| Few-Shot Tabular (32 flows) | Gradient Boosting / GBDT (32-flow) | 67.90 +/- 4.15 | 67.12 +/- 4.32 | 79.76 +/- 11.62 | 38.13 +/- 5.86 | N/A |
 | Full-Train Tabular (88,699) | Random Forest (Full-train upper bound) | 82.06 +/- 0.36 | 81.31 +/- 0.36 | 91.99 +/- 0.59 | 22.99 +/- 0.55 | N/A |
 
-## Reproducing Experiments & Manuscript
+## Reproducing Experiments & Final Manuscript
 
 ```bash
 python3 -u scripts/run_vleg_cr.py --mode pilot_and_phase1
 python3 -u scripts/run_formal_vleg_cr_fast.py
 python3 -u scripts/run_reviewer_supplements.py
 python3 -u scripts/prepare_v2_data.py
-python3 scripts/build_cmc_submission_v3.py
+python3 scripts/build_cmc_submission_v4.py
 ```
