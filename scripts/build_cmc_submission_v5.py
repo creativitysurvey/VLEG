@@ -201,9 +201,18 @@ TEX_TEMPLATE = r"""\documentclass[11pt,letterpaper,onecolumn]{article}
 \fancyhead[R]{\footnotesize\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \setlength{\parindent}{0.20in}
-\setlength{\parskip}{2.1pt}
+\setlength{\parskip}{1.8pt}
 \renewcommand{\baselinestretch}{1.05}
 \emergencystretch=1.5em
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{3}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.80}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.75}
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
 
 \hypersetup{pdftitle={Verified Localized Episodic Grounding with Counterexample Rule Refinement for Auditable LLM-Assisted Network Traffic Analysis}}
 
@@ -275,7 +284,7 @@ Machine learning for encrypted and tabular traffic classification spans pre-trai
 \subsection{Problem Formulation and Architecture Overview}
 Consider a small labeled historical support bank $\mathcal{E}_{\mathrm{seed}} = \{e_1, e_2, \dots, e_N\}$, where each episode $e_i = (x_i, y_i)$ pairs a structured feature vector $x_i \in \mathcal{X}$ with a ground-truth class label $y_i \in \mathcal{Y}$. Given an unlabeled target query $T = (x_T)$, the system must predict $\hat{y}_T \in \mathcal{Y}$ while providing human-auditable evidence grounded in $\mathcal{E}_{\mathrm{seed}}$ without updating LLM parameters.
 
-\begin{figure}[!t]
+\begin{figure}[tbp]
 \centering
 \begin{adjustbox}{max width=0.98\textwidth}
 \begin{tikzpicture}[
@@ -416,7 +425,7 @@ We evaluate two candidate scopes paired with two boundary fallback learners:
 
 Algorithm~\ref{alg:vleg_final} details the complete two-phase procedure, enforcing both the outer $v = 1$ Stage-A admission gate and lazy online embedding retrieval.
 
-\begin{algorithm}[!t]
+\begin{algorithm}[htbp]
 \caption{Two-Phase Counterexample-Refined VLEG and Neuro-Symbolic Rule Triage}
 \label{alg:vleg_final}
 \footnotesize
@@ -471,7 +480,7 @@ We evaluate the proposed framework in two stages: (1) a controlled 16-scene symb
 \label{sec:symbolic}
 \textbf{Across 16 synthetic scenes with known ground-truth rules, Stage-A verification ($K=3$) eliminates label-inversion collapse ($100\%$ source agreement across scales) and matches raw retrieval accuracy at 70B ($91.67\%$ versus $89.58\%$), while revealing that single-episode verification cannot filter non-causal distractor attributes on its own.} Synthetic scenes vary across \texttt{shape}, \texttt{color}, \texttt{texture}, \texttt{background}, and a deterministic \texttt{size} distractor: white backgrounds require a red circle for \texttt{ANOMALY}, black backgrounds invert this rule, and \texttt{texture}/\texttt{size} have zero causal effect. Level~1 tests 8 white-background scenes; Level~2 tests all 16 scenes; Level~3 withholds 4 scenes from the 12-episode memory bank across masking seeds.
 
-\begin{figure}[!t]
+\begin{figure}[tbp]
 \centering
 \begin{adjustbox}{max width=0.98\textwidth}
 \begin{tikzpicture}
@@ -516,7 +525,7 @@ We evaluate the proposed framework in two stages: (1) a controlled 16-scene symb
 \label{fig:symbolic_summary}
 \end{figure}
 
-\begin{table}[!t]
+\begin{table}[tbp]
 \centering
 \caption{Symbolic memory quality and scale comparison across Qwen2.5-7B-Instruct and Llama-3.3-70B-Instruct. ``Spurious Mention'' measures the fraction of label-correct reflections citing non-causal \texttt{texture} or \texttt{size} attributes.}
 \label{tab:symbolic_quality}
@@ -552,7 +561,7 @@ TEX_REST = r""" establish three foundational properties of Stage-A verification:
 
 Why do all 32-flow methods exhibit false positive rates around $36\%$--$42\%$ on this benchmark (Table~\ref{tab:exp6_performance}), whereas prior studies on raw UNSW-NB15 often report $<5\%$ FPR? Two structural data factors govern this operating regime. First, removing the 79,746 repetitive scanning and flood duplicates eliminates trivial majority clusters, raising the FPR floor even for a full-supervision Random Forest trained on all 88,699 unique flows to $22.99\%$ ($31.98\%$ for full-train depth-5 CART and $34.54\%$ for full-train GBDT). Second, sampling balanced 16-benign / 16-malicious few-shot support banks ($50.0\%$ attack prior) against a benign-majority test distribution ($33.7\%$ attack prior) shifts decision boundaries toward attack sensitivity across every leak-free 32-flow learner---including shallow CART (__D3_FPR__\% FPR), unconstrained CART (__FU_FPR__\%), GBDT (__GB_FPR__\%), RF (__RF_FPR__\%), and raw LLM retrieval ($38.13\%$). Within this shared regime, \textbf{VLEG-CR-Bank achieves a $35.99\% \pm 6.06\%$ FPR}---lowest among all zero-training LLM/neuro-symbolic methods and lower than unconstrained CART (__FU_FPR__\%), GBDT (__GB_FPR__\%), and RF (__RF_FPR__\%), while matching depth-3 CART (__D3_FPR__\% $\pm$ 8.78\%) with tighter cross-seed stability.
 
-\begin{table}[!t]
+\begin{table}[tbp]
 \centering
 \caption{Classification performance on the 1,000 shared deduplicated UNSW-NB15 test fingerprints (mean $\pm$ sample SD across five 32-flow seeds). Invalid LLM replies are scored as errors. All few-shot methods and categorical encoders observe strictly the exact same 32 support flows per seed; full-train baselines fit all 88,699 unique training flows.}
 \label{tab:exp6_performance}
@@ -588,7 +597,7 @@ Gradient Boosting / GBDT (Full-train) & 76.50 $\pm$ 0.00 & 76.25 $\pm$ 0.00 & \t
 \end{tabular}}
 \end{table}
 
-\begin{table}[!t]
+\begin{table}[tbp]
 \centering
 \caption{Phase~1 consolidation and deterministic predicate audit ($\Psi$) across all 160 historical support episodes ($80$ benign, $80$ malicious across five seeds).$^\dagger$}
 \label{tab:counterexample_audit}
@@ -615,7 +624,7 @@ Stage A, $j{\le}2$ (VLEG $K{=}3$ source-only) & 158 / 160 & 80 / 80 (100\%) & 78
 \subsubsection{Stage-B Counterexample Refinement and Prompt Anchoring on Non-Firing Rules}
 \textbf{Stage-B counterexample refinement more than doubles verified zero-counterexample rule coverage and transfers across unseen seeds, whereas injecting refined rules unconditionally as prompt text triggers false alarms on benign flows even when zero malicious rules fire.} Under Stage-A VLEG, $59.2\%$ ($93/157$) of parseable rules match contrary-label flows within their own 32-flow seed, inflating test FPR to $48.78\%$. Prompt-level gating (VLEG-CG) strips those $93$ rules to curb FPR ($37.86\%$) but leaves usable rules on only $40.0\%$ ($64/160$) of episodes. By feeding concrete contrary-label flows and separating feature bounds back to $\mathcal{G}_\theta$ (illustrated on a real logged episode in Table~\ref{tab:case_study}), Stage-B \textbf{VLEG-CR} raises verified $\mathrm{CE}_{\mathrm{seed}}=0$ coverage across the 160-flow pool from $40.0\%$ ($64/160$) to \textbf{$83.1\%$ ($133/160$, or $84.2\%$ of the $158$ Stage-A admitted episodes: $67/80$ benign and $66/78$ admitted malicious)}. Crucially, within-seed specialization generalizes out-of-sample: unseen cross-seed counterexample incidence ($\mathrm{CE}_{\mathrm{pool}}>0$) drops from $72.0\%$ to \textbf{$40.6\%$ ($54/133$)}, and malicious rules with zero cross-seed counterexamples rise from $35.1\%$ to \textbf{$56.1\%$ ($37/66$)}.
 
-\begin{table}[!t]
+\begin{table}[tbp]
 \centering
 \caption{Prompt templates and logged four-stage rule trajectory for support episode \texttt{622f0c59...} (Seed \texttt{20261020}, ground truth: \texttt{MALICIOUS}), illustrating how VLEG-CR resolves both label inversion and cross-flow over-generalization.}
 \label{tab:case_study}
@@ -644,7 +653,7 @@ Unconditionally injecting Stage-B rules into prompts (prompt-only \textbf{VLEG-C
 \subsubsection{Factorial Ablation and Compute Amortization of Neuro-Symbolic Triage}
 \textbf{Deterministic predicate execution eliminates non-firing prompt anchoring and achieves statistically significant Macro-F1 gains over raw retrieval while amortizing offline consolidation cost under 195 queries.} Execution scopes and support thresholds $\tau_{\mathrm{sup}} \in \{0,1,2,3,5\}$ for LLM-fallback bank triage were screened strictly on the disjoint 100-query pilot set (\texttt{pilot\_20261012}). Because that single 32-flow pilot draw contains challenging boundary benign traffic, all baseline learners score in the $52\%$--$55\%$ Macro-F1 range on the pilot set---including Raw flow retrieval ($54.63\%$) and standalone depth-3 CART ($54.53\%$). On the pilot set, VLEG-CR-NS ($\tau_{\mathrm{sup}}=0$) rose to $55.72\%$ and VLEG-CR-Bank peaked at $\tau_{\mathrm{sup}}=3$ with $61.00\%$ Macro-F1. For CART-fallback hybrids, we retain zero-hyperparameter \textbf{VLEG-CR-NS + CART} ($\tau_{\mathrm{sup}}=0$) and fixed-threshold \textbf{VLEG-CR-Bank ($\tau_{\mathrm{sup}}=3$) + CART} without re-tuning on the test set, and report $\tau_{\mathrm{sup}}=5$ in Table~\ref{tab:ns_ablation} solely as a high-support sensitivity point.
 
-\begin{table}[!t]
+\begin{table}[tbp]
 \centering
 \caption{Factorial ablation of Phase~1 consolidation and Phase~2 execution across the pilot set ($n=100$) and five formal seeds ($5 \times 1,000$ queries). Paired cluster bootstrap $95\%$ CIs compare formal Macro-F1 against Raw flow retrieval ($63.92\%$).}
 \label{tab:ns_ablation}
@@ -676,7 +685,7 @@ Stage-B CR & VLEG-CR-Bank ($\tau_{\mathrm{sup}}{=}5$ sensitivity) + CART & 52.08
 
 Table~\ref{tab:ns_ablation} and Figure~\ref{fig:exp6_tradeoff} confirm that both stages are indispensable: applying NS execution to unrefined Stage-A rules covers only $15.0\%$--$20.1\%$ of queries ($+0.08$~pp and $-0.40$~pp vs. Raw), while passing firing CR rules back through the LLM (\texttt{Active-firing LLM prompt gate}, $64.11\%$) loses $0.77$~pp relative to direct symbolic output (\textbf{VLEG-CR-NS}, $64.88\%$, $95\%$ CI $[+0.19, +1.71]$~pp) due to LLM re-interpretation noise. Under Pilot-selected $\tau_{\mathrm{sup}}=3$, \textbf{VLEG-CR-Bank} achieves $65.30\%$ Macro-F1 ($95\%$ CI $[+0.18, +2.61]$~pp) and $35.99\%$ FPR, with $78.54\%$ accuracy on the $49.0\%$ directly rule-resolved subset.
 
-\begin{figure}[!t]
+\begin{figure}[tbp]
 \centering
 \definecolor{cRaw}{HTML}{2B5C8F}
 \definecolor{cSingle}{HTML}{A89070}
@@ -744,7 +753,7 @@ Table~\ref{tab:ns_ablation} and Figure~\ref{fig:exp6_tradeoff} confirm that both
 \label{fig:exp6_tradeoff}
 \end{figure}
 
-\begin{table}[!t]
+\begin{table}[tbp]
 \centering
 \caption{Offline memory consolidation and online per-query inference cost audit (5-seed means, 32 support flows and 1,000 test queries per seed). Compiled Python predicates execute within $0.1$~ms on CPU.}
 \label{tab:exp6_cost}
@@ -803,7 +812,7 @@ We presented Verified Localized Episodic Grounding (VLEG), Counterexample-Refine
 v2_tex = (REPO / "scripts" / "build_cmc_submission_v2.py").read_text(encoding="utf-8")
 ref_start = v2_tex.find(r"\begin{thebibliography}{99}")
 ref_end = v2_tex.find(r"\end{document}", ref_start) + len(r"\end{document}")
-TEX_REFERENCES = v2_tex[ref_start:ref_end]
+TEX_REFERENCES = v2_tex[ref_start:ref_end].replace(r"\setlength{\itemsep}{1.8pt}", r"\setlength{\itemsep}{0.5pt}\setlength{\parsep}{0pt}")
 
 full_tex = TEX_TEMPLATE + TEX_REST + "\n\n" + TEX_REFERENCES + "\n"
 replacements = {
@@ -866,6 +875,10 @@ assert max_x <= 543.0, f"Right-margin overflow detected: max_x={max_x:.2f} pt > 
 
 # Layout text verification for all 9 audited items
 pdf_txt = subprocess.check_output(["pdftotext", "-layout", str(OUT_DIR / "main.pdf"), "-"], text=True)
+pages_list = pdf_txt.split("\x0c")[:-1]
+print(f"  [Page Count Audit] Total pages = {len(pages_list)} | Page {len(pages_list)} non-empty lines = {len([ln for ln in pages_list[-1].splitlines() if ln.strip()])}")
+last_lines = len([ln for ln in pages_list[-1].splitlines() if ln.strip()])
+assert len(pages_list) in (16, 17) and last_lines >= 12, f"Unexpected pagination: {len(pages_list)} pages ({last_lines} lines on last page)"
 for eq_num in range(1, 9):
     assert f"({eq_num})" in pdf_txt, f"Equation ({eq_num}) number missing in rendered PDF!"
 for req in [
